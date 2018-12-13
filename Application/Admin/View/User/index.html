@@ -1,0 +1,111 @@
+<extend name="Common/common"/>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="mobile" value="{:I('get.mobile')}" placeholder="请输入手机号码" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="email" value="{:I('get.email')}" placeholder="请输入邮箱" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="name" value="{:I('get.name')}" placeholder="请输入姓名" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="js">
+    <script type="text/html" id="table-sex">
+        {{#  if(d.sex == 1){ }}
+        男
+        {{#  } else { }}
+        女
+        {{#  } }}
+    </script>
+    <script type="text/html" id="table-identity">
+        {{#  if(d.identity == 1){ }}
+        <a class="layui-btn layui-btn-xs">9.9会员</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal">普通会员</a>
+        {{#  } }}
+    </script>
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs" href="{:U('userInfo')}?user_id={{d.user_id}}">查看信息</a>
+        {{#  if(d.status == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-warm del"
+           data-url="{:U('setUserStatus')}?id={{d.id}}&status=0">启用</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-danger del"
+           data-url="{:U('setUserStatus')}?id={{d.id}}&status=1">禁用</a>
+        {{#  } }}
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var url = "{:U('index')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            $('body').on('click', '.del', function () {
+                var del_url = $(this).data('url');
+                var text = $(this).text();
+                layer.confirm('你确定要' + text + '此账号吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                var get_param = $('form.search').serialize();
+                                var get_url = url + '?' + get_param;
+                                getData(get_url);
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'user_id', title: '用户ID', sort: true}
+                        , {field: 'mobile', title: '手机号码', width: "200"}
+                        , {field: 'email', title: '邮箱'}
+                        , {field: 'real_name', title: '真实姓名'}
+                        , {field: 'sex', title: '性别', toolbar: '#table-sex'}
+                        , {field: 'age', title: '年龄'}
+                        , {field: 'create_time', title: '注册时间', width: "200"}
+                        , {field: 'identity', title: '会员身份', toolbar: '#table-identity'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

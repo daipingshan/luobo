@@ -1,0 +1,142 @@
+<include file="Common:head" />
+<!-- 注册登录 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/auth.css">
+<script src="__JS_PATH__/toastr.min.js"></script>
+<link rel="stylesheet" href="__CSS_PATH__/toastr.min.css">
+
+<main class="container">
+    <div class="row" id="auth_form">
+        <div class="col-md-6 auth_left ">
+            <img src="__IMAGE_PATH__/auth_login.png" class="left_img visible-md-block visible-lg-block">
+        </div>
+        <div class="col-md-1 col-xs-1"></div>
+
+        <div class="col-md-4 col-xs-10 login-form">
+            <div class="orm-group send-res" id="sendRes"></div>
+            <div class="form-group">
+                <h1 class="auth-title">忘记密码 <span>Forgot Password</span></h1>
+            </div>
+
+            <div class="form-group ">
+                <div class="input-group">
+                    <div class="input-group-addon"><img src="__IMAGE_PATH__/mobile.png"></div>
+                    <input type="text" name="mobile" class="form-control" id="mobile" placeholder="输入11位手机号码">
+                </div>
+                <span id="user_phone" class="help-block hide"></span>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-addon"><img src="__IMAGE_PATH__/msg.png"></div>
+                            <input type="text" name="sms_code" class="form-control col-md-4" id="sms_code" placeholder="验证码">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" id="sendCode" class="btn btn-default" value="获取验证码" onClick="sendMessage()" />
+                    </div>
+                </div>
+                <span id="duanxin_code" class="help-block hide"></span>
+            </div>
+
+            <div class="form-group ">
+                <div class="input-group">
+                    <div class="input-group-addon"><img src="__IMAGE_PATH__/mobile.png"></div>
+                    <input type="password" name="new_pwd" class="form-control" placeholder="请输入新密码">
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="input-group">
+                    <div class="input-group-addon"><img src="__IMAGE_PATH__/mobile.png"></div>
+                    <input type="password" name="confirm_pwd" class="form-control" placeholder="请输入确认密码">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary form-control" value="提交" id="forgetBtn"/>
+            </div>
+
+            <div class="form-group  z-index-top">
+                使用其他方式登录 :<a href="{:U('Auth/login')}">用户登录</a>
+            </div>
+        </div>
+        <div class="col-md-1 col-xs-1"></div>
+    </div>
+    <img src="__IMAGE_PATH__/auth_felx.png" class="falx_01 visible-lg-block  animated slideInLeft delay-4s">
+    <img src="__IMAGE_PATH__/auth_flex2.png" class="falx_02 visible-lg-block animated slideInUp  delay-3s">
+    <img src="__IMAGE_PATH__/auth_flex3.png" class="falx_03 visible-lg-block ">
+</main>
+<script type="text/javascript">
+    var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+    var count = 60;
+    var InterValObj1;
+    var curCount1;
+
+    function sendMessage() {
+        curCount1 = count;
+        var mobile = $.trim($('#mobile').val());
+        if (!phoneReg.test(mobile)) {
+            toastr.error("请输入有效的手机号码", '错误!');
+            return false;
+        }
+        $("#sendCode").attr("disabled", "true");
+        $("#sendCode").val( + curCount1 + "秒再获取");
+        InterValObj1 = window.setInterval(SetRemainTime, 1000);
+        $.post("{:U('Auth/sendCode')}", {mobile:mobile}, function(res){
+
+            if(res.status==1){
+                $("#sendRes").css("background-color","#57b7d0");
+                toastr.info(res.info, '请稍等!');
+            } else {
+                toastr.error(res.info, '错误!');
+                $("#sendRes").css("background-color","rgb(233, 104, 107)");
+            }
+        })
+    }
+
+    function SetRemainTime() {
+        if (curCount1 == 0) {
+            window.clearInterval(InterValObj1);
+            $("#sendCode").removeAttr("disabled");
+            $("#sendCode").val("重新发送");
+        }
+        else {
+            curCount1--;
+            $("#sendCode").val( + curCount1 + "秒再获取");
+        }
+    }
+
+    $('#forgetBtn').click(function(){
+
+        var  mobile = $("input[name=mobile]").val();
+        var  sms_code = $("input[name=sms_code]").val();
+        var  new_pwd = $("input[name=new_pwd]").val();
+        var  confirm_pwd = $("input[name=confirm_pwd]").val();
+
+
+        $.post("{:U('Auth/forgetPwd')}", {mobile: mobile, sms_code: sms_code, new_pwd: new_pwd, confirm_pwd:confirm_pwd}, function (res) {
+            if (res.code == -1) {
+                $("#mobile").html(res.msg);
+                $("#mobile").focus();
+                toastr.error(res.msg, '错误!');
+            } else if(res.code == -2) {
+                $("#new_pwd").html(res.msg);
+                $("#new_pwd").focus();
+                toastr.error(res.msg, '错误!');
+            } else if(res.code == -3){
+                $("#sms_code").html(res.msg);
+                $("#sms_code").focus();
+                toastr.error(res.msg, '错误!');
+            } else if(res.code == -4){
+                toastr.error(res.msg, '错误!');
+            } else if (res.code == 0) {
+                location.href = res.url;
+            }
+        });
+    });
+
+
+</script>

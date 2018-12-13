@@ -1,0 +1,147 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+        .search .layui-form-select .layui-edge {
+            right: 25%;
+        }
+
+        .search .layui-form-select dl {
+            min-width: 80%;
+        }
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <select name="cate_id">
+                    <option value="">请选择业绩分类</option>
+                    <foreach name="cate" item="val">
+                        <option value="{$val.id}"
+                        <if condition="I('get.cate_id') eq $val['id']">selected</if>
+                        >{$val.name}</option>
+                    </foreach>
+                </select>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="name" value="{:I('get.name')}" placeholder="请输入名称" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="mobile" value="{:I('get.mobile')}" placeholder="请输入手机号码" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="box">
+    <div id="box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">原因</label>
+                <div class="layui-input-block">
+                    <textarea type="text" name="content" class="layui-textarea" placeholder="请输入审核失败、封禁原因"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id" value="0" id="shop-id"/>
+                    <input type="hidden" name="status" id="shop-status"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-admin">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script type="text/html" id="status">
+        {{#  if(d.check == 0){ }}
+        未审核
+        {{#  } else if(d.check == 1) { }}
+        已确认
+        {{#  } else if(d.check == 2) { }}
+        用户撤回
+        {{#  } else { }}
+        无效
+        {{#  } }}
+    </script>
+    <script type="text/html" id="table-edit">
+        {{#  if(d.check == 0){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal confirm"
+           data-url="{:U('setShopReportStatus')}?id={{d.id}}&status=1">立即确认</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger confirm"
+           data-url="{:U('setShopReportStatus')}?id={{d.id}}&status=3">设置无效</a>
+        {{#  } else if(d.check == 1) { }}
+        <p style="color: #009688">已确认</p>
+        {{#  } else if(d.check == 2) { }}
+        <p style="color: #FFB800">用户撤回</p>
+        {{#  } else { }}
+        <p style="color: #FF5722">无效</p>
+        {{#  } }}
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var tableObj;
+            var url = "{:U('shopReport')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+
+            $('body').on('click', '.confirm', function () {
+                var del_url = $(this).data('url');
+                var text = $(this).text();
+                layer.confirm('你确定要将此业绩' + text + '吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                tableObj.reload()
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                tableObj = table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 80
+                    , cols: [[
+                        {field: 'name', title: '名称'}
+                        , {field: 'mobile', title: '联系电话', width: 120}
+                        , {field: 'cate_name', title: '业绩类型'}
+                        , {field: 'income', title: '金额'}
+                        , {field: 'add_time', title: '创建时间', width: 170}
+                        , {field: 'status', title: '业绩状态', width: 100, toolbar: '#status'}
+                        , {field: 'content', title: '备注'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit', width: '15%'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

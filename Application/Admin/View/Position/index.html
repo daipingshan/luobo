@@ -1,0 +1,217 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <a class="layui-btn layui-btn-danger add-position" href="javascript:;" data-id="0"><i
+                    class="layui-icon">
+                &#xe654;</i>添加一级分类
+            </a>
+        </div>
+    </form>
+    <div class="layui-tab layui-tab-card" lay-filter="test">
+        <ul class="layui-tab-title">
+            <volist name="data" id="row">
+                <li
+                <eq name="key" value="0">class="layui-this"</eq>
+                >
+                <button class="layui-btn layui-btn-xs"><i
+                        class="layui-icon save" data-pid="{$row.parent_id}"
+                        data-id="{$row.id}" data-name="{$row.name}" data-sort="{$row.sort}" data-icon="{$row.icon}">&#xe642;</i>
+                </button>
+                {$row.name}
+                <button class="layui-btn layui-btn-xs layui-btn-danger"><i class="layui-icon add-position"
+                                                                           data-id="{$row.id}  data-hot="
+                                                                           0">&#xe654;</i></button>
+                </li>
+            </volist>
+        </ul>
+        <div class="layui-tab-content">
+            <volist name="data" id="row">
+                <div
+                <eq name="key" value="0">class="layui-tab-item layui-show"
+                    <else/>
+                    class="layui-tab-item"
+                </eq>
+                >
+                <div class="layui-tab" lay-filter="test">
+                    <ul class="layui-tab-title">
+                        <volist name="row.son_data" id="val">
+                            <li
+                            <eq name="key" value="0">class="layui-this"</eq>
+                            >
+                            <button class="layui-btn layui-btn-xs"><i
+                                    class="layui-icon save" data-pid="{$val.parent_id}"
+                                    data-id="{$val.id}" data-name="{$val.name}" data-sort="{$val.sort}"
+                                    data-icon="{$val.icon}">&#xe642;</i>
+                            </button>
+                            {$val.name}
+                            <button class="layui-btn layui-btn-xs layui-btn-danger"><i class="layui-icon add-position"
+                                                                                       data-id="{$val.id}">&#xe654;</i>
+                            </button>
+                            </li>
+                        </volist>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <volist name="row.son_data" id="val">
+                            <div
+                            <eq name="key" value="0">class="layui-tab-item layui-show"
+                                <else/>
+                                class="layui-tab-item"
+                            </eq>
+                            >
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                <volist name="val.son_data" id="v">
+                                    <tr>
+                                        <td>{$v.name}</td>
+                                        <td>
+                                            <eq name="v.is_hot" value="1">热门
+                                                <else/>
+                                                普通
+                                            </eq>
+                                        </td>
+                                        <td><a href="javascript:;" data-id="{$v.id}" data-pid="{$v.parent_id}"
+                                               data-sort="{$v.sort}" data-name="{$v.name}" data-hot="{$v.is_hot}"
+                                               data-icon="{$v.icon}"
+                                               class="layui-btn layui-btn-xs save">编辑</a>
+                                            <a href="javascript:;" data-url="{:U('del',array('id'=>$v['id']))}"
+                                               class="layui-btn layui-btn-xs layui-btn-danger del">删除</a></td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+
+                    </div>
+            </volist>
+        </div>
+    </div>
+    </div>
+    </volist>
+    </div>
+    </div>
+</block>
+<block name="box">
+    <div id="box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">职位名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" class="layui-input" placeholder="请输入职位名称">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">职位图标</label>
+                <div class="layui-input-block">
+                    <input type="text" name="icon" class="layui-input" placeholder="请输入职位图标">
+                </div>
+            </div>
+            <div class="layui-form-item" id="hot">
+                <label class="layui-form-label">热门推荐</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="is_hot" title="推荐" value="1">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">职位排序</label>
+                <div class="layui-input-block">
+                    <input type="text" name="sort" value="255" class="layui-input" placeholder="请输入职位排序">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="parent_id" value="0"/>
+                    <input type="hidden" name="id" value="0" id="position-id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-admin">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script>
+        $(function () {
+            var index;
+            element.on('tab(test)', function (data) {
+                element.render();
+            });
+            //添加管理员账号
+            $('body').on('click', '.add-position', function () {
+                $('input[name=parent_id]').val($(this).data('id'));
+                $('input[name=name]').val('');
+                $('input[name=sort]').val(255);
+                $('input[name=sort]').val('');
+                $('#position-id').val(0);
+                form.render();
+                index = layer.open({
+                    title: "添加职位",
+                    type: 1,
+                    area: ['600px', '350px'],
+                    content: $('#box'),
+                })
+            })
+
+            form.on("submit(save-admin)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('save')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                                layer.closeAll();
+                                location.reload();
+                            }
+                        )
+                    } else {
+                        _btn.disabled = false;
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+            $('body').on('click', '.save', function () {
+                $('input[name=parent_id]').val($(this).data('pid'));
+                $('input[name=name]').val($(this).data('name'));
+                $('input[name=sort]').val($(this).data('sort'));
+                $('input[name=icon]').val($(this).data('icon'));
+                $('#position-id').val($(this).data('id'));
+                if ($(this).data('hot') == 1) {
+                    $('#hot input').attr('checked', true);
+                }
+                $('#hot').removeClass('hide');
+                form.render();
+                index = layer.open({
+                    title: "编辑职位",
+                    type: 1,
+                    area: ['600px', '350px'],
+                    content: $('#box'),
+                })
+            })
+
+            $('body').on('click', '.del', function () {
+                var del_url = $(this).data('url');
+                layer.confirm('你确定要删除此分类吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                location.reload();
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+        })
+    </script>
+</block>

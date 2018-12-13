@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+<include file="Common:head"/>
+
+<body>
+<include file="Common:header"/>
+<!-- 手机搜索框 -->
+<div id="moblie_search" class="visible-xs text-center">
+    <div class="col-xs-3">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+           data-target="#city-navbar-collapse">
+            城市 <b class="caret"></b>
+        </span>
+    </div>
+    <div class="col-xs-3">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#district-navbar-collapse">
+            地区 <b class="caret"></b>
+        </span>
+    </div>
+    <div class="col-xs-3">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#salary-navbar-collapse">
+            薪资 <b class="caret"></b>
+        </span>
+    </div>
+    <div class="col-xs-3">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#experience-navbar-collapse">
+            经验 <b class="caret"></b>
+        </span>
+    </div>
+
+</div>
+<div class="moblie-menu container-fluid visible-xs">
+    <div class="collapse navbar-collapse" id="city-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <li  <eq name="inventory['city']" value="">class="active"</eq>>
+            <a href="{$url}&city&district">不限</a>
+            </li>
+            <volist name="cities" id="vo" offset="0" length="10">
+                <li  <eq name="inventory['city']" value="$vo.id">
+                     class="active"
+                        </eq>>
+                    <a href="{$url}&city={$vo.id}&district">{$vo.name} </a>
+
+                </li>
+            </volist>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="district-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <li  <eq name="inventory['district']" value="">class="active"</eq>>
+            <a href="{$url}&district">不限</a>
+            </li>
+            <notempty name="inventory['city']">
+                <foreach name="cities[$inventory['city']]['child']" key="k" item="i">
+                    <li  <eq name="inventory['district']" value="$i[id]"> class="active"</eq>>
+                    <a href="{$url}&district={$i.id}&city={$i.parent_id}">{$i.name}</a>
+                    </li>
+
+                </foreach>
+            </notempty>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="salary-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <li  <eq name="inventory['salary']" value="">class="active"</eq> >
+            <a href="{$url}&salary=null"
+
+                >不限</a>
+            </li>
+            <foreach name="search_list.salary" item="v" key="k">
+                <li <eq name="inventory['salary']" value="$v">
+                        class="active"
+                    </eq>
+                        >
+                    <a href="{$url}&salary={$v}"
+
+                    >{$k}</a>
+                </li>
+            </foreach>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="experience-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <foreach name="search_list.experience" item="v" key="k">
+                <li <eq name="inventory['experience']" value="$k">
+                        class="active"
+                    </eq> >
+                    <a href="{$url}&experience={$k}">{$v}
+                    </a>
+                </li>
+            </foreach>
+        </ul>
+    </div>
+
+</div>
+<!-- 手机搜索框 -->
+<main class="container">
+
+    <div class="row">
+
+        <div class="col-md-8 col-xs-12">
+            <div class="hidden-xs ">
+                <div class="box-1 adv-search ">
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag">工作经验</li>
+                        <foreach name="search_list.experience" item="v" key="k">
+                            <li>
+                                <a href="{$url}&experience={$k}"
+                                <eq name="inventory['experience']" value="$k">
+                                    class="active"
+                                </eq>
+                                >{$v}
+                                </a>
+                            </li>
+                        </foreach>
+                    </ul>
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag">城市选择</li>
+                        <li><a href="{$url}&city"
+                            <eq name="inventory['city']" value="">class="active"</eq>
+                            >不限</a>
+                        </li>
+                        <volist name="cities" id="vo" offset="0" length="10">
+                            <li>
+                                <a href="{$url}&city={$vo.id}&district"
+                                <eq name="inventory['city']" value="$vo.id">
+                                    class="active"
+                                </eq>
+                                >{$vo.name}</a>
+                            </li>
+
+                        </volist>
+
+                    </ul>
+                    <notempty name="inventory['city']">
+                        <ul class="col-md-12 col-xs-12">
+                            <li class="tag ">地区选择</li>
+                            <li><a href="{$url}&district"
+                                <eq name="inventory['district']" value="">class="active"</eq>
+                                >不限</a>
+
+                            </li>
+                            <div class="search_province_box">
+                                <foreach name="cities[$inventory['city']]['child']" key="k" item="i">
+                                    <li>
+                                        <a href="{$url}&district={$i.id}&city={$i.parent_id}"
+                                        <eq name="inventory['district']" value="$i.id">
+                                            class="active"
+                                        </eq>
+                                        >{$i.name}</a>
+                                    </li>
+                                </foreach>
+                            </div>
+                        </ul>
+                    </notempty>
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag ">薪资范围</li>
+
+                        <li><a href="{$url}&salary=null"
+                            <eq name="inventory['salary']" value="">class="active"</eq>
+                            >不限</a>
+                        </li>
+                        <foreach name="search_list.salary" item="v" key="k">
+                            <li>
+                                <a href="{$url}&salary={$v}"
+                                <eq name="inventory['salary']" value="$v">
+                                    class="active"
+                                </eq>
+                                >{$k}</a>
+                            </li>
+                        </foreach>
+
+
+                    </ul>
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag ">学历要求</li>
+                        <li><a href="{$url}&education=null"
+                            <eq name="inventory['education']" value="">class="active"</eq>
+                            >不限</a>
+                        </li>
+                        <foreach name="search_list.education" item="vo" key="k">
+
+                            <li>
+                                <a href="{$url}&education={$k}"
+                                <eq name="inventory['education']" value="$k">
+                                    class="active"
+                                </eq>
+                                >{$vo}</a>
+                            </li>
+                        </foreach>
+
+                    </ul>
+
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag ">工作类型</li>
+
+                        <li><a href="{$url}&nature=null"
+                            <eq name="inventory['nature']" value="">class="active"</eq>
+                            >不限</a>
+                        </li>
+                        <foreach name="search_list.nature" item="v" key="k">
+                            <li>
+                                <a href="{$url}&nature={$k}"
+                                <eq name="inventory['nature']" value="$k">
+                                    class="active"
+                                </eq>
+                                >{$v}</a>
+                            </li>
+                        </foreach>
+
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="row hidden">
+                <div class="box-1 col-md-12 text-center">
+                    <span class="col-md-1">搜索</span>
+                    <a href="" class="col-md-1">行业：{$category_name}</a>
+                    <a href="" class="col-md-1">关键字：{$keyword}</a>
+                </div>
+            </div>
+
+            <div class="jobs search-jobs">
+                <if condition="$count lt 1">
+                    <h3 class="search_result">没有搜索到相关岗位，试着减少搜索条件</h3>
+                    <else/>
+                    <foreach name="recommend_items" item="vo">
+                        <div class="job-item">
+                            <div class="row">
+                                <div class="col-md-1 col-xs-3 text-center">
+                                    <a href="{:U('Jobs/detail',array('id'=>$vo['id']))}" target="_blank">
+                                        <empty name="vo['com_avatar']">
+                                            <img src="__IMAGE_PATH__/grapheme/{:rand(0,25)}.jpg" alt="{$vo.company_name}"
+                                                 class="jobs-img">
+                                            <else/>
+                                            <img src="{$vo.com_avatar}" class="jobs-img">
+                                        </empty>
+                                    </a>
+                                </div>
+                                <div class="col-md-11 col-xs-6">
+                                    <div class="row job-item-top ">
+                                        <div class="col-md-6 col-xs-12">
+                                            <a href="{:U('Jobs/detail',array('id'=>$vo['id']))}"
+                                               class="jobs-title" target="_blank">
+
+                                                <if condition="mb_strlen($vo['name'],'utf-8') egt 8">
+                                                 {$vo.name|mb_substr=0,8,'utf-8'}...
+                                                    <else />  {$vo.name}
+                                                </if>
+
+                                                <empty name="vo.cityid">
+
+                                                    <else/>
+                                                    [ {$city_array[$vo['cityid']]} ]
+                                                </empty>
+                                            </a>
+                                            <empty name="vo.refresh_time">
+                                                {$vo.create_time|date="m-d ",###}
+                                                <else/>
+                                                {$vo.refresh_time|date="m-d ",###}
+                                            </empty>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 ">
+                                            <div class="row">
+                                                <div class="col-md-9 com_name text-left">
+                                                    <a href="{:U('Jobs/company',array('id' => $vo['com_id']))}"
+                                                       class=" " target="_blank">
+                                                        <empty name="vo['short_name']">
+                                                            {$vo['company_name']}
+                                                            <else/>
+                                                            {$vo['short_name']}
+                                                        </empty>
+                                                        <img src="__IMAGE_PATH__/dun.png" class="hidden-xs">
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs text-right">
+                                                    <img src="__IMAGE_PATH__/weixin_icon.jpg" class="show_qrcode">
+                                                    <div class="hr_qrcode ">
+                                                        <img src="__IMAGE_PATH__/qrcode.jpg" class="img-responsive">
+                                                        <p>扫码直接与HR微信沟通。</p>
+                                                        <p>加入萝卜会员，即可与HR一对一沟通。</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row job-item-top  ">
+                                        <div class="col-md-6 col-xs-12 job-label">
+                                            <span class="job-pay hidden-xs">
+                                                <eq name="vo.salary_min" value="0">
+                                                    面议
+                                                    <else/>
+                                                    {$vo.salary_min}k - {$vo.salary_max}k
+                                                </eq>
+                                            </span>
+                                            <span class="grey hidden-xs">{$com_experience[$vo['experience']]}</span>
+                                            <span class="grey hidden-xs">{$high_edu[$vo[limit_educate]]}</span>
+                                        </div>
+                                        <div class="col-md-6 grey hidden-xs">
+
+                                            {$salary[$vo[com_scale]]}
+                                            /
+                                            <empty name="vo.com_if">
+                                                其他 /
+                                                <else />
+                                                {$vo.com_if|mb_substr=0,15}
+                                                /
+                                            </empty>
+
+
+                                            {$cp_size[$vo[com_size]]}人
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="visible-xs col-xs-3 moblie-salary ">
+                                    <span class="job-pay moblie-text-big text-right">
+                                        <eq name="vo.salary_min" value="0">
+                                            面议
+                                            <else/>
+                                            {$vo.salary_min}k-{$vo.salary_max}k
+                                        </eq>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row jobs-box-bottom hidden-xs">
+                                <div class="col-md-5">
+                                    <php>
+                                        $labels = array_filter(explode(',',$vo[label]));
+                                    </php>
+                                    <foreach name="labels"  item="it">
+                                        <a class="cp_mark">{$job_label[$it]}</a>
+                                    </foreach>
+                                </div>
+                                <div class="col-md-7 text-right">
+                                    “{$vo.job_excellence|mb_substr=0,66}”
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </foreach>
+                    <foreach name="jobs" key="k" item="vo">
+                        <div class="job-item">
+                            <div class="row">
+                                <div class="col-md-1 col-xs-3 text-center">
+                                    <a href="{:U('Jobs/detail',array('id'=>$vo['id']))}" target="_blank">
+                                        <empty name="vo['com_avatar']">
+                                            <img src="__IMAGE_PATH__/grapheme/{:rand(0,25)}.jpg" alt="{$vo.company_name}"
+                                                 class="jobs-img">
+                                            <else/>
+                                            <img src="{$vo.com_avatar}" class="jobs-img">
+                                        </empty>
+                                    </a>
+                                </div>
+                                <div class="col-md-11 col-xs-6">
+                                    <div class="row job-item-top ">
+                                        <div class="col-md-6 col-xs-12">
+                                            <a href="{:U('Jobs/detail',array('id'=>$vo['id']))}"
+                                               class="jobs-title" target="_blank">
+                                               <if condition="mb_strlen($vo['name'],'utf-8') egt 8">
+                                                 {$vo.name|mb_substr=0,8,'utf-8'}...
+                                                    <else />  {$vo.name}
+                                                </if>
+
+                                                <empty name="vo.cityid">
+
+                                                    <else/>
+                                                    [ {$city_array[$vo['cityid']]} ]
+                                                </empty>
+                                            </a>
+                                            <empty name="vo.refresh_time">
+                                                {$vo.create_time|date="m-d ",###}
+                                                <else/>
+                                                {$vo.refresh_time|date="m-d ",###}
+                                            </empty>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12 ">
+                                            <div class="row">
+                                                <div class="col-md-9 com_name text-left">
+                                            <a href="{:U('Jobs/company',array('id' => $vo['com_id']))}"
+                                               class=" " target="_blank">
+                                                <empty name="vo['short_name']">
+                                                    {$vo['company_name']}
+                                                    <else/>
+                                                    {$vo['short_name']}
+                                                </empty>
+                                                <img src="__IMAGE_PATH__/dun.png" class="hidden-xs">
+                                            </a>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs text-right">
+                                                    <img src="__IMAGE_PATH__/weixin_icon.jpg" class="show_qrcode">
+                                                    <div class="hr_qrcode ">
+                                                        <img src="__IMAGE_PATH__/qrcode.jpg" class="img-responsive">
+                                                        <p>扫码直接与HR微信沟通。</p>
+                                                        <p>加入萝卜会员，即可与HR一对一沟通。</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row job-item-top  ">
+                                        <div class="col-md-6 col-xs-12 job-label">
+                                            <span class="job-pay hidden-xs">
+                                                <eq name="vo.salary_min" value="0">
+                                                    面议
+                                                    <else/>
+                                                    {$vo.salary_min}k - {$vo.salary_max}k
+                                                </eq>
+                                            </span>
+                                            <span class="grey hidden-xs">{$com_experience[$vo['experience']]}</span>
+                                            <span class="grey hidden-xs">{$high_edu[$vo[limit_educate]]}</span>
+                                        </div>
+                                        <div class="col-md-6 grey hidden-xs">
+
+                                                    {$salary[$vo[com_scale]]}
+                                                    /
+                                                    <empty name="vo.com_if">
+                                                        其他 /
+                                                        <else />
+                                                        {$vo.com_if|mb_substr=0,15}
+                                                        /
+                                                    </empty>
+
+
+                                                    {$cp_size[$vo[com_size]]}人
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="visible-xs col-xs-3 moblie-salary ">
+                                    <span class="job-pay moblie-text-big text-right">
+                                        <eq name="vo.salary_min" value="0">
+                                            面议
+                                            <else/>
+                                            {$vo.salary_min}k-{$vo.salary_max}k
+                                        </eq>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row jobs-box-bottom hidden-xs">
+                                <div class="col-md-5">
+                                    <php>
+                                        $labels = array_filter(explode(',',$vo[label]));
+                                    </php>
+                                    <foreach name="labels"  item="it">
+                                        <a class="cp_mark">{$job_label[$it]}</a>
+                                    </foreach>
+                                </div>
+                                <div class="col-md-7 text-right">
+                                    “{$vo.job_excellence|mb_substr=0,66}”
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </foreach>
+                </if>
+
+            </div>
+            <div class="col-md-2">共 {$count} 个岗位</div>
+            <div class="text-center col-md-10">
+                {$show}
+            </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+            <volist name="advert" id="row">
+                <div class="axd">
+                <a href="{$row.location_url}"><img src="{$row.img_url}" alt="{$row.title}" class="img-responsive"></a>
+                </div>
+            </volist>
+        </div>
+
+
+    </div>
+
+</main>
+
+<include file="Common:footer"/>
+<style>
+    #province_id{ height: 35px;}
+</style>
+<script>
+    $(document).ready(function() {
+        $('.show_qrcode').hover(function(){
+            $(this).next().show().addClass('animated fadeIn');
+        },function(){
+            $(this).next().hide();
+
+        });
+    });
+</script>
+</body>
+</html>

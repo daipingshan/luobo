@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>萝卜网 - 简历库</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- 注册登录 专用其他项目不用加载-->
+    <link rel="stylesheet" href="/css/company.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+
+
+</head>
+
+
+<body>
+    <!-- 顶部导航-->
+     <div id="topbar">
+        <div class="container">
+            <div class="col float-left">
+                <a href="../index.html">首页 </a>
+                <a href="job_add.html">发布岗位 </a>
+                <a href="com_jobs_manage.html">岗位管理  </a>
+                <a href="/vitae/index.html">简历库 </a>
+            </div>
+            <div class="col float-right">
+                <a href="/auth/login.html">登录</a> |
+                <a href="/auth/reg.html">注册</a>
+            </div>
+        </div>
+    </div>
+    <!-- 搜索模块 -->
+    <div id="search">
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="col-md-2 "></div>
+                    <div class="col-md-5 ">
+                        <input class="form-control search-input" type="text" placeholder="输入您要搜索的职位">
+                    </div>
+                    <div class="col-md-3 ">
+                        <button type="submit" class="btn btn-primary  luobo_btn search-btn">搜索</button>
+                    </div>
+                    <div class="col-md-2 "></div>
+                </form>
+            </div>
+            <div class="row">
+
+                <ul class="recommended-label col-md-6 col-md-push-2">
+                    <li>热门搜索：</li>
+                    <li><a>网页设计师</a></li>
+                    <li><a>PHP工程师</a></li>
+                    <li><a>运维人员</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <main class="container">
+       <div class=" row">
+           <div class="box-1 adv-search">
+               <ul class="col-md-12">
+                   <li class="tag col-md-1">工作经验</li>
+                   <li><a href="">不限</a></li>
+                   <li><a href="">一年</a></li>
+                   <li><a href="">两年</a></li>
+                   <li><a href="">三年</a></li>
+                   <li><a href="">五年以上</a></li>
+               </ul>
+                <ul class="col-md-12">
+                   <li class="tag col-md-1">工作地</li>
+                   <li><a href="" class="active">西安</a></li>
+                   <li><a href="">北京</a></li>
+                   <li><a href="">上海</a></li>
+                   <li><a href="">深圳</a></li>
+                   
+               </ul>
+                <ul class="col-md-12">
+                   <li class="tag col-md-1">期望薪资</li>
+                   <li><a href="">面议</a></li>
+                   <li><a href="">2-3</a></li>
+                   <li><a href="">3-5</a></li>
+                   <li><a href="">5-10</a></li>
+                    <li><a href="">10-20</a></li>
+                    <li><a href="">20以上</a></li>
+                    
+                   
+               </ul>
+               <ul class="col-md-12">
+                   <li class="tag col-md-1">学历</li>
+                   <li><a href="">不限</a></li>
+                   <li><a href="" class="active">博士</a></li>
+                   <li><a href="">硕士</a></li>
+                   <li><a href="">本科</a></li>
+                   <li><a href="">大专</a></li>
+                   <li><a href="">中专</a></li>
+                 
+               </ul>
+               <ul class="col-md-12">
+                   <li class="tag col-md-1">专业</li>
+                   <li><a href="">不限</a></li>
+                   <li><a href="" class="active">计算机工程</a></li>
+                   <li><a href="">体育</a></li>
+                   <li><a href="">财务</a></li>
+               </ul>
+               <ul class="col-md-12">
+                   <li class="tag col-md-1">类型</li>
+                   <li><a href="">不限</a></li>
+                   <li><a href="" class="active">全职</a></li>
+                   <li><a href="">兼职</a></li>
+               
+               </ul>
+               <div class="clear"></div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="box-1 col-md-12 ">
+               <span class="col-md-1">排序方式</span>
+               <a href="" class="col-md-1">默认</a>  
+               <a href="" class="col-md-1">推荐优先</a>
+           </div>
+       </div>
+        <div class="row">
+          
+            <div class="col-md-10  box">
+                <div class="jobs">
+                    <div class="job-item">
+                        <div class="row ">
+                            <div class="col-md-2 text-center">
+                                <img src="../images/user_man.png" class="user_img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row job-item-top">
+                                    <div class="col-md-6">
+                                       <a href="job_details.html" class="grey">
+                                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                       陈独秀</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                       <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                          PHP 工程师
+                                       </a>
+                                        </div>
+                                     
+                                  
+                                </div>
+                                <div class="row">
+                                   <div class="col-md-6">
+                                        <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                                          15991606450
+                                       </a>
+                                    </div>
+                                    <div class="col-md-6 grey" >  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>简历更新 2018-08-18</div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <a href="/company/job_details.html" class="btn btn-primary">查看简历</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row ">
+                            <div class="col-md-2 text-center">
+                                <img src="../images/user_woman.png" class="user_img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row job-item-top">
+                                    <div class="col-md-6">
+                                       <a href="job_details.html" class="grey">
+                                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                       陈独秀</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                       <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                          PHP 工程师
+                                       </a>
+                                        </div>
+                                     
+                                  
+                                </div>
+                                <div class="row">
+                                   <div class="col-md-6">
+                                        <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                                          15991606450
+                                       </a>
+                                    </div>
+                                    <div class="col-md-6 grey" >  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>简历更新 2018-08-18</div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <a href="/company/job_details.html" class="btn btn-primary">查看简历</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row ">
+                            <div class="col-md-2 text-center">
+                                <img src="../images/user_man.png" class="user_img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row job-item-top">
+                                    <div class="col-md-6">
+                                       <a href="job_details.html" class="grey">
+                                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                       陈独秀</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                       <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                          PHP 工程师
+                                       </a>
+                                        </div>
+                                     
+                                  
+                                </div>
+                                <div class="row">
+                                   <div class="col-md-6">
+                                        <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                                          15991606450
+                                       </a>
+                                    </div>
+                                    <div class="col-md-6 grey" >  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>简历更新 2018-08-18</div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <a href="/company/job_details.html" class="btn btn-primary">查看简历</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row ">
+                            <div class="col-md-2 text-center">
+                                <img src="../images/user_woman.png" class="user_img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row job-item-top">
+                                    <div class="col-md-6">
+                                       <a href="job_details.html" class="grey">
+                                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                       陈独秀</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                       <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                          PHP 工程师
+                                       </a>
+                                        </div>
+                                     
+                                  
+                                </div>
+                                <div class="row">
+                                   <div class="col-md-6">
+                                        <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                                          15991606450
+                                       </a>
+                                    </div>
+                                    <div class="col-md-6 grey" >  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>简历更新 2018-08-18</div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <a href="/company/job_details.html" class="btn btn-primary">查看简历</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row ">
+                            <div class="col-md-2 text-center">
+                                <img src="../images/user_woman.png" class="user_img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row job-item-top">
+                                    <div class="col-md-6">
+                                       <a href="job_details.html" class="grey">
+                                       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                       陈独秀</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                       <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                          PHP 工程师
+                                       </a>
+                                        </div>
+                                     
+                                  
+                                </div>
+                                <div class="row">
+                                   <div class="col-md-6">
+                                        <a href="" class="grey">
+                                         <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                                          15991606450
+                                       </a>
+                                    </div>
+                                    <div class="col-md-6 grey" >  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>简历更新 2018-08-18</div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <a href="/company/job_details.html" class="btn btn-primary">查看简历</a>
+                            </div>
+                        </div>
+                    </div>
+                 
+                </div>
+                
+                 <div class="text-right">  
+                    <nav aria-label="Page navigation">
+                      <ul class="pagination">
+                        <li>
+                          <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                          <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="axd">
+                    <!-- 图片广告位 -->
+                    <img src="../images/demo/CgoB5luDnIaAI7FUAAB3K5hcI70912.JPG">
+                    
+                </div>
+                <div class="axd">
+                    <img src="../images/demo/CgotOVsY3fSAT71BAABQqeBLRaU508.JPG">
+                </div>
+            </div>
+           
+           
+        </div>
+
+    </main>
+    <footer id="footer-con">
+        <div class="container">
+            <div class="foorer_con row">
+                <div class="col-md-3">
+                    <h4>公司问答</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>企业服务</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系方式</h4>
+                    <ul class="footermenu">
+                        <li>商务合作：029-88888888</li>
+                        <li>客服中心：029-88888888</li>
+                        <li>受理电话：9：00 - 20：00</li>
+                        <li>Email：luobo@luobowang.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/erweima.jpg">
+                    <p>扫码进入小程序。</p>
+                    <a>分享链接： </a>
+                </div>
+            </div>
+        </div>
+        <div id="footerbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>©2018 萝卜网 京ICP备14023790号-2 京公网安备 11010802024043号
+                        </p>
+                    </div>
+                    <div class="col-md-6 ">
+                        <ul class="footerbar-ul pull-right">
+                            <li><a>首页</a></li>
+                            <li><a>企业商铺</a></li>
+                            <li><a>校园招聘</a></li>
+                            <li><a>萝卜项目</a></li>
+                            <li><a>萝卜门店</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

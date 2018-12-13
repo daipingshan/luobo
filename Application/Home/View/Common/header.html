@@ -1,0 +1,133 @@
+<!-- 顶部导航-->
+<include file="Common:topbar" />
+
+<div id="wrapper">
+
+<!-- LOGO 与导航 -->
+<div id="header">
+    <div class="container">
+        <div class="row">
+            <div id="logo" class="col-md-4 col-xs-12">
+                <a href="/"><img src="__IMAGE_PATH__/logo.png" class="logo"></a>
+            </div>
+            <div id="nav" class="col-md-8 hidden-xs">
+                <ul class="nav navbar-nav row">
+                     <li class="nav-item ">
+                         <a <eq name="menu" value="index">
+                                class="nav-link active"
+                             <else/>
+                                  class="nav-link"
+                             </eq>
+                                 href="{:U('Index/index')}">主页</a>
+                     </li>
+                     <li class="nav-item  ">
+                        <a
+                        <eq name="menu" value="company">class="nav-link active"
+                                                                        <else/>
+                                                                        class="nav-link"
+                                                                    </eq>
+                        href="{:U('Index/company')}">企业商铺</a>
+                     </li>
+                    <li class="nav-item ">
+                        <a
+                        <eq name="menu" value="project">class="nav-link active"
+                            <else/>
+                            class="nav-link"
+                        </eq>
+                        href="{:U('Index/project')}">萝卜项目
+                        </a>
+                    </li>
+                     <li class="nav-item  ">
+                        <a
+                        <eq name="menu" value="school">class="nav-link active"
+                            <else/>
+                            class="nav-link"
+                        </eq>
+                        href="{:U('Index/school')}">萝卜校招</a>
+                     </li>
+
+                     <li class="nav-item ">
+                        <a
+                          <eq name="menu" value="Shop">class="nav-link active"
+                              <else/>
+                              class="nav-link"
+                          </eq>
+                          href="{:U('Shop/index')}">萝卜门店
+                        </a>
+
+                      </li>
+                </ul>
+
+            </div>
+
+            <div class="btn-group animated fadeInLeft right_list navbar-right visible-xs">
+                <a id="dLabel"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="iconfont icon-qita "></span>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li><a href="{:U('User/vitae')}">我的简历</a></li>
+                    <li><a href="{:U('Auth/account')}">账户信息</a></li>
+                    <li><a href="{:U('Auth/password')}">修改密码</a></li>
+                    <li><a href="{:U('Auth/logout')}">退出登录</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="search"
+	<present name="search_hide">class="hide"</present>
+>
+    <div class="container">
+        <div class="row">
+						<if condition="$search_mode eq 'company'">
+                <form action="{:U('search/company')}" method="get" >
+                <php>
+										$placeholder = "输入企业名称";
+								</php>
+            <elseif condition="$search_mode eq 'vitae'"/>
+								<form action="{:U('search/vitae')}" method="get">
+								 <php>
+											$placeholder = "搜索人才";
+                 </php>
+            <else />
+                <form action="{:U('search/index')}" method="get">
+                <php>
+											$placeholder = "搜索岗位";
+                </php>
+            </if>
+
+                <div class="col-md-2 col-xs-1"></div>
+                <div class="col-md-5 col-xs-7">
+                    <input class="form-control search-input" name="keyword" type="text" placeholder="{$placeholder}"
+                    <present  name="inventory['keyword']">
+                        value="{$inventory['keyword']}"
+										</present >
+                    >
+
+                    <php>
+                        $hot_jobs = C('BASE')[search];
+                        $jobs_items = explode(",", $hot_jobs);
+
+                    </php>
+                    <p class="search-keyword hidden-xs">
+                        热门搜索：
+                        <foreach name="jobs_items" item="vo" >
+                            <a href="/search/index/keyword/{$vo}">{$vo}</a>
+                        </foreach>
+
+                    </p>
+                </div>
+                <div class="col-md-3 col-xs-4">
+                    <button type="submit" class="btn btn-primary  luobo_btn search-btn">搜索</button>
+                </div>
+                <div class="col-md-2 col-xs-0"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,305 @@
+<extend name="Common/common"/>
+<block name="body">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li class="layui-this">企业基本信息</li>
+            <li>企业资质证书</li>
+            <!-- <li>企业交易记录</li>-->
+            <li>企业招聘信息</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <div class="layui-card">
+                    <div class="layui-card-header">企业资料</div>
+                    <div class="layui-card-body">
+                        公司logo：<img src="{$info.avatar}" alt="" width="200" height="200"><br>
+                        公司名称：{$info.company_name}<br>
+                        公司简称：{$info.short_name}<br>
+                        行业领域：{$info.industry_field}<br>
+                        公司规模：{$info.company_size}<br>
+                        发展阶段：{$info.development_stage}<br>
+                        公司地址：{$info.company_address}
+                    </div>
+                </div>
+                <div class="layui-card">
+                    <div class="layui-card-header">身份信息</div>
+                    <div class="layui-card-body">
+                        称呼：{$info.hr_name}<br>
+                        手机号码：{$info.tel}<br>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item">
+                <div class="layui-card">
+                    <div class="layui-card-header">资质证书</div>
+                    <div class="layui-card-body">
+                        <img src="{$info.business_lincense}" style="width：80%;"><br>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="layui-tab-item">-->
+            <!--<table class="layui-table">-->
+            <!--<colgroup>-->
+            <!--<col width="150">-->
+            <!--<col width="200">-->
+            <!--<col>-->
+            <!--</colgroup>-->
+            <!--<thead>-->
+            <!--<tr>-->
+            <!--<th>类型</th>-->
+            <!--<th>金额</th>-->
+            <!--<th>时间</th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<volist name="flow" id="vo">-->
+            <!--<tr>-->
+            <!--<td>{$vo.source_view}</td>-->
+            <!--<td>{$vo.money}</td>-->
+            <!--<td>{$vo.add_time|date="Y-m-d",###}</td>-->
+            <!--</tr>-->
+            <!--</volist>-->
+            <!--</tbody>-->
+            <!--</table>-->
+            <!--</div>-->
+            <div class="layui-tab-item">
+                <div class="layui-tab layui-tab-card">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this">在招</li>
+                        <li>下线</li>
+                        <li>违规</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th>岗位名称</th>
+                                    <th>工作性质</th>
+                                    <th>工作经验</th>
+                                    <th>学历要求</th>
+                                    <th>薪资</th>
+                                    <th>发布时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="recruit_data[0]" id="vo">
+                                    <tr>
+                                        <td>{$vo.name}</td>
+                                        <td>{$vo.nature_view}</td>
+                                        <td>{$vo.experience_view}</td>
+                                        <td>{$vo.limit_educate_view}</td>
+                                        <td>
+                                            <if condition="($vo['salary_min']) eq 0 AND ($vo['salary_max'] eq 0)">
+                                                面议
+                                                <else/>
+                                                {$vo['salary_min']}K~{$vo['salary_max']}K
+                                            </if>
+                                        </td>
+                                        <td>{$vo.create_time|date="Y-m-d",###}</td>
+                                        <td>
+                                            <a class="layui-btn layui-btn-xs layui-btn-danger set-fail"
+                                               data-id="{$vo.id}">设置违规</a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th>岗位名称</th>
+                                    <th>工作性质</th>
+                                    <th>工作经验</th>
+                                    <th>学历要求</th>
+                                    <th>联系人</th>
+                                    <th>发布时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="recruit_data[1]" id="vo">
+                                    <tr>
+                                        <td>{$vo.name}</td>
+                                        <td>{$vo.nature_view}</td>
+                                        <td>{$vo.experience_view}</td>
+                                        <td>{$vo.limit_educate_view}</td>
+                                        <td>{$vo.contacts}<br>{$vo.contacts_mobile}</td>
+                                        <td>{$vo.create_time|date="Y-m-d",###}</td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th>岗位名称</th>
+                                    <th>工作性质</th>
+                                    <th>工作经验</th>
+                                    <th>学历要求</th>
+                                    <th>联系人</th>
+                                    <th>发布时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="recruit_data[2]" id="vo">
+                                    <tr>
+                                        <td>{$vo.name}</td>
+                                        <td>{$vo.nature_view}</td>
+                                        <td>{$vo.experience_view}</td>
+                                        <td>{$vo.limit_educate_view}</td>
+                                        <td>{$vo.contacts}<br>{$vo.contacts_mobile}</td>
+                                        <td>{$vo.create_time|date="Y-m-d",###}</td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="box">
+    <div id="time-box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">过期时间</label>
+                <div class="layui-input-block">
+                    <input type="text" name="expire_time" id="expire-time" class="layui-input" placeholder="请选择推荐过期时间">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-time">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="fail-box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">违规原因</label>
+                <div class="layui-input-block">
+                    <textarea type="text" name="content" class="layui-textarea" placeholder="请输入违规原因"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id" value="0"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-fail">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script>
+        $(function () {
+            var index;
+            //日期选择器
+            laydate.render({
+                elem: '#expire-time'
+            });
+            //添加管理员账号
+            $('body').on('click', '.set-recommend', function () {
+                $('#expire-time').val('');
+                $('#time-box input[name=id]').val($(this).data('id'));
+                form.render();
+                index = layer.open({
+                    title: "设置招聘信息推荐",
+                    type: 1,
+                    area: ['600px', '200px'],
+                    content: $('#time-box'),
+                })
+            })
+
+            //添加管理员账号
+            $('body').on('click', '.set-fail', function () {
+                $('#fail-box textarea[name=content]').val('');
+                $('#fail-box input[name=id]').val($(this).data('id'));
+                form.render();
+                index = layer.open({
+                    title: "设置招聘信息违规",
+                    type: 1,
+                    area: ['600px', '260px'],
+                    content: $('#fail-box'),
+                })
+            })
+
+            form.on("submit(save-fail)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('setRecruitStatus')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            location.reload();
+                        })
+                    } else {
+                        _btn.disabled = false;
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+
+            form.on("submit(save-time)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('setRecruitRecommend')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                                layer.closeAll();
+                                location.reload();
+                            }
+                        )
+                    } else {
+                        _btn.disabled = false;
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+        })
+    </script>
+</block>
+

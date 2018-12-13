@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+
+<body>
+<include file="Common:header" />
+<div class=" mb-50"></div>
+<main class="container">
+
+    <include file="Shop:top-box" />
+    <div class=" mb-50"></div>
+    <div class="row">
+        <div class="col-md-9">
+            <include file="Shop:tab" />
+            <table class="table table-striped  lb-table">
+                <tr>
+                    <th>id</th>
+                    <th>用户</th>
+                    <th>手机号</th>
+                    <th>参与项目</th>
+                    <th>身份证</th>
+                    <th>入职时间</th>
+                    <th>预计收益</th>
+                    <th>状态</th>
+                </tr>
+                <foreach name="items" item="vo" key="k" >
+
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.user_name}</td>
+                        <td>{$vo.tel|substr=0,3}××××{$vo.tel|substr=7,11}</td>
+                        <td><a href="{:U('project/detail',array('id' => $vo['poj_id']))}" target="_blank">{$vo.poj_name}</a></td>
+                        <td>{$vo.id_code|substr=0,5}××××{$vo.id_code|substr=12,15}</td>
+                        <td>{$vo.add_time|substr=0,10}</td>
+                        <td>{$vo.income}</td>
+                        <td>
+                            <eq name="vo.check_up" value="0">待确认</eq>
+                            <eq name="vo.check_up" value="1">已确认</eq>
+                            <eq name="vo.check_up" value="2">失效</eq>
+                        </td>
+                    </tr>
+
+                </foreach>
+
+            </table>
+            <div>{$page}</div>
+        </div>
+
+        <div class="col-md-3 ">
+            <include file="Shop:right" />
+        </div>
+    </div>
+
+</main>
+<include file="Common:footer" />

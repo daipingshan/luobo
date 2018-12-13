@@ -1,0 +1,43 @@
+<div class="row com_head mh">
+    <div class="panel panel-default lb-panel">
+        <div class="panel-body row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="row text-center com_top_bar">
+                        <div class="col-md-2  hidden-xs">
+                            <h5 >
+                                <eq name="shop_info['shop_type']" value="1">
+                                    门店代理
+                                    <else/>
+                                    个人代理
+                                </eq></h5>
+                            <span class="min-text">身份</span>
+                        </div>
+
+                        <div class="col-md-2 col-xs-3">
+                            <h5>{$user_count['user_c']}人</h5>
+                            <span class="min-text">共推广</span>
+                        </div>
+                        <div class="col-md-2 col-xs-3">
+                            <h5>{$user_count['user_count']}人</h5>
+                            <span class="min-text">简历用户</span>
+                        </div>
+                        <div class="col-md-2 hidden-xs">
+                            <h5>{$user_count['follower_count']}人</h5>
+                            <span class="min-text">代理用户</span>
+                        </div>
+                        <div class="col-md-2 col-xs-3 ">
+                            <h5>{$user_count['new']}人</h5>
+                            <span class="min-text">新用户</span>
+                        </div>
+                        <div class="col-md-2 col-xs-3">
+                            <h5>{$income['confirm']}</h5>
+                            <span class="min-text">预估收益</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

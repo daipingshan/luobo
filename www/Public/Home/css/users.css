@@ -1,0 +1,9 @@
+.user-works{ margin-bottom: 40px;}
+.user_identity{ color: #dcc07c; margin-bottom: 20px;}
+.user_text{ margin-bottom: 20px;}
+.user_img{ max-width: 120px;  width: 110px; height: 110px;}
+.user_img_box{margin: 20px 0;}
+.user_data li{border-top: 1px solid #f1f1f1;border-bottom: 1px solid #f1f1f1; padding: 15px 0; margin-bottom: -1px;}
+.user_data li:first-child{ border-top:none;}
+.user_data li:last-child{ border-bottom:none;}
+

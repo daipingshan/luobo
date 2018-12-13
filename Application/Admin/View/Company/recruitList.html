@@ -1,0 +1,86 @@
+<extend name="Common/common"/>
+<block name="body">
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="js">
+    <script type="text/html" id="money">
+        {{#  if(d.salary_min == 0 && d.salary_max == 0){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal">面议</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal">{{d.salary_min}}K~{{d.salary_max}}K</a>
+        {{#  } }}
+    </script>
+    <script type="text/html" id="table-edit">
+        {{#  if(d.recommend_expire_time == 0){ }}
+        <a class="layui-btn layui-btn-xs set-recommend"
+           data-url="{:U('recruitCheck')}?id={{d.id}}">立即审核</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-danger set-recommend"
+           data-url="{:U('recruitCheck')}?id={{d.id}}">二次审核</a>
+        {{#  } }}
+
+    </script>
+    <script>
+        $(function () {
+            var index;
+            form.render();
+            var url = "{:U('recruitList')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            $('body').on('click', '.set-recommend', function () {
+                var del_url = $(this).data('url');
+                layer.confirm('你确定要将此招聘信息审核通过吗，审核通过后改招聘信息将在首页展示？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                    var get_param = $('form.search').serialize();
+                                    var get_url = url + '?' + get_param;
+                                    getData(get_url);
+                                }
+                            )
+                        } else {
+                            layer.msg(res.info, {icon: 1});
+                        }
+                    })
+                })
+            })
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '招聘ID', sort: true}
+                        , {field: 'name', width: 200, title: '岗位名称'}
+                        , {field: 'nature_view', title: '工作性质'}
+                        , {field: 'experience_view', title: '工作经验'}
+                        , {field: 'limit_educate_view', title: '学历要求'}
+                        , {field: 'company_address', title: '薪资', templet: '#money'}
+                        , {field: 'create_time', width: 200, title: '发布时间',}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit', width: '20%'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

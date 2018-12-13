@@ -1,0 +1,199 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <a class="layui-btn layui-btn-danger add" href="javascript:;" data-pid="0"><i
+                    class="layui-icon">
+                &#xe654;</i>添加省份
+            </a>
+        </div>
+    </form>
+    <div class="layui-tab layui-tab-card" lay-filter="test">
+        <ul class="layui-tab-title one-li">
+            <volist name="data" id="row">
+                <li
+                <if condition="$key eq 0">class="layui-this"</if>
+                >
+                <button class="layui-btn layui-btn-xs"><i
+                        class="layui-icon save" data-pid="{$row.parent_id}"
+                        data-id="{$row.id}" data-name="{$row.name}" data-sort="{$row.sort}" data-pin="{$row.pinyin}">&#xe642;</i>
+                </button>
+                {$row.name}
+                <button class="layui-btn layui-btn-xs layui-btn-danger"><i class="layui-icon add"
+                                                                           data-pid="{$row.id}">&#xe654;</i>
+                </button>
+                </li>
+            </volist>
+        </ul>
+        <div class="layui-tab-content">
+            <volist name="data" id="row">
+                <div
+                <if condition="$key eq 0">class="layui-tab-item layui-show"
+                    <else/>
+                    class="layui-tab-item"
+                </if>
+                >
+                <div class="layui-tab" lay-filter="test">
+                    <ul class="layui-tab-title two-li">
+                        <volist name="row.son_data" id="val">
+                            <li
+                            <if condition="$key eq 0">class="layui-this"</if>
+                            >
+                            <button class="layui-btn layui-btn-xs"><i
+                                    class="layui-icon save" data-pid="{$val.parent_id}"
+                                    data-id="{$val.id}" data-name="{$val.name}" data-sort="{$val.sort}"
+                                    data-pin="{$val.pinyin}">&#xe642;</i>
+                            </button>
+                            {$val.name}
+                            <button class="layui-btn layui-btn-xs layui-btn-danger"><i
+                                    class="layui-icon add"
+                                    data-pid="{$val.id}">&#xe654;</i>
+                            </button>
+                            </li>
+                        </volist>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <volist name="row.son_data" id="val">
+                            <div
+                            <if condition="$key eq 0">class="layui-tab-item layui-show"
+                                <else/>
+                                class="layui-tab-item"
+                            </if>
+                            >
+                            <table class="layui-table">
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                <volist name="val.son_data" id="v">
+                                    <tr>
+                                        <td>{$v.name}</td>
+                                        <td><a href="javascript:;" data-id="{$v.id}" data-pid="{$v.parent_id}"
+                                               data-name="{$v.name}" data-sort="{$v.sort}" data-pin="{$v.pinyin}"
+                                               class="layui-btn layui-btn-xs save">编辑</a>
+                                            <a href="javascript:;" data-url="{:U('del',array('id'=>$v['id']))}"
+                                               class="layui-btn layui-btn-xs layui-btn-danger del">删除</a></td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+
+                    </div>
+            </volist>
+        </div>
+    </div>
+    </div>
+    </volist>
+    </div>
+    </div>
+</block>
+<block name="box">
+    <div id="box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">城市名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" class="layui-input" placeholder="请输入城市名称">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">城市拼音</label>
+                <div class="layui-input-block">
+                    <input type="text" name="pinyin" class="layui-input" placeholder="请输入城市拼音">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">城市排序</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="sort" class="layui-input" value="255" placeholder="请输入城市排序">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="parent_id" value="0"/>
+                    <input type="hidden" name="id" value="0" id="city-id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-admin">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script>
+        $(function () {
+            var index;
+            element.on('tab(test)', function (data) {
+                element.render();
+            });
+            //添加管理员账号
+            $('body').on('click', '.add', function () {
+                $('input[name=parent_id]').val($(this).data('pid'));
+                $('input[name=name]').val('');
+                $('input[name=pinyin]').val('');
+                $('input[name=sort]').val(255);
+                $('#city-id').val(0);
+                index = layer.open({
+                    title: "添加城市",
+                    type: 1,
+                    area: ['600px', '350px'],
+                    content: $('#box'),
+                })
+            })
+
+            $('body').on('click', '.save', function () {
+                $('input[name=parent_id]').val($(this).data('pid'));
+                $('input[name=name]').val($(this).data('name'));
+                $('input[name=pinyin]').val($(this).data('pin'));
+                $('input[name=sort]').val($(this).data('sort'));
+                $('#city-id').val($(this).data('id'));
+                index = layer.open({
+                    title: "编辑城市",
+                    type: 1,
+                    area: ['600px', '350px'],
+                    content: $('#box'),
+                })
+            })
+
+            form.on("submit(save-admin)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('save')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            location.reload();
+                        })
+                    } else {
+                        _btn.disabled = false;
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+
+
+            $('body').on('click', '.del', function () {
+                var del_url = $(this).data('url');
+                layer.confirm('你确定要删除此城市信息吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                location.reload();
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+        })
+    </script>
+</block>

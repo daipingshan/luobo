@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<!-- 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+
+<include file="Common:head" />
+
+<body>
+<include file="Common:header" />
+<div class="mb-30 "></div>
+<main class="container ">
+    <include file="top" />
+    <div class="row">
+        <div class="col-md-9 ">
+            <ul class="com_nav nav nav-tabs nav-justified">
+                <li <if condition="(ACTION_NAME  eq 'company') "> class="active" </if>>
+                <a href="{:U('Jobs/company/id/'.$info['id'])}">公司主页</a>
+                </li>
+                <li <if condition="(ACTION_NAME eq 'jobslist')"> class="active" </if>>
+                <a href="{:U('Jobs/jobslist/id/'.$info['user_id'])}">招聘职位</a>
+                </li>
+            </ul>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h5 class="col-md-10">热招岗位</h5>
+                        <a href="{:U('Jobs/jobslist/id/'.$info['user_id'])}" class="text-right col-md-2">查看全部岗位</a>
+                    </div>
+                </div>
+                <div class="panel-body ">
+                    <div class="row">
+                        <empty name="recruits">
+                            <h4>企业还没发布招聘信息</h4>
+                            <else/>
+                            <foreach name="recruits" key="k" item="vo" >
+                                <div class="jobs-recommend col-md-4">
+                                    <a href="{:U('Jobs/detail/id/'.$vo['id'])}">
+                                        <div class="job-c-box  t{++$k}">
+                                            <h4>{$vo.name}</h4>
+                                            <p>
+                                                <empty name="vo.refresh_time">
+                                                    {$vo.create_time|date="m-d H:i",###}
+                                                    <else/>
+                                                    {$vo.refresh_time|date="m-d H:i",###}
+                                                </empty>
+                                            </p>
+                                            <span>
+                                                    <eq name="vo.salary_min" value="0">
+                                                    面议
+                                                    <else />
+                                                    {$vo.salary_min}K - {$vo.salary_max}K
+                                                    </eq>
+                                                </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </foreach>
+                        </empty>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-10">公司简介</h5>
+                    </div>
+                </div>
+                <div class="panel-body">{$info['desc']}</div>
+            </div>
+            <empty name="pics">
+                <else/>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-10">公司环境</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <input id="company_address" type="hidden" value="{$info['company_address']}" />
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner big" role="listbox">
+                                <volist name="pics" id="vo" key="k">
+                                    <div class="item <eq name='k' value='1'>active</eq>">
+                                        <img src="{$vo['pic']}" class="com_imgs">
+                                    </div>
+                                </volist>
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">上一张</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">下一张</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </empty>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-10">公司位置</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    地址：
+                    {$region}
+                    {$info['company_address']}
+                    <empty name="info['long_lat']">
+                        <else/>
+                        <a data-toggle="modal" data-target="#map_view" data-whatever="@mdo" >查看地址</a>
+                    </empty>
+                    <input type="hidden" id="long_lat" value="{$info['long_lat']}"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <include file="right_bar" />
+        </div>
+    </div>
+</main>
+
+<!-- 查看公司位置 -->
+<div class="modal fade col-xs-12" id="map_view" tabindex="-1" role="dialog" aria-labelledby="map_vies_mymodal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 700px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="map_vies_mymodal">公司位置</h4>
+            </div>
+            <div class="modal-body">
+                <div id="address_company" class="address_c"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="Common:footer" />

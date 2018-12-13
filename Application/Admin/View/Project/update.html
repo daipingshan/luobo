@@ -1,0 +1,245 @@
+<extend name="Common/common"/>
+<block name="body">
+    <fieldset class="layui-elem-field w80">
+        <legend>招聘信息</legend>
+        <div class="layui-field-box">
+            <div class="layui-row mt20 w80">
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">分类信息</label>
+                        <div class="layui-input-inline" style="padding-top: 8px">
+                            {$info['project_type_info']}
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">重置分类</label>
+                        <div class="layui-input-inline">
+                            <select class="layui-select" name="project_type_id">
+                                <option value="">请选择分类</option>
+                                <foreach name="project_type_data" item="val" key="key">
+                                    <option value="{$val.id}">{$val.name}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">城市信息</label>
+                        <div class="layui-input-block" style="padding-top: 8px">
+                            {$info['city_info']}
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">重置城市</label>
+                        <div class="layui-input-inline">
+                            <select name="province_id" lay-filter="province">
+                                <option value="">请选择省份</option>
+                                <foreach name="city_data" item="val" key="key">
+                                    <option value="{$key}">{$val}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="city_id" id="city" lay-filter="city">
+                                <option value="">请选择城市</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="district_id" id="district">
+                                <option value="">请选择区域</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item" id="url">
+                        <label class="layui-form-label">项目名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="name" value="{$info.name}" placeholder="请输入项目名称"
+                                   autocomplete="off"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目logo</label>
+                        <div class="layui-input-block" style="position: relative">
+                            <input type="text" name="image" value="{$info.image}" id="img-input"
+                                   class="layui-input layui-disabled"
+                                   placeholder="请上传项目logo" readonly style="width: 75%">
+                            <div style="position: absolute;left:80% ;top:0;">
+                                <button type="button" class="layui-btn" id="layui-upload-file">
+                                    <i class="layui-icon">&#xe67c;</i>上传图片
+                                </button>
+                            </div>
+                            <div style="position: absolute;left:80% ;top:50px;">
+                                <img src="{$info.image}" width="100" id="img-view">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">最低薪资</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="salary_min" value="{$info.salary_min}" placeholder="请输入最低薪资"
+                                   class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">K</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">最高薪资</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="salary_max" value="{$info.salary_max}" placeholder="请输入最高薪资"
+                                   class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">K</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系人</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="contacts" value="{$info.contacts}" placeholder="请输入联系人"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">联系电话</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="tel" value="{$info.tel}" placeholder="请输入联系电话"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目排序</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="sort" value="{$info.sort}" placeholder="请输入项目排序"
+                                   class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">数值越小排序越靠前</div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">门店返费</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="subsidy" value="{$info.subsidy}" placeholder="请输入项目补助"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">平台补助</label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="rebate" value="{$info.rebate}" placeholder="请输入平台补助"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">补助说明</label>
+                        <div class="layui-input-block">
+                            <script id="desc" type="text/plain">{$info.rebate_desc}</script>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工作地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="address" value="{$info.address}" placeholder="请输入工作地址"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">招聘内容</label>
+                        <div class="layui-input-block">
+                            <script id="content" type="text/plain">{$info.content}</script>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$info.id}">
+                            <button class="layui-btn" lay-submit="" lay-filter="save">立即提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary" id="reset">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </fieldset>
+</block>
+<block name="js">
+    <script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/lang/zh-cn/zh-cn.js"></script>
+    <script>
+        $(function () {
+            var index;
+            window.UEDITOR_CONFIG.initialFrameHeight = 300; //设置高度
+            window.UEDITOR_CONFIG.initialFrameWidth = 800;//设置宽度录
+            UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+            UE.Editor.prototype.getActionUrl = function (action) {
+                if (action == 'uploadimage' || action == 'uploadscrawl' || action == 'uploadimage' || action == 'uploadvideo') {
+                    return "{:U('Common/uploadEditImg')}";
+                } else {
+                    return this._bkGetActionUrl.call(this, action);
+                }
+            }
+            UE.getEditor('content', {
+                toolbars: BASE_BAR,
+            });
+            UE.getEditor('desc', {
+                toolbars: BASE_BAR,
+            });
+            form.on('select(province)', function (data) {
+                if (data.value > 0) {
+                    var html = "<option value='0'>请选择城市</option>"
+                    $.get("{:U('getCity')}", {id: data.value}, function (res) {
+                        html += res.data.html;
+                        $('#city').html(html);
+                        $('#district').html("<option value='0'>请选择区域</option>");
+                        form.render();
+                    }, 'json')
+                }
+            });
+            form.on('select(city)', function (data) {
+                if (data.value > 0) {
+                    var html = "<option value='0'>请选择区域</option>"
+                    $.get("{:U('getCity')}", {id: data.value}, function (res) {
+                        html += res.data.html;
+                        $('#district').html(html);
+                        form.render();
+                    }, 'json')
+                }
+            });
+            upload.render({
+                elem: '#layui-upload-file'
+                , url: '/Common/uploadImg'
+                , before: function () {
+                    index = layer.msg('上传中，请稍候', {icon: 16, time: false, shade: 0.8});
+                }
+                , done: function (res) {
+                    layer.close(index);
+                    if (res.code == 1) {
+                        layer.msg(res.msg, {icon: 1})
+                        $('#img-input').val(res.data[0]);
+                        $('#img-view').attr('src', res.data[0]).parent().show();
+                    } else {
+                        layer.msg(res.msg, {icon: 2})
+                    }
+                }
+            });
+
+            //登录按钮事件
+            form.on("submit(save)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('save')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                data.field.content = UE.getEditor('content').getContent();
+                data.field.rebate_desc = UE.getEditor('desc').getContent();
+                $.post(url, data.field, function (res) {
+                    _btn.disabled = false;
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            location.href = "{:U('index')}"
+                        })
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+        })
+    </script>
+</block>
+

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.config.js?v=1.0"></script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/lang/zh-cn/zh-cn.js"></script>
+<body>
+<include file="Common:header" />
+<script src="__JS_PATH__/upload.js?v=1.1"></script>
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 ">
+            <div class="box">
+                <include file="Common:company_nav" />
+            </div>
+            <div class="box">
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-10">公司简介</h5>
+                            <a class="btn-change col-md-2" data-toggle="modal" data-target="#about_edit" data-whatever="@mdo">编辑</a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        {$info['desc']}
+                    </div>
+
+                </div>
+                <div class="panel panel-default lb-panel hide">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-10">荣誉资质</h5>
+                            <a class="btn-change col-md-2" data-toggle="modal" data-target="#about_honor" data-whatever="@mdo">编辑</a>
+                        </div>
+                    </div>
+                    <div class="panel-body row">
+                        <volist name='img["honor"]' id='vo'>
+                            <div class="user-works col-md-3">
+                                <img src="{$vo['pic']}" class="img-responsive">
+                            </div>
+                        </volist>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-10">公司环境</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body row">
+                        <volist name='img["environment"]' id='vo'>
+                            <div class="user-works col-md-3">
+                                <img src="{$vo['pic']}" class="img-responsive" >
+                                <div class="delete_img" data-id="{$vo.id}">删除</div>
+                            </div>
+                        </volist>
+                        <php>
+                            $imgs = count($img["environment"])
+                        </php>
+                        <if condition="$imgs lt 4 ">
+                            <div class="upload_btn col-md-3">
+                                <label for="upload_environment">
+                                    <i class="iconfont icon-icon02"></i>
+                                    <p>上传图片</p>
+                                    <p class="small">正方形，文件不要超过1mb</p>
+                                    <input type="file" id="upload_environment" class="hide" name="envIMG">
+                                </label>
+                            </div>
+                        </if>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-10">公司位置</h5>
+                            <empty name="info['long_lat']">
+                                <a class="btn-change col-md-2" data-toggle="modal" data-target="#adout_address" data-whatever="@mdo">创建动态地图</a>
+                                <else/>
+                                <a class="btn-change col-md-2" data-toggle="modal" data-target="#adout_address" data-whatever="@mdo">编辑</a>
+                            </empty>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <empty name="info['long_lat']">
+                            <div class="alert alert-danger" role="alert">
+                              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                              <span class="sr-only">Error:</span>
+                              创建动态地图
+                            </div>
+                        </empty>
+
+                        地址：
+                        {$city[$info['province_id']]['name']}-{$city[$info['city_id']]['name']}-{$city[$info['district_id']]['name']}
+                        {$info['company_address']}
+                        <input type="hidden" id="local_ln_lat" value="{$info['long_lat']}"/>
+                        <empty name="info['long_lat']">
+
+                            <else/>
+                            <a data-toggle="modal" data-target="#map_view" data-whatever="@mdo">查看地址</a>
+                        </empty>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 ">
+
+            <div class="panel panel-default lb-panel text-center">
+                <div class="panel-body">
+                    <div class="user_img_box" >
+                        <label for="upload_logo">
+                            <input type="file" id="upload_logo" class="hide" value="上传图片"
+                                   accept="image/jpg,image/jpeg,image/png,image/bmp" multiple="multiple" />
+                            <empty name="info['avatar']">
+                                <img src="__IMAGE_PATH__/cp_def.png" class="user_image">
+                                <p>(文件不要超过1Mb)</p>
+                                <else/>
+                                <img src="{$info['avatar']}" class="user_image">
+                                <p>(文件不要超过1Mb)</p>
+                            </empty>
+                            <span class="glyphicon glyphicon-camera edit_img" aria-hidden="true"></span>
+                        </label>
+
+                    </div>
+
+                    <div class="clear"></div>
+                    <p class="user_text"><a href="{$info['link']}">{$info['company_name']}</a></p>
+
+                    <div class="user_text">
+                        企业评分：
+                        <for start="1" end="6">
+                            <if condition="($info['credit'] egt $i)">
+                                <img src="__IMAGE_PATH__/start_on.png">
+                                <else />
+                                <img src="__IMAGE_PATH__/start_off.png">
+                            </if>
+                        </for>
+                    </div>
+                    <div class="row small">
+                        <div class="col-md-6">
+                            <p>{$my_amount}</p>
+                            <p>萝卜</p>
+                        </div>
+                        <div class="col-md-6>">
+                            <p>{$recruit_count}</p>
+                            <p>岗位</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box cp_progress">
+                <h4>企业信息完善度 </h4>
+                <p><span>(完成企业信息，获取更高权益！)</span></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        60%
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-8">基本资料</h5>
+                        <a class="btn-change col-md-4" href="{:U('company/edit')}">编辑</a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list">
+                        <li class="list-item"><span class="glyphicon glyphicon-stats"></span>
+                            {$company_scales[$info['scale']]}
+                        </li>
+                        <li class="list-item"><span class="glyphicon glyphicon-user"></span> {$entreprise_scale}人</li>
+                        <li class="list-item"><span class="glyphicon glyphicon-map-marker"></span>{$district}</li>
+                        <li class="list-item"><span class="glyphicon glyphicon-equalizer"></span>{$info['industry_field']}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-8">公司标签</h5>
+                        <a class="btn-change col-md-4" data-toggle="modal" data-target="#about_company_label" data-whatever="@mdo">编辑</a>
+                    </div>
+                </div>
+                <div id="company_biaoqian"></div>
+                <div class="panel-body">
+                    <ul class="cp_tags">
+                        <volist name='company_label' id='vo'>
+                            <li>{$label[$vo]['name']}</li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-8">HR二维码</h5>
+                        <label for="upload_hrqrcode" style="font-weight: 1;display: block">
+                            <a class="btn-change col-md-4" >编辑</a>
+                            <input type="file" id="upload_hrqrcode" class="hide" value="上传图片"
+                                   accept="image/jpg,image/jpeg,image/png,image/bmp" multiple="multiple" />
+                        </label>
+
+
+                    </div>
+                </div>
+                <div class="panel-body text-center">
+
+                    <if condition="$info['hr_qrcode'] eq ''">
+                        <img src="__IMAGE_PATH__/qrcode.jpg" class="qrcode img-responsive" >
+                        <p>(文件不要超过1Mb)</p>
+                        <else />
+                        <img src="{$info['hr_qrcode']}" class="qrcode img-responsive" >
+                        <p>(文件不要超过1Mb)</p>
+                    </if>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+
+<!-- 公司标签 -->
+<div class="modal fade" id="about_company_label" tabindex="-1" role="dialog" aria-labelledby="about_company_label_myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="about_company_label_myModalLabel">公司标签</h4>
+            </div>
+
+            <div class="modal-body">
+                <volist name='label' id='vo'>
+                    <label class="labels">
+                        <input type="checkbox" name="gongsi_biaoqian" value="{$vo['id']}">{$vo['name']}
+                    </label >
+                </volist>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary" id="tijiao_company_label" data-dismiss="modal">确定</button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 编辑公司简介模态框 -->
+<div class="modal fade" id="about_edit" tabindex="-1" role="dialog" aria-labelledby="about_edit_myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="about_edit_myModalLabel">
+                    公司简介
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <script id="editor" type="text/plain" >{$info['desc']}</script>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary" id="save">保存</button>
+            </div>
+
+
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<!-- 公司位置模态框 -->
+<div class="modal fade" id="adout_address" tabindex="-1" role="dialog" aria-labelledby="adout_address_mymodal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 700px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="adout_address_mymodal">公司位置</h4>
+            </div>
+
+            <iframe src="{:U('Common/addlocation')}" width="670px" height="550px">
+                地图
+            </iframe>
+
+        </div>
+    </div>
+</div>
+
+<!-- 查看公司位置 -->
+<div class="modal fade" id="map_view" tabindex="-1" role="dialog" aria-labelledby="map_vies_mymodal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 700px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="map_vies_mymodal">公司位置</h4>
+            </div>
+            <div class="modal-body">
+                <iframe src="{:U('Common/location', array('long' => $info['long_lat']))}" width="670px" height="500px">
+                    地图
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.addEventListener("message", receiveMessage, false);
+    function receiveMessage(event) {
+        if(event.origin){
+            var closeCmd = 'close-this-iframe';
+            if (event.data == closeCmd) {
+                $('iframe').remove();
+                $('#adout_address').modal('hide');
+                window.location.reload();
+            }
+        } else {
+            console.error('bad message');
+        }
+    }
+</script>
+
+<script type="text/javascript">
+
+    $("#upload_environment").ajaxImageUpload({
+        url: '{:U("Company/uploadPic")}', //上传的服务器地址
+        data: { name:'envIMG',type:'coenv', width : 600, height : 600 },
+        maxNum: 3, //允许上传图片数量
+        zoom: true, //允许上传图片点击放大
+        allowType: ["gif", "jpeg", "jpg", "bmp",'png'], //允许上传图片的类型
+        maxSize :2,
+        beforeSend: function(){toastr.info('上传中！');},
+        success:function(data){
+            //console.log(data);
+            $('.loading').hide();
+            toastr.success('企业照片已经上传成功！');
+            //页面展示
+            window.location.reload();
+        },
+        error:function (e) {
+            toastr.error('上传失败，请确认图片类型正确并保证大小不要超过1mb！')
+            console.log(e);
+        }
+    });
+
+    //删除作品
+    $('.delete_img').on('click',function(){
+        var id = $(this).data('id');
+        var item = $(this).parents('.user-works');
+        var request = $.ajax({
+            url: "{:U('Company/delPic')}",
+            method: "POST",
+            data: {
+                id : id
+            },
+            dataType: "json",
+        });
+
+        request.done(function (data) {
+            //console.log(data);
+            if(data.status == "success"){
+                toastr.success('删除成功');
+                item.hide();
+            }else{
+                toastr.error('操作失败404.'+data.msg, '哎呦!')
+            }
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            console.log(textStatus);
+            return false;
+        });
+
+        return false;
+
+    });
+</script>
+<script type="text/javascript">
+    $("#upload_hrqrcode").ajaxImageUpload({
+        url: '{:U("Company/uploadPic")}', //上传的服务器地址
+        data: { name:'mpp', width:90, height:90, type:'hr' },
+        maxNum: 3, //允许上传图片数量
+        zoom: true, //允许上传图片点击放大
+        allowType: ["gif", "jpeg", "jpg", "bmp",'png'], //允许上传图片的类型
+        maxSize :2, //允许上传图片的最大尺寸，单位M
+        before: function () {
+            alert('上传的图片不能大于3M');
+        },
+        success:function(data){
+            $('#hrqrcode_pic').val(data.data);
+            toastr.success(data.msg);
+            $('.loading').hide();
+            window.location.reload();
+        },
+        error:function (e) {
+            toastr.error(e);
+            $('.loading').hide();
+            console.log(e);
+        }
+    });
+
+    $("#upload_logo").ajaxImageUpload({
+        url: '{:U("Company/uploadPic")}', //上传的服务器地址
+        data: { name:'mpp' , width:90, height: 100, type:'logo'},
+        maxNum: 3, //允许上传图片数量
+        zoom: true, //允许上传图片点击放大
+        allowType: ["gif", "jpeg", "jpg", "bmp",'png'], //允许上传图片的类型
+        maxSize :2, //允许上传图片的最大尺寸，单位M
+        before: function () {
+            $('.loading').show();
+        },
+        success:function(data){
+            $('#logo_pic').val(data.data);
+            toastr.success(data.msg);
+            window.location.reload();
+        },
+        error:function (e) {
+            console.log(e);
+        }
+    });
+
+    $("#tijiao_company_label").click(function(){
+        var text = "";
+        var num = $('input[name=gongsi_biaoqian]:checked');
+        var n = 0;
+        for(i=0;i<num.length;i++){
+            if(num[i].checked)
+                n++;
+        }
+        if (n > {$used_label}){
+            alert('企业最多选择'+{$used_label}+'个，请重新选择！');
+            return false;
+        }
+        $.each($('input[name=gongsi_biaoqian]:checked'),function(){
+            text += $(this).val()+',';
+        });
+
+        text = text.substr(0, text.length-1);
+
+        $.post("{:U('Company/updateInfo')}", {type: 3, label: text}, function (res) {
+            if (res.code == 0) {
+                toastr.success(res.msg);
+                location.href = res.data;
+            } else {
+                toastr.error(res.msg);
+                location.href = res.data;
+            }
+            return true;
+        });
+
+    });
+</script>
+
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+
+    $("#save").click(function(){
+
+        var desc = UE.getEditor('editor').getContent();
+        console.log(desc);
+        $.post("{:U('Company/updateInfo')}", {type: 1, content: desc}, function (res) {
+            if (res.code == 0) {
+                toastr.success(res.msg);
+                location.href = res.data;
+            } else {
+                toastr.error(res.msg);
+                location.href = res.data;
+            }
+            return true;
+        });
+
+    });
+</script>
+
+
+<!-- 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+<include file="Common:footer" />

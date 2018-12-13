@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+    <link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+    <link rel="stylesheet" href="__CSS_PATH__/users.css">
+    <link rel="stylesheet" href="__CSS_PATH__/company.css">
+<body>
+<include file="Common:header" />
+
+<main class="container">
+<div class=" row">
+        <div class="box-1 adv-search">
+            <ul class="col-md-12 col-xs-12">
+                <li class="tag col-md-1 col-xs-12">企业人数</li>
+
+                <foreach name="search_list.staffs" item="v" key="k">
+                        <li>
+                            <a href="{$url}&staffs={$k}"
+                              <eq name="inventory['staffs']" value="$k">
+                                class="active"
+                              </eq>
+                            >{$v}
+                            </a>
+                        </li>
+                </foreach>
+            </ul>
+            <ul class="col-md-12 col-xs-12">
+                <li class="tag col-md-1 col-xs-12">地区(待重构)</li>
+                  <li><a href="{$url}&city=''"
+                      <eq name="inventory['city']" value="">class="active"</eq>>不限</a>
+                  </li>
+                <foreach name="search_list.city" item="vo" key="k">
+                    <li>
+                        <a href="{$url}&city={$vo.id}"
+                        <eq name="inventory['city']" value="$vo.id">
+                            class="active"
+                        </eq>
+                        >{$vo.name}</a>
+                    </li>
+                </foreach>
+            </ul>
+
+            <ul class="col-md-12 col-xs-12">
+                <li class="tag col-md-1 col-xs-12">融资信息</li>
+                 <li><a href="{$url}&scale=''"
+                                      <eq name="inventory['scale']" value="">class="active"</eq>>不限</a>
+                                  </li>
+
+                <foreach name="search_list.scale" item="vo" key="k">
+                    <li>
+                        <a href="{$url}&scale={$k}"
+                        <eq name="inventory['scale']" value="$k">
+                            class="active"
+                        </eq>>{$vo}</a>
+                    </li>
+                </foreach>
+
+            </ul>
+
+
+            <div class="clear"></div>
+        </div>
+    </div>
+<div class="row">
+        <div class="box-1 col-md-12 text-center">
+            <span class="col-md-1">排序方式</span>
+            <a href="" class="col-md-1">默认</a>
+            <a href="" class="col-md-1">推荐优先</a>
+        </div>
+    </div>
+<div class="recommended_enterprise row">
+
+	<div id="" class="jobs-con row">
+			<if condition="$count lt 1" >
+          <h3 class="search_result">没有搜索到相关企业，试着减少搜索条件</h3>
+      <else />
+        <foreach name="jobs" item="vo">
+
+         <div class="jobs-box col-md-3 col-xs-12 col-sm-6 ">
+              <div class="job-detail">
+                 <div class="row">
+                  <div class="col-md-4 text-center col-xs-4">
+
+  										<empty name="vo.avatar">
+                           <img src="__IMAGE_PATH__/cp_def.png" alt="{$vo.company_name}" class="img-rounded">
+                      <else/>
+                          <img src="{$vo.avatar}" alt="{$vo.company_name}" class="img-rounded">
+                      </empty>
+
+                 	 </div>
+
+                 	 <div class="col-md-8 col-xs-8">
+                      <p>
+                      <a href="{:U('jobs/company/id/'.$vo['id'].'')}" class="job-title" target="_blank">
+                        <empty name="vo.short_name">
+                             <span class="small-text">{$vo.company_name}</span>
+													<else/>
+														 {$vo.short_name}
+												</empty>
+                      </a>
+                      </p>
+                      <p class="job-meta">{$vo.industry_field} /{:C(SCALES)[$vo.scale]}/ {$vo.company_size}人</p>
+
+                  	</div>
+                  </div>
+                  <div class="row cp_mark_box">
+										<foreach name="vo.label" item="it">
+										    <div class="col-md-4 col-xs-4"><a class="cp_mark">{$company_label[$it]['name']}</a></div>
+										</foreach>
+                  </div>
+                  <div class="row cp_mark_foot cp_foote">
+                         <div class="col-md-6 col-xs-6">
+                              <span>{$vo.jobs_num}</span>
+                         </div>
+                         <div class="col-md-6 col-xs-6 text-right">
+                             <span><img src="__IMAGE_PATH__/weixin_icon.jpg" class="chat_icon"></span>
+                             <div class="hide"><img src="{$vo.hr_qucode}"></div>
+                         </div>
+                  </div>
+              </div>
+        </div>
+      </foreach>
+      </if>
+	</div>
+	<div class="row text-center">
+      <div class="col-md-2">找到{$count}个企业</div>
+      <div class="text-right col-md-10">{$show}</div>
+  </div>
+
+</div>
+</main>
+
+<include file="Common:footer" />
+<!-- Bootstrap core JavaScript
+================================================== -->

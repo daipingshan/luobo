@@ -1,0 +1,131 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+    </style>
+</block>
+<block name="body">
+    <a class="layui-btn layui-btn-danger" id="add-type" href="javascript:;"><i class="layui-icon">
+        &#xe654;</i>添加业绩分类
+    </a>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="box">
+    <div id="admin-box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" class="layui-input" lay-verify="required" placeholder="请输入分类名称">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id" value="0" id="type-id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-admin">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs update-type" data-name="{{d.name}}" data-id="{{d.id}}">编辑</a>
+        {{#  if(d.status == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-danger set-status"
+           data-url="{:U('setShopReportCateStatus')}?id={{d.id}}&status=0">禁用</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal set-status"
+           data-url="{:U('setShopReportCateStatus')}?id={{d.id}}&status=1">启用</a>
+        {{#  } }}
+    </script>
+    <script>
+        $(function () {
+            var index;
+            form.render();
+            var get_url = "{:U('reportCate')}";
+            getData(get_url);
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '分类ID', sort: true}
+                        , {field: 'name', width: 160, title: '分类名称'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit'}
+                    ]],
+                });
+            }
+
+            //添加管理员账号
+            $('body').on('click', '#add-type', function () {
+                $('#admin-id').val(0);
+                $('input[name=name]').val('');
+                index = layer.open({
+                    title: "添加业绩分类",
+                    type: 1,
+                    area: ['600px', '200px'],
+                    content: $('#admin-box'),
+                })
+            })
+
+            //编辑管理员账号
+            $('body').on('click', '.update-type', function () {
+                $('input[name=name]').val($(this).data('name'));
+                $('#type-id').val($(this).data('id'));
+                index = layer.open({
+                    title: "编辑业绩分类",
+                    type: 1,
+                    area: ['600px', '200px'],
+                    content: $('#admin-box'),
+                })
+            })
+
+            $('body').on('click', '.set-status', function () {
+                var del_url = $(this).data('url');
+                var text = $(this).text();
+                layer.confirm('你确定要' + text + '此业绩分类？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                getData(get_url);
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+            //登录按钮事件
+            form.on("submit(save-admin)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('saveShopReportCate')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    _btn.disabled = false;
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            getData(get_url)
+                        })
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+        })
+    </script>
+</block>

@@ -1,0 +1,143 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+        .search .layui-form-select .layui-edge {
+            right: 25%;
+        }
+
+        .search .layui-form-select dl {
+            min-width: 80%;
+        }
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <a class="layui-btn layui-btn-danger add" href="javascript:;"><i
+                    class="layui-icon">
+                &#xe654;</i>添加职位标签
+            </a>
+        </div>
+    </form>
+    <table class="layui-table">
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>标签名称</th>
+            <th>标签名称</th>
+            <th>标签名称</th>
+            <th>标签名称</th>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name="data" id="label">
+            <tr>
+                <volist name="label" id="row">
+                    <td><a href="javascript:;" style="margin-right: 20px"
+                           class="layui-btn layui-btn-info layui-btn-xs save" data-name="{$row.name}"
+                           data-sort="{$row.sort}" data-id="{$row.id}">编辑</a>{$row.name}<a
+                            href="javascript:;" style="margin-left: 20px"
+                            class="layui-btn layui-btn-danger layui-btn-xs del"
+                            data-url="{:U('delLabel',array('id'=>$row['id']))}">删除</a></td>
+                </volist>
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+</block>
+<block name="box">
+    <div id="box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">标签名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" class="layui-input" placeholder="请输入标签名称">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">标签排序</label>
+                <div class="layui-input-block">
+                    <input type="text" name="sort" value="255" class="layui-input" placeholder="请输入标签排序">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id" value="0" id="label-id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-admin">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script>
+        $(function () {
+            var index;
+            //添加管理员账号
+            $('body').on('click', '.add', function () {
+                $('#label-id').val(0)
+                $('input[name=name]').val('');
+                $('input[name=sort]').val(255);
+                index = layer.open({
+                    title: "添加职位标签",
+                    type: 1,
+                    area: ['600px', '260px'],
+                    content: $('#box'),
+                })
+            })
+
+            $('body').on('click', '.save', function () {
+                $('#label-id').val($(this).data('id'))
+                $('input[name=name]').val($(this).data('name'));
+                $('input[name=sort]').val($(this).data('sort'));
+                index = layer.open({
+                    title: "编辑职位标签",
+                    type: 1,
+                    area: ['600px', '260px'],
+                    content: $('#box'),
+                })
+            })
+
+            form.on("submit(save-admin)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('saveLabel')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            location.reload();
+                        })
+                    } else {
+                        _btn.disabled = false;
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+            $('body').on('click', '.del', function () {
+                var del_url = $(this).data('url');
+                layer.confirm('你确定要删除此标签吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                location.reload();
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+        });
+    </script>
+</block>
+

@@ -1,0 +1,72 @@
+body {
+    background: url(../images/logo_bg.png);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-color: #53bfd7;
+}
+
+html {
+    height: 100%;
+}
+.hide{ display: none;}
+.show{ display:block}
+
+.auth_left {
+    background-image: url(../images/auth_left.png);
+}
+.form-group {
+    margin-bottom: 35px;
+}
+#auth_form {
+    background: #fff;
+    margin: 5% auto;
+    
+    border-radius: 7px;
+}
+
+#auth_form .btn {
+    border: 1px solid #2868c0;
+    color: #2868c0;
+    background-color: #ffffff;
+}
+
+#auth_form .btn:hover,#auth_form a.active {
+    background-color: #2868c0;
+    color: #fff;
+     
+}
+#auth_form .btn-primary{color: #fff;
+    background-color: #57b7d0;
+    border-color: #43aeca;    position: relative;
+    z-index: 9999999;
+}
+.form-box{  
+    background-color: #fff; 
+    border-radius: 5px;
+    padding: 30px 50px;
+    margin: 10% 0 ;
+}
+
+.login-form{ margin-top: 65px;margin-bottom:50px;
+ }
+
+.left_img {
+    margin: 0 -15px;
+}
+
+.auth-title {
+    color: #25376f;
+    font-size: 30px;
+}
+
+.auth-title span {
+    font-size: 14px;
+}
+.falx_03,.falx_01,.falx_02{ position: absolute;}
+.falx_01{ left: 70px; bottom: 0;}
+.falx_02{right: 120px; top: 60px;}
+.falx_03{right: 60px; bottom: 20px;}
+
+.input-group-addon img{ max-height: 20px; max-width: 20px;}
+.reg_head{ background: url(../images/reg_head.jpg);
+height: 60px; background-repeat: no-repeat; background-color: #2868c0;}

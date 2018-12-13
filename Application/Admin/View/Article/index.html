@@ -1,0 +1,108 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+        .search .layui-form-select .layui-edge {
+            right: 25%;
+        }
+
+        .search .layui-form-select dl {
+            min-width: 80%;
+        }
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="title" value="{:I('get.title')}" placeholder="请输入广告标题" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+                <a class="layui-btn layui-btn-danger add" href="{:U('add')}"><i class="layui-icon">
+                    &#xe654;</i>添加文章
+                </a>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="js">
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs save" href="{:U('update')}?id={{d.id}}">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger del" data-url="{:U('del')}?id={{d.id}}">删除</a>
+    </script>
+    <script type="text/html" id="img">
+        <div class="open-img-layer cursor"><img layer-src={{d.img}} src="{{d.img}}" alt="{{d.title}}"
+                                                width="120"></div>
+    </script>
+    <script>
+        $(function () {
+            var url = "{:U('index')}";
+            form.render();
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            $('body').on('mouseover', '.open-img-layer', function () {
+                var _this = $(this);
+                layer.photos({
+                    photos: _this
+                });
+            })
+
+
+            $('body').on('click', '.del', function () {
+                var del_url = $(this).data('url');
+                layer.confirm('你确定要删除此文章吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                var get_param = $('form.search').serialize();
+                                var get_url = url + '?' + get_param;
+                                getData(get_url);
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '文章ID', sort: true}
+                        , {field: 'title', width: 200, title: '文章标题'}
+                        , {field: 'img', title: '文章配图', width: 150, templet: '#img'}
+                        , {field: 'name', title: '文章分类'}
+                        , {field: 'sort', title: '文章排序'}
+                        , {field: 'add_time', width: 180, title: '添加时间'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit', width: '20%'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

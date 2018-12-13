@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+<main class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+    <div class="panel panel-default lb-panel">
+
+    <div class="panel-body text-center ">
+        <div class="user_img_box ">
+            <a href="{:U('user/info_display')}">
+                <empty name="user_info['avator']">
+                    <if condition="intval($user_info['sex']) eq 1">
+                        <img src="__IMAGE_PATH__/user_man.png" class="user_img img-circle">
+                        <else/>
+                        <img src="__IMAGE_PATH__/user_woman.png" class="user_img img-circle">
+                    </if>
+                    <else/>
+                    <img src="{$user_info['avator']}" class="user_img img-circle">
+                </empty>
+            </a>
+
+        </div>
+        <div class="user_text">
+            <p>{$user_info['real_name']} </p>
+            <p>
+              <if condition="intval($user_info['sex']) eq 1">
+                  <img src="__IMAGE_PATH__/man_.png" class="sex">
+              <else/>
+                  <img src="__IMAGE_PATH__/woman_.png" class="sex">
+              </if>
+                 </p>
+        </div>
+        <p class="user_identity user_text">普通会员</p>
+        <ul class="row list-box">
+            <li class=" col-md-6 col-xs-6">
+                <div class="box">
+                    <a href="{:U('User/index')}">
+
+                        已投递
+                    </a></div>
+            </li>
+            <li class=" col-md-6 col-xs-6">
+                <div class="box">
+                    <a href="{:U('User/invite?type=invite')}"
+                       target="_blank">
+
+                        面试邀请
+                    </a></div>
+            </li>
+            <li class=" col-md-6 col-xs-6">
+                <div class="box">
+                    <a href="{:U('User/index?type=success')}">
+
+                        邀请入职
+                    </a></div>
+            </li>
+            <li class=" col-md-6 col-xs-6">
+                <div class="box">
+                    <a href="{:U('User/index?type=interested')}">
+
+                        简历被查看
+                    </a></div>
+            </li>
+            <li class=" col-md-6 hide">
+                <div class="box">
+                    <a href="">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-rili"></use>
+                        </svg>
+                        会员
+                    </a></div>
+            </li>
+            <li class=" col-md-6 hide">
+                <div class="box">
+                    <a href="">
+                        <i class="iconfont icon-qita1"></i>
+                        职业评测
+                    </a></div>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+        </div>
+    </div>
+</main>
+<include file="Common:footer" />
+</body>
+</html>

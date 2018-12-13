@@ -1,0 +1,6 @@
+<php> $work_type =  C('WORK_TYPE'); </php>
+<foreach name="work_type" key="k" item="vo">
+    <option value="{$k}"
+        <eq name="user_info['work_type']" value="$k">selected</eq>
+         >{$vo}</option>
+</foreach>

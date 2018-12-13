@@ -1,0 +1,2443 @@
+[ 2018-11-28T09:45:47+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001926s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000946s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000991s ]
+
+[ 2018-11-28T09:45:48+08:00 ] 127.0.0.1 /Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000776s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001213s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001298s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001741s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001846s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015480s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015590s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001501s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001554s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001842s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001893s ]
+
+[ 2018-11-28T09:45:48+08:00 ] 127.0.0.1 /Login/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000807s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001064s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001181s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001125s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001214s ]
+
+[ 2018-11-28T09:45:56+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000759s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000834s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000880s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.0712s ]
+SQL: SELECT * FROM `rd_admin` WHERE `username` = 'admin' AND `password` = '231ee813250bd018144ec5acc5950026' LIMIT 1   [ RunTime:0.0705s ]
+SQL: UPDATE `rd_admin` SET `last_time`='1543369556',`last_ip`='127.0.0.1' WHERE `id` = 1 [ RunTime:0.1831s ]
+
+[ 2018-11-28T09:45:59+08:00 ] 127.0.0.1 /Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000586s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000626s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000088s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000156s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015673s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015716s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000472s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000504s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000713s ]
+
+[ 2018-11-28T09:46:02+08:00 ] 127.0.0.1 /Article/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000701s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000667s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000563s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000600s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009053s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009094s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000474s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000499s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000666s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000700s ]
+
+[ 2018-11-28T09:46:02+08:00 ] 127.0.0.1 /Article/index.html?title=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000928s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001042s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001113s ]
+SQL: SHOW COLUMNS FROM `rd_article` [ RunTime:0.0721s ]
+SQL: SELECT COUNT(id) AS tp_count FROM rd_article a LIMIT 1   [ RunTime:0.0711s ]
+SQL: SELECT a.*,t.name FROM rd_article a left join rd_article_type t ON t.id = a.article_type_id  ORDER BY sort asc, id desc LIMIT 0,10   [ RunTime:0.1447s ]
+
+[ 2018-11-28T09:46:02+08:00 ] 127.0.0.1 /Uploads/20181019/5bc97ec7ccb69.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000968s ]
+
+[ 2018-11-28T09:46:02+08:00 ] 127.0.0.1 /Uploads/20180910/5b95d6cc19737.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000488s ]
+
+[ 2018-11-28T09:46:02+08:00 ] 127.0.0.1 /Uploads/20180910/5b95da0368349.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000484s ]
+
+[ 2018-11-28T09:46:09+08:00 ] 127.0.0.1 /Project/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000756s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000927s ]
+SQL: SHOW COLUMNS FROM `rd_city` [ RunTime:0.0713s ]
+SQL: SELECT `id`,`name` FROM `rd_city` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.0730s ]
+SQL: SHOW COLUMNS FROM `rd_position_type` [ RunTime:0.0712s ]
+SQL: SELECT `id`,`name` FROM `rd_position_type` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.0713s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000560s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000704s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.041724s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041875s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002133s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002247s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001414s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001529s ]
+
+[ 2018-11-28T09:46:11+08:00 ] 127.0.0.1 /Project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000936s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000825s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000874s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000100s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000136s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009379s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009433s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000471s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000496s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000649s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000682s ]
+
+[ 2018-11-28T09:46:11+08:00 ] 127.0.0.1 /Project/index.html?mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000645s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001167s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001252s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.0704s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.0705s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.1416s ]
+
+[ 2018-11-28T16:57:46+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001103s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001206s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001284s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000077s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000117s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011278s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011332s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001199s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001320s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001268s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001439s ]
+
+[ 2018-11-28T16:57:51+08:00 ] 127.0.0.1 /Project/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000818s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000988s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001056s ]
+SQL: SHOW COLUMNS FROM `rd_city` [ RunTime:0.0875s ]
+SQL: SELECT `id`,`name` FROM `rd_city` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.0895s ]
+SQL: SHOW COLUMNS FROM `rd_position_type` [ RunTime:0.0877s ]
+SQL: SELECT `id`,`name` FROM `rd_position_type` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.0878s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009910s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009954s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000676s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000708s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000736s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000774s ]
+
+[ 2018-11-28T17:00:11+08:00 ] 127.0.0.1 /Project/getPosition.html?id=355
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000876s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000925s ]
+SQL: SHOW COLUMNS FROM `rd_position_type` [ RunTime:0.1196s ]
+SQL: SELECT `id`,`name` FROM `rd_position_type` WHERE `parent_id` = 355 ORDER BY sort asc  [ RunTime:0.1185s ]
+
+[ 2018-11-28T17:00:16+08:00 ] 127.0.0.1 /Project/getPosition.html?id=358
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000652s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000808s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000865s ]
+SQL: SHOW COLUMNS FROM `rd_position_type` [ RunTime:0.1047s ]
+SQL: SELECT `id`,`name` FROM `rd_position_type` WHERE `parent_id` = 358 ORDER BY sort asc  [ RunTime:0.1032s ]
+
+[ 2018-11-28T17:00:31+08:00 ] 127.0.0.1 /Position/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001142s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000744s ]
+SQL: SHOW COLUMNS FROM `rd_position_type` [ RunTime:0.1206s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1208s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 353  [ RunTime:0.1195s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 2  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 3  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 4  [ RunTime:0.1204s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 354  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 5  [ RunTime:0.1210s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 6  [ RunTime:0.1203s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 8  [ RunTime:0.1203s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 355  [ RunTime:0.1196s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 9  [ RunTime:0.1203s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 12  [ RunTime:0.1206s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 356  [ RunTime:0.1205s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 13  [ RunTime:0.1195s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 14  [ RunTime:0.1200s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 15  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 357  [ RunTime:0.1201s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 16  [ RunTime:0.1196s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 17  [ RunTime:0.1227s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 18  [ RunTime:0.1206s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 358  [ RunTime:0.1204s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 19  [ RunTime:0.1206s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 20  [ RunTime:0.1222s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 21  [ RunTime:0.1221s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 359  [ RunTime:0.1203s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 22  [ RunTime:0.1208s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 23  [ RunTime:0.1241s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 24  [ RunTime:0.1230s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 360  [ RunTime:0.1246s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 25  [ RunTime:0.1265s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 26  [ RunTime:0.1235s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 27  [ RunTime:0.1203s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 361  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 28  [ RunTime:0.1236s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 29  [ RunTime:0.1207s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 30  [ RunTime:0.1273s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 362  [ RunTime:0.1230s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 31  [ RunTime:0.1201s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 32  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 33  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 363  [ RunTime:0.1214s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 34  [ RunTime:0.1211s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 35  [ RunTime:0.1200s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 364  [ RunTime:0.1239s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 36  [ RunTime:0.1207s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 37  [ RunTime:0.1199s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000148s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000217s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036817s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036891s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001984s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002052s ]
+
+[ 2018-11-28T17:00:37+08:00 ] 127.0.0.1 /Position/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000742s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000755s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000802s ]
+SQL: SHOW COLUMNS FROM `rd_position_type` [ RunTime:0.1277s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1206s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 353  [ RunTime:0.1236s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 2  [ RunTime:0.1197s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 3  [ RunTime:0.1208s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 4  [ RunTime:0.1213s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 354  [ RunTime:0.1226s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 5  [ RunTime:0.1553s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 6  [ RunTime:0.1226s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 8  [ RunTime:0.1255s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 355  [ RunTime:0.1247s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 9  [ RunTime:0.1328s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 12  [ RunTime:0.1224s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 356  [ RunTime:0.1200s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 13  [ RunTime:0.1240s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 14  [ RunTime:0.1225s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 15  [ RunTime:0.1208s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 357  [ RunTime:0.1210s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 16  [ RunTime:0.1241s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 17  [ RunTime:0.1227s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 18  [ RunTime:0.1219s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 358  [ RunTime:0.1221s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 19  [ RunTime:0.1205s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 20  [ RunTime:0.1257s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 21  [ RunTime:0.1257s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 359  [ RunTime:0.1266s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 22  [ RunTime:0.1213s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 23  [ RunTime:0.1222s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 24  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 360  [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 25  [ RunTime:0.1202s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 26  [ RunTime:0.1220s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 27  [ RunTime:0.1204s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 361  [ RunTime:0.1204s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 28  [ RunTime:0.1243s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 29  [ RunTime:0.1236s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 30  [ RunTime:0.1243s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 362  [ RunTime:0.1235s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 31  [ RunTime:0.1252s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 32  [ RunTime:0.1236s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 33  [ RunTime:0.1208s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 363  [ RunTime:0.1203s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 34  [ RunTime:0.1226s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 35  [ RunTime:0.1202s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 364  [ RunTime:0.1225s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 36  [ RunTime:0.1218s ]
+SQL: SELECT * FROM `rd_position_type` WHERE `parent_id` = 37  [ RunTime:0.1218s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000261s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000333s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.047366s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.047442s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000635s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000667s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000937s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000985s ]
+
+[ 2018-11-28T17:14:09+08:00 ] 127.0.0.1 /Advert/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000890s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000814s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000857s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.1033s ]
+SQL: SELECT `id`,`name` FROM `rd_advert_type`  [ RunTime:0.1029s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000152s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000196s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021828s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021880s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000604s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000819s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000853s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Advert/index.html?title=&type_id=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000727s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001136s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001212s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.0885s ]
+SQL: SELECT `id`,`name` FROM `rd_advert_type`  [ RunTime:0.0883s ]
+SQL: SHOW COLUMNS FROM `rd_advert` [ RunTime:0.0880s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_advert` LIMIT 1   [ RunTime:0.0881s ]
+SQL: SELECT * FROM `rd_advert` ORDER BY sort asc, id desc LIMIT 0,10   [ RunTime:0.0894s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Advert/advertTypeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000714s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000679s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000723s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000141s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010356s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010419s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000546s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000689s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000727s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Uploads/20181120/5bf3b7d827678.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001157s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Uploads/20181110/5be6f9b7b9b4d.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001127s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Uploads/20181110/5be6f9ea63f8f.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000572s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Uploads/20181127/5bfd14ec109f1.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000529s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Uploads/20181107/5be25b7096a26.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000747s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Uploads/20181106/5be125fb08751.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+
+[ 2018-11-28T17:14:10+08:00 ] 127.0.0.1 /Uploads/20181031/5bd98aa331222.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000559s ]
+
+[ 2018-11-28T17:14:11+08:00 ] 127.0.0.1 /Advert/advertTypeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000503s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000611s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.0876s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_advert_type` LIMIT 1   [ RunTime:0.0875s ]
+SQL: SELECT * FROM `rd_advert_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0878s ]
+
+[ 2018-11-28T17:14:27+08:00 ] 127.0.0.1 /Config/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000651s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000924s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000970s ]
+SQL: SHOW COLUMNS FROM `rd_config` [ RunTime:0.1044s ]
+SQL: SELECT `content` FROM `rd_config` WHERE `id` = 1 LIMIT 1   [ RunTime:0.1038s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000742s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000823s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040505s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040591s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001259s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001324s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001598s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001677s ]
+
+[ 2018-11-28T17:14:30+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000722s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000764s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1042s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1042s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1039s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000130s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021652s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021689s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000555s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000583s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000816s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000857s ]
+
+[ 2018-11-28T17:15:29+08:00 ] 127.0.0.1 /Auth/saveAuth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000549s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001413s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001504s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1041s ]
+SQL: INSERT INTO `rd_auth_rule` (`name`,`title`,`icon`,`sort`,`display`,`parent_id`) VALUES ('/Project/typeList','萝卜分类','','255','1','30') [ RunTime:0.1677s ]
+
+[ 2018-11-28T17:15:33+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000585s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000688s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000728s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1053s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1048s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1069s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000220s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000277s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034210s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034295s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000890s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000937s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001231s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001295s ]
+
+[ 2018-11-28T17:17:08+08:00 ] 127.0.0.1 /Advert/advertTypeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000960s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000796s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000829s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000085s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000123s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009770s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009821s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000622s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000648s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000803s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000851s ]
+
+[ 2018-11-28T17:17:09+08:00 ] 127.0.0.1 /Advert/advertTypeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000903s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000882s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000948s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.1189s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_advert_type` LIMIT 1   [ RunTime:0.1182s ]
+SQL: SELECT * FROM `rd_advert_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1190s ]
+
+[ 2018-11-28T17:17:19+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000781s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000601s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000640s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1040s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1038s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1042s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013405s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013441s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000640s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000667s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000770s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000812s ]
+
+[ 2018-11-28T17:17:53+08:00 ] 127.0.0.1 /Auth/saveAuth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000852s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001148s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1042s ]
+SQL: INSERT INTO `rd_auth_rule` (`name`,`title`,`icon`,`sort`,`display`,`parent_id`) VALUES ('/Project/saveType','保存萝卜分类','','255','0','30') [ RunTime:0.1648s ]
+
+[ 2018-11-28T17:17:57+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000613s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000791s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000843s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1044s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1041s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000548s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000704s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044436s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044531s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001531s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001604s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001719s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001807s ]
+
+[ 2018-11-28T17:18:05+08:00 ] 127.0.0.1 /Auth/authGroupList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000906s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000827s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000894s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011447s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011505s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000768s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000808s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000732s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000773s ]
+
+[ 2018-11-28T17:18:06+08:00 ] 127.0.0.1 /Auth/authGroupList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000979s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001118s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001193s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1054s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_auth_group` LIMIT 1   [ RunTime:0.1038s ]
+SQL: SELECT * FROM `rd_auth_group` ORDER BY id desc LIMIT 0,50   [ RunTime:0.1041s ]
+
+[ 2018-11-28T17:18:09+08:00 ] 127.0.0.1 /Auth/authGroupDisplay.html?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000813s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000782s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1041s ]
+SQL: SELECT * FROM `rd_auth_group` WHERE `id` = 1 LIMIT 1   [ RunTime:0.1041s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1042s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1047s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1048s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000194s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000271s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\ac7b9ad0954bc8bdea77a0191452f209.php 第 87 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035336s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035461s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001269s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001333s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001850s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001967s ]
+
+[ 2018-11-28T17:18:13+08:00 ] 127.0.0.1 /Auth/saveAuthGroup.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001237s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000605s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000643s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1032s ]
+SQL: UPDATE `rd_auth_group` SET `title`='超级管理员',`remark`='拥有后台管理系统所有操作权限',`rules`='6,21,33,1,94,37,36,35,34,2,3,39,38,40,5,4,42,41,7,9,8,46,45,44,43,10,15,11,50,49,48,47,16,52,51,17,19,18,58,57,56,55,54,53,20,59,60,24,14,22,70,69,68,67,66,65,64,63,62,95,93,92,27,61,26,23,74,73,72,71,29,13,28,76,75,97,30,81,80,79,78,85,104,103,82,84,83,32,31,86,87,89,98,102,101,100,99,96,91,90,88' WHERE `id` = 1 [ RunTime:0.1612s ]
+
+[ 2018-11-28T17:18:17+08:00 ] 127.0.0.1 /Auth/authGroupList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000910s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000684s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000725s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000074s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000108s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008461s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008504s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000596s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000623s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000719s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000753s ]
+
+[ 2018-11-28T17:18:18+08:00 ] 127.0.0.1 /Auth/authGroupList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000946s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001171s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001243s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1048s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_auth_group` LIMIT 1   [ RunTime:0.1036s ]
+SQL: SELECT * FROM `rd_auth_group` ORDER BY id desc LIMIT 0,50   [ RunTime:0.1050s ]
+
+[ 2018-11-28T17:18:20+08:00 ] 127.0.0.1 /Login/logout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000660s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000674s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000713s ]
+NOTIC: [2] unlink(D:\www\online_team\www.luobo.com/Application/Runtime/Temp/5c3631b2cbfd62d9295fc1b5b2e20323.php): No such file or directory D:\www\online_team\www.luobo.com\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+
+[ 2018-11-28T17:18:20+08:00 ] 127.0.0.1 /Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000615s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000695s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000727s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000042s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000078s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006949s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006984s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000556s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000582s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000717s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000743s ]
+
+[ 2018-11-28T17:18:20+08:00 ] 127.0.0.1 /Login/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001398s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000648s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000690s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000850s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000903s ]
+
+[ 2018-11-28T17:18:21+08:00 ] 127.0.0.1 /Login/verify/v/1543396700.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000667s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000782s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000820s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000869s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000946s ]
+
+[ 2018-11-28T17:18:26+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000721s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000952s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.1042s ]
+SQL: SELECT * FROM `rd_admin` WHERE `username` = 'admin' AND `password` = '231ee813250bd018144ec5acc5950026' LIMIT 1   [ RunTime:0.1045s ]
+SQL: UPDATE `rd_admin` SET `last_time`='1543396706',`last_ip`='127.0.0.1' WHERE `id` = 1 [ RunTime:0.1623s ]
+
+[ 2018-11-28T17:18:31+08:00 ] 127.0.0.1 /Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000544s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001064s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001121s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group_access` [ RunTime:0.1047s ]
+SQL: SELECT `group_id` FROM `rd_auth_group_access` WHERE `uid` = 1  [ RunTime:0.1039s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1045s ]
+SQL: SELECT `rules` FROM `rd_auth_group` WHERE `id` IN ('1')  [ RunTime:0.1040s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1050s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 AND `status` = 1 AND `display` = 1 AND (  `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','59','60','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') ) ORDER BY sort asc  [ RunTime:0.1050s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','59','60','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') AND `status` = 1 AND `display` = 1 AND `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1047s ]
+SQL: SELECT `name` FROM `rd_auth_rule` WHERE `status` = 1 AND (  `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','59','60','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') )  [ RunTime:0.1058s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000195s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000298s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027611s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027702s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000986s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001038s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001547s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001612s ]
+
+[ 2018-11-28T17:19:46+08:00 ] 127.0.0.1 /Advert/advertTypeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001028s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000821s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000871s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000088s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000127s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009170s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009209s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000495s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000522s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000946s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000992s ]
+
+[ 2018-11-28T17:19:47+08:00 ] 127.0.0.1 /Advert/advertTypeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000988s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001082s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001149s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.1039s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_advert_type` LIMIT 1   [ RunTime:0.1035s ]
+SQL: SELECT * FROM `rd_advert_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1042s ]
+
+[ 2018-11-28T17:19:53+08:00 ] 127.0.0.1 /Advert/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000688s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000995s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001052s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.1030s ]
+SQL: SELECT `id`,`name` FROM `rd_advert_type`  [ RunTime:0.1027s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000197s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000249s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026631s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026704s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001090s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001158s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001188s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001263s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Advert/index.html?title=&type_id=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000554s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000703s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000743s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.1031s ]
+SQL: SELECT `id`,`name` FROM `rd_advert_type`  [ RunTime:0.1029s ]
+SQL: SHOW COLUMNS FROM `rd_advert` [ RunTime:0.1040s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_advert` LIMIT 1   [ RunTime:0.1032s ]
+SQL: SELECT * FROM `rd_advert` ORDER BY sort asc, id desc LIMIT 0,10   [ RunTime:0.1041s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181120/5bf3b7d827678.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000788s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181110/5be6f9b7b9b4d.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000834s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181110/5be6f9ea63f8f.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000656s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181127/5bfd14ec109f1.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000825s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181107/5be25b7096a26.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000510s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181106/5be1319ce831a.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000677s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181127/5bfd0ee78f404.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000490s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181031/5bd98aa331222.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000576s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181106/5be1294139fc2.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000650s ]
+
+[ 2018-11-28T17:19:54+08:00 ] 127.0.0.1 /Uploads/20181106/5be125fb08751.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000810s ]
+
+[ 2018-11-28T17:19:57+08:00 ] 127.0.0.1 /Advert/index.html?title=&type_id=&page=2&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000722s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000890s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000942s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.1200s ]
+SQL: SELECT `id`,`name` FROM `rd_advert_type`  [ RunTime:0.1185s ]
+SQL: SHOW COLUMNS FROM `rd_advert` [ RunTime:0.1196s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_advert` LIMIT 1   [ RunTime:0.1187s ]
+SQL: SELECT * FROM `rd_advert` ORDER BY sort asc, id desc LIMIT 10,10   [ RunTime:0.1193s ]
+
+[ 2018-11-28T17:19:57+08:00 ] 127.0.0.1 /Uploads/20181029/5bd69026f0ab2.jpeg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000800s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000642s ]
+ERR: 无法加载控制器:Uploads
+
+[ 2018-11-28T17:36:37+08:00 ] 127.0.0.1 /Advert/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000739s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000661s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.1197s ]
+SQL: SELECT `id`,`name` FROM `rd_advert_type`  [ RunTime:0.1192s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000581s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000714s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046067s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046166s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001415s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001475s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001677s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001752s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Advert/index.html?title=&type_id=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000750s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000827s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000904s ]
+SQL: SHOW COLUMNS FROM `rd_advert_type` [ RunTime:0.0884s ]
+SQL: SELECT `id`,`name` FROM `rd_advert_type`  [ RunTime:0.0872s ]
+SQL: SHOW COLUMNS FROM `rd_advert` [ RunTime:0.0882s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_advert` LIMIT 1   [ RunTime:0.0880s ]
+SQL: SELECT * FROM `rd_advert` ORDER BY sort asc, id desc LIMIT 0,10   [ RunTime:0.0883s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181120/5bf3b7d827678.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000809s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181110/5be6f9b7b9b4d.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000538s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181110/5be6f9ea63f8f.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000787s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181127/5bfd14ec109f1.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000759s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181107/5be25b7096a26.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000791s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181106/5be1319ce831a.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000583s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181127/5bfd0ee78f404.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000819s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181106/5be125fb08751.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000787s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181106/5be1294139fc2.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000829s ]
+
+[ 2018-11-28T17:36:38+08:00 ] 127.0.0.1 /Uploads/20181031/5bd98aa331222.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000856s ]
+
+[ 2018-11-28T17:36:41+08:00 ] 127.0.0.1 /Project/typeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000738s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001366s ]
+ERR: 模板不存在:D:\www\online_team\www.luobo.com/Application/Admin/View/Project/typeList.html
+
+[ 2018-11-28T17:38:00+08:00 ] 127.0.0.1 /Project/typeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000677s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000653s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000117s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009253s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009295s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000495s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000520s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000643s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000675s ]
+
+[ 2018-11-28T17:38:01+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000865s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001137s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001211s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1200s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.1198s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1209s ]
+
+[ 2018-11-28T17:38:20+08:00 ] 127.0.0.1 /Project/saveType.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000762s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000775s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000813s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1041s ]
+SQL: INSERT INTO `rd_project_type` (`name`) VALUES ('互联网') [ RunTime:0.1887s ]
+NOTIC: [2] unlink(D:\www\online_team\www.luobo.com/Application/Runtime/Temp/d12c2ec4096e3e36d9856a070ea4c2e1.php): No such file or directory D:\www\online_team\www.luobo.com\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+
+[ 2018-11-28T17:38:24+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000688s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000697s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000737s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1031s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.1027s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1032s ]
+
+[ 2018-11-28T17:38:30+08:00 ] 127.0.0.1 /Project/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000694s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000697s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000738s ]
+SQL: SHOW COLUMNS FROM `rd_city` [ RunTime:0.1038s ]
+SQL: SELECT `id`,`name` FROM `rd_city` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1063s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1039s ]
+SQL: SELECT * FROM `rd_project_type`  [ RunTime:0.1033s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000396s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000523s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038257s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038415s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001379s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001466s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001800s ]
+
+[ 2018-11-28T17:38:52+08:00 ] 127.0.0.1 /Project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000916s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000810s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000128s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000187s ]
+NOTIC: [8] Undefined variable: type_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\8f9d794b9506d9a88e3dd7666371f6c8.php 第 57 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012363s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012399s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000606s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000631s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000758s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000797s ]
+
+[ 2018-11-28T17:38:53+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000859s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001086s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001158s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1287s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1198s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.2420s ]
+
+[ 2018-11-28T17:39:08+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000842s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000880s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000929s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1200s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1206s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1215s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000530s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000666s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.041129s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041199s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000990s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001352s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001422s ]
+
+[ 2018-11-28T17:39:34+08:00 ] 127.0.0.1 /Auth/saveAuth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000549s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001483s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1036s ]
+SQL: INSERT INTO `rd_auth_rule` (`name`,`title`,`icon`,`sort`,`display`,`parent_id`) VALUES ('/Project/delType','删除萝卜分类','','255','1','30') [ RunTime:0.1571s ]
+
+[ 2018-11-28T17:39:38+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000574s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000627s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1041s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1047s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1065s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000354s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000445s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046124s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046241s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001580s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001678s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001887s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001986s ]
+
+[ 2018-11-28T17:39:42+08:00 ] 127.0.0.1 /Auth/authGroupList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000632s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000831s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000885s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000106s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008588s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008632s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000720s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000786s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001016s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001083s ]
+
+[ 2018-11-28T17:39:43+08:00 ] 127.0.0.1 /Auth/authGroupList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001124s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001519s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1031s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_auth_group` LIMIT 1   [ RunTime:0.1026s ]
+SQL: SELECT * FROM `rd_auth_group` ORDER BY id desc LIMIT 0,50   [ RunTime:0.1030s ]
+
+[ 2018-11-28T17:39:46+08:00 ] 127.0.0.1 /Auth/authGroupDisplay.html?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000716s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000793s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1197s ]
+SQL: SELECT * FROM `rd_auth_group` WHERE `id` = 1 LIMIT 1   [ RunTime:0.4193s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1198s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1206s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1212s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000224s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000308s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\ac7b9ad0954bc8bdea77a0191452f209.php 第 87 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025301s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025381s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000754s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000788s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000999s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001044s ]
+
+[ 2018-11-28T17:39:50+08:00 ] 127.0.0.1 /Auth/saveAuthGroup.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000616s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000685s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000723s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1197s ]
+SQL: UPDATE `rd_auth_group` SET `title`='超级管理员',`remark`='拥有后台管理系统所有操作权限',`rules`='6,21,33,1,94,37,36,35,34,2,3,39,38,40,5,4,42,41,7,9,8,46,45,44,43,10,15,11,50,49,48,47,16,52,51,17,19,18,58,57,56,55,54,53,20,60,59,24,14,22,70,69,68,67,66,65,64,63,62,95,93,92,27,61,26,23,74,73,72,71,29,13,28,76,75,97,30,81,80,79,78,85,105,104,103,82,84,83,32,31,86,87,89,98,102,101,100,99,96,91,90,88' WHERE `id` = 1 [ RunTime:0.1851s ]
+
+[ 2018-11-28T17:39:53+08:00 ] 127.0.0.1 /Auth/authGroupList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000665s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001108s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000078s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000120s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010227s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010282s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000960s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001014s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001102s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001168s ]
+
+[ 2018-11-28T17:39:54+08:00 ] 127.0.0.1 /Auth/authGroupList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000771s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001100s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001172s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1198s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_auth_group` LIMIT 1   [ RunTime:0.1191s ]
+SQL: SELECT * FROM `rd_auth_group` ORDER BY id desc LIMIT 0,50   [ RunTime:0.1206s ]
+
+[ 2018-11-28T17:39:58+08:00 ] 127.0.0.1 /Project/typeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001050s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000803s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000853s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000084s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000121s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011967s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012022s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000556s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000582s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000718s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000760s ]
+
+[ 2018-11-28T17:39:59+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000920s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001142s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001219s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1196s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.1182s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1189s ]
+
+[ 2018-11-28T17:40:01+08:00 ] 127.0.0.1 /Project/delType.html?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000626s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000707s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000744s ]
+
+[ 2018-11-28T17:40:04+08:00 ] 127.0.0.1 /Project/saveType.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000694s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000822s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1039s ]
+SQL: UPDATE `rd_project_type` SET `name`='互联网' WHERE `id` = 1 [ RunTime:0.1605s ]
+
+[ 2018-11-28T17:40:08+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000652s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000684s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000721s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1041s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.1041s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1035s ]
+
+[ 2018-11-28T17:40:13+08:00 ] 127.0.0.1 /Project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000631s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001062s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001127s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1198s ]
+SQL: SELECT * FROM `rd_project_type`  [ RunTime:0.1193s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000124s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000177s ]
+NOTIC: [8] Undefined variable: type_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\8f9d794b9506d9a88e3dd7666371f6c8.php 第 57 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010609s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010651s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000657s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000692s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000776s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000810s ]
+
+[ 2018-11-28T17:40:15+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000520s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001060s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001127s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1203s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1192s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.3598s ]
+
+[ 2018-11-28T17:40:17+08:00 ] 127.0.0.1 /Project/update.html?id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000853s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000646s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1044s ]
+SQL: SELECT * FROM `rd_project` WHERE `id` = 12 LIMIT 1   [ RunTime:0.1040s ]
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ProjectController.class.php 第 74 行.
+SQL: SHOW COLUMNS FROM `rd_city` [ RunTime:0.1030s ]
+SQL: SELECT `id`,`name` FROM `rd_city` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1051s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000148s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000197s ]
+NOTIC: [8] Array to string conversion D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\d780921d9aef40959a7135caf94a26bf.php 第 68 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011598s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011657s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000727s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000770s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001251s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001333s ]
+
+[ 2018-11-28T17:40:17+08:00 ] 127.0.0.1 /Uploads/20181109/5be57ade55b4c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001092s ]
+
+[ 2018-11-28T17:40:17+08:00 ] 127.0.0.1 /Uploads/20181109/5be57b13b2430.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000753s ]
+
+[ 2018-11-28T17:40:55+08:00 ] 127.0.0.1 /Project/update.html?id=12
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000617s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000671s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000703s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1047s ]
+SQL: SELECT * FROM `rd_project` WHERE `id` = 12 LIMIT 1   [ RunTime:0.1051s ]
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ProjectController.class.php 第 74 行.
+SQL: SHOW COLUMNS FROM `rd_city` [ RunTime:0.1045s ]
+SQL: SELECT `id`,`name` FROM `rd_city` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1061s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000545s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000679s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035451s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035558s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001246s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001310s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002160s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002278s ]
+
+[ 2018-11-28T17:40:55+08:00 ] 127.0.0.1 /Uploads/20181109/5be57ade55b4c.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000511s ]
+
+[ 2018-11-28T17:40:55+08:00 ] 127.0.0.1 /Uploads/20181109/5be57b13b2430.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000675s ]
+
+[ 2018-11-28T17:41:06+08:00 ] 127.0.0.1 /Project/save.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000550s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000644s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1039s ]
+SQL: UPDATE `rd_project` SET `admin_id`='1',`admin_name`='admin',`name`='昆山联滔电子有限公司',`image`='/Uploads/20181109/5be57ade55b4c.jpg',`salary_min`='3500',`salary_max`='4800',`contacts`='魏勇健',`tel`='18962436946',`sort`='1',`subsidy`='200',`rebate`='1200',`rebate_desc`='<p>1，平台补助为本网站“萝卜网”完全行为，与项目方（入职的公司）无任何关系。
+2，领取条件：注册本网站且投递本岗位；打卡满68天男女不限补助1200元；打卡满96天再返900元；
+3，领取方式：关注微信公众号：“萝卜网”；点击菜单栏“我的”，点击“补助申请”，按提示操作
+4，补助是按照工厂入住当天的价格为准；</p>',`address`='江苏省昆山市锦溪镇百胜路399号',`content`='<p>【<strong>基本情况】</strong></p><p>发薪日:每月10日 （发1-31日）<br/><br/></p><p><br/></p><p><strong>【合同介绍】</strong></p><p>合同说明:与企业指定的人力资源公司签订合同</p><p><br/></p><p>工资发放:由企业指定的人力资源公司发放；<br/>保险说明:入职缴纳商业保险（50元保险费从工资里扣除）<br/><br/></p><p><br/></p><p><strong>【食宿介绍】</strong></p><p>伙食:公司提供三餐，刷卡吃饭，吃超从工资中扣除。第三个月需自己充饭卡，发薪日餐补随工资发放。（餐补350/月 政策随企业变动）</p><p><br/></p><p>住宿:当天安排免费住宿，水电费自理（一个月约20到30元），宿舍厂区内外都有，厂区外宿舍有免费厂车，车程大概30分钟； （政策随企业变动）<br/><br/></p><p><strong>【工作说明】</strong></p><p>岗位状态<br/>工时说明:两班制，能接受两班倒，配合倒班<br/>工作环境:部份流水线、部分坐着工作、不穿无尘服<br/><br/>温馨提示：1、工作轻松，住宿环境好，人性化管理 2、自离无工资，做不满7天无工资，做不满3个月扣300元 3、辞职要提前一个月提出申请 4、餐补离职当月厂里是不发的</p><p><strong>【企业说明】</strong></p><p>联滔是一家国际知名集团公司，总部设在美国，并在世界各地都有分支机构，公司主要生产数据连接线，全球员工总数近十万人。<img src=\"http://admin29xk.luobowang.cn/Public/Admin/lib/layui/images/face/14.gif\" alt=\"[亲亲]\"/></p><p><img src=\"/Uploads/20181109/5be57b13b2430.jpg\" alt=\"undefined\"/><br/></p>',`project_type_id`='1' WHERE `id` = 12 [ RunTime:0.1651s ]
+
+[ 2018-11-28T17:41:09+08:00 ] 127.0.0.1 /Project/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000548s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000822s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000867s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000122s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000171s ]
+NOTIC: [8] Undefined variable: type_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\8f9d794b9506d9a88e3dd7666371f6c8.php 第 57 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009845s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009894s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000547s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000579s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000985s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001041s ]
+
+[ 2018-11-28T17:41:10+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000994s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001197s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001268s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1210s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1194s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.3821s ]
+
+[ 2018-11-28T17:41:14+08:00 ] 127.0.0.1 /Project/update.html?id=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000588s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000691s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000724s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1201s ]
+SQL: SELECT * FROM `rd_project` WHERE `id` = 11 LIMIT 1   [ RunTime:0.1205s ]
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ProjectController.class.php 第 74 行.
+SQL: SHOW COLUMNS FROM `rd_city` [ RunTime:0.1200s ]
+SQL: SELECT `id`,`name` FROM `rd_city` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1217s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000547s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000677s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033425s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033514s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000809s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000850s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001206s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001272s ]
+
+[ 2018-11-28T17:41:14+08:00 ] 127.0.0.1 /Uploads/20181109/5be577b81c485.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000741s ]
+
+[ 2018-11-28T17:41:14+08:00 ] 127.0.0.1 /Uploads/20181109/5be57787e83af.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000547s ]
+
+[ 2018-11-28T17:41:14+08:00 ] 127.0.0.1 /Uploads/20181109/5be5779ed597f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000536s ]
+
+[ 2018-11-28T17:41:17+08:00 ] 127.0.0.1 /Project/save.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000603s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000663s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000694s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.0891s ]
+SQL: UPDATE `rd_project` SET `admin_id`='1',`admin_name`='admin',`name`='世硕电子（昆山）有限公司',`image`='/Uploads/20181109/5be577b81c485.png',`salary_min`='3500',`salary_max`='4800',`contacts`='魏勇健',`tel`='18962436946',`sort`='1',`subsidy`='100',`rebate`='3800',`rebate_desc`='<p>1.注册本网站并且投递本岗位，入住打卡入住满68天，男女不限补助3800元
+2.领取方式；关注微信公众账号（萝卜网），点击菜单栏（我的），点击“补助申请”，按照提示操作
+3.此补助是由萝卜网平台直接出资与其他无关。</p>',`address`='江苏省昆山陆家镇玫瑰路百灵路往南30米综合保税区内',`content`='<p><br/></p><p><strong>【基本情况】</strong></p><p>发薪日:每月10日（26-25号）</p><p><br/></p><p>底薪:2020元/月<br/>薪资结构:1、加班工资：平时加班17.41元/时；二类加双休加班23.21元/时；法定节假日加班34.82元/时 2、夜班津贴：9元/天 3、生产奖金50元/月 4、技能津贴：50-100元/月 5、年资加给：50-300元/月<br/><br/></p><p><br/></p><p><strong>【合同介绍】</strong></p><p>合同说明:前3-4个月与企业指定的人力资源公司签订；转正后和企业签订；</p><p><br/></p><p>工资发放:前3-4个月由劳务发放，转正后企业发放；<br/>保险说明:入职缴纳社保<br/><br/></p><p><br/></p><p><strong>【食宿介绍】</strong></p><p>伙食:企业提供伙食，每月餐补280元左右（刷卡吃饭，有5元、8元餐，可自选），超出部分工资中扣除（政策随企业变动）</p><p><br/></p><p>住宿:每月30元管理费，10元清洁费，水电费自理。面试当天体检，安排住宿，带好行李物品；（政策随企业变动）<br/>交通:坐班车20--40分钟左右<br/><br/></p><p><strong>【工作说明】</strong></p><p>岗位状态<br/>工作内容:手机零部件加工及组装，测试等<br/>工时说明:两班制；一周至少休一天； 五天八小时（八小时外算加班）<br/>工作环境:恒温厂房，大部分坐着上班为主<br/><br/></p><p>1、厂区比较偏，有一栋宿舍需要坐班车20几分钟，但宿舍环境倍儿棒，建议大家上传几部电影，坐在车上看电影，眼睛一闭一睁30分钟就过去了；</p><p>2、面试环境比较乱，有人会卖被子卖锁卖笔，办理银行卡，一概不用办不用搭理第一时间联系经纪人！&nbsp;</p><p>3、身份证（无磁、临时均可），但是必须要有四大行（工，农，中信，中国）任一的银行卡，临时身份证的有效期限大于1个月以上；</p><p>4、重点提醒，拿了返费不给批离职，转正之前离职会被扣钱；&nbsp;</p><p>5、<span style=\"text-decoration:underline;\"><strong>补贴期间不能请假、旷工，否则就会影响拿补贴的时间，请假旷工严重者拿不到补贴</strong></span>；</p><p><img src=\"/Uploads/20181109/5be57787e83af.jpg\" alt=\"undefined\"/><img src=\"/Uploads/20181109/5be5779ed597f.jpg\" alt=\"undefined\"/><br/></p>' WHERE `id` = 11 [ RunTime:0.1523s ]
+
+[ 2018-11-28T17:41:20+08:00 ] 127.0.0.1 /Project/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001367s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000712s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000758s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000117s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000176s ]
+NOTIC: [8] Undefined variable: type_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\8f9d794b9506d9a88e3dd7666371f6c8.php 第 57 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011844s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011887s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000696s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000734s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000755s ]
+
+[ 2018-11-28T17:41:21+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000926s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001491s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1037s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1030s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.3091s ]
+
+[ 2018-11-28T17:43:55+08:00 ] 127.0.0.1 /Login/logout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000844s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000763s ]
+NOTIC: [2] unlink(D:\www\online_team\www.luobo.com/Application/Runtime/Temp/5c3631b2cbfd62d9295fc1b5b2e20323.php): No such file or directory D:\www\online_team\www.luobo.com\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+
+[ 2018-11-28T17:43:55+08:00 ] 127.0.0.1 /Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000567s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000677s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000719s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000078s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006723s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006763s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000769s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000801s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000726s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000753s ]
+
+[ 2018-11-28T17:43:55+08:00 ] 127.0.0.1 /Login/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000526s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001099s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000888s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000947s ]
+
+[ 2018-11-28T17:44:03+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000669s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000835s ]
+
+[ 2018-11-28T17:44:05+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000661s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000794s ]
+
+[ 2018-11-28T17:44:08+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000619s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000646s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+
+[ 2018-11-28T17:44:09+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000497s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000641s ]
+
+[ 2018-11-28T17:44:11+08:00 ] 127.0.0.1 /Login/verify/v/1543398235.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000596s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000630s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000815s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000861s ]
+
+[ 2018-11-28T17:44:15+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000616s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000775s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.1033s ]
+SQL: SELECT * FROM `rd_admin` WHERE `username` = 'admin' AND `password` = '231ee813250bd018144ec5acc5950026' LIMIT 1   [ RunTime:0.1028s ]
+SQL: UPDATE `rd_admin` SET `last_time`='1543398255',`last_ip`='127.0.0.1' WHERE `id` = 1 [ RunTime:0.1664s ]
+
+[ 2018-11-28T17:44:20+08:00 ] 127.0.0.1 /Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001542s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group_access` [ RunTime:0.1042s ]
+SQL: SELECT `group_id` FROM `rd_auth_group_access` WHERE `uid` = 1  [ RunTime:0.1034s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1044s ]
+SQL: SELECT `rules` FROM `rd_auth_group` WHERE `id` IN ('1')  [ RunTime:0.1035s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1043s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 AND `status` = 1 AND `display` = 1 AND (  `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','105','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') ) ORDER BY sort asc  [ RunTime:0.1047s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','105','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') AND `status` = 1 AND `display` = 1 AND `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1051s ]
+SQL: SELECT `name` FROM `rd_auth_rule` WHERE `status` = 1 AND (  `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','105','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') )  [ RunTime:0.1049s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000124s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000190s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017392s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017455s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000705s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000740s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000893s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000939s ]
+
+[ 2018-11-28T17:44:25+08:00 ] 127.0.0.1 /Project/typeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001171s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000724s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000769s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000125s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009391s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009456s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000788s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000835s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001082s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001296s ]
+
+[ 2018-11-28T17:44:26+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000979s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001075s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001140s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1031s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.1028s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1023s ]
+
+[ 2018-11-28T17:44:29+08:00 ] 127.0.0.1 /Project/delType.html?id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000559s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000672s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000700s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1199s ]
+SQL: SELECT * FROM `rd_project_type` WHERE `id` = 1 LIMIT 1   [ RunTime:0.1200s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1208s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` WHERE `project_type_id` = 1 LIMIT 1   [ RunTime:0.1201s ]
+
+[ 2018-11-28T17:44:36+08:00 ] 127.0.0.1 /Admin/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000906s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000639s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1196s ]
+SQL: SELECT * FROM `rd_auth_group` WHERE `status` = 1  [ RunTime:0.1190s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000210s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000282s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014129s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014189s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000574s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000606s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000812s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000862s ]
+
+[ 2018-11-28T17:44:37+08:00 ] 127.0.0.1 /Admin/index.html?username=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000517s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000923s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000990s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.1207s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_admin` LIMIT 1   [ RunTime:0.1189s ]
+SQL: SELECT * FROM `rd_admin` ORDER BY id desc LIMIT 0,50   [ RunTime:0.1206s ]
+
+[ 2018-11-28T17:44:38+08:00 ] 127.0.0.1 /Auth/authGroupList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000637s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000796s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000846s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000110s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010324s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010364s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000612s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000751s ]
+
+[ 2018-11-28T17:44:39+08:00 ] 127.0.0.1 /Auth/authGroupList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000857s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001046s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001113s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1032s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_auth_group` LIMIT 1   [ RunTime:0.1026s ]
+SQL: SELECT * FROM `rd_auth_group` ORDER BY id desc LIMIT 0,50   [ RunTime:0.1030s ]
+
+[ 2018-11-28T17:44:43+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000918s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000668s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000712s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.0878s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.0876s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.0884s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000138s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000179s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013154s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013203s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000963s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001032s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001093s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001176s ]
+
+[ 2018-11-28T17:44:57+08:00 ] 127.0.0.1 /Auth/saveAuth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000976s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000667s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1190s ]
+SQL: UPDATE `rd_auth_rule` SET `name`='/Project/delType',`title`='删除萝卜分类',`icon`='',`sort`='255',`display`='0' WHERE `id` = 105 [ RunTime:0.1833s ]
+
+[ 2018-11-28T17:45:01+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000820s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000646s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000685s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1046s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1052s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1059s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000568s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000733s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.049452s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049590s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001048s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001117s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001143s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001204s ]
+
+[ 2018-11-28T17:45:29+08:00 ] 127.0.0.1 /Auth/saveAuth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000640s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000681s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000720s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1032s ]
+SQL: UPDATE `rd_auth_rule` SET `name`='/Project/typeList',`title`='萝卜分类',`icon`='',`sort`='1',`display`='1' WHERE `id` = 103 [ RunTime:0.1616s ]
+
+[ 2018-11-28T17:45:33+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000647s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000626s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.0878s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.0889s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.0898s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000577s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000834s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048900s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049029s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001248s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001320s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001920s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002028s ]
+
+[ 2018-11-28T17:45:50+08:00 ] 127.0.0.1 /Auth/saveAuth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000741s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000815s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000854s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1050s ]
+SQL: UPDATE `rd_auth_rule` SET `name`='/Project/add',`title`='添加项目',`icon`='',`sort`='2',`display`='1' WHERE `id` = 32 [ RunTime:0.1794s ]
+
+[ 2018-11-28T17:45:54+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000765s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000635s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1212s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1208s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1204s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000260s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000327s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024803s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024874s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001054s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001108s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001426s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001500s ]
+
+[ 2018-11-28T17:46:04+08:00 ] 127.0.0.1 /Auth/saveAuth.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000652s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000786s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000832s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.0878s ]
+SQL: UPDATE `rd_auth_rule` SET `name`='/Project/index',`title`='招聘信息',`icon`='',`sort`='3',`display`='1' WHERE `id` = 31 [ RunTime:0.1473s ]
+
+[ 2018-11-28T17:46:08+08:00 ] 127.0.0.1 /Auth/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000768s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000757s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1201s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1232s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1205s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+NOTIC: [8] Undefined index: son_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\df8acccc1344a294514af33f198978f3.php 第 114 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014355s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014391s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000660s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000689s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000953s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001006s ]
+
+[ 2018-11-28T17:46:09+08:00 ] 127.0.0.1 /Login/logout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000545s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000661s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+NOTIC: [2] unlink(D:\www\online_team\www.luobo.com/Application/Runtime/Temp/5c3631b2cbfd62d9295fc1b5b2e20323.php): No such file or directory D:\www\online_team\www.luobo.com\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+
+[ 2018-11-28T17:46:09+08:00 ] 127.0.0.1 /Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000875s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000665s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000708s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000094s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008294s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008340s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000615s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000739s ]
+
+[ 2018-11-28T17:46:09+08:00 ] 127.0.0.1 /Login/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000851s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000660s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000703s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000915s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000975s ]
+
+[ 2018-11-28T17:46:17+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000663s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000816s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000861s ]
+
+[ 2018-11-28T17:46:21+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000643s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000757s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000790s ]
+
+[ 2018-11-28T17:46:22+08:00 ] 127.0.0.1 /Login/verify/v/1543398369.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000967s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000766s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000808s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001197s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001274s ]
+
+[ 2018-11-28T17:46:26+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000613s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000766s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000808s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.1200s ]
+SQL: SELECT * FROM `rd_admin` WHERE `username` = 'admin' AND `password` = '231ee813250bd018144ec5acc5950026' LIMIT 1   [ RunTime:0.1191s ]
+SQL: UPDATE `rd_admin` SET `last_time`='1543398386',`last_ip`='127.0.0.1' WHERE `id` = 1 [ RunTime:0.1809s ]
+
+[ 2018-11-28T17:46:31+08:00 ] 127.0.0.1 /Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001069s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000937s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000999s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group_access` [ RunTime:0.1256s ]
+SQL: SELECT `group_id` FROM `rd_auth_group_access` WHERE `uid` = 1  [ RunTime:0.1185s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.1196s ]
+SQL: SELECT `rules` FROM `rd_auth_group` WHERE `id` IN ('1')  [ RunTime:0.1197s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.1203s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 AND `status` = 1 AND `display` = 1 AND (  `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','105','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') ) ORDER BY sort asc  [ RunTime:0.1202s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','105','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') AND `status` = 1 AND `display` = 1 AND `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.1202s ]
+SQL: SELECT `name` FROM `rd_auth_rule` WHERE `status` = 1 AND (  `id` IN ('6','21','33','1','94','37','36','35','34','2','3','39','38','40','5','4','42','41','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','19','18','58','57','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','95','93','92','27','61','26','23','74','73','72','71','29','13','28','76','75','97','30','81','80','79','78','85','105','104','103','82','84','83','32','31','86','87','89','98','102','101','100','99','96','91','90','88') )  [ RunTime:0.1203s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000161s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000249s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014862s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014941s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001408s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001486s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001883s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001974s ]
+
+[ 2018-11-28T17:46:33+08:00 ] 127.0.0.1 /Project/typeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000942s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001033s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000136s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009402s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009473s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001197s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001257s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001111s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001180s ]
+
+[ 2018-11-28T17:46:34+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000871s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001197s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001273s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1032s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.1034s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1029s ]
+
+[ 2018-11-28T17:46:36+08:00 ] 127.0.0.1 /Project/typeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000850s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000743s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000081s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000110s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008655s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008695s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000528s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000555s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000824s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000874s ]
+
+[ 2018-11-28T17:46:37+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000932s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001143s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001221s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1195s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.1191s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1200s ]
+
+[ 2018-11-28T17:46:38+08:00 ] 127.0.0.1 /Project/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000706s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000849s ]
+SQL: SHOW COLUMNS FROM `rd_city` [ RunTime:0.1199s ]
+SQL: SELECT `id`,`name` FROM `rd_city` WHERE `parent_id` = 0 ORDER BY sort asc  [ RunTime:0.1212s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000532s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000671s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036472s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036571s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001056s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001107s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001385s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001452s ]
+
+[ 2018-11-28T17:46:43+08:00 ] 127.0.0.1 /Project/save.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000540s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000628s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000670s ]
+
+[ 2018-11-28T17:46:45+08:00 ] 127.0.0.1 /Project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000956s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001108s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001216s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000145s ]
+NOTIC: [8] Undefined variable: type_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\8f9d794b9506d9a88e3dd7666371f6c8.php 第 57 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013762s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013827s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000878s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000927s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001136s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001194s ]
+
+[ 2018-11-28T17:46:46+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000545s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001201s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001277s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1038s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1028s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.3087s ]
+
+[ 2018-11-28T17:46:47+08:00 ] 127.0.0.1 /Project/projectRecords
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000702s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000745s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000122s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017295s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017348s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000492s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000541s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000658s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000691s ]
+
+[ 2018-11-28T17:46:48+08:00 ] 127.0.0.1 /Project/projectRecords.html?status=0&user_name=&recruit_name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001545s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001434s ]
+SQL: SHOW COLUMNS FROM `rd_company_invitation` [ RunTime:0.1200s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_company_invitation` WHERE `company_id` = 1 LIMIT 1   [ RunTime:0.1190s ]
+SQL: SELECT * FROM `rd_company_invitation` WHERE `company_id` = 1 ORDER BY id desc LIMIT 0,10   [ RunTime:0.1198s ]
+
+[ 2018-11-28T17:47:57+08:00 ] 127.0.0.1 /Project/typeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000946s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001209s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001292s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000122s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008843s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008944s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001045s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001095s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001045s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001102s ]
+
+[ 2018-11-28T17:47:58+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000967s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001201s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001278s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.1197s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.1193s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.1200s ]
+
+[ 2018-11-28T17:48:16+08:00 ] 127.0.0.1 /Project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000584s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000721s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000764s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000117s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000158s ]
+NOTIC: [8] Undefined variable: type_data D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\8f9d794b9506d9a88e3dd7666371f6c8.php 第 57 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010101s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010142s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000599s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000623s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000781s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000814s ]
+
+[ 2018-11-28T17:48:18+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000840s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001161s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001233s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1367s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1343s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.4129s ]
+
+[ 2018-11-28T17:48:50+08:00 ] 127.0.0.1 /Project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000621s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000590s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000624s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000112s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008532s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008573s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000490s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000516s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000705s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000742s ]
+
+[ 2018-11-28T17:48:51+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000863s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001086s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001158s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1208s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1190s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.3579s ]
+
+[ 2018-11-28T17:48:54+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=1&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000908s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000954s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1047s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1036s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.3104s ]
+
+[ 2018-11-28T17:49:43+08:00 ] 127.0.0.1 /Project/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000813s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000640s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000109s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008446s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008482s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000505s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000532s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000672s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000704s ]
+
+[ 2018-11-28T17:49:44+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000993s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001635s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1037s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` LIMIT 1   [ RunTime:0.1021s ]
+SQL: SELECT * FROM `rd_project` ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.3326s ]
+
+[ 2018-11-28T17:49:48+08:00 ] 127.0.0.1 /Project/index.html?project_type_id=1&mobile=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000721s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000717s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000757s ]
+SQL: SHOW COLUMNS FROM `rd_project` [ RunTime:0.1789s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project` WHERE `project_type_id` = 1 LIMIT 1   [ RunTime:0.0874s ]
+SQL: SELECT * FROM `rd_project` WHERE `project_type_id` = 1 ORDER BY sort asc,id desc LIMIT 0,10   [ RunTime:0.0881s ]
+
+[ 2018-11-28T17:50:11+08:00 ] 127.0.0.1 /Project/typeList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000871s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000699s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000127s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009233s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009273s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000545s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000576s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000698s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000729s ]
+
+[ 2018-11-28T17:50:12+08:00 ] 127.0.0.1 /Project/typeList.html?page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000971s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001181s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001279s ]
+SQL: SHOW COLUMNS FROM `rd_project_type` [ RunTime:0.0885s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_project_type` LIMIT 1   [ RunTime:0.0873s ]
+SQL: SELECT * FROM `rd_project_type` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0877s ]
+

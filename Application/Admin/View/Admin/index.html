@@ -1,0 +1,264 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="username" value="{:I('get.username')}" placeholder="请输入管理员名称"
+                       class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+                <a class="layui-btn layui-btn-danger" id="add-admin" href="javascript:;"><i class="layui-icon">
+                    &#xe654;</i>添加管理员
+                </a>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="box">
+    <div id="admin-box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">登录账号</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" class="layui-input" lay-verify="required" placeholder="请输入登录账号">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">真实姓名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="realname" class="layui-input" lay-verify="required" placeholder="请输入真实姓名">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">登录密码</label>
+                <div class="layui-input-block">
+                    <input type="text" name="password" class="layui-input"
+                           placeholder="请输入登录密码">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id" value="0" id="admin-id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-admin">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary" id="reset">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="hide" id="auth-group-box">
+        <form class="layui-form mt20">
+            <div class="layui-form-item" id="group" style="margin: 20px">
+            </div>
+            <div class="layui-form-item" style="margin: 20px">
+                <div class="layui-input-block">
+                    <input type="hidden" name="uid" value="0" id="uid"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-auth">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs update-admin" data-username="{{d.username}}"
+           data-realname="{{d.realname}}" data-id="{{d.id}}">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger del" data-url="{:U('del')}?id={{d.id}}">删除</a>
+    </script>
+    <script type="text/html" id="auth">
+        <a class="layui-btn layui-btn-xs user-auth" data-id="{{d.id}}">立即授权</a>
+    </script>
+    <script type="text/html" id="status">
+        <!-- 这里的 checked 的状态只是演示 -->
+        <input type="checkbox" value="{{d.id}}" lay-skin="switch" lay-filter="status"
+               lay-text="启用|禁用"
+               {{ d.status== 1 ? 'checked' : '' }}>
+    </script>
+    <script>
+        $(function () {
+            var index;
+            var auth_group_data = {$auth_group_data};
+            form.render();
+            var url = "{:U('index')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            //操作
+            $("body").on("click", ".user-auth", function () {  //编辑
+                var uid = parseInt($(this).data('id'));
+                if (uid > 0) {
+                    $.get("/Admin/getUserAuthGroup", {uid: uid}, function (res) {
+                        if (res.status == 1) {
+                            $('#uid').val(uid);
+                            var html = '';
+                            if (res.info.data.length > 0) {
+                                for (var i = 0; i < auth_group_data.length; i++) {
+                                    if (res.info.data.indexOf(auth_group_data[i].id) != -1) {
+                                        html += ' <div class="layui-input-inline" style="margin-top: 10px"><input type="checkbox" name="group_id[' + auth_group_data[i].id + ']" value="' + auth_group_data[i].id + ' "title="' + auth_group_data[i].title + '" checked> </div>';
+                                    } else {
+                                        html += ' <div class="layui-input-inline" style="margin-top: 10px"><input type="checkbox" name="group_id[' + auth_group_data[i].id + ']" value="' + auth_group_data[i].id + ' "title="' + auth_group_data[i].title + '"> </div>';
+                                    }
+                                }
+                            } else {
+                                for (var i = 0; i < auth_group_data.length; i++) {
+                                    html += ' <div class="layui-input-inline" style="margin-top: 10px"><input type="checkbox" name="group_id[' + auth_group_data[i].id + ']" value="' + auth_group_data[i].id + ' "title="' + auth_group_data[i].title + '"> </div>';
+                                }
+                            }
+                            $('#group').html(html);
+                            form.render('checkbox');
+
+                            index = layui.layer.open({
+                                title: "管理员授权",
+                                type: 1,
+                                area: ['500px', '400px'],
+                                content: $('#auth-group-box'),
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                } else {
+                    layer.msg('管理员编号异常，无法授权', {icon: 2})
+                }
+            })
+
+
+            $('body').on('click', '.del', function () {
+                var del_url = $(this).data('url');
+                layer.confirm('你确定要删除该管理员信息吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                var get_param = $('form.search').serialize();
+                                var get_url = url + '?' + get_param;
+                                getData(get_url);
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+
+            form.on("submit(save-auth)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "/Admin/userAuth";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        _btn.disabled = false;
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '管理员ID', sort: true}
+                        , {field: 'username', width: 160, title: '管理员账号'}
+                        , {field: 'realname', width: 160, title: '真实姓名'}
+                        , {field: 'add_time', width: 160, title: '添加时间'}
+                        , {field: 'last_time', width: 160, title: '最后登录时间'}
+                        , {field: 'last_ip', width: 160, title: '最后登录IP'}
+                        , {field: 'status', title: '状态', templet: '#status'}
+                        , {field: 'auth', title: '授权', templet: '#auth'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit'}
+                    ]],
+                });
+            }
+
+            //添加管理员账号
+            $('body').on('click', '#add-admin', function () {
+                $('#reset').click();
+                $('#admin-id').val(0);
+                index = layer.open({
+                    title: "添加管理员",
+                    type: 1,
+                    area: ['600px', '300px'],
+                    content: $('#admin-box'),
+                })
+            })
+
+            //编辑管理员账号
+            $('body').on('click', '.update-admin', function () {
+                $('#reset').click();
+                $('#admin-box input[name=username]').val($(this).data('username'));
+                $('#admin-box input[name=realname]').val($(this).data('realname'));
+                $('#admin-id').val($(this).data('id'));
+                index = layer.open({
+                    title: "编辑管理员",
+                    type: 1,
+                    area: ['600px', '300px'],
+                    content: $('#admin-box'),
+                })
+            })
+            //监听性别操作
+            form.on('switch(status)', function (obj) {
+                $.post("{:U('setStatus')}", {id: obj.value}, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1});
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                    }
+
+                })
+            });
+
+            //登录按钮事件
+            form.on("submit(save-admin)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "/Admin/save"
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            refresh();
+                        })
+                    } else {
+                        _btn.disabled = false;
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+        })
+    </script>
+</block>

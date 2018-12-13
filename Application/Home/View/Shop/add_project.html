@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+<link rel="stylesheet" href="__CSS_PATH__/bootstrap-datetimepicker.css">
+
+<body>
+<include file="Common:header" />
+<div class=" mb-50"></div>
+<main class="container">
+    <div class="row com_head">
+        <include file="Shop:top-box" />
+        <div class=" mb-50"></div>
+        <div class="row">
+            <div class="col-md-10">
+                <include file="Shop:tab" />
+                <div class="col-md-5 row">
+                    <div class="panel panel-default lb-panel">
+                        <div class="panel-heading ">
+                            <h5>选择项目与用户</h5>
+                        </div>
+                        <div class="panel-body row">
+                            <div class="col-md-12">
+                                <h5>选择萝卜项目</h5>
+                                <div class="form-group ">
+                                <input name="keyword" id="search_project" class="form-control" placeholder="搜索项目，输入项目名称">
+                                    </div>
+                                <select multiple class="form-control" name="project_id" id="project">
+                                    <foreach name="projects" item="vo" key="k" >
+                                        <option value="{$k}" data-project_id="{$k}" data-name="{$vo}">{$vo}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <h5>选择用户</h5>
+                                <div class="form-group ">
+                                <input name="keyword" id="search_user" class="form-control" placeholder="搜索用户，输入手机号码">
+                                </div>
+                                <select multiple class="form-control" id="user">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="panel panel-default lb-panel">
+                        <div class="panel-heading ">
+
+                                <h5>补充资料</h5>
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="iconfont icon-xingming"></i> </div>
+                                    <input type="text" class="form-control" id="company_name" name="company_name" placeholder="参与项目" required readonly>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="iconfont icon-xingming"></i> </div>
+                                    <input type="text" class="form-control" id="user_name" name="user_name" placeholder="姓名" readonly required>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="iconfont icon-xingming"></i> </div>
+                                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="电话号码" readonly required>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="iconfont icon-xingming"></i> </div>
+                                    <input type="text" class="form-control" id="id_code" name="id_code" placeholder="身份证号" >
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon "><i class="iconfont icon-rili"></i></div>
+                                    <input  type="text" id="add_time" name="add_time" autocomplete="off" class="form-control col-sm-12 datetime"
+                                            required placeholder="入职日期">
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <button type="button" id="shop_add" class="btn btn-primary ">上报</button>
+                                    <input  type="hidden" id="user_id" name="user_id" >
+                                    <input type="hidden" id="project_id" name="project_id">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 ">
+                <include file="Shop:right" />
+            </div>
+        </div>
+
+</main>
+
+<!-- bootstrap-datetimepicker.min -->
+<script src="__JS_PATH__/bootstrap-datetimepicker.min.js"></script>
+<script  type="text/javascript" src="__JS_PATH__/bootstrap-datetimepicker.zh-CN.js"  charset="UTF-8"></script>
+<script src="__JS_PATH__/lib.js"></script>
+<script>
+    user_name = $('#user_name');
+    mobile = $('#mobile');
+    company_name =$('#company_name');
+    user_id = $('#user_id');
+    project_id = $('#project_id');
+    //更改用户
+    $('#user').on('click',function () {
+        var opt = $(this).find('option:selected');
+        user_name.val(opt.data('name'));
+        mobile.val(opt.data('mobile'));
+        user_id.val(opt.data('id'));
+
+        if(opt.length != 0){
+            toastr.info('用户已更改');
+        }
+
+
+    });
+    //更改项目
+    $('#project').on('click',function () {
+        var opt = $(this).find('option:selected');
+        company_name.val(opt.data('name'));
+        project_id.val(opt.data('project_id'));
+        if(opt.length != 0){
+            toastr.info('项目已更改');
+        }
+
+    });
+    //搜索用户
+    $('#search_user').on('change',function () {
+        var mobile = $(this).val();
+        var el = $('#user');
+        var request = $.ajax({
+            url: "{:U('Shop/get_my_user')}",
+            method: "POST",
+            data: {
+                mobile : mobile
+            },
+            dataType: "json",
+        });
+
+        request.done(function (data) {
+
+            //console.log(data);
+            if(data.status == "success"){
+
+                el.empty();
+                if(data.users == ''){
+                    el.append('<option disabled >没找到用户</option>')
+                }
+                for(i=0;i<data.users.length;i++){
+                    el.append('<option value="'+data.users[i].id+'" ' +
+                        'data-id="'+data.users[i].id+'" ' +
+                        'data-mobile="'+data.users[i].mobile+'" ' +
+                        'data-name="'+data.users[i].real_name+'" >'+
+                        data.users[i].mobile.slice(0,3)+'****'+data.users[i].mobile.slice(7,11)+
+                        '|'+data.users[i].real_name+'</option>')
+                }
+                console.log(data.users);
+            }else{
+                toastr.error('查询失败.'+data.msg, '哎呦!')
+            }
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            console.log(textStatus);
+            return false;
+        });
+    });
+    //添加信息
+    $('#shop_add').on('click',function(){
+        var data = new Object();
+        data['id_code'] = $('#id_code').val();
+        data['company_name']  = $('#company_name').val();
+        data['user_name']    = $('#user_name').val();
+        data['tel']      = $('#mobile').val();
+        data['user_id']        = $('#user_id').val();
+        data['project_id']       = $('#project_id').val();
+        data['add_time']   = $('#add_time').val();
+
+       if(data.project_id == ''  || data.add_time =='' || data.mobile == ''){
+           toastr.warning('项目，用户信息，身份证号码，入职日期都是必填选项');
+           return false;
+       }else{
+           var request = $.ajax({
+               url: "{:U('Shop/set_project')}",
+               method: "POST",
+               data: {
+                   data : data
+               },
+               dataType: "json",
+           });
+           request.done(function (data) {
+               var el = $('#user');
+               //console.log(data);
+               if(data.status == "success"){
+                   toastr.success('添加成功！');
+                   //console.log(data);
+               }else if(data.status == 'fail')
+               {
+                   toastr.error('失败.'+data.msg, '哎呦!')
+               }else{
+                   toastr.error('查询失败.'+data.msg, '哎呦!')
+               }
+           });
+           request.fail(function (jqXHR, textStatus) {
+               console.log(textStatus);
+               return false;
+           });
+       }
+
+        console.log(data.mobile);
+
+    });
+    //身份证验证
+    $('#id_code').on('blur',function () {
+        if($(this).val() != ''){
+            if(!check_idcode($(this).val())){
+                $(this).focus();
+            }
+        }
+
+    });
+
+    var request = $.ajax({
+        url: "{:U('Shop/get_my_user')}",
+        method: "POST",
+        data: {
+            mobile : ''
+        },
+        dataType: "json",
+    });
+    request.done(function (data) {
+        var el = $('#user');
+        //console.log(data);
+        if(data.status == "success"){
+            for(i=0;i<data.users.length;i++){
+                el.append('<option value="'+data.users[i].id+'" ' +
+                    'data-id="'+data.users[i].id+'" ' +
+                    'data-mobile="'+data.users[i].mobile+'" ' +
+                    'data-name="'+data.users[i].real_name+'" >'+
+                    data.users[i].mobile.slice(0,3)+'****'+data.users[i].mobile.slice(7,11)+
+                    '|'+data.users[i].real_name+'</option>')
+            }
+            console.log(data.users);
+        }else{
+            toastr.error('查询失败.'+data.msg, '哎呦!')
+        }
+    });
+    request.fail(function (jqXHR, textStatus) {
+        console.log(textStatus);
+        return false;
+    });
+    $('.datetime').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language:'zh-CN',
+        autoclose: 1,
+        startView: 4,
+        minView: 2,
+        maxView: 4,
+
+    });
+</script>
+
+<include file="Common:footer" />

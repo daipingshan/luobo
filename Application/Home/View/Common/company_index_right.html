@@ -1,0 +1,102 @@
+<script src="__JS_PATH__/upload.js"></script>
+
+<div class="col-md-3 ">
+
+    <div class="panel panel-default lb-panel text-center">
+        <div class="panel-body">
+            <div class="user_img_box">
+                <empty name="info['avatar']">
+                    <img src="__IMAGE_PATH__/cp_def.png" class="user_image">
+                    <else/>
+                    <img src="{$info['avatar']}" class="user_image">
+                </empty>
+                <a href="{:U('Company/luobovip')}" target="_blank">
+                    <switch name="info['company_meal']">
+                        <case value="1"><img src="__IMAGE_PATH__/vip_1.png" class="vip_mark"></case>
+                        <case value="2"><img src="__IMAGE_PATH__/vip_2.png" class="vip_mark"></case>
+                        <case value="3"><img src="__IMAGE_PATH__/vip_3.png" class="vip_mark"></case>
+                        <default />
+                    </switch>
+                </a>
+            </div>
+            <div class="clear"></div>
+            <p class="user_text"><a href="{$info['link']}">{$info['company_name']}</a></p>
+            <div class="user_text">
+                企业评分：
+                <for start="1" end="6">
+                    <if condition="($info['credit'] egt $i)">
+                         <img src="__IMAGE_PATH__/start_on.png">
+                    <else />
+                         <img src="__IMAGE_PATH__/start_off.png">
+                    </if>
+                </for>
+            </div>
+            <div class="row small">
+                <div class="col-md-6">
+                    <p>{$my_amount}</p><p>萝卜</p>
+                </div>
+                <div class="col-md-6>">
+                    <p>{$recruit_count}</p><p>岗位</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-default lb-panel">
+            <div class="panel-heading ">
+                <div class="row">
+                    <h5 class="col-md-8">基本资料</h5>
+                </div>
+            </div>
+            <div class="panel-body">
+                <ul class="list">
+                    <li class="list-item">
+                        <span class="glyphicon glyphicon-stats"></span>
+                        {$company_scales[$info['scale']]}
+                    </li>
+                    <li class="list-item"><span class="glyphicon glyphicon-user"></span> {$entreprise_scale}人</li>
+                    <li class="list-item"><span class="glyphicon glyphicon-map-marker"></span>{$district}</li>
+                    <li class="list-item"><span class="glyphicon glyphicon-equalizer"></span>{$info['industry_field']}</li>
+                </ul>
+            </div>
+        </div>
+
+    <div class="panel panel-default lb-panel">
+        <div class="panel-heading ">
+            <div class="row">
+                <h5 class="col-md-8">公司标签</h5>
+            </div>
+        </div>
+        <div id="company_biaoqian"></div>
+        <div class="panel-body">
+            <ul class="cp_tags">
+                <volist name='company_label' id='vo'>
+                    <li>{$label[$vo]['name']}</li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel panel-default lb-panel">
+        <div class="panel-heading ">
+            <div class="row">
+                <h5 class="col-md-8">HR二维码</h5>
+
+            </div>
+        </div>
+        <div class="panel-body text-center">
+            <if condition="$info['hr_qrcode'] eq ''">
+                <img src="__IMAGE_PATH__/qrcode.jpg" class="qrcode img-responsive" >
+            <else />
+                <img src="{$info['hr_qrcode']}" class="qrcode img-responsive" >
+            </if>
+        </div>
+    </div>
+
+</div>
+<!-- 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<link rel="stylesheet" href="__CSS_PATH__/company.css">

@@ -1,0 +1,3 @@
+<?php
+//000000000000a:3:{i:6;a:3:{s:5:"title";s:12:"后台首页";s:4:"icon";s:15:"layui-icon-home";s:4:"href";s:12:"/Index/index";}i:24;a:4:{s:5:"title";s:12:"企业信息";s:4:"icon";s:19:"layui-icon-face-cry";s:4:"href";s:0:"";s:8:"children";a:4:{i:0;a:3:{s:5:"title";s:12:"企业列表";s:4:"icon";s:0:"";s:4:"href";s:14:"/Company/index";}i:1;a:3:{s:5:"title";s:12:"资质审核";s:4:"icon";s:0:"";s:4:"href";s:16:"/Company/examine";}i:2;a:3:{s:5:"title";s:12:"企业标签";s:4:"icon";s:0:"";s:4:"href";s:14:"/Company/label";}i:3;a:3:{s:5:"title";s:12:"首页置顶";s:4:"icon";s:0:"";s:4:"href";s:20:"/Company/recruitList";}}}i:28;a:3:{s:5:"title";s:12:"会员充值";s:4:"icon";s:14:"layui-icon-rmb";s:4:"href";s:14:"/User/userList";}}
+?>

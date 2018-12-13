@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+<link rel="stylesheet" href="__CSS_PATH__/bootstrap-datetimepicker.css">
+<body>
+<include file="Common:header" />
+<div class=" mb-50"></div>
+<main class="container">
+    <div class="row com_head">
+        <include file="Shop:top-box" />
+        <div class=" mb-50"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <include file="Shop:tab" />
+                <div class="col-md-4 row">
+                    <div class="panel panel-default lb-panel">
+                        <div class="panel-heading ">
+                            <h5>上报业绩</h5>
+
+                        </div>
+                        <div class="panel-body ">
+                            <form action="{:U('Shop/set_report')}" method="post">
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="iconfont icon-jiaotongshishi-"></i> </div>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="项目标题" required >
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                            <select  class="form-control" name="cat_id" id="cat_id">
+                                <foreach name="categories" item="vo" key="k" >
+                                    <eq name="vo.status" value="1">
+                                        <option value="{$vo.id}"  >{$vo.name}</option>
+                                    </eq>
+                                </foreach>
+                            </select>
+                        </div>
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="iconfont icon-caiwu"></i> </div>
+                                    <input type="text" class="form-control" id="income" name="income" placeholder="业绩金额"  required>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="iconfont icon-xinxi"></i> </div>
+                                    <textarea class="form-control" id="content" name="content" placeholder="备注信息"  required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <div class="input-group">
+                                    <button type="submit" id="shop_add" class="btn btn-primary ">上报</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="panel panel-default lb-panel">
+                        <div class="panel-heading ">
+                            <h5 class="col-md-4">业绩列表 -
+
+                            </h5>
+                            <div class="hidden col-md-8 text-right">
+                                <a href="/Shop/report/type/1" class="btn-default">已审核过</a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-striped lb-table">
+                                <tr>
+                                    <th>名字</th>
+                                    <th>类型</th>
+                                    <th>金额</th>
+                                    <th>时间</th>
+                                    <th>备注</th>
+                                    <th>状态</th>
+                                </tr>
+                                <foreach name="items" item="vo" key="k" >
+                                    <tr>
+                                        <td>{$vo.name}</td>
+                                        <td>{$categories[$vo['cat_id']]['name']}</td>
+                                        <td>{$vo.income}</td>
+                                        <td>{$vo.add_time|substr=0,10}</td>
+                                        <td>{$vo.content|substr=0,150}</td>
+                                        <td>
+
+                                            <eq name="vo.check" value="0">
+                                                审查中 |
+                                                <a href="/Shop/remove_report/report_id/{$vo.id}">撤回</a>
+                                            </eq>
+                                            <eq name="vo.check" value="1">已确认</eq>
+                                            <eq name="vo.check" value="2">已撤回</eq>
+                                            <eq name="vo.check" value="3">无效</eq>
+                                        </td>
+                                    </tr>
+
+                                </foreach>
+
+                            </table>
+                            <div>{$page}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</main>
+
+<!-- bootstrap-datetimepicker.min -->
+<script src="__JS_PATH__/bootstrap-datetimepicker.min.js"></script>
+<script  type="text/javascript" src="__JS_PATH__/bootstrap-datetimepicker.zh-CN.js"  charset="UTF-8"></script>
+<script src="__JS_PATH__/lib.js"></script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/lang/zh-cn/zh-cn.js"></script>
+<script>
+
+    $('.datetime').datetimepicker({
+        format: 'yyyy-mm-dd',
+        language:'zh-CN',
+        autoclose: 1,
+        startView: 4,
+        minView: 2,
+        maxView: 4,
+
+    });
+
+</script>
+
+<include file="Common:footer" />

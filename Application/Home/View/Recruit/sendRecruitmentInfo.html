@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/lang/zh-cn/zh-cn.js"></script>
+<include file="Common:header" />
+<link rel="stylesheet" href="__LAYUI_PATH__/css/layui.css">
+<style >
+    .select_lables{
+        width: 45%;
+        margin: 10px 2.5%;
+        background-color: #f1f2f5;
+        color: #8f9399;
+        border-radius: 8px;
+        text-align: center;
+        list-style-type: none;
+        padding: 5px 2.5%;
+    }
+</style>
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <!--  公司 主要信息 TAB -->
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-8">发布新职位</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form role="form" method="post" class="form-horizontal">
+                        <input type="hidden" name="province_id" value="{$info['province_id']}">
+                        <input type="hidden" name="city_id" value="{$info['city_id']}">
+                        <input type="hidden" name="district_id" value="{$info['district_id']}">
+                        <div class="form-group">
+                            <label for="name"  class="col-md-2"><span class="xing">*</span>职位类型</label>
+                            <div class="col-md-10">
+                                <div class="radio col-md-6">
+                                    <label>
+                                        <input type="radio" name="type" id="optionsRadios1" value="place" checked>社招
+                                    </label>
+                                </div>
+
+                                <div class="radio col-md-6">
+                                    <label>
+                                        <if condition="$info['company_meal'] gt 1 ">
+                                            <input type="radio" name="type" id="optionsRadios2" value="school" >校招
+                                            <else />
+                                            <span id="school">校招</span>
+                                        </if>
+
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="name"  class="col-md-2"><span class="xing">*</span>职位类别</label>
+                            <div class="col-md-10 row">
+                                <div class="col-md-4">
+                                    <select class="position form-control" id="position">
+                                        <option value="0">请选择职位名称</option>
+                                        <volist name='position_type' id='vo'>
+                                            <option value="{$vo['id']}">{$vo['name']}</option>
+                                        </volist>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="position form-control" id="position_two">
+                                        <option value="0">请选择职位名称</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="position " class="position form-control" id="position_three">
+                                        <option value="0">请选择职位名称</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-md-2"><span class="xing">*</span>职位名称</label>
+                            <div class="col-md-10">
+                                <input type="text" name="name" class="form-control" id="mingcheng" placeholder="请输入职位名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-md-2"><span class="xing">*</span>职位描述</label>
+                            <div class="col-md-10">
+                                <script id="editor" type="text/plain">{$desc['company_position_display']}<br>{$desc['company_welfare_display']}<br>{$desc['user_self_display']}</script>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-md-2"><span class="xing">*</span>职位标签</label>
+                            <div class="col-md-10" id="biaoqian">
+                                <a class="position-label-add btn btn-default" data-toggle="modal" data-target="#about_lable" data-whatever="@mdo">+</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-2"><span class="xing">*</span>工作性质</label>
+                            <div class="col-md-10">
+                                <select name="nature" id="nature" class="form-control" style="width: 50%">
+                                    <foreach name="work_type" item="vo" >
+                                        <option value="{$key}">{$vo}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-2"><span class="xing">*</span>工作经验</label>
+                            <div class="col-md-10">
+                                <select name="experience" id="experience" class="form-control" style="width: 50%">
+                                    <volist name='expreience' id='vo' key="k">
+                                        <option value="{$k}">{$vo}</option>
+                                    </volist>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-2"><span class="xing">*</span>学历要求</label>
+                            <div class="col-md-10">
+                                <select name="limit_educate" id="limit_educate" class="form-control" style="width: 50%">
+                                    <volist name='edcuation' id='vo' key="k">
+                                        <option value="{$k}">{$vo}</option>
+                                    </volist>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-2"><span class="xing">*</span>职位亮点</label>
+                            <div class="col-md-10">
+                                <input type="text" id="job_excellence" class="form-control" name="job_excellence" value="" placeholder="一句话描述您的岗位特点">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-2"><span class="xing">*</span>薪资待遇</label>
+                            <div class="col-md-10 row">
+                                <div class="col-md-4 "><input type="text" name="salary_min" class="form-control"  value="0" placeholder="最低"></div>
+                                <div class="col-md-1"> K 至</div>
+                                <div class="col-md-4 "><input type="text" name="salary_max" class="form-control" value="0" placeholder="最高"></div> K
+                            </div>
+                            <div class="col-md-10 col-md-offset-2"> <p>* 如果需要面议请填写0</p></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-2">工作地址</label>
+                            <div class="col-md-10">
+                                <input type="text" name="address" class="form-control" value="{$info['company_address']}" placeholder="默认为公司地址">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="col-md-2">联系人</label>
+                            <div class="col-md-10">
+                                <input type="text" name="contacts_mobile" class="form-control" placeholder="默认为HR的电话" value="{$info['tel']}">
+                            </div>
+                        </div>
+                        <input type="hidden" name="contacts" value="{$info['hr_name']}" >
+
+                        <div class="form-group">
+                            <input type="submit" class="btn col-md-offset-2 col-md-8 btn-primary" id="send_recruit" value="提交">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <include file="Common:company_index_right" />
+
+    </div>
+
+</main>
+
+<!-- 职位标签模态框 -->
+<div class="modal fade" id="about_lable" tabindex="-1" role="dialog" aria-labelledby="about_lable_myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="about_lable_myModalLabel">
+                    职位标签
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <volist name='position_label' id='vo'>
+                    <label class="labels" >
+                        <input type="checkbox" name="label_value" value="{$vo['id']}" />{$vo['name']}
+                    </label>
+                </volist>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button type="submit" class="btn btn-primary" id="sure_label" data-dismiss="modal" disabled="disabled">确定</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var ue = UE.getEditor('editor');
+
+    $("#school").click(function () {
+        toastr.info('购买基础企业套餐，就可以发布校招信息了。');
+    });
+
+    // $('#about_lable').on('hidden.bs.modal', function (e) {
+    //     toastr.info('模态框关闭。');
+    // })
+
+    //  获取职位类型列表
+    $('#position').change(function(){
+        $("#position_two").empty();// 清空下拉框
+        $("#position_two").append("<option value='0'>请选择职位名称</option>");
+        $("#position_three").empty();// 清空下拉框
+        $("#position_three").append("<option value='0'>请选择职位名称</option>");
+        var position = $("#position option:selected").val();
+
+        $.post("/Recruit/getPositionType", {position_id: position}, function (res) {
+            if (res.code == 0) {
+                var option_two = '';
+                $.each(res.data,function(key,value) {
+                    option_two += '<option value="' + value.id + '">' + value.name + '</option>';
+                });
+                $("#position_two").append(option_two);
+            } else {
+                alert(res.msg);
+            }
+            return true;
+        });
+    });
+
+    $('#position_two').change(function(){
+        $("#position_three").empty();// 清空下拉框
+        $("#position_three").append("<option value='0'>请选择职位名称</option>");
+        var position_two = $("#position_two option:selected").val();
+
+        $.post("/Recruit/getPositionType", {position_id: position_two}, function (res) {
+            if (res.code == 0) {
+                var option_three = '';
+                $.each(res.data,function(key,value) {
+                    option_three += '<option value="' + value.id + '">' + value.name + '</option>';
+                });
+                $("#position_three").append(option_three);
+            } else {
+                alert(res.msg);
+            }
+            return true;
+        });
+    });
+
+    $(".labels").click(function(){
+        var num = $('input[name=label_value]:checked');
+        var n = 0;
+        for(var i=0; i<num.length; i++){
+            if(num[i].checked)
+                n++;
+        }
+        if (n > {$used_label}){
+            toastr.info('职位最多选择'+{$used_label}+'个！');
+            return false;
+        } else if (n < 1) {
+            $("#sure_label").attr("disabled",true);
+            return false;
+        }
+        $("#sure_label").attr("disabled",false);
+        return true;
+    });
+
+    $('#sure_label').click(function () {
+        var text = "";
+        var select_lables = "";
+        $.each($('input[name=label_value]:checked'),function(){
+            text += $(this).val()+',';
+            select_lables += '<span class="select_lables">' + $(this)[0].nextSibling.data+'</span>';
+        });
+        console.log(text);
+        var label_input = '<input type="hidden" name="label" value="' + text + '"/>';
+        $("#biaoqian").append(label_input);
+        $("#biaoqian").append(select_lables);
+    });
+
+    $('input[name=name]').blur(function(){
+        var  name = $('input[name=name]').val();
+        if (name.length > 9) {
+            toastr.error('职位名称不得超过9个字');
+        }
+    });
+
+    $("#job_excellence").blur(function(){
+        var  job_excellence = $("#job_excellence").val();
+        if (job_excellence.length > 20) {
+            toastr.error('职位亮点不得超过20个字');
+        }
+    });
+
+    $('#send_recruit').click(function(){
+        var  province_id = $('input[name=province_id]').val();
+        var  city_id = $('input[name=city_id]').val();
+        var  district_id = $('input[name=district_id]').val();
+        var  type = $('input[name=type]:checked').val();
+        var  position = $("#position_three option:selected").val();
+        var  name = $('input[name=name]').val();
+        var  nature = $("#nature option:selected").val();
+        var  label = $('input[name=label]').val();
+        var  experience = $("#experience option:selected").val();
+        var  limit_educate = $("#limit_educate option:selected").val();
+        var  salary_min = $('input[name=salary_min]').val();
+        var  salary_max = $('input[name=salary_max]').val();
+        var  job_excellence = $("#job_excellence").val();
+        var  address = $('input[name=address]').val();
+        var  contacts = $('input[name=contacts]').val();
+        var  contacts_mobile = $('input[name=contacts_mobile]').val();
+
+        if (name.length > 9) {
+            toastr.error('职位名称不得超过9个字');
+            return false;
+        }
+
+        if (job_excellence.length > 20) {
+            toastr.error('职位亮点不得超过20个字');
+            return false;
+        }
+
+        if ((salary_min != 0) && (salary_max != 0)) {
+            if (salary_min - salary_max > 0) {
+                toastr.error('最低薪资不得大于最高薪资');
+                return false;
+            }
+            if (1 > salary_min || salary_min > 10) {
+                toastr.error('最低薪资不得少于1k不得大于10k');
+                return false;
+            }
+            if (3 > salary_max || salary_max > 25) {
+                toastr.error('最高薪资不得少于3k不得大于20k');
+                return false;
+            }
+        }
+
+        var desc = UE.getEditor('editor').getContent();
+
+        console.log(desc);
+
+        if (province_id == '' || city_id == '' || district_id == '' || name == '' || type == '' || nature == '' || position == '' || desc == '' ||
+            label == '' || experience == '' || limit_educate == '' || salary_min == '' || salary_max == '' ||
+            job_excellence == '' || address == '' || contacts == '' || contacts_mobile == '') {
+            toastr.info('条目不得为空');
+            //return false;
+        } else {
+            $.post("{:U('Recruit/sendRecruitmentInfo')}", {province_id: province_id, city_id: city_id, district_id:district_id, name: name, type:type, nature:nature, position:position, desc:desc, label:label, experience:experience, limit_educate:limit_educate, salary_min:salary_min, salary_max:salary_max, job_excellence: job_excellence,address:address, contacts:contacts, contacts_mobile:contacts_mobile}, function (res) {
+                console.log(res);
+                if (res.code == -1) {
+                    toastr.error(res.msg, '错误!');
+                } else if(res.code == 0){
+                    toastr.success(res.msg);
+                    location.href = res.data;
+                }
+            });
+        }
+    });
+
+</script>
+<include file="Common:footer" />

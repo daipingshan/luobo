@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<!-- 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+
+<include file="Common:head" />
+
+<body >
+<style type="text/css">
+    .address_c{
+        position: relative;
+        margin-top:30px;
+        width: 630px;
+        height: 400px;
+        top: -20px;
+        border: 1px solid gray;
+    }
+</style>
+<div class="bg_blue">
+    <div class="com_header  animated  fadeInUpBig ">
+        <div class=" animated  fadeInUpBig ">
+            <div class="container ">
+                <div class="company_text  ">
+                    <span class="c1 animated bounceInDown">C</span>
+                    <span class="c2 animated bounceInDown">O</span>
+                    <span class="c3 animated bounceInDown">M</span>
+                    <span class="c4 animated bounceInDown">P</span>
+                    <span class="c5 animated bounceInDown">A</span>
+                    <span class="c6 animated bounceInDown">N</span>
+                    <span class="c7 animated  bounceInDown">Y</span>
+
+                </div>
+                <div class="company_title animated  bounceIn ">
+                    <empty name="$info['short_name']">
+                        {$info['company_name']}
+                        <else/>
+                        {$vo.short_name}
+                    </empty>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<main class="container com_body animated  bounceIn">
+    <div class="com_about">
+        <div class="row">
+            <div class="col-md-6 about-pics">
+                <img src="{$pics[0][pic]}" class="com_pic_1 about-pic">
+                <img src="{$pics[1][pic]}" class="com_pic_2 about-pic">
+                <img src="{$pics[2][pic]}" class="com_pic_3 about-pic">
+                <img src="{$pics[3][pic]}" class="com_pic_4 about-pic">
+                <img src="__IMAGE_PATH__/cloud.png" class="com_pic_5 about-pic">
+            </div>
+            <div class="col-md-6">
+                <div class="about-text">
+                    <span class="">A</span>
+                    <span class="">B</span>
+                    <span class="">O</span>
+                    <span class="">U</span>
+                    <span class="">T</span>
+                </div>
+                <h5  class="about-title">
+                    关于我们
+                </h5>
+                <div class="about-body">
+                    中光电信数据中心是运营中国电信四大IDC数据交换中心之一的西部数据中心机房，
+                    全面负责中国互联网数据的存储、交换和传输的国家电信级数据中心
+                    中光电信西部数据中心机房面积超过5000平米，拥有直连国家骨干核心、省网核心、
+                    城域网核心的网络宽带资源以及专业电信级网络工程维护人员近百名。
+                    {$info['desc']}
+
+                    <div class="clear"></div>
+                </div>
+                <p><a href="" class="big-link">查看招聘岗位 <span class="glyphicon glyphicon-chevron-right"></span></a> </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 ">
+            <div class="about-head text-center">
+                <div class="about-text">
+                    <span class="">I</span>
+                    <span class="">N</span>
+                    <span class="">F</span>
+                    <span class="">O</span>
+                </div>
+                <h5  class="about-title">
+                    公司资料
+                </h5>
+            </div>
+            <div class="panel panel-default lb-panel">
+                <table class="table user_info_table ">
+                    <tr>
+                        <td>公司全称</td>
+                        <td>
+                            {$info['company_name']}&nbsp;
+                            <switch name="info['company_meal']">
+                                <case value="1"><img src="__IMAGE_PATH__/vip_1.png" class="vip_mark"></case>
+                                <case value="2"><img src="__IMAGE_PATH__/vip_2.png" class="vip_mark"></case>
+                                <case value="3"><img src="__IMAGE_PATH__/vip_3.png" class="vip_mark"></case>
+                                <default />
+                            </switch>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>企业评分</td>
+                        <td>
+                            <for start="1" end="6">
+                            <if condition="($info['credit'] egt $i)">
+                                <img src="__IMAGE_PATH__/start_on.png">
+                                <else />
+                                <img src="__IMAGE_PATH__/start_off.png">
+                            </if>
+                            </for>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>所在地区</td>
+                        <td>{$city[$info['city_id']]} {$info['company_address']}  <a data-toggle="modal" data-target="#map_view" data-whatever="@mdo">查看地址</a></td>
+                    </tr>
+                    <tr>
+                        <td>所属行业</td>
+                        <td>{$info['industry_field']} </td>
+                    </tr>
+                    <tr>
+                        <td>我们拥有</td>
+                        <td>
+                            <ul class="cp_tags">
+
+                                <foreach name="info[label]"  item="it">
+                                    {$label[$it]['name']}、
+                                </foreach>
+                                更多
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>企业性质</td>
+                        <td>
+                            {$scales[$info['scale']]}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>企业规模</td>
+                        <td>{$company_size[$info['company_size']]} </td>
+                    </tr>
+                    <tr>
+                        <td>认证信息</td>
+                        <td>{$info['industry_field']} </td>
+                    </tr>
+                    <tr>
+                        <td>企业资质</td>
+                        <td>营业执照已认证</td>
+                    </tr>
+
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<div class="com_bottom">
+
+    <div class="cus_body text-center ">
+        <div class="container col-md-offset-1 col-md-10">
+            <div class="cus_title">
+                <h1>联系萝卜</h1>
+                <p class="small-text">先人一步，快人一筹</p>
+            </div>
+            <div class="row">
+                <div class="col-md-1  col-md-offset-1 ">
+                    <img src="__IMAGE_PATH__/lb_{:rand(1,4)}.png" class="cus_lb">
+                </div>
+                <div class="col-md-4 cus_left text-left ">
+                    <p>www.luobowang.cn</p>
+                    <p>TEL. <span class="cus_tel">029-81142480</span></p>
+                    <p>西安市高新区锦业一路研祥城市广场B座309</p>
+                </div>
+                <div class="col-md-4 cus_right">
+                    <img src="__IMAGE_PATH__/qrcode.jpg" class="qrcode ">
+                    <p>微信公众号</p>
+                </div>
+                <div class="col-md-1 hidden-xs">
+                    <div class="illust">
+                        <img class="js__pigeon_1" src="__IMAGE_PATH__/b-contact_img_02-1.png" >
+                        <img class="js__pigeon_2" src="__IMAGE_PATH__/b-contact_img_02-2.png" >
+                        <img class="js__pigeon_3" src="__IMAGE_PATH__/b-contact_img_02-3.png" >
+                        <img class="js__pigeon_4" src="__IMAGE_PATH__/b-contact_img_02-4.png" >
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>
+<div class="com_footer">
+    <div class="container">
+        <div class="col-md-6">©2018 萝卜网 陕ICP备18011042号</div>
+        <div class="col-md-6">
+            <ul class="footerbar-ul pull-right">
+
+            <li class="nav-item  ">
+                <a
+                <eq name="menu" value="company">class="nav-link active"
+                    <else/>
+                    class="nav-link"
+                </eq>
+                href="{:U('Index/company')}">企业商铺</a>
+            </li>
+            <li class="nav-item  ">
+                <a
+                <eq name="menu" value="school">class="nav-link active"
+                    <else/>
+                    class="nav-link"
+                </eq>
+                href="{:U('Index/school')}">萝卜校招</a>
+            </li>
+            <li class="nav-item ">
+                <a
+                <eq name="menu" value="project">class="nav-link active"
+                    <else/>
+                    class="nav-link"
+                </eq>
+                href="{:U('Index/project')}">萝卜项目
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a
+                <eq name="menu" value="Shop">class="nav-link active"
+                    <else/>
+                    class="nav-link"
+                </eq>
+                href="{:U('Shop/index')}">萝卜门店
+                </a>
+
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>
+<div class="logo-w animated  slideInDown delay-8s">
+    <img src="__IMAGE_PATH__/logo-w.png">
+</div>
+<div class="main_nav_bottom visible-xs-* hidden-md hidden-lg">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container" align="center">
+            <ul class="nav nav-tabs nav-tabs-justified">
+                <div class="row" align="center">
+                    <div class="col-xs-3" align="center">
+                        <li
+                        <if condition="(CONTROLLER_NAME eq 'Index') AND (ACTION_NAME eq 'index')">
+                            class="active"
+                        </if>>
+                        <a href="/">
+                            <span class="glyphicon glyphicon-home col-xs-12" aria-hidden="true"></span>
+                            主页
+                        </a>
+                        </li>
+                    </div>
+                    <div class="col-xs-3" align="center">
+                        <li
+                        <if condition="(CONTROLLER_NAME eq 'Search') or (CONTROLLER_NAME eq 'Jobs') ">
+                            class="active"
+                        </if>>
+                        <a href="/search/index">
+                            <span class="glyphicon glyphicon-lock col-xs-12" aria-hidden="true"></span>
+                            好工作
+                        </a>
+                        </li>
+                    </div>
+                    <div class="col-xs-3" align="center">
+                        <li
+                        <if condition="((CONTROLLER_NAME eq 'Index') AND (ACTION_NAME eq 'project')) or (CONTROLLER_NAME eq 'project')">
+                            class="active"
+                        </if>>
+                        <a href="/Index/project">
+                            <span class="glyphicon glyphicon-fire col-xs-12" aria-hidden="true"></span>
+                            好项目
+                        </a>
+                        </li>
+                    </div>
+                    <div class="col-xs-3" align="center">
+                        <li <eq name="CONTROLLER_NAME" value="User">class="active"</eq>>
+                        <a href="/User/mobile">
+                            <span class="glyphicon glyphicon-user col-xs-12" aria-hidden="true"></span>
+                            我的
+                        </a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </nav>
+</div>

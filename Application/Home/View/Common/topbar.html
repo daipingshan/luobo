@@ -1,0 +1,49 @@
+<div id="topbar" class="hidden-xs">
+    <div class="container">
+
+        <div class="col float-left right-bar">
+            <span>全国站</span>
+        </div>
+        <div class="col-md-6 float-right text-right navbar-right">
+            <empty name="Think.session.user.id">
+                <a href="{:U('Auth/login')}">登录</a> |
+                <a href="{:U('Auth/register')}">注册</a>
+
+            <else/>
+                <div class="right-bar">
+                    <div class="btn-group">
+                    <if condition="$Think.session.identity eq 2">
+
+                            <a href="{:U('Company/index')}">企业资料</a>
+                            <a href="{:U('Company/manage')}">职位管理</a>
+                            <a href="{:U('Recruit/workLifePaper', array('status' => '1'))}">简历库</a>
+                            <else/>
+                            <a href="{:U('user/info_display')}">个人资料</a>
+                            <a href="{:U('User/index')}">投递记录
+                                <if condition="($invitations[4] neq 0)"><span class="badge visible-lg-*">{$invitations[4]}</span></if>
+                            </a>
+                            <a href="{:U('user/vitae')}">我的简历</a>
+                    </if>
+
+                        <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <if condition="$Think.session.identity eq 2">企业
+                                <else/>
+                                求职者
+                            </if>
+                            <!--{$Think.session.user.mobile}-->
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li class="hidden"><a href="{:U('Auth/account')}">账户信息</a></li>
+                            <li><a href="{:U('Auth/switch_identity')}">切换身份</a></li>
+                            <li><a href="{:U('Auth/password')}">修改密码</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{:U('Auth/logout')}">退出</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </empty>
+        </div>
+    </div>
+</div>

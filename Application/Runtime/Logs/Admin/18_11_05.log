@@ -1,0 +1,742 @@
+[ 2018-11-05T17:15:31+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001879s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001500s ]
+
+[ 2018-11-05T17:15:31+08:00 ] 127.0.0.1 /Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000782s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001399s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001448s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012068s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012115s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000833s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000863s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001105s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001134s ]
+
+[ 2018-11-05T17:15:32+08:00 ] 127.0.0.1 /Login/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000999s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001022s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001088s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001080s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001161s ]
+
+[ 2018-11-05T17:15:37+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000604s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000634s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.0946s ]
+SQL: SELECT * FROM `rd_admin` WHERE `username` = 'admin' AND `password` = '231ee813250bd018144ec5acc5950026' LIMIT 1   [ RunTime:0.0929s ]
+SQL: UPDATE `rd_admin` SET `last_time`='1541409336',`last_ip`='127.0.0.1' WHERE `id` = 1 [ RunTime:0.1540s ]
+
+[ 2018-11-05T17:15:41+08:00 ] 127.0.0.1 /Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000585s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001040s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001090s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group_access` [ RunTime:0.0942s ]
+SQL: SELECT `group_id` FROM `rd_auth_group_access` WHERE `uid` = 1  [ RunTime:0.0942s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.0949s ]
+SQL: SELECT `rules` FROM `rd_auth_group` WHERE `id` IN ('1')  [ RunTime:0.0939s ]
+SQL: SHOW COLUMNS FROM `rd_auth_rule` [ RunTime:0.0943s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `parent_id` = 0 AND `status` = 1 AND `display` = 1 AND (  `id` IN ('6','21','33','1','94','37','36','35','34','2','3','5','4','42','41','40','39','38','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','58','57','19','18','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','61','95','93','92','27','26','23','74','73','72','71','29','13','28','76','75','30','85','84','83','82','81','80','79','78','32','31','86','91','90','89','88','87') ) ORDER BY sort asc  [ RunTime:0.0947s ]
+SQL: SELECT * FROM `rd_auth_rule` WHERE `id` IN ('6','21','33','1','94','37','36','35','34','2','3','5','4','42','41','40','39','38','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','58','57','19','18','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','61','95','93','92','27','26','23','74','73','72','71','29','13','28','76','75','30','85','84','83','82','81','80','79','78','32','31','86','91','90','89','88','87') AND `status` = 1 AND `display` = 1 AND `parent_id` > 0 ORDER BY sort asc  [ RunTime:0.0952s ]
+SQL: SELECT `name` FROM `rd_auth_rule` WHERE `status` = 1 AND (  `id` IN ('6','21','33','1','94','37','36','35','34','2','3','5','4','42','41','40','39','38','7','9','8','46','45','44','43','10','15','11','50','49','48','47','16','52','51','17','58','57','19','18','56','55','54','53','20','60','59','24','14','22','70','69','68','67','66','65','64','63','62','61','95','93','92','27','26','23','74','73','72','71','29','13','28','76','75','30','85','84','83','82','81','80','79','78','32','31','86','91','90','89','88','87') )  [ RunTime:0.2132s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000150s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000260s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032091s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032172s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001008s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001064s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001432s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001506s ]
+
+[ 2018-11-05T17:16:12+08:00 ] 127.0.0.1 /Admin/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000903s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000948s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001017s ]
+SQL: SHOW COLUMNS FROM `rd_auth_group` [ RunTime:0.0935s ]
+SQL: SELECT * FROM `rd_auth_group` WHERE `status` = 1  [ RunTime:0.0942s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001250s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001480s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.046752s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046872s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001393s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001489s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001652s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001751s ]
+
+[ 2018-11-05T17:16:13+08:00 ] 127.0.0.1 /Admin/index.html?username=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000771s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000875s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000921s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.1324s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_admin` LIMIT 1   [ RunTime:0.0957s ]
+SQL: SELECT * FROM `rd_admin` ORDER BY id desc LIMIT 0,50   [ RunTime:0.0960s ]
+
+[ 2018-11-05T17:16:14+08:00 ] 127.0.0.1 /Config/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000836s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000821s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000873s ]
+SQL: SHOW COLUMNS FROM `rd_config` [ RunTime:0.0952s ]
+SQL: SELECT `content` FROM `rd_config` WHERE `id` = 1 LIMIT 1   [ RunTime:0.2131s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000511s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000615s ]
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 128 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 137 行.
+NOTIC: [8] Undefined index: refresh_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 146 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 155 行.
+NOTIC: [8] Undefined index: refresh_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 189 行.
+NOTIC: [8] Undefined index: send_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 198 行.
+NOTIC: [8] Undefined index: refresh_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 232 行.
+NOTIC: [8] Undefined index: send_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 241 行.
+NOTIC: [8] Undefined index: refresh_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 275 行.
+NOTIC: [8] Undefined index: send_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 284 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032681s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032732s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000988s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001036s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001956s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002069s ]
+
+[ 2018-11-05T17:17:49+08:00 ] 127.0.0.1 /Config/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000603s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001181s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001283s ]
+SQL: SHOW COLUMNS FROM `rd_config` [ RunTime:0.3855s ]
+SQL: SELECT `content` FROM `rd_config` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0926s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000351s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000423s ]
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 128 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 137 行.
+NOTIC: [8] Undefined index: refresh_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 146 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 155 行.
+NOTIC: [8] Undefined index: refresh_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 189 行.
+NOTIC: [8] Undefined index: send_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 198 行.
+NOTIC: [8] Undefined index: refresh_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 232 行.
+NOTIC: [8] Undefined index: send_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 241 行.
+NOTIC: [8] Undefined index: refresh_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 275 行.
+NOTIC: [8] Undefined index: send_num D:\www\online_team\www.luobo.com\Application\Runtime\Cache\Admin\01242410c52b2114556c5d665ea48c54.php 第 284 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016825s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016868s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001133s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001194s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001006s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001054s ]
+
+[ 2018-11-05T17:19:07+08:00 ] 127.0.0.1 /Config/save.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000541s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+SQL: SHOW COLUMNS FROM `rd_config` [ RunTime:0.0955s ]
+SQL: SELECT `content` FROM `rd_config` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0952s ]
+SQL: UPDATE `rd_config` SET `content`='a:13:{s:4:\"BASE\";a:5:{s:6:\"domain\";s:23:\"http://www.luobowang.cn\";s:5:\"title\";s:37:\"萝卜网-真实的招聘求职平台\";s:7:\"keyword\";s:63:\"招聘,找工作,招聘网,人才网，萝卜网，求职网，\";s:4:\"desc\";s:135:\"萝卜网是真实的招聘求职平台，提供全国真实可靠的招聘信息。找工作、要招聘、搜人才就来萝卜网。\";s:6:\"search\";s:38:\"php工程师,web工程师,ios工程师\";}s:7:\"COMPANY\";a:5:{i:0;a:3:{s:4:\"name\";s:12:\"普通会员\";s:5:\"price\";s:1:\"0\";s:8:\"send_num\";s:1:\"5\";}i:1888;a:4:{s:11:\"refresh_num\";s:2:\"20\";s:4:\"name\";s:12:\"黄金会员\";s:5:\"price\";s:4:\"1888\";s:8:\"send_num\";s:2:\"20\";}i:5888;a:4:{s:4:\"name\";s:12:\"铂金会员\";s:5:\"price\";s:4:\"5888\";s:11:\"refresh_num\";s:2:\"30\";s:8:\"send_num\";s:2:\"30\";}i:8888;a:4:{s:4:\"name\";s:12:\"钻石会员\";s:5:\"price\";s:4:\"8888\";s:11:\"refresh_num\";s:2:\"50\";s:8:\"send_num\";s:2:\"50\";}s:4:\"base\";a:5:{s:4:\"down\";s:1:\"6\";s:7:\"refresh\";s:1:\"1\";s:3:\"top\";s:2:\"30\";s:5:\"index\";s:3:\"299\";s:7:\"top_day\";a:4:{i:1;s:1:\"1\";i:2;s:1:\"3\";i:3;s:1:\"7\";i:4;s:2:\"30\";}}}s:4:\"USER\";a:4:{i:0;a:2:{s:4:\"name\";s:12:\"普通会员\";s:5:\"price\";s:1:\"0\";}i:9;a:2:{s:4:\"name\";s:3:\"VIP\";s:5:\"price\";s:3:\"9.9\";}i:19;a:2:{s:4:\"name\";s:4:\"VVIP\";s:5:\"price\";s:4:\"19.9\";}s:4:\"base\";a:2:{s:8:\"register\";s:1:\"3\";s:5:\"share\";s:3:\"0.1\";}}s:11:\"WORK_NATURE\";a:3:{s:9:\"full_time\";s:6:\"全职\";s:9:\"part_time\";s:6:\"兼职\";s:10:\"internship\";s:6:\"实习\";}s:15:\"WORK_EXPERIENCE\";a:6:{i:0;s:6:\"不限\";i:1;s:10:\"1年以下\";i:2;s:6:\"1-3年\";i:3;s:6:\"3-5年\";i:4;s:7:\"5-10年\";i:5;s:11:\"10年以上\";}s:9:\"EDUCATION\";a:9:{i:1;s:6:\"高中\";i:2;s:6:\"专科\";i:3;s:6:\"本科\";i:4;s:6:\"硕士\";i:5;s:6:\"博士\";i:6;s:9:\"博士后\";i:7;s:12:\"培训机构\";i:8;s:6:\"海外\";i:9;s:6:\"其他\";}s:9:\"WORK_TYPE\";a:3:{i:0;s:6:\"离职\";i:1;s:6:\"在职\";i:2;s:6:\"在校\";}s:14:\"HIGH_EDUCATION\";a:8:{i:1;s:6:\"小学\";i:2;s:6:\"初中\";i:3;s:6:\"高中\";i:4;s:6:\"专科\";i:5;s:6:\"本科\";i:6;s:6:\"硕士\";i:7;s:6:\"博士\";i:8;s:6:\"其他\";}s:6:\"SCALES\";a:6:{i:1;s:12:\"无需融资\";i:2;s:9:\"天使轮\";i:3;s:6:\"私企\";i:4;s:12:\"上市公司\";i:5;s:21:\"国企或事业单位\";i:6;s:6:\"其他\";}s:9:\"POST_TIME\";a:5:{i:1;s:6:\"随时\";i:2;s:6:\"商议\";i:3;s:9:\"一周内\";i:4;s:9:\"半月内\";i:5;s:9:\"一个月\";}s:16:\"ENTERPRISE_SCALE\";a:4:{i:1;s:6:\"1～50\";i:2;s:8:\"50～200\";i:3;s:9:\"200～500\";i:4;s:4:\"500+\";}s:15:\"COMPANY_DISPLAY\";a:3:{s:16:\"position_display\";s:289:\"岗位职责：
+1、统招全日制本科及以上学历，XXXX等相关专业；
+2、X年以上XXX工作经验；
+3、熟悉xxx六大模块，掌握XXXX各模块工作流程；
+4、熟悉xxx相关法律法规；
+5、工作主动性高、具有敏锐的洞察力和较高的抗压能力。\";s:14:\"tenure_display\";s:534:\"任职要求：
+1、XXXXX等相关专业本科及以上毕业；
+2、具备x年以上工作经验
+3、有XXX等的一些列技术和实施方法；
+4、有较好逻辑思维能力，优秀的交互原型设计能力，熟练掌握可用性设计方法，基于可用性原则提出可行的设计改善方案；
+5、工作积极主动，有持续的热情和责任心，对设计品质有执着追求；
+6、善于团队合作，具备良好的沟通协调能力；
+7、熟练掌握xxxx等主流软件；
+8、有XXXX的优先考虑。\";s:15:\"welfare_display\";s:199:\"五险一金、绩效奖金、年终奖金、弹性工作、做五休二、餐饮补贴
+加班补助、全勤奖、弹性工作、节日福利、不加班、高温补贴、绩效奖金、带薪年假\";}s:12:\"USER_DISPLAY\";a:1:{s:12:\"self_display\";s:340:\"我大学就读于xxxxxxx大学，XXX专业。熟练掌握C++、办公自动化、PS、AI等专业技能。曾就职于XXX公司XX岗位。和团队一起做出XXX的业绩。我能很快的融入公司和团队，相信我能够给自己的新团队注入一股新鲜的血液。我对自己的评价是，热情、奋进、积极、乐观\";}}' WHERE `id` = 1 [ RunTime:0.1306s ]
+
+[ 2018-11-05T17:19:11+08:00 ] 127.0.0.1 /Config/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000628s ]
+SQL: SHOW COLUMNS FROM `rd_config` [ RunTime:0.0915s ]
+SQL: SELECT `content` FROM `rd_config` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0917s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000965s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001016s ]
+SQL: SELECT `content` FROM `rd_config` WHERE `id` = 1 LIMIT 1   [ RunTime:0.6045s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000564s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000630s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024405s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024483s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001058s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001105s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001375s ]
+
+[ 2018-11-05T17:19:38+08:00 ] 127.0.0.1 /Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000739s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001007s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001082s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000142s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000189s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012761s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012811s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000722s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000786s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001088s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001135s ]
+
+[ 2018-11-05T17:19:38+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000980s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000994s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0961s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  LIMIT 1   [ RunTime:0.0950s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1912s ]
+
+[ 2018-11-05T17:24:30+08:00 ] 127.0.0.1 /Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000708s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000783s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000156s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000226s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013217s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013277s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000913s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000959s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000960s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001006s ]
+
+[ 2018-11-05T17:24:31+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000763s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001186s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001278s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0961s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  LIMIT 1   [ RunTime:0.0945s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1928s ]
+
+[ 2018-11-05T17:24:52+08:00 ] 127.0.0.1 /Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000799s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000908s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000968s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000128s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010060s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010150s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000743s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000785s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000767s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000810s ]
+
+[ 2018-11-05T17:24:53+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001440s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001221s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001289s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0970s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  LIMIT 1   [ RunTime:0.0962s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1924s ]
+
+[ 2018-11-05T17:25:57+08:00 ] 127.0.0.1 /Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000525s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000664s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000177s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000262s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012898s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012967s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000834s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000886s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001005s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001066s ]
+
+[ 2018-11-05T17:25:58+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001173s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001144s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0960s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  LIMIT 1   [ RunTime:0.0971s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1882s ]
+
+[ 2018-11-05T17:26:01+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=0&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000555s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000612s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0961s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '0' LIMIT 1   [ RunTime:0.0956s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '0' ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.0969s ]
+
+[ 2018-11-05T17:26:10+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000763s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000744s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000783s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0954s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  LIMIT 1   [ RunTime:0.0937s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1885s ]
+
+[ 2018-11-05T17:26:52+08:00 ] 127.0.0.1 /Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000904s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001133s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001193s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000158s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000205s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012139s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012186s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000613s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000849s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000890s ]
+
+[ 2018-11-05T17:26:53+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000068s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001298s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000988s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001049s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0967s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  LIMIT 1   [ RunTime:0.0951s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1904s ]
+
+[ 2018-11-05T17:26:56+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=4&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000599s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000725s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0969s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '4' LIMIT 1   [ RunTime:0.0952s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '4' ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.0965s ]
+
+[ 2018-11-05T17:27:00+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=1&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000737s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001083s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001139s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0972s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '1' LIMIT 1   [ RunTime:0.0964s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '1' ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1931s ]
+
+[ 2018-11-05T17:27:04+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=2&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000598s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000647s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0952s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '2' LIMIT 1   [ RunTime:0.0935s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '2' ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.0962s ]
+
+[ 2018-11-05T17:27:09+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=0&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000610s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000697s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000727s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0953s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '0' LIMIT 1   [ RunTime:0.0934s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '0' ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.0947s ]
+
+[ 2018-11-05T17:27:10+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=0&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000603s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000733s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0961s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '0' LIMIT 1   [ RunTime:0.0949s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  WHERE i.is_check = '0' ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.2139s ]
+
+[ 2018-11-05T17:27:13+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000727s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000971s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001019s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0960s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  LIMIT 1   [ RunTime:0.0954s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1907s ]
+
+[ 2018-11-05T17:32:10+08:00 ] 127.0.0.1 /Shop/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001040s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000782s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000824s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000101s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000140s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011679s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011718s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000599s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000723s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000755s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Shop/index.html?name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000911s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001317s ]
+SQL: SHOW COLUMNS FROM `rd_shops` [ RunTime:0.0957s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_shops` LIMIT 1   [ RunTime:0.0954s ]
+SQL: SELECT * FROM `rd_shops` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0965s ]
+SQL: SHOW COLUMNS FROM `rd_user` [ RunTime:0.0967s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1076 LIMIT 1   [ RunTime:0.0948s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1025 LIMIT 1   [ RunTime:0.0952s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1074 LIMIT 1   [ RunTime:0.0954s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1020 LIMIT 1   [ RunTime:0.0952s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1030 LIMIT 1   [ RunTime:0.0954s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1028 LIMIT 1   [ RunTime:0.0952s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1082 LIMIT 1   [ RunTime:0.0955s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1029 LIMIT 1   [ RunTime:0.0951s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1051 LIMIT 1   [ RunTime:0.0953s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1038 LIMIT 1   [ RunTime:0.0948s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181031/5bd96513d1ca8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181031/5bd96278a80bb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000661s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9622cd89d5.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181031/5bd962e5f03e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9195b56f21.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9156e8d40e.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9122bbf09d.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000537s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181030/5bd7e83961123.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181031/5bd912a414182.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000582s ]
+
+[ 2018-11-05T17:32:12+08:00 ] 127.0.0.1 /Uploads/20181030/5bd7c645aaaa1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000487s ]
+
+[ 2018-11-05T17:32:33+08:00 ] 127.0.0.1 /Shop/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000546s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000644s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000136s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008757s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008809s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000505s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000530s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000644s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000676s ]
+
+[ 2018-11-05T17:32:35+08:00 ] 127.0.0.1 /Shop/index.html?name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000995s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001351s ]
+SQL: SHOW COLUMNS FROM `rd_shops` [ RunTime:0.0926s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_shops` LIMIT 1   [ RunTime:0.0921s ]
+SQL: SELECT * FROM `rd_shops` ORDER BY id desc LIMIT 0,10   [ RunTime:0.2080s ]
+SQL: SHOW COLUMNS FROM `rd_user` [ RunTime:0.0930s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1076 LIMIT 1   [ RunTime:0.0923s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1025 LIMIT 1   [ RunTime:0.0928s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1074 LIMIT 1   [ RunTime:0.0927s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1020 LIMIT 1   [ RunTime:0.0923s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1030 LIMIT 1   [ RunTime:0.0922s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1028 LIMIT 1   [ RunTime:0.0921s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1082 LIMIT 1   [ RunTime:0.0923s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1029 LIMIT 1   [ RunTime:0.0923s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1051 LIMIT 1   [ RunTime:0.0922s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1038 LIMIT 1   [ RunTime:0.0922s ]
+
+[ 2018-11-05T17:32:35+08:00 ] 127.0.0.1 /Uploads/20181031/5bd96513d1ca8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000527s ]
+
+[ 2018-11-05T17:32:35+08:00 ] 127.0.0.1 /Uploads/20181031/5bd96278a80bb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+
+[ 2018-11-05T17:32:35+08:00 ] 127.0.0.1 /Uploads/20181031/5bd962e5f03e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+
+[ 2018-11-05T17:32:35+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9622cd89d5.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+
+[ 2018-11-05T17:32:35+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9195b56f21.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+
+[ 2018-11-05T17:32:35+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9156e8d40e.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000479s ]
+
+[ 2018-11-05T17:32:35+08:00 ] 127.0.0.1 /Uploads/20181030/5bd7e83961123.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+
+[ 2018-11-05T17:32:36+08:00 ] 127.0.0.1 /Uploads/20181030/5bd7c645aaaa1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000593s ]
+
+[ 2018-11-05T17:32:36+08:00 ] 127.0.0.1 /Uploads/20181031/5bd912a414182.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000508s ]
+
+[ 2018-11-05T17:32:36+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9122bbf09d.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000547s ]
+
+[ 2018-11-05T17:34:16+08:00 ] 127.0.0.1 /Shop/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000641s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000651s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000102s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010140s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010179s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000540s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000565s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000713s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000743s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Shop/index.html?name=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000928s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001160s ]
+SQL: SHOW COLUMNS FROM `rd_shops` [ RunTime:0.0959s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `rd_shops` LIMIT 1   [ RunTime:0.0948s ]
+SQL: SELECT * FROM `rd_shops` ORDER BY id desc LIMIT 0,10   [ RunTime:0.0952s ]
+SQL: SHOW COLUMNS FROM `rd_user` [ RunTime:0.0949s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1076 LIMIT 1   [ RunTime:0.0941s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1025 LIMIT 1   [ RunTime:0.0941s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1074 LIMIT 1   [ RunTime:0.0942s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1020 LIMIT 1   [ RunTime:0.0941s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1030 LIMIT 1   [ RunTime:0.0942s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1028 LIMIT 1   [ RunTime:0.0944s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1082 LIMIT 1   [ RunTime:0.0941s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1029 LIMIT 1   [ RunTime:0.0944s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1051 LIMIT 1   [ RunTime:0.0941s ]
+SQL: SELECT `mobile` FROM `rd_user` WHERE `id` = 1038 LIMIT 1   [ RunTime:0.0942s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181031/5bd96513d1ca8.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000657s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181031/5bd96278a80bb.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000537s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9622cd89d5.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000519s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181031/5bd962e5f03e7.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9195b56f21.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000517s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9156e8d40e.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181031/5bd912a414182.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000543s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181030/5bd7c645aaaa1.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000513s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181031/5bd9122bbf09d.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000484s ]
+
+[ 2018-11-05T17:34:18+08:00 ] 127.0.0.1 /Uploads/20181030/5bd7e83961123.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000496s ]
+

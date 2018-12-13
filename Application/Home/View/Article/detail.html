@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+<main class="container">
+
+    <div class="panel panel-default ">
+        <div class="panel-body">
+            <div class="text-center">
+                <h1 class="art-title">{$item['title']}</h1>
+                <p class="art-meta">
+                    发布时间：{$item['add_time']|date='Y-m-d',###}
+
+                </p>
+
+            </div>
+            <div class="art-body">
+                {$item['content']}
+            </div>
+            <div class="bdsharebuttonbox  text-right"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+            <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        </div>
+    </div>
+    <nav class="hidden" aria-label="...">
+        <ul class="pager">
+            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> 上一篇</a></li>
+            <li class="next"><a href="#">下一篇 <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+</main>
+<include file="Common:footer" />

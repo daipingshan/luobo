@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>萝卜网 - 职位详情</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- 注册登录 专用其他项目不用加载-->
+    <link rel="stylesheet" href="/css/company.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+
+
+</head>
+
+
+<body>
+    <!-- 顶部导航-->
+    <div id="topbar">
+        <div class="container">
+            <div class="col float-left">
+                <a href="../index.html">首页 </a>
+                <a href="job_add.html">发布岗位 </a>
+                <a href="com_jobs_manage.html">岗位管理  </a>
+                <a href="/vitae/index.html">简历库 </a>
+            </div>
+            <div class="col float-right">
+                <a href="/auth/login.html">登录</a> |
+                <a href="/auth/reg.html">注册</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 搜索模块 -->
+    <div id="search">
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="col-md-2 "></div>
+                    <div class="col-md-5 ">
+                        <input class="form-control search-input" type="text" placeholder="输入您要搜索的职位">
+                    </div>
+                    <div class="col-md-3 ">
+                        <button type="submit" class="btn btn-primary  luobo_btn search-btn">搜索</button>
+                    </div>
+                    <div class="col-md-2 "></div>
+                </form>
+            </div>
+            <div class="row">
+
+                <ul class="recommended-label col-md-6 col-md-push-2">
+                    <li>热门搜索：</li>
+                    <li><a>网页设计师</a></li>
+                    <li><a>PHP工程师</a></li>
+                    <li><a>运维人员</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <main class="container ">
+        <div class="row">
+            <div class="col-md-9 box">
+
+                <!--  公司 主要信息 TAB -->
+
+
+                <div class="row cp_about">
+                    <div class="col-md-3 text-center">
+                        <img src="../images/cp_def.png">
+                    </div>
+                    <div class="col-md-9">
+                        <h3 class="">萝卜网络科技有限公司</h3>
+                        <div class="row">
+                            <div class="col-md-8">  企业评分：
+                                <img src="../images/start_on.png">
+                                <img src="../images/start_on.png">
+                                <img src="../images/start_on.png">
+                                <img src="../images/start_off.png">
+                                <img src="../images/start_off.png">
+                                </div>
+                            <div class="col-md-4">
+                             <div class="btn-group" role="group" aria-label="...">
+                              <a  class="btn btn-success ">
+                          <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 收藏
+                        </a>
+                              <a href="jobs_list.html" class="btn  btn-default "> 
+                           
+                              其他岗位</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="job-detail-box">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="col-md-9">招聘职位的名称</h3>
+                            <span class="col-md-3">全职</span>
+                             
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3">学历要求： 博士</span>
+                            <span class="col-md-3">薪资待遇： 30K~35K</span>
+                            <span class="col-md-3">工作经验： 3年以上</span>
+                          <span class="col-md-3">2018-08-12</span>
+                        </div>
+                       
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h5 class="col-md-10">岗位介绍</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        岗位介绍 - 文字信息展示区域
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h5 class="col-md-10">任职资格</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        任职资格 - 文字信息展示区域
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h5 class="col-md-10">面试地址</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        面试信息 - 文字信息展示区域 其他联系方式
+                    </div>
+                </div>
+               <div class="panel panel-default lb-panel">
+                    <a href="" class="btn btn-info col-md-3 btn-lg">投递简历</a>
+                    <a href="" class="btn btn-success col-md-3 col-md-offset-1 btn-lg">收藏岗位</a>
+                </div>
+
+            </div>
+
+            <div class="col-md-3 ">
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-10">公司环境</h5>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="carousel-example-generic" class="carousel slide right" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="../images/demo/1.jpg" alt="环境照片">
+                                </div>
+
+                                <div class="item">
+                                    <img src="../images/demo/2.jpg" alt="环境照片2">
+                                </div>
+                                <div class="item ">
+                                    <img src="../images/demo/3.jpg" alt="环境照片3">
+                                </div>
+
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">上一张</span>
+  </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">下一张</span>
+  </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">公司标签</h5>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="cp_tags">
+                            <li>工作氛围好</li>
+                            <li>旅游</li>
+                            <li>五险一金</li>
+                            <li>十三薪</li>
+                            <li>年终奖</li>
+                            <li>其他</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">基本资料</h5>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>人数： 100 - 200人</li>
+                            <li>地点： </li>
+                            <li>行业：</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">HR二维码</h5>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <img src="../images/demo/erweima.jpg">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <footer id="footer-con">
+        <div class="container">
+            <div class="foorer_con row">
+                <div class="col-md-3">
+                    <h4>公司问答</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>企业服务</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系方式</h4>
+                    <ul class="footermenu">
+                        <li>商务合作：029-88888888</li>
+                        <li>客服中心：029-88888888</li>
+                        <li>受理电话：9：00 - 20：00</li>
+                        <li>Email：luobo@luobowang.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/erweima.jpg">
+                    <p>扫码进入小程序。</p>
+                    <a>分享链接： </a>
+                </div>
+            </div>
+        </div>
+        <div id="footerbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>©2018 萝卜网 京ICP备14023790号-2 京公网安备 11010802024043号
+                        </p>
+                    </div>
+                    <div class="col-md-6 ">
+                        <ul class="footerbar-ul pull-right">
+                            <li><a>首页</a></li>
+                            <li><a>企业商铺</a></li>
+                            <li><a>校园招聘</a></li>
+                            <li><a>萝卜项目</a></li>
+                            <li><a>萝卜门店</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

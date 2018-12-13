@@ -1,0 +1,188 @@
+
+<footer id="footer-con">
+    <div class="container">
+        <div class="foorer_con row">
+            <div class="col-md-3 hidden-xs">
+                <h4>公司问答</h4>
+                <ul class="footermenu">
+                    <li><a href="/article/detail/id/4">关于我们</a></li>
+                    <li><a href="/article/detail/id/3">用户注册协议</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 hidden-xs">
+                <h4>企业服务</h4>
+                <ul class="footermenu">
+                    <li><a href="">萝卜问答</a></li>
+                    <li><a href="">会员中心</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4  hidden-xs">
+                <h4>联系方式</h4>
+                <ul class="footermenu">
+                    <li>服务热线：029—81142480</li>
+
+                    <li>受理电话：9：00 - 20：00</li>
+
+                    <li>Email：luobo@luobowang.com</li>
+                    <li>地址：西安市高新区锦业一路研祥城市广场B座309</li>
+                </ul>
+            </div>
+            <div class="col-md-2 text-center  hidden-xs">
+                <img src="__IMAGE_PATH__/qrcode.jpg" class="qrcode ">
+                <p >微信公众号</p>
+
+            </div>
+        </div>
+    </div>
+    <div id="footerbar" class="hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>©2018 萝卜网 陕ICP备18011042号
+                    </p>
+                </div>
+                <div class="col-md-6 ">
+                    <ul class="footerbar-ul pull-right">
+
+                        <li class="nav-item  ">
+                            <a
+                            <eq name="menu" value="company">class="nav-link active"
+                                <else/>
+                                class="nav-link"
+                            </eq>
+                            href="{:U('Index/company')}">企业商铺</a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a
+                            <eq name="menu" value="school">class="nav-link active"
+                                <else/>
+                                class="nav-link"
+                            </eq>
+                            href="{:U('Index/school')}">萝卜校招</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a
+                            <eq name="menu" value="project">class="nav-link active"
+                                <else/>
+                                class="nav-link"
+                            </eq>
+                            href="{:U('Index/project')}">萝卜项目
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a
+                            <eq name="menu" value="Shop">class="nav-link active"
+                                <else/>
+                                class="nav-link"
+                            </eq>
+                            href="{:U('Shop/index')}">萝卜门店
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_nav_bottom visible-xs-* hidden-md hidden-lg">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container" align="center">
+                <ul class="nav nav-tabs nav-tabs-justified">
+                    <div class="row" align="center">
+                        <div class="col-xs-3" align="center">
+                            <li
+                            <if condition="(CONTROLLER_NAME eq 'Index') AND (ACTION_NAME eq 'index')">
+                            class="active"
+                        </if>>
+                                <a href="/">
+                                    <span class="glyphicon glyphicon-home col-xs-12" aria-hidden="true"></span>
+                                    主页
+                                </a>
+                            </li>
+                        </div>
+                        <div class="col-xs-3" align="center">
+                            <li
+                            <if condition="(CONTROLLER_NAME eq 'Search') or (CONTROLLER_NAME eq 'Jobs') ">
+                                class="active"
+                            </if>>
+                                <a href="/search/index">
+                                    <span class="glyphicon glyphicon-lock col-xs-12" aria-hidden="true"></span>
+                                    好工作
+                                </a>
+                            </li>
+                        </div>
+                        <div class="col-xs-3" align="center">
+                            <li
+                            <if condition="((CONTROLLER_NAME eq 'Index') AND (ACTION_NAME eq 'project')) or (CONTROLLER_NAME eq 'project')">
+                                class="active"
+                            </if>>
+                                <a href="/Index/project">
+                                    <span class="glyphicon glyphicon-fire col-xs-12" aria-hidden="true"></span>
+                                    好项目
+                                </a>
+                            </li>
+                        </div>
+                        <div class="col-xs-3" align="center">
+                            <li <eq name="CONTROLLER_NAME" value="User">class="active"</eq>>
+                                <a href="/User/mobile">
+                                    <span class="glyphicon glyphicon-user col-xs-12" aria-hidden="true"></span>
+                                    我的
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</footer>
+<input type="hidden" id="ie" value="{$is_ie}">
+<!-- 浏览器版本过低 -->
+<div class="modal fade" id="ie_brower"  tabindex="-1" role="dialog" aria-labelledby="about_myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="about_myModalLabel">浏览器版本过低</h4>
+            </div>
+
+            <div class="modal-body">
+               您的浏览器版本过低，请升级或更换浏览器
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fixed_bar hidden-xs"  ><img id="toTop" src="__IMAGE_PATH__/top.png"> </div>
+<script src="__JS_PATH__/toastr.min.js"></script>
+<link rel="stylesheet" href="__CSS_PATH__/toastr.min.css">
+
+<script src="__JS_PATH__/lib.js"></script>
+<script src="__JS_PATH__/bootstrap.min.js"></script>
+<script src="__JS_PATH__/popper.min.js"></script>
+<present name="alert">
+	<script>
+		$(function(){
+            toastr.info('{$alert}');
+		});
+	</script>
+</present>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4db8ac3254b61b48a23ca5fab464355c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<div class="loading">
+    <img src="__IMAGE_PATH__/loading.gif" class="text-center">
+    <h3 class="text-center">正在上传...</h3>
+</div>
+</div>

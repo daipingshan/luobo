@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<php>
+						$errors = I('get.errors');
+
+					</php>
+<body>
+<include file="Common:header" />
+	<div class="error_404 col-md-12 text-center">
+			<img src="__IMAGE_PATH__/404/404.jpg" class="error_404_icon ">
+			<div class="error_404_message">
+					<h2>{$errors}</h2>
+					<p>抱歉该页面正在整改中，请您耐心等待。</p>
+					<p>如果您有疑问,可以联系：029—81142480 或 技术团队QQ：4396988</p>
+					<!--<P>其他错误信息也在这里报错</P>-->
+
+
+					<foreach name="errors" item="vo" >
+              {$vo}
+          </foreach>
+			</div>
+	</div>
+<include file="Common:footer" />
+

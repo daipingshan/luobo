@@ -1,0 +1,7 @@
+<php> $education =  C('EDUCATION');</php>
+<foreach name="education" key="k" item="vo">
+    <option value="{$k}"
+    <eq name="user_info['education']" value="$k">selected</eq>
+    >{$vo}</option>
+</foreach>
+<!-- 学历 -->

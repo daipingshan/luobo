@@ -1,0 +1,19 @@
+<ul class="com_nav nav nav-tabs text-center ">
+    <li class="col-xs-4 col-md-2
+        <if condition="(ACTION_NAME eq 'my_user')"> active</if>
+    "><a href="{:U('Shop/my_user')}">简历用户</a></li>
+    <li class="hidden-xs col-md-2
+        <if condition="(ACTION_NAME  eq 'add_project') "> active </if>
+    "><a href="{:U('Shop/add_project')}">上报业绩</a></li>
+    <li class="hidden-xs col-md-2
+        <if condition="(ACTION_NAME  eq 'index') "> active </if>
+    "><a href="{:U('Shop/index')}">业绩报告</a></li>
+    <li class="col-xs-4 col-md-2
+        <if condition="(ACTION_NAME  eq 'report') "> active </if>
+    "><a href="{:U('Shop/report')}">其他业绩</a></li>
+    <li class="col-xs-4 col-md-2
+        <if condition="(ACTION_NAME eq 'follower')">active </if>
+    "><a href="{:U('Shop/follower')}">我的下线</a></li>
+
+
+</ul>

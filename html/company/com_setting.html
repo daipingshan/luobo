@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>萝卜网 - 资料完善</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- 注册登录 专用其他项目不用加载-->
+    <link rel="stylesheet" href="/css/company.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+
+
+</head>
+
+
+<body>
+    <!-- 顶部导航-->
+    <div id="topbar">
+        <div class="container">
+            <div class="col float-left">
+                <a href="../index.html">首页 </a>
+                <a href="job_add.html">发布岗位 </a>
+                <a href="com_jobs_manage.html">岗位管理  </a>
+                <a href="/vitae/index.html">简历库 </a>
+            </div>
+            <div class="col float-right">
+                <a href="/auth/login.html">登录</a> |
+                <a href="/auth/reg.html">注册</a>
+            </div>
+        </div>
+    </div>
+    <noscript>您了浏览器禁用了 Java Script ，这会导致您无法正常浏览我们的网站。</noscript>
+
+    <!-- 搜索模块 -->
+    <div id="search">
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="col-md-2 "></div>
+                    <div class="col-md-5 ">
+                        <input class="form-control search-input" type="text" placeholder="输入您要搜索的职位">
+                    </div>
+                    <div class="col-md-3 ">
+                        <button type="submit" class="btn btn-primary  luobo_btn search-btn">搜索</button>
+                    </div>
+                    <div class="col-md-2 "></div>
+                </form>
+            </div>
+            <div class="row">
+
+                <ul class="recommended-label col-md-6 col-md-push-2">
+                    <li>热门搜索：</li>
+                    <li><a>网页设计师</a></li>
+                    <li><a>PHP工程师</a></li>
+                    <li><a>运维人员</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-9 box">
+                <div class="">
+                    <!--  公司 主要信息 TAB -->
+                    <div class="box">
+                        <ul class="nav nav-tabs">
+
+                            <li class="active"><a href="com_setting.html">公司主页</a></li>
+                            <li><a href="com_jobs_manage.html">职位管理</a></li>
+                            <li><a href="com_message.html">通知模板</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="">
+
+                        <div class="panel panel-default lb-panel">
+                            <div class="panel-heading ">
+                                <div class="row">
+                                    <h5 class="col-md-10">公司简介</h5>
+                                    <a class="btn-change col-md-2" data-toggle="modal" data-target="#about_edit" data-whatever="@mdo">编辑</a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                我们旨在赋能企业改变营销、销售和经营的方式。我们为商家、品牌及其他企业提供基本的互联网基础设施以及营销平台，让其可借助互联网的力量与用户和客户互动。我们的业务包括核心电商、云计算、数字媒体和娱乐以及创新项目和其他业务。我们并通过子公司菜鸟网络及所投资的关联公司口碑，参与物流和本地服务行业，同时与蚂蚁金融服务集团有战略合作，该金融服务集团主要通过中国领先的第三方网上支付平台支付宝运营。
+                            </div>
+
+                        </div>
+                        <div class="panel panel-default lb-panel">
+                            <div class="panel-heading ">
+                                <div class="row">
+                                    <h5 class="col-md-10">荣誉资质</h5>
+                                    <a class="btn-change col-md-2">编辑</a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="aptitude" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#aptitude" data-slide-to="0" class="active"></li>
+                                        <li data-target="#aptitude" data-slide-to="1"></li>
+                                        <li data-target="#aptitude" data-slide-to="2"></li>
+                                    </ol>
+
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item active">
+                                            <img src="../images/demo/1.jpg" alt="环境照片">
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="../images/demo/2.jpg" alt="环境照片2">
+                                        </div>
+                                        <div class="item ">
+                                            <img src="../images/demo/3.jpg" alt="环境照片3">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="#captitude" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">上一张</span>
+  </a>
+                                    <a class="right carousel-control" href="#aptitude" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">下一张</span>
+  </a>
+                                </div>。
+                            </div>
+                        </div>
+                        <div class="panel panel-default lb-panel">
+                            <div class="panel-heading ">
+                                <div class="row">
+                                    <h5 class="col-md-10">公司环境</h5>
+                                    <a class="btn-change col-md-2">编辑</a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    </ol>
+
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item active">
+                                            <img src="../images/demo/1.jpg" alt="环境照片">
+                                        </div>
+
+                                        <div class="item">
+                                            <img src="../images/demo/2.jpg" alt="环境照片2">
+                                        </div>
+                                        <div class="item ">
+                                            <img src="../images/demo/3.jpg" alt="环境照片3">
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Controls -->
+                                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">上一张</span>
+  </a>
+                                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">下一张</span>
+  </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default lb-panel">
+                            <div class="panel-heading ">
+                                <div class="row">
+                                    <h5 class="col-md-10">公司位置</h5>
+                                    <a class="btn-change col-md-2">编辑</a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+
+                                <!--引用百度地图API-->
+                                <style type="text/css">
+                                    .iw_poi_title {
+                                        color: #CC5522;
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                        overflow: hidden;
+                                        padding-right: 13px;
+                                        white-space: nowrap
+                                    }
+
+                                    .iw_poi_content {
+                                        font: 12px arial, sans-serif;
+                                        overflow: visible;
+                                        padding-top: 4px;
+                                        white-space: -moz-pre-wrap;
+                                        word-wrap: break-word
+                                    }
+                                </style>
+                                <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+                                <!--百度地图容器-->
+                                <div style="width:auto;height:350px;" id="dituContent"></div>
+                                <script type="text/javascript">
+                                    //创建和初始化地图函数：
+                                    function initMap() {
+                                        createMap(); //创建地图
+                                        setMapEvent(); //设置地图事件
+                                        addMapControl(); //向地图添加控件
+                                        addMarker(); //向地图中添加marker
+                                    }
+
+                                    //创建地图函数：
+                                    function createMap() {
+                                        var map = new BMap.Map("dituContent"); //在百度地图容器中创建一个地图
+                                        var point = new BMap.Point(116.403847, 39.915526); //定义一个中心点坐标
+                                        map.centerAndZoom(point, 17); //设定地图的中心点和坐标并将地图显示在地图容器中
+                                        window.map = map; //将map变量存储在全局
+                                    }
+
+                                    //地图事件设置函数：
+                                    function setMapEvent() {
+                                        map.enableDragging(); //启用地图拖拽事件，默认启用(可不写)
+                                        map.enableScrollWheelZoom(); //启用地图滚轮放大缩小
+                                        map.enableDoubleClickZoom(); //启用鼠标双击放大，默认启用(可不写)
+                                        map.enableKeyboard(); //启用键盘上下左右键移动地图
+                                    }
+
+                                    //地图控件添加函数：
+                                    function addMapControl() {
+                                        //向地图中添加缩放控件
+                                        var ctrl_nav = new BMap.NavigationControl({
+                                            anchor: BMAP_ANCHOR_TOP_LEFT,
+                                            type: BMAP_NAVIGATION_CONTROL_LARGE
+                                        });
+                                        map.addControl(ctrl_nav);
+                                        //向地图中添加缩略图控件
+                                        var ctrl_ove = new BMap.OverviewMapControl({
+                                            anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+                                            isOpen: 1
+                                        });
+                                        map.addControl(ctrl_ove);
+                                        //向地图中添加比例尺控件
+                                        var ctrl_sca = new BMap.ScaleControl({
+                                            anchor: BMAP_ANCHOR_BOTTOM_LEFT
+                                        });
+                                        map.addControl(ctrl_sca);
+                                    }
+
+                                    //标注点数组
+                                    var markerArr = [{
+                                        title: "天安门广场",
+                                        content: "天安门广场，位于北京市中心，地处北京市东城区东长安街，北起天安门，南至正阳门，东起中国国家博物馆，西至人民大会堂，南北长880米，东西宽500米，面积达44万平方米，可容纳100万人举行盛大集会，是世界上最大的城市广场。",
+                                        point: "116.403964|39.915139",
+                                        isOpen: 0,
+                                        icon: {
+                                            w: 21,
+                                            h: 21,
+                                            l: 0,
+                                            t: 0,
+                                            x: 6,
+                                            lb: 5
+                                        }
+                                    }];
+                                    //创建marker
+                                    function addMarker() {
+                                        for (var i = 0; i < markerArr.length; i++) {
+                                            var json = markerArr[i];
+                                            var p0 = json.point.split("|")[0];
+                                            var p1 = json.point.split("|")[1];
+                                            var point = new BMap.Point(p0, p1);
+                                            var iconImg = createIcon(json.icon);
+                                            var marker = new BMap.Marker(point, {
+                                                icon: iconImg
+                                            });
+                                            var iw = createInfoWindow(i);
+                                            var label = new BMap.Label(json.title, {
+                                                "offset": new BMap.Size(json.icon.lb - json.icon.x + 10, -20)
+                                            });
+                                            marker.setLabel(label);
+                                            map.addOverlay(marker);
+                                            label.setStyle({
+                                                borderColor: "#808080",
+                                                color: "#333",
+                                                cursor: "pointer"
+                                            });
+
+                                            (function() {
+                                                var index = i;
+                                                var _iw = createInfoWindow(i);
+                                                var _marker = marker;
+                                                _marker.addEventListener("click", function() {
+                                                    this.openInfoWindow(_iw);
+                                                });
+                                                _iw.addEventListener("open", function() {
+                                                    _marker.getLabel().hide();
+                                                })
+                                                _iw.addEventListener("close", function() {
+                                                    _marker.getLabel().show();
+                                                })
+                                                label.addEventListener("click", function() {
+                                                    _marker.openInfoWindow(_iw);
+                                                })
+                                                if (!!json.isOpen) {
+                                                    label.hide();
+                                                    _marker.openInfoWindow(_iw);
+                                                }
+                                            })()
+                                        }
+                                    }
+                                    //创建InfoWindow
+                                    function createInfoWindow(i) {
+                                        var json = markerArr[i];
+                                        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>" + json.content + "</div>");
+                                        return iw;
+                                    }
+                                    //创建一个Icon
+                                    function createIcon(json) {
+                                        var icon = new BMap.Icon("http://app.baidu.com/map/images/us_mk_icon.png", new BMap.Size(json.w, json.h), {
+                                            imageOffset: new BMap.Size(-json.l, -json.t),
+                                            infoWindowOffset: new BMap.Size(json.lb + 5, 1),
+                                            offset: new BMap.Size(json.x, json.h)
+                                        })
+                                        return icon;
+                                    }
+
+                                    initMap(); //创建和初始化地图
+                                </script>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-3 ">
+                <div class="cp_base panel panel-default">
+                    <div class="panel-body">
+                        <img src="../images/cp_def.png">
+                        <h3>萝卜网络科技有限公司</h3>
+                        <div><span></span>www.luobo123.com</div>
+                        <div>企业评分：
+                            <img src="../images/start_on.png">
+                            <img src="../images/start_on.png">
+                            <img src="../images/start_on.png">
+                            <img src="../images/start_off.png">
+                            <img src="../images/start_off.png">
+                        </div>
+                        <p>企业名称修改请重新申请资质认证。</p>
+                        <a>去认证。</a>
+                    </div>
+                </div>
+                <div class="box cp_progress">
+                    <h4>企业信息完善度 </h4>
+                    <p><span>(完成企业信息，获取更高权益！)</span></p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            60%
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">公司标签</h5>
+                            <a class="btn-change col-md-4">编辑</a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="cp_tags">
+                            <li>工作氛围好</li>
+                            <li>旅游</li>
+                            <li>五险一金</li>
+                            <li>十三薪</li>
+                            <li>年终奖</li>
+                            <li>其他</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">基本资料</h5>
+                            <a class="btn-change col-md-4">编辑</a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list">
+                            <li class="list-item"><span class="glyphicon glyphicon-stats"></span>无需融资</li>
+                            <li class="list-item"><span class="
+glyphicon glyphicon-user"></span> 100 - 200人</li>
+                            <li class="list-item"><span class="glyphicon glyphicon-map-marker"></span> 西安 </li>
+                            <li class="list-item"><span class="glyphicon glyphicon-equalizer"></span>人力资源 / 互联网O2O</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">HR二维码</h5>
+                            <a class="btn-change col-md-4">编辑</a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <img src="../images/demo/erweima.jpg">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <footer id="footer-con">
+        <div class="container">
+            <div class="foorer_con row">
+                <div class="col-md-3">
+                    <h4>公司问答</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>企业服务</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系方式</h4>
+                    <ul class="footermenu">
+                        <li>商务合作：029-88888888</li>
+                        <li>客服中心：029-88888888</li>
+                        <li>受理电话：9：00 - 20：00</li>
+                        <li>Email：luobo@luobowang.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/erweima.jpg">
+                    <p>扫码进入小程序。</p>
+                    <a>分享链接： </a>
+                </div>
+            </div>
+        </div>
+        <div id="footerbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>©2018 萝卜网 京ICP备14023790号-2 京公网安备 11010802024043号
+                        </p>
+                    </div>
+                    <div class="col-md-6 ">
+                        <ul class="footerbar-ul pull-right">
+                            <li><a>首页</a></li>
+                            <li><a>企业商铺</a></li>
+                            <li><a>校园招聘</a></li>
+                            <li><a>萝卜项目</a></li>
+                            <li><a>萝卜门店</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        $('.submit').on('click',f)
+        var about_edit = $('#identifier');
+        $('#about_edit').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+    </script>
+
+    <div class="modal fade" id="about_edit" tabindex="-1" role="dialog" aria-labelledby="about_edit">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">编辑简介</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">简介内容:</label>
+                            <textarea class="form-control" id="message-text">33333333333333</textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button"  class="submit btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

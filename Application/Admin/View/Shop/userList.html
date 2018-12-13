@@ -1,0 +1,182 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+        .search .layui-form-select .layui-edge {
+            right: 25%;
+        }
+
+        .search .layui-form-select dl {
+            min-width: 80%;
+        }
+    </style>
+</block>
+<block name="body">
+    <fieldset class="layui-elem-field">
+        <legend>统计信息</legend>
+        <div class="layui-field-box">
+            <div class="layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 门店名称</div>
+                    <div class="layui-card-body">
+                        {$shop.name}-
+                        <if condition="$shop['shop_type'] eq 2">代理
+                            <else/>
+                            门店
+                        </if>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 门店状态</div>
+                    <div class="layui-card-body">
+                        <if condition="$shop['status'] eq 1">已认证
+                            <else/>
+                            未认证
+                        </if>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 门店本月收益</div>
+                    <div class="layui-card-body">
+                        ¥{$month_income}
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md3">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 门店总收益</div>
+                    <div class="layui-card-body">
+                        ¥{$income}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="layui-elem-field">
+        <legend>用户统计</legend>
+        <div class="layui-field-box">
+            <div class="layui-col-md2">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 总用户</div>
+                    <div class="layui-card-body">
+                        {$all_user_num}
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 新用户</div>
+                    <div class="layui-card-body">
+                        {$user_num}
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 简历用户</div>
+                    <div class="layui-card-body">
+                        {$user_info_num}
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 企业用户</div>
+                    <div class="layui-card-body">
+                        {$company_info_num}
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md2">
+                <div class="layui-card">
+                    <div class="layui-card-header"><i class="layui-icon">&#xe606;</i> 门店用户</div>
+                    <div class="layui-card-body">
+                        {$shop_num}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md2">
+                <input type="text" name="mobile" value="{:I('get.mobile')}" placeholder="请输入手机号码" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <select name="status" class="layui-select">
+                    <option value="">请选择会员身份</option>
+                    <option value="1">新用户</option>
+                    <option value="2">简历用户</option>
+                    <option value="3">企业用户</option>
+                    <option value="4">门店用户</option>
+                </select>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="js">
+    <script type="text/html" id="status">
+        {{#  if(d.is_user_info == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal">简历用户</a>
+        {{#  } }}
+        {{#  if(d.is_company_info == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-warm">企业用户</a>
+        {{#  } }}
+        {{#  if(d.is_shop == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-danger">门店用户</a>
+        {{#  } }}
+        {{#  if(d.is_shop != 1 && d.is_company_info != 1 && d.is_user_info != 1){ }}
+        <a class="layui-btn layui-btn-xs">新用户</a>
+        {{#  } }}
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var tableObj;
+            var url = "{:U('userList')}?user_id={:I('get.user_id')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '&' + param;
+                getData(get_url);
+            }
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                tableObj = table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 80
+                    , cols: [[
+                        {field: 'id', title: '用户ID', sort: true}
+                        , {field: 'real_name', title: '真实姓名'}
+                        , {field: 'mobile', title: '手机号码'}
+                        , {field: 'create_time', title: '注册时间'}
+                        , {field: 'status', title: '用户身份', toolbar: '#status'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

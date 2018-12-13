@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+    <link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+    <link rel="stylesheet" href="__CSS_PATH__/users.css">
+    <link rel="stylesheet" href="__CSS_PATH__/company.css">
+<body>
+<include file="Common:header" />
+<div id="moblie_search" class="visible-xs text-center">
+    <div class="col-xs-3">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#city-navbar-collapse">
+            城市 <b class="caret"></b>
+        </span>
+    </div>
+    <div class="col-xs-3">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#district-navbar-collapse">
+            地区 <b class="caret"></b>
+        </span>
+    </div>
+    <div class="col-xs-3">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#salary-navbar-collapse">
+            薪资 <b class="caret"></b>
+        </span>
+    </div>
+    <div class="col-xs-3">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#experience-navbar-collapse">
+            经验 <b class="caret"></b>
+        </span>
+    </div>
+
+</div>
+
+<div class="moblie-menu container-fluid visible-xs">
+    <div class="collapse navbar-collapse" id="city-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <li  <eq name="inventory['city']" value="">class="active"</eq>>
+            <a href="{$url}&city&district">不限</a>
+            </li>
+            <volist name="cities" id="vo" offset="0" length="10">
+                <li  <eq name="inventory['city']" value="$vo.id">
+                class="active"
+            </eq>>
+                <a href="{$url}&city={$vo.id}&district">{$vo.name} </a>
+
+                </li>
+            </volist>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="district-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <li  <eq name="inventory['district']" value="">class="active"</eq>>
+            <a href="{$url}&district">不限</a>
+            </li>
+            <notempty name="inventory['city']">
+                <foreach name="cities[$inventory['city']]['child']" key="k" item="i">
+                    <li  <eq name="inventory['district']" value="$i[id]"> class="active"</eq>>
+                    <a href="{$url}&district={$i.id}&city={$i.parent_id}">{$i.name}</a>
+                    </li>
+
+                </foreach>
+            </notempty>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="salary-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <li  <eq name="inventory['salary']" value="">class="active"</eq> >
+            <a href="{$url}&salary=null"
+
+            >不限</a>
+            </li>
+            <foreach name="search_list.salary" item="v" key="k">
+                <li <eq name="inventory['salary']" value="$v">
+                class="active"
+            </eq>
+                >
+                <a href="{$url}&salary={$v}"
+
+                >{$k}</a>
+                </li>
+            </foreach>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="experience-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <foreach name="search_list.experience" item="v" key="k">
+                <li <eq name="inventory['experience']" value="$k">
+                class="active"
+            </eq> >
+                <a href="{$url}&experience={$k}">{$v}
+                </a>
+                </li>
+            </foreach>
+        </ul>
+    </div>
+
+</div>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-xs-12">
+            <div class="row hidden-xs">
+                <div class="box-1 adv-search">
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag col-md-1 col-xs-12">工作经验</li>
+
+                        <foreach name="search_list.experience" item="v" key="k">
+                                <li>
+                                    <a href="{$url}&experience={$k}"
+                                      <eq name="inventory['experience']" value="$k">
+                                        class="active"
+                                      </eq>
+                                    >{$v}
+                                    </a>
+                                </li>
+                        </foreach>
+                    </ul>
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag">城市选择</li>
+                        <li><a href="{$url}&city"
+                            <eq name="inventory['city']" value="">class="active"</eq>
+                            >不限</a>
+                        </li>
+                        <volist name="cities" id="vo" offset="0" length="10">
+                            <li>
+                                <a href="{$url}&city={$vo.id}&district"
+                                <eq name="inventory['city']" value="$vo.id">
+                                    class="active"
+                                </eq>
+                                >{$vo.name}</a>
+                            </li>
+
+                        </volist>
+
+                    </ul>
+                    <notempty name="inventory['city']">
+                        <ul class="col-md-12 col-xs-12">
+                            <li class="tag ">地区选择</li>
+                            <li><a href="{$url}&district"
+                                <eq name="inventory['district']" value="">class="active"</eq>
+                                >不限</a>
+
+                            </li>
+                            <div class="search_province_box">
+                                <foreach name="cities[$inventory['city']]['child']" key="k" item="i">
+                                    <li>
+                                        <a href="{$url}&district={$i.id}&city={$i.parent_id}"
+                                        <eq name="inventory['district']" value="$i.id">
+                                            class="active"
+                                        </eq>
+                                        >{$i.name}</a>
+                                    </li>
+                                </foreach>
+                            </div>
+                        </ul>
+                    </notempty>
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag col-md-1 col-xs-12">期望薪资</li>
+
+                        <foreach name="search_list.salary" item="v" key="k">
+                            <li>
+                                <a href="{$url}&salary={$k}"
+                                <eq name="inventory['salary']" value="$k">
+                                    class="active"
+                                </eq>
+                                >{$v}</a>
+                            </li>
+                        </foreach>
+
+
+                    </ul>
+                    <ul class="col-md-12 col-xs-12">
+                        <li class="tag col-md-1 col-xs-12">最高学历</li>
+                        <li><a href="{$url}&education=''"
+                            <eq name="inventory['education']" value="">class="active default"</eq>>不限</a>
+                        </li>
+                        <foreach name="search_list.education" item="vo" key="k">
+                            <li>
+                                <a href="{$url}&education={$k}"
+                                <eq name="inventory['education']" value="$k">
+                                    class="active"
+                                </eq>>{$vo}</a>
+                            </li>
+                        </foreach>
+
+                    </ul>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class=" row">
+            <div class="jobs search-jobs">
+
+                <if condition="$count lt 1" >
+                    <h3 class="search_result">没有搜索到相关岗位，试着减少搜索条件</h3>
+                    <else />
+                    <foreach name="items" item="vo">
+                        <div class="job-item">
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <div class="row jobs-box-top">
+                                        <div class="col-md-8">
+
+                                            {$city_array[$vo['city']]}|
+                                            {$educations[$vo['education']]}
+                                            <empty name="vo.work_time">
+                                                <else />
+                                                |{$vo.work_time}年工作经验
+                                            </empty>
+
+                                        </div>
+                                        <div class="col-md-4 text-right">
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <empty name="vo.avator">
+                                                <eq name="vo.sex" value="1">
+                                                    <img src="__IMAGE_PATH__/user_man.png"  class="jobs-img">
+                                                    <else />
+                                                    <img src="__IMAGE_PATH__/user_woman.png"  class="jobs-img">
+                                                </eq>
+                                                <else/>
+                                                <img src="{$vo.avatar}"  class="jobs-img">
+                                            </empty>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="row job-item-top ">
+                                                <div class="col-md-4">
+                                                    <a href="{:U('Vitae/detail',array('id'=>base64_encode($vo['id'].C(ENCODE))))}" class="jobs-title" target="_blank">
+                                                        {$vo.real_name}</a>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span href="{$vo.com_id}" class="grey">
+                                                        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                                        期望职位 : {$vo.job_name}
+                                                    </span>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row job-item-top  ">
+                                                <div class="col-md-4 grey">
+                                                            期望薪资 :
+                                                            <span  >
+                                                                <empty name="vo.salary">
+                                                                    协商
+                                                                    <else />
+                                                                    {$vo.salary} k
+                                                                </empty>
+
+                                                            </span>
+                                                </div>
+                                                <div class="col-md-7 grey" >
+                                                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                                    {$vo.updated_at|date="m-d H:i",###}
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="jobs-box-bottom">
+
+                                        {$vo.content}
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </foreach>
+                </if>
+
+            </div>
+            <div class="col-md-2">共 {$count} 份简历</div>
+            <div class="text-right col-md-10">
+                {$show}
+            </div>
+            </div>
+        </div>
+        <div class="col-md-2 hidden-xs hidden-md">
+            <volist name="advert" id="row">
+                <div class="axd">
+                    <a href="{$row.location_url}"><img src="{$row.img_url}" alt="{$row.title}" class="img-responsive"></a>
+                </div>
+            </volist>
+        </div>
+    </div>
+</main>
+
+<include file="Common:footer" />
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>

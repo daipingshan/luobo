@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+
+<main class="container">
+    <div class=" row">
+        <div class="box-1 adv-search">
+            <ul class="col-md-12">
+                <li class="tag col-md-1">工作经验</li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time=0&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}"
+                       id="express_0" <if condition="$_GET['work_time'] eq 0"> class="active" </if>>
+                    不限
+                    </a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time=1&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}" id="express_1" <if condition="$_GET['work_time'] eq 1"> class="active" </if>>
+                    一年
+                    </a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time=2&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}" id="express_2" <if condition="$_GET['work_time'] eq 2"> class="active" </if>>
+                    两年
+                    </a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time=3&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}" id="express_3" <if condition="$_GET['work_time'] eq 3"> class="active" </if>>
+                    三年
+                    </a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time=5&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}" id="express_5" <if condition="$_GET['work_time'] eq 5"> class="active" </if>>
+                    五年以上
+                    </a>
+                </li>
+            </ul>
+            <ul class="col-md-12">
+                <li class="tag col-md-1">工作地</li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city=0&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}" id="city_0" <if condition="$_GET['city'] eq 0"> class="active" </if>>西安</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city=1&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}" id="city_1" <if condition="$_GET['city'] eq 1"> class="active" </if>>北京</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city=2&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}" id="city_2" <if condition="$_GET['city'] eq 2"> class="active" </if>>上海</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city=3&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type={$_GET['job_type']}" id="city_3" <if condition="$_GET['city'] eq 3"> class="active" </if>>深圳</a>
+                </li>
+
+            </ul>
+            <ul class="col-md-12">
+                <li class="tag col-md-1">期望薪资</li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min=0&salary_max=0&education={$_GET['education']}&job_type={$_GET['job_type']}" id="salary_0_0" <if condition="$_GET['salary_min'] eq ''"> class="active" </if>>面议</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min=2&salary_max=3&education={$_GET['education']}&job_type={$_GET['job_type']}" id="salary_2_3" <if condition="$_GET['salary_min'] eq 2 && $_GET['salary_max'] eq 3"> class="active" </if>>2-3</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min=3&salary_max=5&education={$_GET['education']}&job_type={$_GET['job_type']}" id="salary_3_5" <if condition="$_GET['salary_min'] eq 3 && $_GET['salary_max'] eq 5"> class="active" </if>>3-5</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min=5&salary_max=10&education={$_GET['education']}&job_type={$_GET['job_type']}" id="salary_5_10" <if condition="$_GET['salary_min'] eq 5 && $_GET['salary_max'] eq 10"> class="active" </if>>5-10</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min=10&salary_max=20&education={$_GET['education']}&job_type={$_GET['job_type']}" id="salary_10_20" <if condition="$_GET['salary_min'] eq 10 && $_GET['salary_max'] eq 20"> class="active" </if>>10-20</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min=20&salary_max=50&education={$_GET['education']}&job_type={$_GET['job_type']}" id="salary_20_50" <if condition="$_GET['salary_min'] eq 20"> class="active" </if>>20以上</a>
+                </li>
+            </ul>
+            <ul class="col-md-12">
+                <li class="tag col-md-1">学历</li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education=0&job_type={$_GET['job_type']}" id="education_0" <if condition="$_GET['education'] eq 0"> class="active" </if>>不限</a></li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education=1&job_type={$_GET['job_type']}" id="education_1" <if condition="$_GET['education'] eq 1"> class="active" </if>>高中</a></li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education=2&job_type={$_GET['job_type']}" id="education_2" <if condition="$_GET['education'] eq 2"> class="active" </if>>大专</a></li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education=3&job_type={$_GET['job_type']}" id="education_3" <if condition="$_GET['education'] eq 3"> class="active" </if>>本科</a></li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education=4&job_type={$_GET['job_type']}" id="education_4" <if condition="$_GET['education'] eq 4"> class="active" </if>>硕士</a></li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education=5&job_type={$_GET['job_type']}" id="education_5" <if condition="$_GET['education'] eq 5"> class="active" </if>>博士</a></li>
+            </ul>
+            <!--<ul class="col-md-12">-->
+            <!--<li class="tag col-md-1">专业</li>-->
+            <!--<li><a href="" class="active">不限</a></li>-->
+            <!--<li><a href="">计算机工程</a></li>-->
+            <!--<li><a href="">体育</a></li>-->
+            <!--<li><a href="">财务</a></li>-->
+            <!--</ul>-->
+            <ul class="col-md-12">
+                <li class="tag col-md-1">类型</li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['job_type']}&job_type=0" id="jtype_0" <if condition="$_GET['job_type'] eq 0"> class="active" </if>>不限</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type=1" id="jtype_1" <if condition="$_GET['job_type'] eq 1"> class="active" </if>>全职</a>
+                </li>
+                <li>
+                    <a href="/Recruit/searchInfo.html?job_name={$_GET['job_name']}&work_time={$_GET['work_time']}&city={$_GET['city']}&salary_min={$_GET['salary_min']}&salary_max={$_GET['salary_max']}&education={$_GET['education']}&job_type=2" id="jtype_2" <if condition="$_GET['job_type'] eq 2"> class="active" </if>>兼职</a>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="box-1 col-md-12 ">
+            <span class="col-md-1">排序方式</span>
+            <a href="" class="col-md-1">默认</a>
+            <a href="" class="col-md-1">推荐优先</a>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-10 ">
+            <div class="jobs">
+                <volist name='recruit' id='vo'>
+                    <div class="job-item">
+                        <div class="row ">
+                            <div class="col-md-2 text-center">
+                                <img src="{$vo['avator']}" class="user_img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row job-item-top">
+                                    <div class="col-md-6">
+                                        <a href="{:U('Recruit/paperDetail', array('id'=> $vo['id']))}" class="grey">
+                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>{$vo['show_name']}
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="{:U('Recruit/paperDetail', array('id'=> $vo['id']))}" class="grey">
+                                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>{$vo['job_name']}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <a href="{:U('Recruit/paperDetail', array('id'=> $vo['id']))}" class="grey">
+                                            <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>{$vo['mobile']}
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 grey" >
+                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>投递时间 {$vo['default_resume']}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{:U('Recruit/paperDetail', array('id'=> $vo['id']))}" class="btn btn-primary">查看简历</a>
+                            </div>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+
+            <div class="text-right">
+                <nav aria-label="Page navigation">
+                    {$page}
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<script type="text/javascript">
+    console.log(window.location.search);
+    $("#express_0").href();
+    $("#express_1").href();
+    $("#express_2").href();
+    $("#express_3").href();
+    $("#express_5").href();
+
+    $("#city_0").href();
+    $("#city_1").href();
+    $("#city_2").href();
+    $("#city_3").href();
+
+    $("#salary_0_0").href();
+    $("#salary_2_3").href();
+    $("#salary_3_5").href();
+    $("#salary_5_10").href();
+    $("#salary_10_20").href();
+    $("#salary_20_50").href();
+
+    $("#education_0").href();
+    $("#education_1").href();
+    $("#education_2").href();
+    $("#education_3").href();
+    $("#education_4").href();
+    $("#education_5").href();
+
+    $("#jtype_0").href();
+    $("#jtype_1").href();
+    $("#jtype_2").href();
+
+</script>
+
+<include file="Common:footer" />

@@ -1,0 +1,222 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+        .search .layui-form-select .layui-edge {
+            right: 25%;
+        }
+
+        .search .layui-form-select dl {
+            min-width: 80%;
+        }
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md2">
+                <input type="text" name="mobile" value="{:I('get.mobile')}" placeholder="请输入手机号码" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md2">
+                <input type="text" name="email" value="{:I('get.email')}" placeholder="请输入邮箱" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md2">
+                <input type="text" name="name" value="{:I('get.name')}" placeholder="请输入会员名称" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <select name="status" class="layui-select">
+                    <option value="">请选择会员身份</option>
+                    <option value="1">新用户</option>
+                    <option value="2">简历用户</option>
+                    <option value="3">企业用户</option>
+                    <option value="4">门店用户</option>
+                </select>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="box">
+    <div id="box" class="hide">
+        <form class="layui-form mt20">
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值金额</label>
+                <div class="layui-input-block">
+                    <input type="number" step="1" placeholder="请输入充值金额" class="layui-input" name="amount">
+                    <p style="color: red;font-size: 12px">当充值金额大于0时，直接填写充值金额即可；如：【10】、当需要扣除余额时填负数既可；如【-10】</p>
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值说明</label>
+                <div class="layui-input-block">
+                    <input type="text" placeholder="请输入充值说明" class="layui-input" name="represent">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-admin">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="set-uid" class="hide">
+        <form class="layui-form mt20">
+            <div class="layui-form-item">
+                <label class="layui-form-label">邀请人ID</label>
+                <div class="layui-input-block">
+                    <input type="number" placeholder="请输入邀请人ID" class="layui-input" name="invite_uid">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-uid">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script type="text/html" id="status">
+        {{#  if(d.is_user_info == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal">用户</a>
+        {{#  } }}
+        {{#  if(d.is_company_info == 1){ }}
+        <a class="layui-btn layui-btn-xs">企业</a>
+        {{#  } }}
+        {{#  if(d.is_shop == 1){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-danger">门店</a>
+        {{#  } }}
+    </script>
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs layui-btn-danger set-flow" data-url="{:U('getUserFlow')}?id={{d.id}}">交易记录</a>
+        <a class="layui-btn layui-btn-xs set-amount" data-id="{{d.id}}">会员充值</a>
+        <a class="layui-btn layui-btn-xs layui-btn-normal set-uid" data-id="{{d.id}}" data-uid="{{d.invite_uid}}">设置邀请人ID</a>
+    </script>
+    <script>
+        $(function () {
+            var tableObj;
+            var index;
+            form.render();
+            var url = "{:U('userList')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            //添加管理员账号
+            $('body').on('click', '.set-amount', function () {
+                $('#box input[name=id]').val($(this).data('id'));
+                $('#box input[name=amount]').val('');
+                index = layer.open({
+                    title: "会员充值",
+                    type: 1,
+                    area: ['800px', '260px'],
+                    content: $('#box'),
+                })
+            })
+
+            //添加管理员账号
+            $('body').on('click', '.set-uid', function () {
+                $('#set-uid input[name=id]').val($(this).data('id'));
+                $('#set-uid input[name=invite_uid]').val($(this).data('uid'));
+                index = layer.open({
+                    title: "设置邀请人ID",
+                    type: 1,
+                    area: ['800px', '200px'],
+                    content: $('#set-uid'),
+                })
+            })
+
+            //添加管理员账号
+            $('body').on('click', '.set-flow', function () {
+                index = layer.open({
+                    title: "交易记录",
+                    type: 2,
+                    area: ['90%', '90%'],
+                    content: $(this).data('url'),
+                })
+            })
+
+            form.on("submit(save-admin)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('setUserAmount')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    _btn.disabled = false;
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            tableObj.reload();
+                        })
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+            });
+
+            form.on("submit(save-uid)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('setUserInviteUid')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    _btn.disabled = false;
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            tableObj.reload();
+                        })
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+            });
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                tableObj = table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '会员ID', sort: true}
+                        , {field: 'invite_uid', title: '邀请人ID'}
+                        , {field: 'mobile', title: '手机号码'}
+                        , {field: 'email', title: '邮箱'}
+                        , {field: 'user_name', title: '用户姓名'}
+                        , {field: 'company_name', title: '企业名称'}
+                        , {field: 'amount', title: '账户余额'}
+                        , {field: 'status', title: '会员身份', toolbar: '#status', width: 150}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit', width: '20%'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

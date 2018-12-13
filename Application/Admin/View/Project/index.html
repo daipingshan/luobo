@@ -1,0 +1,196 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+        .search .layui-form-select .layui-edge {
+            right: 25%;
+        }
+
+        .search .layui-form-select dl {
+            min-width: 80%;
+        }
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <select name="project_type_id">
+                    <option value="">请选择萝卜分类</option>
+                    <foreach name="project_type_data" item="val" key="key">
+                        <option value="{$val.id}"
+                        <if condition="I('get.project_type_id') eq $val['id']">selected</if>
+                        >{$val.name}</option>
+                    </foreach>
+                </select>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="mobile" value="{:I('get.mobile')}" placeholder="请输入联系电话" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="name" value="{:I('get.name')}" placeholder="请输入联系人" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="box">
+    <div id="set-status" class="hide">
+        <form class="layui-form mt20">
+            <div class="layui-form-item">
+                <label class="layui-form-label">招聘状态</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="radio" name="status" class="input-status" value="1"
+                           title="招聘中">
+                </div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="radio" name="status" class="input-status" value="2"
+                           title="招满">
+                </div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="radio" name="status" class="input-status" value="3"
+                           title="下架">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-status">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script type="text/html" id="salary">
+        {{#  if(d.salary_min == 0 && d.salary_max == 0){ }}
+        面议
+        {{#  } else { }}
+        {{d.salary_min}}K-{{d.salary_max}}K
+        {{#  } }}
+    </script>
+    <script type="text/html" id="status">
+        {{#  if(d.status == 1 ){ }}
+        <button class="layui-btn layui-btn-xs" type="button">招聘中</button>
+        {{#  } else if(d.status == 2) { }}
+        <button class="layui-btn layui-btn-warm layui-btn-xs" type="button">招满</button>
+        {{#  } else { }}
+        <button class="layui-btn layui-btn-danger layui-btn-xs" type="button">下架</button>
+        {{#  } }}
+    </script>
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs layui-btn-warm"
+           href="{:U('update')}?id={{d.id}}">编辑</a>
+        <a class="layui-btn layui-btn-xs set-status layui-btn-normal" data-val="{{d.status}}"
+           data-url="{:U('setProjectStatus')}" data-id="{{d.id}}">设置招聘状态</a>
+        {{#  if(d.is_recommend == 0){ }}
+        <a class="layui-btn layui-btn-xs confirm" data-url="{:U('setProjectRecommend')}?id={{d.id}}&is_recommend=1">推荐到首页</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-danger confirm"
+           data-url="{:U('setProjectRecommend')}?id={{d.id}}&is_recommend=0">取消推荐</a>
+        {{#  } }}
+
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var tableObj;
+            var index;
+            var url = "{:U('index')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            $('body').on('click', '.confirm', function () {
+                var del_url = $(this).data('url');
+                var text = $(this).text();
+                layer.confirm('你确定要将此招聘信息' + text + '吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                tableObj.reload();
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+            //添加管理员账号
+            $('body').on('click', '.set-status', function () {
+                $('#set-status input[name=id]').val($(this).data('id'));
+                $('#set-status .input-status').eq($(this).data('val') - 1).attr('checked', true);
+                form.render();
+                index = layer.open({
+                    title: "设置招聘状态",
+                    type: 1,
+                    area: ['600px', '200px'],
+                    content: $('#set-status'),
+                })
+            })
+
+            form.on("submit(save-status)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('setProjectStatus')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    _btn.disabled = false;
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            tableObj.reload();
+                        })
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                tableObj = table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '招聘ID', sort: true}
+                        , {field: 'project_type_name', title: '萝卜分类'}
+                        , {field: 'name', title: '项目名称'}
+                        , {field: 'salary', title: '薪资范围', toolbar: '#salary'}
+                        , {field: 'address', title: '工作地址'}
+                        , {field: 'contacts', title: '联系人'}
+                        , {field: 'tel', title: '联系电话'}
+                        , {field: 'rebate', title: '返利金额'}
+                        , {field: 'status', title: '状态', toolbar: '#status'}
+                        , {field: 'create_time', title: '发布时间'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit', width: '20%'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

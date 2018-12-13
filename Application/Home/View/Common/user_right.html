@@ -1,0 +1,189 @@
+<div class="panel panel-default lb-panel">
+
+    <div class="panel-body text-center hidden-xs">
+        <div class="user_img_box ">
+            <a href="{:U('user/info_display')}">
+                <empty name="user_info['avator']">
+                    <if condition="intval($user_info['sex']) eq 1">
+                        <img src="__IMAGE_PATH__/user_man.png" class="user_img img-circle">
+                        <else/>
+                        <img src="__IMAGE_PATH__/user_woman.png" class="user_img img-circle">
+                    </if>
+                    <else/>
+                    <img src="{$user_info['avator']}" class="user_img img-circle">
+                </empty>
+            </a>
+
+        </div>
+        <div class="user_text">{$user_info['real_name']}
+            <span>
+              <if condition="intval($user_info['sex']) eq 1">
+                  <img src="__IMAGE_PATH__/man_.png" class="sex">
+              <else/>
+                  <img src="__IMAGE_PATH__/woman_.png" class="sex">
+              </if>
+            </span>
+        </div>
+        <div class="user_identity user_text">普通会员</div>
+        <div class="row small">
+            <div class="col-md-4">
+                <p>
+                    <empty name="invitations[2]">
+                        0
+                        <else/>
+                        {$invitations[2]}
+                    </empty>
+                </p>
+                <p>被查看</p>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    <empty name="invitations[4]">
+                    0
+                    <else/>
+                    {$invitations[4]}
+                    </empty>
+                </p>
+                <p>邀请面试</p>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    <empty name="invitations[8]">
+                    0
+                    <else/>
+                    {$invitations[8]}
+                    </empty>
+                </p>
+                <p>邀请入职</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-default lb-panel hidden-xs">
+    <div class="panel-heading ">
+        <div class="row">
+            <h5 class="col-md-8">工具箱</h5>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul class="row list-box">
+            <li class=" col-md-6 col-xs-6">
+                <div class="box">
+                    <a href="{:U('user/vitae')}">
+                        <i class="iconfont icon-gongzuo"></i>
+                        我的简历
+                    </a></div>
+            </li>
+            <li class=" col-md-6 col-xs-6">
+                <div class="box">
+                    <a href="{:U('Vitae/detail',array('id'=>base64_encode($user_info['id'].C(ENCODE))))}"
+                       target="_blank">
+                        <i class="iconfont icon-yula"></i>
+                        简历预览
+                    </a></div>
+            </li>
+            <li class=" col-md-6 col-xs-6">
+                <div class="box">
+                    <a href="{:U('user/index')}">
+                        <i class="iconfont icon-diannao"></i>
+                        我的主页
+                    </a></div>
+            </li>
+            <li class=" col-md-6 col-xs-6">
+                <div class="box">
+                    <a href="{:U('user/info_display')}">
+                        <i class="iconfont icon-xingming"></i>
+                        个人资料
+                    </a></div>
+            </li>
+            <li class=" col-md-6 hide">
+                <div class="box">
+                    <a href="">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-rili"></use>
+                        </svg>
+                        会员
+                    </a></div>
+            </li>
+            <li class=" col-md-6 hide">
+                <div class="box">
+                    <a href="">
+                        <i class="iconfont icon-qita1"></i>
+                        职业评测
+                    </a></div>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+<eq name="ACTION_NAME" value="vitae">
+    <div class="panel panel-default lb-panel">
+        <div class="panel-heading ">
+            <div class="row">
+                <h5 class="col-md-8">资料完整度</h5>
+            </div>
+        </div>
+        <div class="panel-body text-center">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                     style="width: {$integrity_degree}%;">
+                    {$integrity_degree}%
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default lb-panel hide">
+        <div class="panel-heading ">
+            <div class="row">
+                <h5 class="col-md-8">默认投递</h5>
+            </div>
+        </div>
+        <div class="panel-body">
+            <a href="" class="btn btn-default col-md-5 col-xs-5  deliver
+                            <if condition=" $user_info['default_resume'] eq 1">
+            active
+            </if>
+            "
+            data-type='online'>在线简历</a>
+            <span class="col-md-1 col-xs-2"></span>
+            <a href="" class="btn btn-default col-md-5 col-xs-5 deliver
+                    <if condition=" $user_info['default_resume'] eq 0">
+            active
+            </if>
+            "
+            data-type='word'>附件简历</a>
+        </div>
+    </div>
+    <div class="panel panel-default lb-panel hide">
+        <div class="panel-heading ">
+            <div class="row">
+                <h5 class="col-md-8">简历下载</h5>
+            </div>
+        </div>
+        <div class="panel-body">
+            <a href="" class="btn btn-default col-md-5 col-xs-5">PDF</a>
+            <span class="col-md-1 col-xs-2"></span>
+            <a href="" class="btn btn-default col-md-5 col-xs-5">WORD</a>
+        </div>
+    </div>
+    <div class="panel panel-default lb-panel hide">
+        <div class="panel-heading ">
+            <div class="row">
+                <h5 class="col-md-8">附件简历</h5>
+            </div>
+        </div>
+        <div class="panel-body text-center">
+            <a href="" class="btn btn-default col-md-10 col-xs-10 col-xs-offset-1 col-md-offset-1">点击上传</a>
+            <p class="col-xs-12">支持：doc/docx/jpg/png</p>
+        </div>
+    </div>
+
+</eq>
+
+<!-- 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<link rel="stylesheet" href="__CSS_PATH__/company.css">

@@ -1,0 +1,176 @@
+.nav_left {
+    /*box-shadow: 5px 5px 15px rgba(3, 0, 0, .04);*/
+
+    border: 1px solid #ededee;
+    position: absolute;
+    z-index: 999;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#jobs_list {
+    height: 295px;
+    margin-bottom: 0;
+}
+
+#alljobs {
+    text-align: center;
+    border-top: 1px solid #f6f6f8;
+    padding-top: 10px;
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.sub {
+    height: 340px;
+}
+
+.nav_left,
+.list-group-item {
+    background-color: #fcfcfe;
+
+}
+
+.nav_left ul {
+    width: 100%;
+    height: auto;
+}
+
+.nav_left ul li {
+
+    text-align: left;
+}
+
+.nav_left .list-group {
+
+    overflow: hidden;
+}
+
+.nav_left .list-group-item:first-child {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.nav_left .list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.nav_left .list-group-item {
+    position: relative;
+    display: block;
+    padding: 8px 20px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #fcfcfe;
+    border-top: 1px solid #fcfcfe;
+    border-left: none;
+    border-right: none;
+
+}
+
+.nav_left .list-group-item:hover {
+    border-bottom: 1px solid #ededee;
+    border-top: 1px solid #ededee;
+    background-color: #fff;
+}
+
+.nav_left ul li span {
+    padding-left: 10px;
+    color: #686969;
+    cursor: pointer;
+    font-size: 17px;
+
+}
+.nav_left .icon-more{}
+.nav_left .iconfont {
+    font-size: 14px;
+    color: #cac8c8;
+    float: right;
+}
+
+.nav_left ul li:hover span {
+    color: #0099bd;
+}
+
+.nav_left ul li:hover i {
+    color: #0099bd;
+}
+
+.nav_left ul li:hover {
+}
+
+.nav_right {
+
+    position: absolute;
+    top: 0px;
+    z-index: 1000;
+    margin-left: 90%;
+    width: 310%;
+}
+
+.sub {
+
+    overflow: hidden;
+    background: #fcfcfe;
+    padding: 25px 10px;
+    border: 1px solid #ededee;
+}
+
+.sub dl {
+    overflow: hidden;
+
+}
+
+.sub dt {
+    width: 70px;
+
+    display: block;
+
+    clear: left;
+}
+
+.sub dt a {
+    font-size: 16px;
+    color: #393b3b;
+
+    text-align: center;
+
+    text-decoration: none;
+    cursor: pointer;
+    padding-bottom: 20px;
+}
+
+.sub dd {
+
+    border-bottom: 1px solid #e9ebec;
+}
+
+.sub dd a {
+    font-size: 14px;
+    float: left;
+    color: #868888;
+    padding: 0 15px;
+    margin: 4px 0px 10px 0px;
+    text-decoration: none;
+    cursor: pointer;
+    border-left: 1px solid #E3E3E3;
+}
+
+/*.sub dd a:first-child{ border-left: none; }*/
+.sub dd a:hover {
+    color: #45b2cd;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+@media (min-width: 768px){
+    .dl-horizontal dd {
+        margin-left: 95px;
+    }
+}

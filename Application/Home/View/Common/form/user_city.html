@@ -1,0 +1,8 @@
+<foreach name="cities" key="k" item="vo">
+    <option  value="{$k}"
+        <eq name="k" value="$user_info['city_id']">
+            selected
+        </eq>
+        >{$vo}
+    </option>
+</foreach>

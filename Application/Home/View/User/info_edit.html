@@ -1,0 +1,326 @@
+<assign name="title" value="个人资料" />
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<link rel="stylesheet" href="__CSS_PATH__/jquery.fileupload.css">
+<link rel="stylesheet" href="__CSS_PATH__/bootstrap-datetimepicker.css">
+<body>
+<include file="Common:header" />
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 ">
+
+
+            <include file="common:user_info_tab"/>
+            <!--  公司 主要信息 TAB -->
+            <div class="userinfo row">
+                <div class="col-md-10 col-md-offset-1">
+                    <form action="" method="post" class="form-horizontal">
+                        <div class="panel panel-default lb-panel ">
+                            <div class="panel-heading ">
+                                <div class="row">
+                                    <h5 class="col-md-8">基本资料</h5>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="real_name" class="col-sm-12 control-label col-md-12">姓名</label>
+                                    <input id="real_name" type="text" name="real_name"
+                                           class="form-control col-sm-10 col-md-12"
+                                           value="{$user_info['real_name']}" placeholder="真实名称更容易让企业注意到您的信息。" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sex" class="col-sm-12 control-label col-md-12">性别</label>
+                                     <select name="sex" id="sex" class="form-control col-sm-12  " required>
+                                         <option  value="1" <eq name="user_info['sex']" value="1">selected</eq>>男</option>
+                                         <option  value="0" <eq name="user_info['sex']" value="0">selected</eq>>女</option>
+
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="birthday" class="col-sm-12 control-label">出生日期</label>
+                                    <input id="birthday" type="text" name="birthday" autocomplete="off" class="form-control col-sm-12 form_datetime"
+                                           value="{$user_info['birthday']}"
+                                     required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="work_time" class="col-sm-12 control-label">工作经验</label>
+                                    <select name="work_time" id="work_time" class="form-control col-sm-12" required>
+                                        <include file="Common:form:work_time"/>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city_id" class="col-sm-12 control-label">所在城市</label>
+                                    <select name="city_id" id="city_id" class="form-control col-sm-12  " required>
+                                        <include file="Common:form:user_city"/>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="education" class="col-sm-12 control-label">最高学历</label>
+                                    <select name="education" id="education" class="form-control col-sm-12" required>
+                                        <include file="Common:form:education"/>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default lb-panel">
+                            <div class="panel-heading ">
+                                <div class="row">
+                                    <h5 class="col-md-8">求职意向</h5>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="mobile" class="col-sm-12 control-label">展示手机号</label>
+                                    <input id="mobile" type="text" name="mobile" class="form-control
+                                     col-sm-12"
+                                     <empty name="user_info['mobile']">
+                                         value="{$user_info['mobile']}"
+                                     </empty>
+                                     placeholder="" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="job_name" class="col-sm-12 control-label">期望从事岗位</label>
+                                    <input id="job_name" type="text" name="job_name" class="form-control
+                         col-sm-12" value="{$user_info['job_name']}" placeholder="岗位名称" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="salary" class="col-sm-12 control-label">期望月薪(K)</label>
+                                    <input id="salary" type="number" name="salary" class="form-control
+                         col-sm-12" value="{$user_info['salary']}" placeholder="单位为千元,10K = 1万元人民币" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="work_type" class="col-sm-12 control-label">工作状态</label>
+                                    <select name="work_type" id="work_type" class="form-control col-sm-12" required>
+                                        <include file="Common:form:work_type"/>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="post_time" class="col-sm-12 control-label">最快入职</label>
+                                    <select class="form-control col-sm-12" id="post_time" name="post_time" required>
+                                        <include file="Common:form:post_time"/>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="job_type" class="col-sm-12 control-label">工作性质</label>
+                                    <select name="job_type" id="job_type" class="form-control col-sm-12" required>
+                                    <php> $work_nature =  C('WORK_NATURE'); </php>
+                                    <foreach name="work_nature" key="k" item="vo">
+                                        <option value="{$k}"
+                                         <eq name="user_info['job_type']" value="$k">selected</eq>
+                                         >{$vo}
+                                        </option>
+                                    </foreach>
+
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="panel panel-default lb-panel ">
+                                                <div class="panel-body">
+                                                <div class="form-group">
+                                                    <input  type="submit" class="btn btn-default" value="保存">
+                                                    <input type="hidden" value="edit" name="act">
+                                                </div>
+                                                </div>
+                                                </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="panel panel-default lb-panel box">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-8">个人头像</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+
+                    <span class="fileinput-button col-md-12 col-xs-12 text-center">
+                    				<empty name="user_info['avator']">
+                              <if condition="intval($user_info['sex']) eq 1">
+                                  <img id="uploadimg" src="__IMAGE_PATH__/user_man.png" class="user_img img-circle" title="点击上传新头像">
+                                <else />
+                                  <img id="uploadimg" src="__IMAGE_PATH__/user_woman.png"  class="user_img img-circle" title="点击上传新头像">
+                              </if>
+                    					<else />
+                    					  <img id="uploadimg" src="{$user_info['avator']}" class="user_img img-circle" title="点击上传新头像">
+                    				</empty>
+
+                            <!-- The file input field used as target for the file upload widget -->
+                            <input id="fileupload" type="file" name="files[]" multiple>
+                        </span>
+                    <div class="clear"></div>
+                    <!-- The container for the uploaded files -->
+                     <div id="files" class="files"></div>
+                     <p class="text-center"> </p>
+                     <p class="text-center small-text">点击图片，上传新头像</p>
+                     <p>正方形图像 大小 120px x 120px ,文件大小1MB以内.</p>
+                     <p class="text-center small-text">上传本人头像,可以提高简历的关注度.</p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</main>
+<include file="Common:footer" />
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="__JS_PATH__/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="__JS_PATH__/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="__JS_PATH__/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="__JS_PATH__/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="__JS_PATH__/jquery.fileupload-image.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="__JS_PATH__/jquery.fileupload-validate.js"></script>
+
+<!-- bootstrap-datetimepicker.min -->
+<script src="__JS_PATH__/bootstrap-datetimepicker.min.js"></script>
+<script  type="text/javascript" src="__JS_PATH__/bootstrap-datetimepicker.zh-CN.js"  charset="UTF-8"></script>
+
+<script>
+    $(function () {
+
+        $('.form_datetime').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language:'zh-CN',
+            autoclose: 1,
+            startView: 4,
+            minView: 2,
+            maxView: 4,
+
+        });
+
+    });
+    /*jslint unparam: true, regexp: true */
+    /*global window, $ */
+    $(function () {
+        'use strict';
+
+        // Change this to the location of your server-side upload handler:
+        var url = '{:U("User/user_avator")}',
+            uploadButton = $('<button/>')
+                .addClass('btn btn-primary')
+                .prop('disabled', true)
+                .text('上传中...')
+                .on('click', function () {
+                    var $this = $(this),
+                        data = $this.data();
+                    $this
+                        .off('click')
+                        .text('上传中...')
+                        .on('click', function () {
+                            $this.remove();
+                            data.abort();
+                        });
+                    data.submit().always(function () {
+                        $this.remove();
+                    });
+                });
+        $('#fileupload').fileupload({
+            url: url,
+            dataType: 'json',
+            autoUpload: false,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            loadImageMaxFileSize: 99900,
+            // Enable image resizing, except for Android and Opera,
+            // which actually support image resizing, but fail to
+            // send Blob objects via XHR requests:
+            disableImageResize: /Android(?!.*Chrome)|Opera/
+                .test(window.navigator.userAgent),
+					  imageMaxWidth: 800,
+					  imageMaxHeight: 800,
+					  imageCrop: true, // Force cropped images
+            previewCrop: true,
+
+        }).on('fileuploadadd', function (e, data) {
+
+            data.context = $('<div/>').appendTo('#files');
+            $.each(data.files, function (index, file) {
+                var node = $('<p/>')
+                    .append($('<span/>'));
+                if (!index) {
+                    node
+                        .append('<br>')
+                        .append(uploadButton.clone(true).data(data));
+                }
+                node.appendTo(data.context);
+            });
+        }).on('fileuploadprocessalways', function (e, data) {
+
+            var index = data.index,
+                file = data.files[index],
+                node = $(data.context.children()[index]);
+            if (file.preview) {
+                node
+                    .prepend('<br>')
+                    .prepend(file.preview);
+            }
+            if (file.error) {
+                node
+                    .append('<br>')
+                    .append($('<span class="text-danger"/>').text(file.error));
+            }
+            if (index + 1 === data.files.length) {
+                data.context.find('button')
+                    .text('上传')
+                    .addClass('btn btn-default col-md-12 col-xs-12')
+                    .prop('disabled', !!data.files.error);
+            }
+        }).on('fileuploadprogressall', function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+        }).on('fileuploaddone', function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                if (file.url) {
+                    var link = $('<a>')
+                        .attr('target', '_blank')
+                        .prop('href', file.thumbnailUrl);
+                    $(data.context.children()[index])
+                        .wrap(link);
+                    $('#uploadimg').attr('src',file.thumbnailUrl);
+                    //console.log(file);
+                } else if (file.error) {
+                    var error = $('<span class="text-danger"/>').text(file.error);
+                    $(data.context.children()[index])
+                        .append('<br>')
+                        .append(error);
+                }
+            });
+        }).on('fileuploadfail', function (e, data) {
+            console.log(data);
+            $.each(data.files, function (index) {
+                var error = $('<span class="text-danger"/>').text('上传失败.');
+                $(data.context.children()[index])
+                    .append('<br>')
+                    .append(error);
+            });
+        }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    });
+</script>
+</body>
+</html>

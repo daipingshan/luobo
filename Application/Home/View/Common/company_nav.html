@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs ">
+    <li <eq name="ACTION_NAME" value="index">class="active"</eq>><a href="{:U('Company/index')}">企业资料</a></li>
+    <li <eq name="ACTION_NAME" value="manage">class="active"</eq>><a href="{:U('Company/manage')}">职位管理</a></li>
+    <li <eq name="ACTION_NAME" value="templateInfo">class="active"</eq>><a href="{:U('Company/templateInfo')}">通知模板</a></li>
+    <li <eq name="ACTION_NAME" value="company">class="active"</eq>><a href="{:U('Jobs/company/id/'.$info['id'])}">公司主页</a></li>
+    <li>
+        <eq name="info['is_check']" value="0">
+        <a href="{:U('Company/authentication')}" class="alert-danger"><strong>资质认证</strong></a>
+        </eq>
+    <if condition="($info['is_check'] eq 0 || $info['is_check'] eq 4) && $info['business_lincense'] neq ''">
+        <if condition="$info['is_check'] neq 1 && $info['is_check'] neq 0">
+            <strong> 认证中 </strong>
+        </if>
+    </if>
+
+
+    <if condition="$info['is_check'] eq 2">
+        <a href="{:U('Company/authentication')}">认证失败</a>
+    </if>
+    </li>
+</ul>

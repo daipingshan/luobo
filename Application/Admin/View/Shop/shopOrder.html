@@ -1,0 +1,107 @@
+<extend name="Common/common"/>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="name" value="{:I('get.name')}" placeholder="请输入门店名称" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="user_name" value="{:I('get.user_name')}" placeholder="请输入姓名"
+                       class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="mobile" value="{:I('get.mobile')}" placeholder="请输入电话" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="hidden" name="shop_id" value="{:I('get.shop_id',0,'int')}">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="js">
+    <script type="text/html" id="table-edit">
+        {{#  if(d.check_up == 0){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal confirm"
+           data-url="{:U('setShopOrderStatus')}?id={{d.id}}&status=1">审核成功</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger confirm"
+           data-url="{:U('setShopOrderStatus')}?id={{d.id}}&status=2">审核失败</a>
+        {{#  } else if(d.check_up == 1) { }}
+        <a class="layui-btn layui-btn-xs">通过</a>
+        {{#  if(d.pay_status == 0){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal confirm"
+           data-url="{:U('setShopOrderPayStatus')}?id={{d.id}}">立即付费</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs">已付费</a>
+        {{#  } }}
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-danger layui-btn-xs">不通过</a>
+        {{#  } }}
+
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var tableObj;
+            var url = "{:U('shopOrder')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            $('body').on('click', '.confirm', function () {
+                var del_url = $(this).data('url');
+                var text = $(this).text();
+                layer.confirm('你确定要将此业绩' + text + '吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                tableObj.reload()
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                tableObj = table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 80
+                    , cols: [[
+                        {field: 'id', title: '业绩ID', sort: true}
+                        , {field: 'shop_name', title: '门店名称'}
+                        , {field: 'project_name', title: '项目名称'}
+                        , {field: 'user_name', title: '姓名'}
+                        , {field: 'tel', title: '电话'}
+                        , {field: 'id_code', title: '身份证号码', width: 180}
+                        , {field: 'income', title: '项目收益'}
+                        , {field: 'add_time', title: '入职时间', width: 100}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit', width: '20%'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

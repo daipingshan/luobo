@@ -1,0 +1,177 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+        .search .layui-form-select .layui-edge {
+            right: 25%;
+        }
+
+        .search .layui-form-select dl {
+            min-width: 80%;
+        }
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="name" value="{:I('get.name')}" placeholder="请输入友情链接名称" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+                <a class="layui-btn layui-btn-danger add"><i class="layui-icon">
+                    &#xe654;</i>添加友情链接
+                </a>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="box">
+    <div class="hide" id="box">
+        <div class="layui-row mt20 w80">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" placeholder="友情链接名称"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="url" value="" placeholder="友情链接地址" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">排序</label>
+                    <div class="layui-input-inline">
+                        <input type="number" name="sort" value="255" placeholder="友情链接排序" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <input type="hidden" name="id" value="0" id="link-id"/>
+                        <button class="layui-btn" lay-submit="" lay-filter="save">立即提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs save" data-name="{{d.name}}" data-url="{{d.url}}" data-sort="{{d.sort}}"
+           data-id="{{d.id}}">编辑</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger del-advert" data-url="{:U('del')}?id={{d.id}}">删除</a>
+    </script>
+    <script>
+        $(function () {
+            var index;
+            form.render();
+            var url = "{:U('index')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+
+            $('body').on('click', '.del', function () {
+                var del_url = $(this).data('url');
+                layer.confirm('你确定要删除此友情链接？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                var get_param = $('form.search').serialize();
+                                var get_url = url + '?' + get_param;
+                                getData(get_url);
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+            //添加管理员账号
+            $('body').on('click', '.add', function () {
+                $('#reset').click();
+                $('#link-id').val(0);
+                index = layer.open({
+                    title: "添加友情链接",
+                    type: 1,
+                    area: ['70%', '50%'],
+                    content: $('#box'),
+                })
+            })
+
+            //编辑管理员账号
+            $('body').on('click', '.save', function () {
+                $('#reset').click();
+                $('#box input[name=name]').val($(this).data('name'));
+                $('#box input[name=url]').val($(this).data('url'));
+                $('#box input[name=sort]').val($(this).data('sort'));
+                $('#link-id').val($(this).data('id'));
+                index = layer.open({
+                    title: "编辑友情链接",
+                    type: 1,
+                    area: ['70%', '50%'],
+                    content: $('#box'),
+                })
+            })
+
+            //登录按钮事件
+            form.on("submit(save)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var url = "{:U('save')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(url, data.field, function (res) {
+                    _btn.disabled = false;
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            refresh()
+                        })
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+                return false;
+            });
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '友情链接ID', sort: true}
+                        , {field: 'name', width: 200, title: '友情链接名称'}
+                        , {field: 'url', title: '友情链接地址'}
+                        , {field: 'sort', title: '广告排序'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

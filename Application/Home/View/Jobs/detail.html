@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<!-- 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+<include file="Common:head"/>
+
+<body>
+<include file="Common:header"/>
+<div class="mb-30 "></div>
+<main class="container ">
+
+    <include file="top" />
+
+    <div class="col-md-9 ">
+        <div class="row">
+            <div class="job-detail-box">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <h3 class="col-md-9  col-xs-9">{$recruit['name']}</h3>
+                        <span class="col-md-3  col-xs-3">
+	                            <if condition="$recruit['nature'] eq 'full_time' "> 全职
+	                                <elseif condition="$recruit['nature'] eq 'part_time'"/>兼职
+	                                <elseif condition="$recruit['nature'] eq 'internship'"/>实习
+	                            </if>
+	                        </span>
+                    </div>
+                    <div class="col-md-12">
+	                        <span class="col-md-3  col-xs-12">学历要求：{$education[$recruit['limit_educate']]}</span>
+                        <span class="col-md-3  col-xs-12">薪资待遇：
+	                        <eq name="recruit.salary_min" value="0">
+	                          面议
+	                        <else/>
+	                         {$recruit.salary_min}k - {$recruit.salary_max}k
+	                       </eq></span>
+                        <span class="col-md-3  col-xs-12">工作经验：
+	                        <eq name="recruit.experience" value="0">
+																不限
+	                         <else/>
+	                          {$recruit['experience']}年以上
+	                          </eq>
+	                          </span>
+                        <span class="col-md-3  col-xs-12">{$recruit['create_time']|date="Y-m-d H:i",###}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h5 class="col-md-10">岗位介绍</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    {$recruit['desc']}
+                </div>
+            </div>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h5 class="col-md-10">联系我们</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <p>联系人：{$recruit['contacts']}</p>
+                    <present name="delivered">
+                        <p>联系电话：{$recruit['contacts_mobile']}</p>
+                        <else />
+                        <p>投递成功即可查看HR联系电话 </p>
+                    </present>
+                    <p>公司地址：{$recruit['address']}</p>
+                </div>
+            </div>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-body">
+                    <present name="delivered">
+                        <a href="{:U('user/index')}" class="btn btn-info col-md-3 btn-lg  col-xs-12">已投递</a>
+                        <else/>
+                        <a href="{:U('user/set_resume',array('recruit_id'=>$recruit['id']))}"
+                           class="btn btn-info col-md-3 btn-lg  col-xs-12">投递简历</a>
+                    </present>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 ">
+
+        <include file="right_bar"/>
+
+    </div>
+    </div>
+
+</main>
+<include file="Common:footer"/>

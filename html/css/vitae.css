@@ -1,0 +1,87 @@
+body.vitae-detail-body{
+    background: url(../images/logo_bg.png);
+    background-position: left center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 30%;
+}
+header {
+    height: 340px;
+    background-color: #53c0d7;
+}
+
+#viate-detail {
+    margin-top: -256px;
+}
+
+#viate-detail .viate-detail-main {
+    background-color: #fff;
+    padding: 25px 50px;
+    margin-bottom: 50px;
+        border: 1px solid #e6eaeb;
+    box-shadow: 0 0 5px 0px #f3f3f3;
+}
+
+#viate-detail .logo {
+    float: right;
+    margin-bottom: 20px;
+}
+
+.user_image {
+    border-radius: 50%;
+}
+
+.user-abstract {}
+
+.user-abstract .row ,.user-abstract-box .row{
+    margin-bottom: 15px;
+}
+
+.user-abstract-box {
+   
+    padding: 40px 10px;
+}
+
+h5.user_name {
+    font-size: 16px;
+}
+
+.meta {
+
+    border-bottom: 1px #e3e3e3 dashed;
+    padding: 0 10px;
+    padding-bottom: 30px;
+}
+
+.box-head {
+    background: url(../images/x1.jpg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    color: #fff;
+    height: 40px;
+   
+    border-bottom: 1px solid #bee6f0;
+    line-height: 2;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-bottom-left-radius: 10px;
+    
+}
+.box-head h5{color: #fff;font-size: 18px;}
+
+.box-head a.btn-change {
+    text-align: right;font-size: 14px;
+}
+
+
+
+.box-body{
+    color: #807b7b;
+}
+
+.jobs-list{ margin-bottom: 35px;}
+.jobs-list-title{ margin-bottom: 10px; }
+.jobs-list-body{ padding-left: 20px;}
+.user-works h5 a{ color: #3d3d3c;}
+.work_pic{ width: 150px; height: 150px;}

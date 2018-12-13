@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>萝卜网 - 个人资料</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- 专用其他项目不用加载-->
+    <link rel="stylesheet" href="/css/vitae.css">
+    <link rel="stylesheet" href="/css/users.css">
+   
+    <script src="/fonts/iconfont.js"></script>
+    
+
+
+</head>
+
+
+<body>
+  <!-- 顶部导航-->
+    <div id="topbar">
+        <div class="container">
+            <div class="col float-left">切换城市： 西安 | 企业登录</div>
+            <div class="col float-right">
+                <a href="">登录</a> |
+                <a href="">注册</a>
+            </div>
+        </div>
+    </div>
+    <!-- LOGO 与导航 -->
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div id="logo" class="col-md-4 col-xs-12">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div id="nav" class="col-md-8 hidden-xs">
+
+                    <ul class="nav navbar-nav">
+
+                        <li class="nav-item active ">
+                            <a class="nav-link active" href="#">主页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">企业商铺</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">萝卜校招</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">萝卜项目</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">萝卜门店</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 搜索模块 -->
+    <div id="search">
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="col-md-2 col-xs-1"></div>
+                    <div class="col-md-5 col-xs-7">
+                        <input class="form-control search-input" type="text" placeholder="输入您要搜索的职位">
+                    </div>
+                    <div class="col-md-3 col-xs-4">
+                        <button type="submit" class="btn btn-primary  luobo_btn search-btn">搜索</button>
+                    </div>
+                    <div class="col-md-2 col-xs-0"></div>
+                </form>
+            </div>
+            <div class="row">
+
+                <ul class="recommended-label col-md-6 col-md-push-2 col-xs-push-1 col-xs-10">
+                    <li>热门搜索：</li>
+                    <li><a>网页设计师</a></li>
+                    <li><a>PHP工程师</a></li>
+                    <li><a>运维人员</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-9 box">
+                <div class="meta row">
+                    <div class="box-head">
+                        <div class="row">
+                            <h5 class="col-md-8 col-xs-8">基本资料</h5>
+                        </div>
+                    </div>
+                 
+                    <div class="col-md-2 col-xs-4">
+                        <img src="../images/user_woman.png" class="user_image img-circle">
+                    </div>
+                    
+                    <div id="userdata" class="user-abstract col-md-10 display-content col-xs-12">
+                        <div class="row">
+                            <h5 class="col-md-12 user_name">陈独秀 <span>性别图标</span></h5>
+                        </div>
+                        <div class="row">
+                            <div class=" col-md-4">经验： 5年工作经验</div>
+                            <div class=" col-md-4">学历： 硕士</div>
+                            <div class=" col-md-4">到岗时间： 一周内</div>
+                        </div>
+                        <div class="row">
+                            <!--  本模块 仅限用户投递了 或者企业付费下载了才显示-->
+                            <div class=" col-md-4">电话： 15991606450</div>
+                            <div class=" col-md-4">邮件： 4396988@qq.com</div>
+                            <div class=" col-md-4">所在地： 西安</div>
+                        </div>
+                      <div class="edit-content">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="x" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">工作经验</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="x2" placeholder="工作经验">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">最高学历</label>
+                                <div class="col-sm-10">
+                                   <select>
+                                       <option>本科</option>
+                                   </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">到岗时间</label>
+                                <div class="col-sm-10">
+                                   <input type="text" class="form-control" id="x3" placeholder="最快到岗时间">
+                                </div>
+                            </div>
+                              <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">邮箱</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="x4" placeholder="您的email">
+                                </div>
+                            </div>
+                           <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">期望工作地</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="x5" placeholder="期望工作地区">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-default">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+
+
+                </div>
+                <div class="row user-abstract-box">
+                    <div class="box-head">
+                        <div class="row">
+                            <h5 class="col-md-8">教育经历</h5>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        <div class="row course">
+                            <span class="col-md-3 col-xs-6"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>哈佛大学</span>
+                            <span class="col-md-3 col-xs-6">专业：计算机科学 | 博士</span>
+                            <span class="col-md-3 col-xs-7">2009-2015</span>
+                            <div class="col-xs-5 col-md-3  text-right box-bar">
+                             <a class="edit_course"
+                              data-id='1' 
+                              data-schoolname="哈佛"
+                              data-start_year="2018-8"
+                              data-end_year="2019-11"
+                              data-education="博士"
+                              data-major="计算机科学"
+                              ><svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-ai61"></use>
+                            </svg><span class="hidden-xs">编辑</span></a>
+                                
+                             <a class="delete_course" data-id='1'><svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-chahao"></use>
+                            </svg><span class="hidden-xs">删除</span></a>
+                            
+                            </div>
+                        </div>
+
+                        <div class="row course">
+                             <span class="col-md-3 col-xs-6"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>哈佛大学</span>
+                            <span class="col-md-3 col-xs-6">专业：计算机科学 | 博士</span>
+                            <span class="col-md-3 col-xs-7">2009-2015</span>
+                            <div class="col-xs-5 col-md-3  text-right box-bar">
+                                <a class="edit_course"  data-id='1' 
+                              data-schoolname="波士顿"
+                              data-start_year="2018-2"
+                              data-end_year="2019-3"
+                              data-education="本科"
+                              data-major="cs50">
+                                <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-ai61"></use>
+                            </svg><span class="hidden-xs">编辑</span>
+                                </a>
+                                   <a class="delete_course" data-id='1'>
+                                <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-chahao"></use>
+                            </svg><span class="hidden-xs">删除</span>
+                                </a>
+                            
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                             <button class="btn btn-default col-md-3 col-sm-offset-4 col-xs-10 col-xs-offset-1" data-toggle="modal" data-target="#course">新增</button>
+                        </div>
+                        
+                       
+                        
+
+                    </div>
+                </div>
+                <div class="row user-abstract-box">
+                    <div class="box-head">工作经历</div>
+                    <div class="box-body">
+                        <div class="jobs-list  ">
+                            <div class="row jobs-list-title">
+                                <p class="col-md-4 col-xs-12"><span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>公司的名字 </p>
+
+                                <p class="col-md-4  col-xs-6"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>岗位：PHP工程师 </p>
+
+                                <p class="col-md-4  col-xs-6"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 2015 - 至今</p>
+                                
+                            
+                            </div>
+                            <div class="jobs-list-body">
+                                <p>1.计算机专业。会用ps，Axure，AI，office 办公软件。</p>
+                                <p>2.有网页设计和app的经验。热爱产品开发和设计。</p>
+                                <p>3.有良好的自学能力，和上进心，喜欢学习新知识。</p>
+                            </div>
+                            <div class="col-xs-12 col-md-12 text-right box-bar">
+                               <a href="" 
+                               data-id='1' 
+                               data-content="123123123123123" 
+                               data-company_name='公司名称' 
+                               data-position_name='岗位名称'
+                               data-start_time='开始时间'
+                               data-end_time='结束时间'
+                               data-salary='月薪' class="edit_curriculum_vitae">
+                               
+                                <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-ai61"></use>
+                            </svg><span class="hidden-xs">编辑</span>
+                               </a>
+                                <a href="#" class="delete_curriculum_vitae" data-id='1'>
+                                <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-chahao"></use>
+                            </svg><span class="hidden-xs">删除</span>
+                            </a>
+                            
+                            </div>
+                        </div>
+                         <div class="jobs-list  ">
+                            <div class="row jobs-list-title">
+                                <p class="col-md-4 col-xs-12"><span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>公司的名字 </p>
+
+                                <p class="col-md-4  col-xs-6"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>岗位：PHP工程师 </p>
+
+                                <p class="col-md-4  col-xs-6"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 2015 - 至今</p>
+                                
+                            
+                            </div>
+                            <div class="jobs-list-body">
+                                <p>1.计算机专业。会用ps，Axure，AI，office 办公软件。</p>
+                                <p>2.有网页设计和app的经验。热爱产品开发和设计。</p>
+                                <p>3.有良好的自学能力，和上进心，喜欢学习新知识。</p>
+                            </div>
+                            <div class="col-xs-12 col-md-12 text-right box-bar">
+                               <a href="" 
+                               data-id='1' 
+                               data-content="123123123123123" 
+                               data-company_name='公司名称' 
+                               data-position_name='岗位名称'
+                               data-start_time='开始时间'
+                               data-end_time='结束时间'
+                               data-salary='月薪' class="edit_curriculum_vitae">
+                               
+                                <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-ai61"></use>
+                            </svg><span class="hidden-xs">编辑</span>
+                               </a>
+                                <a href="#" class="delete_curriculum_vitae" data-id='1'>
+                                <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-chahao"></use>
+                            </svg><span class="hidden-xs">删除</span>
+                            </a>
+                            
+                            </div>
+                        </div>
+                          <div class="row text-center">
+                            <button class="btn btn-default col-md-3 col-md-offset-4 col-xs-10 col-xs-offset-1"  data-toggle="modal" data-target="#curriculum_vitaeModal">新增</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row user-abstract-box ">
+                    <div class="box-head">
+                    作品展示</div>
+                    <div class="box-body ">
+                        <div class="user-works col-md-6 hover-show">
+                            <h5  class="col-md-7 col-xs-9">
+                               <a href="">作品名称</a>
+                            </h5>
+                            <div class="col-md-5 col-xs-3 text-right box-bar">
+                                <a 
+                              data-works_name="波士顿"
+                              data-works_pic="2018-2"
+                              data-id="2"
+                              class="edit_works"><svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-ai61"></use>
+                            </svg><span class="hidden-xs">编辑</span>
+                                </a>
+                                <a class="delete_works" data-id='1'>
+                                <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-chahao"></use>
+                            </svg><span class="hidden-xs">删除</span>
+                            </a>
+                            </div>
+                            
+                            <img src="../images/reg_img.png" class="img-responsive">
+                        </div>
+                        
+                  
+                           <div class="row text-center">
+                             <button class="btn btn-default col-md-3 col-sm-offset-4 col-xs-10 col-xs-offset-1"  data-toggle="modal" data-target="#worksModal">新增</button>
+                           </div>
+                    </div>
+                </div>
+                <div class="row user-abstract-box">
+                    <div class="box-head">
+                              <h5 class="col-md-8 col-xs-8">个人介绍</h5>
+                            <a class="box-bar text-right col-md-4 col-xs-4"
+                             data-individual="个人简介内容"  data-toggle="modal" data-target="#individualModal">
+                             <svg class="icon" aria-hidden="true">
+                              <use xlink:href="#icon-ai61"></use>
+                            </svg><span class="hidden-xs">编辑</span></a>
+                    </div>
+                    <div class="box-body">
+                        <p>计算机专业。会用ps，Axure，AI，office 办公软件。有网页设计和app的经验。热爱产品开发和设计。有 良好的自学能力，和上进心，喜欢学习新知识。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 ">
+               <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">工具箱</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="row list-box">
+                            <li class=" col-md-6">
+                            <div class="box">
+                                <a href="">
+
+                                <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-rili"></use>
+                                        </svg>
+                                我的简历
+                                </a></div>
+                            </li>
+                             <li class=" col-md-6">
+                            <div class="box">
+                                <a href="">
+
+                                <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-rili"></use>
+                                        </svg>
+                                个人中心
+                                </a></div>
+                            </li>
+                             <li class=" col-md-6">
+                            <div class="box">
+                                <a href="">
+
+                                <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-rili"></use>
+                                        </svg>
+                                会员
+                                </a></div>
+                            </li>
+                              <li class=" col-md-6">
+                            <div class="box">
+                                <a href="">
+
+                                <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-rili"></use>
+                                        </svg>
+                                职业评测
+                                </a></div>
+                            </li>
+                            
+
+                           
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">默认投递</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <a href="" class="btn btn-default col-md-5 col-xs-5 active deliver"
+                         data-type='online'>在线简历</a>
+                        <span class="col-md-1 col-xs-2"></span>
+                        <a href="" class="btn btn-default col-md-5 col-xs-5 deliver" 
+                        data-type='word'>附件简历</a>
+                    </div>
+                </div>
+
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">简历下载</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <a href="" class="btn btn-default col-md-5 col-xs-5">PDF</a>
+                        <span class="col-md-1 col-xs-2"></span>
+                        <a href="" class="btn btn-default col-md-5 col-xs-5">WORD</a>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">附件简历</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body text-center">
+                        <a href="" class="btn btn-default col-md-12 col-xs-10 col-xs-offset-1">点击上传</a>
+
+                        <p class="col-xs-12">支持文件：doc/docx/jpg/png</p>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">资料完整度</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                60%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <footer id="footer-con">
+        <div class="container">
+            <div class="foorer_con row">
+                <div class="col-md-3">
+                    <h4>公司问答</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>企业服务</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系方式</h4>
+                    <ul class="footermenu">
+                        <li>商务合作：029-88888888</li>
+                        <li>客服中心：029-88888888</li>
+                        <li>受理电话：9：00 - 20：00</li>
+                        <li>Email：luobo@luobowang.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/erweima.jpg">
+                    <p>扫码进入小程序。</p>
+                    <a>分享链接： </a>
+                </div>
+            </div>
+        </div>
+        <div id="footerbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span>©2018 萝卜网 京ICP备14023790号-2 京公网安备 11010802024043号
+                        </span>
+                    </div>
+                    <div class="col-md-6 ">
+                        <ul class="footerbar-ul pull-right">
+                            <li><a>首页</a></li>
+                            <li><a>企业商铺</a></li>
+                            <li><a>校园招聘</a></li>
+                            <li><a>萝卜项目</a></li>
+                            <li><a>萝卜门店</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+ <script  src="/js/jquery-3.3.1.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+       <script src="/js/ajax.js"></script>
+   <script>
+       
+       //编辑经历
+       $('.edit_course').on('click',function(){
+                id = $(this).data('id');
+                schoolname = $(this).data('schoolname');
+                start_year = $(this).data('start_year');
+                end_year = $(this).data('end_year');
+                education = $(this).data('education');
+                major = $(this).data('major');
+                //console.log(schoolname);
+                var modal = $('#course');
+                modal.find('.modal-title').text('编辑简历');
+                modal.find('.modal-body input[name="school_name"]').val(schoolname);
+                modal.find('.modal-body input[name="start_year"]').val(start_year);
+                modal.find('.modal-body input[name="end_year"]').val(end_year);
+                modal.find('.modal-body input[name="education"]').val(education);
+                modal.find('.modal-body input[name="major"]').val(major);
+                modal.modal('show');
+
+           });
+       //编辑作品
+       $('.edit_works').on('click',function(){
+                id = $(this).data('id');
+                works_name = $(this).data('works_name');
+                works_pic = $(this).data('works_pic');
+            
+                console.log(works_name +" + "+ works_pic);
+                var modal = $('#worksModal');
+                modal.find('.modal-title').text('我的作品');
+                modal.find('.modal-body input[name="works_name"]').val(works_name);
+                modal.find('.modal-body input[name="works_pic"]').attr('src',works_pic);
+                modal.find('.modal-body input[name="id"]').val(id);
+                modal.modal('show');
+
+           });
+        //编辑工作经历
+       $('.edit_curriculum_vitae').on('click',function(){
+                id = $(this).data('id');
+                company_name = $(this).data('company_name');
+                position_name = $(this).data('position_name');
+                start_time = $(this).data('start_time');
+                end_time = $(this).data('end_time');
+                content = $(this).data('content');
+                salary = $(this).data('salary');
+            
+                console.log(company_name +" + "+ position_name);
+                var modal = $('#curriculum_vitaeModal');
+                modal.find('.modal-title').text('工作经历');
+                modal.find('.modal-body input[name="company_name"]').val(company_name);
+                modal.find('.modal-body input[name="position_name"]').val(position_name);
+                modal.find('.modal-body input[name="start_time"]').val(start_time);
+                modal.find('.modal-body input[name="end_time"]').val(end_time);
+                modal.find('.modal-body textarea[name="content"]').val(content);
+                modal.find('.modal-body input[name="salary"]').val(salary);
+                modal.modal('show');
+                return false;
+           });
+       
+       //删除经历
+        $('.delete_course').on('click',function(){
+               id = $(this).data('id');
+               if(delete_course(id)){
+                   toastr.success('删除成功', '1');
+                   $(this).parents('.course').hide(300);
+               }else{
+                   toastr.error('操作失败404.', 'Inconceivable!')
+               }
+       });
+       //删除作品
+        $('.delete_works').on('click',function(){
+               id = $(this).data('id');
+               if(delete_works(id)){
+                   toastr.success('删除成功');
+                   $(this).parents('.user-works').hide(300);
+               }else{
+                   toastr.error('操作失败404.', 'Inconceivable!')
+               }
+       });
+       
+       //删除作品
+        $('.delete_curriculum_vitae').on('click',function(){
+               id = $(this).data('id');
+               if(delete_curriculum_vitae(id)){
+                   toastr.success('删除成功');
+                   $(this).parents('.jobs-list').hide(300);
+               }else{
+                   toastr.error('操作失败404.', 'Inconceivable!')
+               }
+            return false;
+       });
+      //设置投递
+       $('.deliver').on('click',function(){
+           var vitaeType = $(this).data('type');
+           $('.deliver').removeClass('active');
+           $(this).addClass('active');
+           if(change_vitae_type(vitaeType)){
+                toastr.info('已更换简历投递模式');
+           }else{
+               toastr.error('通讯异常，请稍后再试！');
+           }
+          
+           
+           //console.log(vitaeType);
+           return false;
+          
+           
+       })
+       
+       
+   </script>
+   
+   
+   
+   <!-- curriculum_vitaeModal -->
+   <div class="modal fade" id="curriculum_vitaeModal" tabindex="-1" role="dialog" aria-labelledby="curriculum_vitae" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <form action="" class="form-horizontal" method="post">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="mycourselabel">新增学历</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                      <div class="col-md-10 col-md-offset-1">
+                       <div class="form-group">
+                         <label for="company_name"  class="col-sm-12 control-label col-md-12">公司名称</label>
+                         <input id="company_name" type="text" name="company_name" class="form-control col-sm-10 col-md-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="start_time"  class="col-sm-12 control-label">开始时间</label>
+                         <input id="start_time" type="text" name="start_time" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="end_time"  class="col-sm-12 control-label">结束日期</label>
+                         <input id="end_time" type="text" name="end_time" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="major"  class="col-sm-12 control-label">岗位</label>
+                         <input id="major" type="text" name="position_name" class="form-control col-sm-12" >
+                        </div>
+                        <div class="form-group">
+                         <label for="salary"  class="col-sm-12 control-label">月薪</label>
+                         <input id="salary" type="text" name="salary" class="form-control col-sm-12" >
+                        </div>
+                        <div class="form-group">
+                         <label for="content"  class="col-sm-12 control-label">描述</label>
+                            <textarea id="content" type="text" name="content" class="form-control col-sm-12" ></textarea>
+                        </div>
+                       
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        
+   
+   <!-- course -->
+   <div class="modal fade" id="course" tabindex="-1" role="dialog" aria-labelledby="mycourse" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <form action="" class="form-horizontal" method="post">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="mycourselabel">新增学历</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                      <div class="col-md-10 col-md-offset-1">
+                       <div class="form-group">
+                         <label for="school_name"  class="col-sm-12 control-label col-md-12">学校名称</label>
+                         <input id="school_name" type="text" name="school_name" class="form-control col-sm-10 col-md-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="start_year"  class="col-sm-12 control-label">入学日期</label>
+                         <input id="start_year" type="text" name="start_year" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="end_year"  class="col-sm-12 control-label">结束日期</label>
+                         <input id="end_year" type="text" name="end_year" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="major"  class="col-sm-12 control-label">专业</label>
+                         <input id="major" type="text" name="major" class="form-control col-sm-12" >
+                        </div>
+                         <div class="form-group">
+                         <label for="education"  class="col-sm-12 control-label">学历</label>
+                         <select class="form-control col-sm-12" name="education">
+                              <option value="">博士</option>
+                              <option value="">硕士</option>
+                              <option value="">本科</option>
+                              <option value="">专科</option>
+                              <option value="">高中</option>
+                              <option value="">初中</option>
+                              <option value="">小学</option>
+                              <option value="">培训机构</option>
+                              <option value="">其他</option>
+                         
+                         </select>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        
+   <!-- worksModal-->
+   <div class="modal fade" id="worksModal" tabindex="-1" role="dialog" aria-labelledby="worksModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <form action="worksModal" class="form-horizontal" method="post">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myworkslabel">我的作品</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                      <div class="col-md-10 col-md-offset-1">
+                       <div class="form-group">
+                         <label for="works_name"  class="col-sm-12 control-label col-md-12">作品名称：</label>
+                         <input id="works_name" type="text" name="works_name" class="form-control col-sm-10 col-md-12">
+                        </div>
+                        <div class="form-group">
+                            <img src="https://lorempixel.com/50/50/?55625" class="work_pic">
+                        </div>
+                        <div class="form-group">
+                         <label for="works_pic"  class="col-sm-12 control-label">作品图片：</label>
+                         <input id="works_pic" type="file" name="works_pic" class="form-control col-sm-12">
+                        </div>
+                      </div>
+                    </div>
+                       </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        
+  <!-- individualModal-->
+   <div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <form action="individual" class="form-horizontal" method="post">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="individuallabel">个人简介</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                      <div class="col-md-10 col-md-offset-1">
+                       <div class="form-group">
+                         <label for="individual"  class="col-sm-12 control-label col-md-12">个人简介：</label>
+                         <textarea id="individual" type="text" name="individual" class="form-control col-sm-10 col-md-12"></textarea>
+                        </div>
+                        
+                      </div>
+                    </div>
+                       </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-primary">提交</button>
+                    </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+</body>
+
+</html>

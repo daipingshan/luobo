@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>萝卜网 - 个人资料</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+
+    <!-- 专用其他项目不用加载-->
+    <link rel="stylesheet" href="/css/vitae.css">
+    <link rel="stylesheet" href="/css/users.css">
+    <link rel="stylesheet" href="/css/company.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/jquery.fileupload.css">
+    <script src="/fonts/iconfont.js"></script>
+
+
+</head>
+
+
+<body>
+    <!-- 顶部导航-->
+    <div id="topbar">
+        <div class="container">
+            <div class="col float-left">切换城市： 西安 | 企业登录</div>
+            <div class="col float-right">
+                <a href="">登录</a> |
+                <a href="">注册</a>
+            </div>
+        </div>
+    </div>
+    <!-- LOGO 与导航 -->
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div id="logo" class="col-md-4 col-xs-12">
+                    <img src="/images/logo.jpg">
+                </div>
+                <div id="nav" class="col-md-8 hidden-xs">
+
+                    <ul class="nav navbar-nav">
+
+                        <li class="nav-item active ">
+                            <a class="nav-link active" href="#">主页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">企业商铺</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">萝卜校招</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">萝卜项目</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">萝卜门店</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 搜索模块 -->
+    <div id="search">
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="col-md-2 col-xs-1"></div>
+                    <div class="col-md-5 col-xs-7">
+                        <input class="form-control search-input" type="text" placeholder="输入您要搜索的职位">
+                    </div>
+                    <div class="col-md-3 col-xs-4">
+                        <button type="submit" class="btn btn-primary  luobo_btn search-btn">搜索</button>
+                    </div>
+                    <div class="col-md-2 col-xs-0"></div>
+                </form>
+            </div>
+            <div class="row">
+
+                <ul class="recommended-label col-md-6 col-md-push-2 col-xs-push-1 col-xs-10">
+                    <li>热门搜索：</li>
+                    <li><a>网页设计师</a></li>
+                    <li><a>PHP工程师</a></li>
+                    <li><a>运维人员</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-9 box">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="">个人资料</a></li>
+                    <li><a>隐私设置</a></li>
+                    <li><a>修改密码</a></li>
+                    <li><a>会员权益</a></li>
+                   
+                </ul>
+
+
+                <!--  公司 主要信息 TAB -->
+                <div class="userinfo row">
+                    <div class="col-md-10 col-md-offset-1">
+                     <form class="form-horizontal">
+                     
+                       <div class="form-group">
+                         <label for="real_name"  class="col-sm-12 control-label col-md-12">真实姓名</label>
+                         <input id="real_name" type="text" name="real_name" class="form-control col-sm-10 col-md-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="real_name"  class="col-sm-12 control-label col-md-12">性别</label>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="sex" id="sex-man" value="1" checked>
+                           男
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="sex" id="sex-woman" value="0">
+                            女
+                          </label>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                         <label for="birthday"  class="col-sm-12 control-label">出生日期</label>
+                         <input id="birthday" type="text" name="birthday" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="job_type"  class="col-sm-12 control-label">工作性质</label>
+                         <select name="job_type" class="form-control col-sm-12">
+                                  <option>全职</option>
+                                  <option>兼职</option>
+                                  <option>实习</option>
+                         </select>
+                        </div>
+                         <div class="form-group">
+                         <label for="city_id"  class="col-sm-12 control-label">所在城市</label>
+                         <select name="city_id" id="city_id" class="form-control col-sm-12">
+                                  <option>西安</option>    
+                         </select>
+                        </div>
+                        <div class="form-group">
+                         <label for="end_time"  class="col-sm-12 control-label">最快入职</label>
+                         <select class="form-control col-sm-12">
+                                  <option>随时</option>
+                                  <option>商议</option>
+                                  <option>一周内</option>
+                                  <option>半月内</option>
+                                  <option>一个月</option>
+                         </select>
+                        </div>
+                        
+                         <div class="form-group">
+                         <label for="education"  class="col-sm-12 control-label">最高学历</label>
+                         <select name="education" id="education" class="form-control col-sm-12">
+                                  <option>小学</option>
+                                  <option>初中</option>
+                                  <option>高中</option>
+                                  <option>本科</option>
+                                  <option>硕士</option>
+                                  <option>博士</option>
+                                  <option>其他</option>
+                         </select>
+                        </div>
+                        <div class="form-group">
+                         <label for="salary"  class="col-sm-12 control-label">期望月薪(K)</label>
+                        <input id="salary" type="number" name="salary" class="form-control
+                         col-sm-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="job_name"  class="col-sm-12 control-label">期望从事岗位</label>
+                        <input id="job_name" type="text" name="job_name" class="form-control
+                         col-sm-12">
+                        </div>
+                        <div class="form-group">
+                         <label for="work_type"  class="col-sm-12 control-label">工作状态</label>
+                         <select name="work_type" id="work_type" class="form-control col-sm-12">
+                                  <option value="1">在职</option>
+                                  <option value="0">离职</option>
+                         </select>
+                        </div>
+                        <div class="form-group">
+                         <label for="work_time"  class="col-sm-12 control-label">工作经验</label>
+                         <input id="work_time" type="text" name="work_time" class="form-control col-sm-12">
+                        </div>
+                        
+                        <div class="form-group">
+                         <input style="submit" class="btn btn-default" value="保存">
+                        </div>
+                    </form>
+                    </div>
+                </div>
+
+              
+            </div>
+
+            <div class="col-md-3 ">
+                 <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">个人头像</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <!-- The container for the uploaded files -->
+                        <div id="files" class="files"></div>
+                       
+                        <span class="btn btn-default fileinput-button col-md-12 col-xs-12">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>上传头像</span>
+                            <!-- The file input field used as target for the file upload widget -->
+                            <input id="fileupload" type="file" name="files[]" multiple>
+                        </span>
+                         <!-- The global progress bar -->
+                        <div id="progress" class="progress col-md-12 col-xs-12">
+                            <div class="progress-bar progress-bar-success"></div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">简历下载</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <a href="" class="btn btn-default col-md-5 col-xs-5">PDF</a>
+                        <span class="col-md-1 col-xs-2"></span>
+                        <a href="" class="btn btn-default col-md-5 col-xs-5">WORD</a>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">工具箱</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="row list-box">
+                            <li class=" col-md-6">
+                            <div class="box">
+                                <a href="">
+
+                                <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-rili"></use>
+                                        </svg>
+                                我的简历
+                                </a></div>
+                            </li>
+                             <li class=" col-md-6">
+                            <div class="box">
+                                <a href="">
+
+                                <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-rili"></use>
+                                        </svg>
+                                个人中心
+                                </a></div>
+                            </li>
+                             <li class=" col-md-6">
+                            <div class="box">
+                                <a href="">
+
+                                <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-rili"></use>
+                                        </svg>
+                                会员
+                                </a></div>
+                            </li>
+                              <li class=" col-md-6">
+                            <div class="box">
+                                <a href="">
+
+                                <svg class="icon" aria-hidden="true">
+                                          <use xlink:href="#icon-rili"></use>
+                                        </svg>
+                                职业评测
+                                </a></div>
+                            </li>
+                            
+
+                           
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </main>
+    <footer id="footer-con">
+        <div class="container">
+            <div class="foorer_con row">
+                <div class="col-md-3">
+                    <h4>公司问答</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>企业服务</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系方式</h4>
+                    <ul class="footermenu">
+                        <li>商务合作：029-88888888</li>
+                        <li>客服中心：029-88888888</li>
+                        <li>受理电话：9：00 - 20：00</li>
+                        <li>Email：luobo@luobowang.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/erweima.jpg">
+                    <p>扫码进入小程序。</p>
+                    <a>分享链接： </a>
+                </div>
+            </div>
+        </div>
+        <div id="footerbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span>©2018 萝卜网 京ICP备14023790号-2 京公网安备 11010802024043号
+                        </span>
+                    </div>
+                    <div class="col-md-6 ">
+                        <ul class="footerbar-ul pull-right">
+                            <li><a>首页</a></li>
+                            <li><a>企业商铺</a></li>
+                            <li><a>校园招聘</a></li>
+                            <li><a>萝卜项目</a></li>
+                            <li><a>萝卜门店</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-3.3.1.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="/js/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="/js/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="/js/jquery.fileupload-image.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="/js/jquery.fileupload-validate.js"></script>
+<script>
+/*jslint unparam: true, regexp: true */
+/*global window, $ */
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = window.location.hostname === 'blueimp.github.io' ?
+                '//jquery-file-upload.appspot.com/' : 'server/php/',
+        uploadButton = $('<button/>')
+            .addClass('btn btn-primary')
+            .prop('disabled', true)
+            .text('Processing...')
+            .on('click', function () {
+                var $this = $(this),
+                    data = $this.data();
+                $this
+                    .off('click')
+                    .text('Abort')
+                    .on('click', function () {
+                        $this.remove();
+                        data.abort();
+                    });
+                data.submit().always(function () {
+                    $this.remove();
+                });
+            });
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+        autoUpload: false,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+        maxFileSize: 999000,
+        // Enable image resizing, except for Android and Opera,
+        // which actually support image resizing, but fail to
+        // send Blob objects via XHR requests:
+        disableImageResize: /Android(?!.*Chrome)|Opera/
+            .test(window.navigator.userAgent),
+        previewMaxWidth: 100,
+        previewMaxHeight: 100,
+        previewCrop: true
+    }).on('fileuploadadd', function (e, data) {
+        data.context = $('<div/>').appendTo('#files');
+        $.each(data.files, function (index, file) {
+            var node = $('<p/>')
+                    .append($('<span/>').text(file.name));
+            if (!index) {
+                node
+                    .append('<br>')
+                    .append(uploadButton.clone(true).data(data));
+            }
+            node.appendTo(data.context);
+        });
+    }).on('fileuploadprocessalways', function (e, data) {
+        var index = data.index,
+            file = data.files[index],
+            node = $(data.context.children()[index]);
+        if (file.preview) {
+            node
+                .prepend('<br>')
+                .prepend(file.preview);
+        }
+        if (file.error) {
+            node
+                .append('<br>')
+                .append($('<span class="text-danger"/>').text(file.error));
+        }
+        if (index + 1 === data.files.length) {
+            data.context.find('button')
+                .text('上传')
+                .addClass('btn btn-default col-md-12 col-xs-12')
+                .prop('disabled', !!data.files.error);
+        }
+    }).on('fileuploadprogressall', function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('#progress .progress-bar').css(
+            'width',
+            progress + '%'
+        );
+    }).on('fileuploaddone', function (e, data) {
+        $.each(data.result.files, function (index, file) {
+            if (file.url) {
+                var link = $('<a>')
+                    .attr('target', '_blank')
+                    .prop('href', file.url);
+                $(data.context.children()[index])
+                    .wrap(link);
+            } else if (file.error) {
+                var error = $('<span class="text-danger"/>').text(file.error);
+                $(data.context.children()[index])
+                    .append('<br>')
+                    .append(error);
+            }
+        });
+    }).on('fileuploadfail', function (e, data) {
+        $.each(data.files, function (index) {
+            var error = $('<span class="text-danger"/>').text('上传失败.');
+            $(data.context.children()[index])
+                .append('<br>')
+                .append(error);
+        });
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head"/>
+<body>
+<include file="Common:header"/>
+
+<link rel="stylesheet" href="__CSS_PATH__/jquery.fileupload.css">
+<link rel="stylesheet" href="__CSS_PATH__/bootstrap-datetimepicker.css">
+<body>
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 ">
+            <include file="common:user_info_tab"/>
+            <!--  公司 主要信息 TAB -->
+            <div class="userinfo row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default lb-panel ">
+                        <div class="panel-heading ">
+                            <div class="row">
+                                <h5 class="col-md-8">基本资料</h5>
+                                <div class="text-right col-md-4"><a href="{:U('user/info_edit')}" class="blue"><i
+                                        class="iconfont icon-ai61 blue"></i>编辑</a></div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table user_info_table ">
+                                <tr>
+                                    <td>真实姓名</td>
+                                    <td>{$user_info['real_name']}</td>
+                                </tr>
+                                <tr>
+                                    <td>性别</td>
+                                    <td>
+                                        <eq name="user_info['sex']" value="1">男</eq>
+                                        <eq name="user_info['sex']" value="0">女</eq>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>出生日期</td>
+                                    <td>{$user_info['birthday']}</td>
+                                </tr>
+                                <tr>
+                                    <td>工作经验</td>
+                                    <td>{$work_time[$user_info['work_time']]}</td>
+                                </tr>
+                                <tr>
+                                    <td>所在城市</td>
+                                    <td>{$cities[$user_info['city_id']]}</td>
+                                </tr>
+                                <tr>
+                                    <td>最高学历</td>
+                                    <td> {$education[$user_info['education']]}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="panel panel-default lb-panel">
+                        <div class="panel-heading ">
+                            <div class="row">
+                                <h5 class="col-md-8">求职意向</h5>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table user_info_table ">
+                                <tr>
+                                    <td>期望从事岗位</td>
+                                    <td>{$user_info['job_name']}</td>
+                                </tr>
+                                <tr>
+                                    <td>期望月薪(K)</td>
+                                    <td>{$user_info['salary']} K</td>
+                                </tr>
+                                <tr>
+                                    <td>工作状态</td>
+                                    <td>{:C('WORK_TYPE')[$user_info['work_type']]}</td>
+                                </tr>
+                                <tr>
+                                    <td>最快入职</td>
+                                    <td>
+                                        <eq name="user_info['post_time']" value="1">随时</eq>
+                                        <eq name="user_info['post_time']" value="2">商议</eq>
+                                        <eq name="user_info['post_time']" value="3">一周内</eq>
+                                        <eq name="user_info['post_time']" value="4">半月内</eq>
+                                        <eq name="user_info['post_time']" value="5">一个月</eq>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>工作性质</td>
+                                    <td>{:C('WORK_NATURE')[$user_info['job_type']]}</td>
+                                </tr>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3 ">
+            <include file="Common:user_right"/>
+
+        </div>
+    </div>
+
+</main>
+<include file="Common:footer"/>
+<script>
+</script>
+</body>
+</html>

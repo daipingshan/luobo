@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>萝卜网 - 岗位管理</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- 注册登录 专用其他项目不用加载-->
+    <link rel="stylesheet" href="/css/company.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+
+
+</head>
+
+
+<body>
+    <!-- 顶部导航-->
+    <div id="topbar">
+        <div class="container">
+            <div class="col float-left">
+                <a href="../index.html">首页 </a>
+                <a href="job_add.html">发布岗位 </a>
+                <a href="com_jobs_manage.html">岗位管理  </a>
+                <a href="/vitae/index.html">简历库 </a>
+            </div>
+            <div class="col float-right">
+                <a href="/auth/login.html">登录</a> |
+                <a href="/auth/reg.html">注册</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 搜索模块 -->
+    <div id="search">
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="col-md-2 "></div>
+                    <div class="col-md-5 ">
+                        <input class="form-control search-input" type="text" placeholder="输入您要搜索的职位">
+                    </div>
+                    <div class="col-md-3 ">
+                        <button type="submit" class="btn btn-primary  luobo_btn search-btn">搜索</button>
+                    </div>
+                    <div class="col-md-2 "></div>
+                </form>
+            </div>
+            <div class="row">
+
+                <ul class="recommended-label col-md-6 col-md-push-2">
+                    <li>热门搜索：</li>
+                    <li><a>网页设计师</a></li>
+                    <li><a>PHP工程师</a></li>
+                    <li><a>运维人员</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-9 box">
+           
+                <!--  公司 主要信息 TAB -->
+                <div class="box">
+              
+                <ul class="nav nav-tabs ">
+
+                    <li><a href="com_setting.html">公司主页</a></li>
+                    <li class="active"><a href="com_jobs_manage.html">职位管理</a></li>
+                    <li><a href="com_message.html">通知模板</a></li>
+
+                </ul>
+                </div>
+                       <div class="row new_job">
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3 text-right"> <a href="job_add.html">
+                          <span class="glyphicon glyphicon-plus"></span>发布新职位</a></div>
+
+                </div>
+                <div class="jobs">
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item">
+                        <div class="row job-item-top">
+                            <div class="col-md-5">
+                                <a href="" class="">
+                                 <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>岗位名称</a>
+                                <span class="job-price">3K-15K</span>
+                            </div>
+                            <div class="col-md-5"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间</div>
+                            <div class="col-md-2 text-right">
+                                <select class="form-control">
+                                    <option>发布中</option>
+                                    <option>下线</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>3-5年工作经验 | 本科</div>
+                            <div class="col-md-6 text-right">
+                                <a class="text-btn">置顶</a> |
+                                <a class="text-btn">刷新</a> |
+                                <a class="text-btn">定时刷新</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row text-right">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="col-md-3 ">
+                <div class="cp_base panel panel-default">
+                    <div class="panel-body">
+                        <img src="../images/cp_def.png">
+                        <h3>萝卜网络科技有限公司</h3>
+                        <div>公司主站：www.luobo123.com</div>
+                        <div>企业评分：
+                            <img src="../images/start_on.png">
+                            <img src="../images/start_on.png">
+                            <img src="../images/start_on.png">
+                            <img src="../images/start_off.png">
+                            <img src="../images/start_off.png">
+                        </div>
+                        <p>企业名称修改请重新申请资质认证。</p>
+                        <a>去认证。</a>
+                    </div>
+                </div>
+              
+                <div class="box cp_progress">
+                    <h4>企业信息完善度 </h4>
+                    <p><span>(完成企业信息，获取更高权益！)</span></p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            60%
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">公司标签</h5>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="cp_tags">
+                            <li>工作氛围好</li>
+                            <li>旅游</li>
+                            <li>五险一金</li>
+                            <li>十三薪</li>
+                            <li>年终奖</li>
+                            <li>其他</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">基本资料</h5>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>人数： 100 - 200人</li>
+                            <li>地点： </li>
+                            <li>行业：</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-8">HR二维码</h5>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <img src="../images/demo/erweima.jpg">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <footer id="footer-con">
+        <div class="container">
+            <div class="foorer_con row">
+                <div class="col-md-3">
+                    <h4>公司问答</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>企业服务</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系方式</h4>
+                    <ul class="footermenu">
+                        <li>商务合作：029-88888888</li>
+                        <li>客服中心：029-88888888</li>
+                        <li>受理电话：9：00 - 20：00</li>
+                        <li>Email：luobo@luobowang.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/erweima.jpg">
+                    <p>扫码进入小程序。</p>
+                    <a>分享链接： </a>
+                </div>
+            </div>
+        </div>
+        <div id="footerbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>©2018 萝卜网 京ICP备14023790号-2 京公网安备 11010802024043号
+                        </p>
+                    </div>
+                    <div class="col-md-6 ">
+                        <ul class="footerbar-ul pull-right">
+                            <li><a>首页</a></li>
+                            <li><a>企业商铺</a></li>
+                            <li><a>校园招聘</a></li>
+                            <li><a>萝卜项目</a></li>
+                            <li><a>萝卜门店</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+    <div class="panel panel-default lb-panel ">
+        <div class="panel-heading ">
+            <div class="row">
+                <h5 class="col-md-8">基本资料</h5>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="list-unstyled com_list">
+                <li><i class="iconfont icon-guimo"></i> {$scales[$info['scale']]}</li>
+                <li><i class="iconfont icon-xingming"></i>{$company_size[$info['company_size']]}人</li>
+                <li><i class="iconfont icon-dizhi"></i>{$city[$info['city_id']]}</li>
+                <li><i class="iconfont icon-xingming"></i>{$info['industry_field']}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-default lb-panel ">
+        <div class="panel-heading ">
+            <div class="row">
+                <h5 class="col-md-8">公司标签</h5>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul class="cp_tags">
+                <foreach name="info[label]"  item="it">
+                    <li>{$label[$it]['name']}</li>
+                </foreach>
+
+            </ul>
+        </div>
+    </div>
+    <if condition="$info['hr_qrcode'] neq ''">
+        <div class="panel panel-default lb-panel">
+            <div class="panel-heading ">
+                <div class="row">
+                    <h5 class="col-md-8">HR二维码</h5>
+                </div>
+            </div>
+            <div class="panel-body">
+                <img src="{$info['hr_qrcode']}" class="qrcode img-responsive" >
+            </div>
+        </div>
+    </if>

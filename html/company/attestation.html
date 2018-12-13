@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>萝卜网 - 基本资料</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- 注册登录 专用其他项目不用加载-->
+    <link rel="stylesheet" href="/css/company.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+
+
+</head>
+
+
+<body>
+    <!-- 顶部导航-->
+    <div id="topbar">
+        <div class="container">
+            <div class="col float-left">
+                <a href="../index.html">首页 </a>
+                <a href="job_add.html">发布岗位 </a>
+                <a href="com_jobs_manage.html">岗位管理  </a>
+                <a href="/vitae/index.html">简历库 </a>
+            </div>
+            <div class="col float-right">
+                <a href="/auth/login.html">登录</a> |
+                <a href="/auth/reg.html">注册</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 搜索模块 -->
+    <div id="banner">
+        <img src="../images/banner.jpg" class="img-responsive">
+    </div>
+
+
+    <main class="container">
+       <div class="alert alert-danger" role="alert">您的认证被拒绝，请重新认证。
+           拒绝原因：
+           <p>
+               1：企业信息与营业执照不符。
+           </p>
+           <p>请修改正确后，重新提交。</p>
+        </div>
+        <div class="row">
+            <div class="col-md-12 box">
+               
+                    <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="name"  class="col-md-2">企业名称</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control " placeholder="企业名称，必须与营业执照名称一致">
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="name"  class="col-md-2">LOGO</label>
+                                <div class="col-md-3">
+                                <img src="../images/cp_def.png">
+                            
+                               <input type="file" class="form-control col-md-7">
+                                </div>
+                                 
+                            </div>
+                              <div class="form-group">
+                                <label for="name" class="col-md-2">企业官网</label>
+                                 <div class="col-md-10">
+                                <input type="text" class="form-control" placeholder="http://">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-md-2">企业简介</label>
+                                <div class="col-md-10">
+                                <textarea class="form-control" rows="3" placeholder="企业简介"></textarea>
+                                </div>
+                            </div>
+                          
+                            <div class="form-group">
+                                <label for="name" class="col-md-2">行业类别</label>
+                                 <div class="col-md-10">
+                                 <input type="text" class="form-control" placeholder="描述您的行业类别">
+                                </div>
+                            </div>
+                        
+                            <div class="form-group">
+                                <label for="name" class="col-md-2">融资信息</label>
+                                 <div class="col-md-10">
+                                <select  class="form-control">
+                                    <option>无需融资</option>
+                                    <option>天使轮</option>
+                                    <option>上市公司</option>
+                                    <option>私企</option>
+                                    <option>国有或事业单位</option>
+                                    <option>其他</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-md-2">企业规模</label>
+                                  <div class="col-md-10">
+                                  <input type="text" class="form-control" placeholder="填写人数">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-md-2">企业地址</label>
+                                 <div class="col-md-10">
+                                <input type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-md-2">营业执照</label>
+                                <input type="file" >
+                            </div>
+                           
+                            <div class="form-group">
+                                 
+                                <input type="submit" class="btn   col-md-offset-2 col-md-8 btn-primary" value="提交">
+                            </div>
+
+                        </form>
+              
+                
+            </div>
+        </div>
+
+    </main>
+    <footer id="footer-con">
+        <div class="container">
+            <div class="foorer_con row">
+                <div class="col-md-3">
+                    <h4>公司问答</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>企业服务</h4>
+                    <ul class="footermenu">
+                        <li><a>萝卜问答</a></li>
+                        <li><a>会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4>联系方式</h4>
+                    <ul class="footermenu">
+                        <li>商务合作：029-88888888</li>
+                        <li>客服中心：029-88888888</li>
+                        <li>受理电话：9：00 - 20：00</li>
+                        <li>Email：luobo@luobowang.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/erweima.jpg">
+                    <p>扫码进入小程序。</p>
+                    <a>分享链接： </a>
+                </div>
+            </div>
+        </div>
+        <div id="footerbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>©2018 萝卜网 京ICP备14023790号-2 京公网安备 11010802024043号
+                        </p>
+                    </div>
+                    <div class="col-md-6 ">
+                        <ul class="footerbar-ul pull-right">
+                            <li><a>首页</a></li>
+                            <li><a>企业商铺</a></li>
+                            <li><a>校园招聘</a></li>
+                            <li><a>萝卜项目</a></li>
+                            <li><a>萝卜门店</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

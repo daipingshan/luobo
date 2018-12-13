@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+<div id="topmod" class="container">
+    <div class="">
+        <div class="col-md-3 hidden-xs">
+            <link rel="stylesheet" href="__CSS_PATH__/home_nav.css">
+            <block name="type"></block>
+        </div>
+        <div class="col-md-9 col-xs-12">
+            <block name="advert"></block>
+        </div>
+    </div>
+
+</div>
+<main class="container">
+    <block name="content"></block>
+    <div id="links" class="row hidden-xs">
+        <div class="jobs-head col-md-12 col-xs-12">
+            <span class="jobs-title">友情链接</span>
+            <div class="clear"></div>
+        </div>
+        <div class="links-con col-md-12">
+
+            <ul class="links">
+                <volist name="link" id="link_row">
+                    <li><a href="{$link_row.url}" target="_blank">{$link_row.name}</a></li>
+                </volist>
+            </ul>
+
+        </div>
+    </div>
+</main>
+<include file="Common:footer" />
+<script>
+        $(document).ready(function() {
+
+            $('.index_nav').on('mouseenter', function() {
+
+                $(".nav_right").removeClass('hide');
+            }).on('mouseleave', function() {
+
+                $(".nav_right").addClass('hide');
+                $(".sub").addClass('hide');
+            }).on('mouseenter', 'li', function(e) {
+
+                var li_data = $(this).attr('data-id');
+                var x = $(this).position().top;
+								if(li_data >= 4 && li_data < 8){
+								    var range = x - 170;
+								}else if(li_data >= 8){
+										range = x - 290;
+								}else{
+								    range = 0;
+								}
+
+
+                $(".nav_right").css('top',range);
+                $(".sub").addClass('hide');
+                $('.sub[data-id="' + li_data + '"]').removeClass('hide')
+                //console.log(li_data);
+
+            })
+            var alljobs  = $('#alljobs');
+            var jobs_list = $('#jobs_list');
+
+            var html1 = '<img src="__IMAGE_PATH__/icon/home/icon-qita1.png" class="icon_size">&nbsp;&nbsp;查看全部';
+            var html2 = '<img src="__IMAGE_PATH__/icon/home/icon-qita1.png" class="icon_size" >&nbsp;&nbsp;收起';
+            alljobs.on('click',function(){
+                 if($(this).hasClass('menu-open')){
+                      jobs_list.animate({height:'295px'})
+                      alljobs.html(html1).removeClass('menu-open');
+                      return;
+                 }
+                 jobs_list.animate({height:'510px'})
+                 $(this).html(html2).addClass('menu-open');
+
+            });
+
+
+
+        });
+
+    </script>
+<block name="js"></block>
+<block name="css"></block>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 ">
+
+            <!--  公司 主要信息 TAB -->
+            <div class="box">
+                <include file="Common:company_nav" />
+            </div>
+            <if condition="$is_defect eq -2">
+                <div class="alert alert-info" role="alert">您的资质还有认证，
+                    <strong><a href="{:U('Company/authentication')}">去认证</a> </strong>
+                </div>
+                <elseif condition="$is_defect eq -1"/>
+                <div class="alert alert-info" role="alert">你的基本资料不完整，
+                    <strong><a href="{:U('Company/edit')}">去填写</a> </strong>
+                </div>
+                <elseif condition="$is_defect eq -3"/>
+                <div class="alert alert-info" role="alert">您的认证失败，
+                    <strong><a href="{:U('Company/authentication')}">重新去认证</a> </strong>
+                </div>
+            </if>
+
+            <div class="row new_job ">
+                <div class="col-md-9"></div>
+                <div class="col-md-3 text-right">
+                <if condition="$is_publish eq 0">
+                    <if condition="$is_defect eq -2">
+                        <a href="{:U('Company/authentication')}" class="blue">
+                            <span class="glyphicon glyphicon-plus"></span>去认证
+                        </a>
+                        <elseif condition="$is_defect eq -1"/>
+                        <a href="{:U('Company/edit')}" class="blue">
+                            <span class="glyphicon glyphicon-plus"></span>填写基本资料
+                        </a>
+                        <elseif condition="$is_defect eq -3"/>
+                        <a href="{:U('Company/authentication')}" class="blue">
+                            <span class="glyphicon glyphicon-plus"></span>重新去认证
+                        </a>
+                        <else/>
+                        <a href="{:U('Recruit/sendRecruitmentInfo')}" class="blue">
+                            <span class="glyphicon glyphicon-plus"></span>发布新职位(免费次数{$free_recruit})
+                        </a>
+                    </if>
+
+                <elseif condition="$is_publish eq -1" />
+                    <span class="glyphicon glyphicon-plus"></span>当天发布数量已达上限,请明天在发布
+                <elseif condition="$is_publish eq -2" />
+                    <span class="glyphicon glyphicon-plus"></span>当天发布数量已达上限,请升级会员等级
+                </if>
+                </div>
+            </div>
+            <div class="jobs ">
+                <volist name='recruit' id='vo'>
+                    <div class="job-item ">
+                        <div class="row job-item-top">
+                            <div class="col-md-4 job-title">
+                                <a href="{:U('Jobs/detail',array('id'=>$vo['id']))}">
+                                 {$vo['name']}</a>
+
+                                <span class="job-price">
+                                <if condition="$vo['salary_min'] eq 0">面议
+                                    <else />
+                                    {$vo['salary_min']}K-{$vo['salary_max']}K
+                                </if>
+                                </span>
+                            </div>
+                            <div class="col-md-2">
+
+                                <span class="refresh">
+                                <empty name="vo.refresh_time">
+                                    {$vo.create_time|date="m-d ",###}
+                                    <else/>
+                                    {$vo.refresh_time|date="m-d ",###}
+                                </empty>
+
+                                </span>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <if condition="$vo['deliver'] gt 0">
+                                    <a href="{:U('Recruit/workLifePaper', array('status' => 1))}">{$vo['deliver']}人投递</a>
+                                    <else/>
+                                    还没有人投递
+                                </if>
+                                <a class="text-btn set"  data-id="{$vo['id']}" data-status="3">招满</a>
+                                <a class="text-btn set"  data-id="{$vo['id']}" data-status="0">在线</a>
+                                <a class="text-btn set"  data-id="{$vo['id']}" data-status="1">下线</a>
+                            </div>
+                        </div>
+                        <input type="hidden" id="rec_id_{$vo['id']}" value="{$vo['id']}">
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                {$vo['experience']}年工作经验&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp; {$education[$vo['limit_educate']]}
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <if condition="$vo['status'] eq 0">
+                                    <if condition="$now gt $vo['recommend_expire_time']">
+                                        <a class="text-btn toindex" data-id="{$vo['id']}">推荐到首页</a> |
+                                        <else/>
+                                        <a class="text-btn" data-id="{$vo['id']}">首页推荐中</a> |
+                                    </if>
+
+	                                <a class="text-btn dotop" data-id="{$vo['id']}">置顶</a> |
+	                                <a class="text-btn refresh"  data-id="{$vo['id']}">刷新</a> |
+                                </if>
+                                <a class="text-btn" href="{:U('Recruit/edit', array('id' => $vo['id']))}">编辑</a> |
+                                <a class="text-btn" href="{:U('Recruit/del', array('id' => $vo['id']))}">删除</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </volist>
+            </div>
+            <div class="row text-right">
+                {$page}
+            </div>
+        </div>
+
+        <include file="Common:company_index_right" />
+    </div>
+
+</main>
+
+<!-- 刷新岗位 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="refresh_modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">确定刷新该岗位么？ </h4>
+            </div>
+            <if condition="$is_refresh eq 0">
+                <div class="modal-body">
+                        <p>您共有{$amount}个萝卜,本次刷新免费,还余免费次数{$free_refresh}次</p>
+                </div>
+                <elseif condition="$is_refresh eq -1"/>
+                <div class="modal-body">
+                    <p>您共有{$amount}个萝卜,当天免费次数用完,本次将扣除{:C('COMPANY')['base']['refresh']}个萝卜</p>
+                </div>
+                <elseif condition="$is_refresh eq -2"/>
+                <div class="modal-body">
+                    <p>您共有{$amount}个萝卜,会员等级当天免费次数用完,请点击<a>升级会员</a></p>or
+                    <p>将扣除{:C('COMPANY')['base']['refresh']}个萝卜</p>
+                </div>
+            </if>
+            <div class="modal-footer">
+                <input type="hidden" name="id" id="refresh_id" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="refresh_btn">确定刷新</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 置顶岗位 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="dotop_modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">确定置顶该岗位么？ </h4>
+            </div>
+            <div class="modal-body">
+                <p>您共有{$amount}个萝卜,本次将扣除{:C('COMPANY')['base']['top']}个萝卜</p>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="id" id="dotop_id" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="dotop_btn">确定置顶</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 推荐到首页 -->
+<div class="modal fade" tabindex="-1" role="dialog" id="toindex_modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">确定推荐该岗位到首页么？ </h4>
+            </div>
+            <div class="modal-body">
+                <p>您共有{$amount}个萝卜,本次将扣除{$toindex['index']}个萝卜</p>
+                <p> 请选择推荐到首页的时间：    </p>
+                <volist name='toindex.top_day' id='vo' key="k">
+                    <label class="labels" >
+                        <input type="radio" name="toindex_time" value="{$k}" />{$vo}天
+                    </label>
+                </volist>
+                <p>推荐到首页申请发送后会运营人员进行审核,审核通过后您的招聘信息就会显示在首页的推荐位置.
+                    审核通过后开始扣费,请保证您的帐户余额充足,否则可能会出现无法正常推荐的情况</p>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="id" id="toindex_id" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="toindex_btn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //  职位状态设置
+    $('.set').on('click',function(){
+        var id = $(this).data('id');
+        var status = $(this).data('status');
+
+        $.post("{:U('Company/setStatus')}", {id: id, status: status}, function (res) {
+            if (res.code == -1) {
+                toastr.error(res.msg);
+            } else if(res.code == 0){
+                toastr.success('该职位状态设置成功');
+            }
+        });
+        return false;
+    });
+
+    //  进行刷新
+    $('.refresh').on('click',function(){
+        var id = $(this).data('id');
+
+        var modal = $('#refresh_modal');
+        if(id != '') {
+            modal.find('.modal-title').text('确定刷新该岗位么？ ');
+            $('#refresh_id').val(id);
+        }
+        modal.modal('show');
+        return false;
+    });
+
+    $("#refresh_btn").click(function () {
+        var rec_id = $('#refresh_id').val();
+        if(rec_id == ''){
+            alert('未获取到id');
+            return false;
+        }
+        $.post("{:U('Company/doRefresh')}", {id: rec_id, type: 'refresh'}, function (res) {
+            if (res.code == -1) {
+                toastr.error(res.msg);
+            } else if(res.code == 0){
+                toastr.success('刷新成功');
+            }
+        });
+        $('#refresh_modal').modal('hide');
+    });
+
+    //  置顶操作
+    $('.dotop').on('click',function(){
+        var id = $(this).data('id');
+
+        var modal = $('#dotop_modal');
+        if(id != '') {
+            modal.find('.modal-title').text('确定置顶该岗位么？ ');
+            $('#dotop_id').val(id);
+        }
+        modal.modal('show');
+        return false;
+    });
+
+    $("#dotop_btn").click(function () {
+        var recruit_id = $('#dotop_id').val();
+        if(recruit_id == ''){
+            alert('未获取到id');
+            return false;
+        }
+        $.post("{:U('Company/doRefresh')}", {id: recruit_id, type: 'dotop'}, function (res) {
+            if (res.code == -1) {
+                toastr.error(res.msg);
+            } else if(res.code == 0){
+                toastr.success('置顶成功');
+            }
+        });
+        $('#dotop_modal').modal('hide');
+    });
+
+    //  推荐到首页
+    $('.toindex').on('click',function(){
+        var id = $(this).data('id');
+
+        var modal = $('#toindex_modal');
+        if(id != '') {
+            modal.find('.modal-title').text('确定推荐该岗位到首页么？ ');
+            $('#toindex_id').val(id);
+        }
+        modal.modal('show');
+        return false;
+    });
+
+    $("#toindex_btn").click(function () {
+        var toindex_id = $('#toindex_id').val();
+        var toindex_time = $('input:radio[name="toindex_time"]:checked').val();
+        console.log(toindex_time);
+        if(toindex_id == '' || toindex_time == ''){
+            alert('未获取到id');
+            return false;
+        }
+        $.post("{:U('Company/doRefresh')}", {id: toindex_id, type: 'toindex', toindex_time: toindex_time}, function (res) {
+            if (res.code == -1) {
+                toastr.error(res.msg);
+            } else if(res.code == 0){
+                toastr.success('推荐成功');
+            }
+        });
+        $('#toindex_modal').modal('hide');
+    });
+</script>
+<include file="Common:footer" />

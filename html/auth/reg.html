@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>萝卜网 - 用户注册</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <!-- 注册登录 专用其他项目不用加载-->
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+
+
+</head>
+
+
+<body>
+    <main class="container">
+        <div class="row" id="auth_form">
+            <div class="col-md-6 auth_left ">
+                <img src="/images/auth_login.png" class="left_img visible-md-block visible-lg-block">
+            </div>
+            <div class="col-md-1 col-xs-1"></div>
+            <div class="col-md-4 col-xs-10 login-form">
+
+                <div class="form-group">
+                    <h1 class="auth-title">注册 <span>register</span></h1>
+                </div>
+                <div class="form-group ">
+                    <div class="input-group">
+                        <div class="input-group-addon"><img src="../images/icon/other/phone_nm.png"></div>
+                        <input type="text" class="form-control"
+                         id="exampleInputAmount" placeholder="输入11位手机号码">
+                    </div>
+
+                    <span id="user_phone" class="help-block hide">电话号码有误.</span>
+                </div>
+            
+                 <div class="form-group">
+                   <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group">
+                       <div class="input-group-addon">
+                           <img src="../images/icon/other/dun.png">
+                       </div>
+                        <input type="text" class="form-control " placeholder="输入右侧验证码">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="" alt="图片验证码">
+                    </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                   <div class="row">
+                    <div class="col-md-6">
+                       <div class="input-group">
+                       <div class="input-group-addon">
+                           <img src="../images/icon/other/msg.png">
+                       </div>
+                        <input type="text" class="form-control col-md-4" placeholder="验证码">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-default ">发送验证码</button>
+                    </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <button type="submit" class="btn btn-primary form-control">注册</button>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox">
+                    我同意萝卜网用户协议与隐私政策
+                    </label>
+                </div>
+                <hr>
+                <div class="form-group">
+                    使用其他方式登录 :
+                </div>
+            </div>
+            <div class="col-md-1 col-xs-1"></div>
+        </div>
+        <img src="/images/auth_felx.png" class="falx_01 visible-lg-block  animated slideInLeft delay-4s">
+        <img src="/images/auth_flex2.png" class="falx_02 visible-lg-block animated slideInUp  delay-3s">
+        <img src="/images/auth_flex3.png" class="falx_03 visible-lg-block ">
+    </main>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

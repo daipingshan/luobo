@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <include file="Common:head"/>
+</head>
+<body>
+<include file="Common:header"/>
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 ">
+            <div class="meta row">
+                <div class="box-head">
+                    <div class="row">
+                        <h5 class="col-md-8 col-xs-8">基本资料</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-12 text-center">
+                    <empty name="user_info['avator']">
+                        <if condition="$user_info['sex'] eq 1 ">
+                            <img src="__IMAGE_PATH__/user_man.png" class="user_img img-circle">
+                            <else/>
+                            <img src="__IMAGE_PATH__/user_woman.png" class="user_img img-circle">
+                        </if>
+                        <else/>
+                        <img src="{$user_info['avator']}" class="user_img img-circle">
+                    </empty>
+                </div>
+
+                <div id="userdata" class="user-abstract col-md-9 display-content col-xs-12">
+                    <div class="row">
+                        <h5 class="col-md-12 user_name">{$user_info['real_name']} <span>
+                            <if condition="intval($user_info['sex']) eq 1">
+                                 <img src="__IMAGE_PATH__/man_.png" class="sex">
+                            <else/>
+                                 <img src="__IMAGE_PATH__/woman_.png" class="sex">
+                            </if>
+                        </span></h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4  col-xs-6">
+                            目前： {:C('WORK_TYPE')[$user_info['work_type']]}
+                        </div>
+                        <div class=" col-md-4  col-xs-6"><i class="iconfont icon-xueli"></i>
+                            {:C('HIGH_EDUCATION')[$user_info['education']]}
+                        </div>
+                        <div class=" col-md-4  col-xs-6"><i class="iconfont icon-gongzuo1"></i>
+                            <switch name="user_info.post_time">
+                                <case value="1">随时</case>
+                                <case value="2">商议</case>
+                                <case value="3">一周内</case>
+                                <case value="4">半月内</case>
+                                <case value="5">一个月</case>
+                                <default/>
+                            </switch>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4  col-xs-12 hide"><i class="iconfont icon-shouji1"></i>{$user['mobile']}
+                        </div>
+                        <div class="col-md-4  col-xs-12 hide"><i class="iconfont icon-xinfeng"></i>{$user['email']}
+                        </div>
+                        <div class="col-md-4  col-xs-12"><i class="iconfont icon-icon-yxj-city"></i>
+                            {$cities[$user_info['city_id']]}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-abstract-box">
+                <div class="box-head">
+                    <div class="row">
+                        <h5 class="col-md-8">教育经历</h5>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <foreach name="educations" item="vo">
+                        <div class="course ">
+                            <span class="col-md-3 col-xs-6"><i class="iconfont icon-jiaotongshishi-"></i>{$vo.school_name}</span>
+                            <span class="col-md-3 col-xs-6"><i class="iconfont icon-xueli"></i> {$vo.major} | {:C('HIGH_EDUCATION')[$vo['education']]}</span>
+                            <span class="col-md-3 col-xs-12"><i class="iconfont icon-caiwu"></i> {$vo.start_year}-{$vo.end_year}</span>
+                            <div class=" col-md-3 col-xs-12 text-right box-bar">
+                                <a class="edit_course"
+                                   data-id='{$vo.id}'
+                                   data-schoolname="{$vo.school_name}"
+                                   data-start_year="{$vo.start_year}"
+                                   data-end_year="{$vo.end_year}"
+                                   data-education="{$vo.education}"
+                                   data-major="{$vo.major}"
+                                > <i class="iconfont icon-ai61"></i>
+                                    <span >编辑</span></a>
+
+                                <a class="delete_course" data-id='{$vo.id}'>
+                                    <i class="iconfont icon-chahao"></i>
+                                    <span >删除</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </foreach>
+
+                    <div class="col-md-12 col-xs-12 new_btn">
+                        <i class="iconfont icon-icon02 blue"></i>
+                        <a class="blue" data-toggle="modal" data-target="#course">新增教育经历</a>
+                    </div>
+
+
+                    <div class="clear"></div>
+
+                </div>
+            </div>
+            <div class="user-abstract-box">
+                <div class="box-head">工作经历</div>
+                <div class="box-body">
+
+                    <foreach name="user_cvitaes" item="vo">
+                        <div class="jobs-list">
+                            <div class="row jobs-list-title">
+                                <p class="col-md-6  col-xs-12"><i class="iconfont icon-gongzuo1"></i>{$vo.company_name}
+                                    | {$vo.position_name} </p>
+                                <p class="col-md-4  col-xs-12"><i class="iconfont icon-shijian"></i>{$vo.start_time} -
+                                    {$vo.end_time} </p>
+                                <p class="col-md-2  col-xs-12"><i class="iconfont icon-caiwu"></i> {$vo.salary} K</p>
+
+                            </div>
+                            <div class="jobs-list-body">
+                                {$vo.content}
+                            </div>
+                            <div class="row ed-bar">
+                                <div class="col-xs-12 col-md-12 text-left ">
+                                    <a href=""
+                                       data-id='{$vo.id}'
+                                       data-content="{$vo.content}"
+                                       data-company_name='{$vo.company_name}'
+                                       data-position_name='{$vo.position_name}'
+                                       data-start_time='{$vo.start_time}'
+                                       data-end_time='{$vo.end_time}'
+                                       data-salary='{$vo.salary}' class="edit_curriculum_vitae">
+                                        <i class="iconfont icon-ai61"></i>
+                                        <span >编辑</span>
+                                    </a>
+                                    <a href="#" class="delete_curriculum_vitae" data-id='{$vo.id}'>
+                                        <i class="iconfont icon-chahao"></i><span >删除</span>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </foreach>
+
+                    <div class="col-md-12  new_btn">
+                        <i class="iconfont icon-icon02 blue"></i>
+                        <a class="blue" data-toggle="modal" data-target="#curriculum_vitaeModal">新增工作经历</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="user-abstract-box">
+                <div class="box-head">
+                    作品展示</div>
+                <div class="box-body ">
+                    <foreach name="works" item="vo">
+                        <div class="user-works col-md-6">
+                            <div class="col-md-7 col-xs-9">
+                                <a href="">{$vo.works_name}</a>
+                            </div>
+                            <div class="col-md-5 col-xs-3 text-right ">
+                                <a
+                                        data-works_name="{$vo.works_name}"
+                                        data-works_pic="{$vo.works_pic}"
+                                        data-id="{$vo.id}"
+                                        class="edit_works">
+                                    <i class="iconfont icon-ai61"></i>
+                                    <span >编辑</span>
+                                </a>
+                                <a class="delete_works" data-id='{$vo.id}'>
+                                    <i class="iconfont icon-chahao"></i>
+                                    <span >删除</span>
+                                </a>
+                            </div>
+
+                            <img src="{$vo.works_pic}" class="img-responsive">
+                        </div>
+                    </foreach>
+
+
+                    <div class="col-md-12  new_btn">
+                        <i class="iconfont icon-icon02 blue"></i>
+                        <a class="blue" data-toggle="modal" data-target="#worksModal">新增作品</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="user-abstract-box">
+                <div class="box-head">
+                    <div class="row">
+                        <h5 class="col-md-8 col-xs-8">个人介绍</h5>
+                        <a class="box-bar text-right col-md-4 col-xs-4"
+                           data-individual="个人简介内容" data-toggle="modal" data-target="#individualModal">
+                            <i class="iconfont icon-ai61"></i>
+                            <span class="hidden-xs">编辑</span></a>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <p>{$user_info['content']}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+
+            <include file="Common:user_right"/>
+
+        </div>
+    </div>
+
+</main>
+<include file="Common:footer"/>
+
+<script src="__JS_PATH__/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript" src="__JS_PATH__/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="__CSS_PATH__/bootstrap-datetimepicker.css">
+
+<script>
+    $(function () {
+        $('#start_year').datetimepicker({
+            format: 'yyyy',
+            language: 'zh-CN',
+            autoclose: 1,
+            startView: 4,
+            minView: 4,
+            maxView: 4,
+        });
+        $('#end_year').datetimepicker({
+            format: 'yyyy',
+            language: 'zh-CN',
+            autoclose: 1,
+            startView: 4,
+            minView: 4,
+            maxView: 4,
+        });
+        $('.form_datetime').datetimepicker({
+            format: 'yyyy-mm',
+            language: 'zh-CN',
+            autoclose: 1,
+            startView: 4,
+            minView: 3,
+            maxView: 4,
+        });
+
+        //编辑学习经历
+        $('.edit_course').on('click', function () {
+
+
+            var id = $(this).data('id');
+            var schoolname = $(this).data('schoolname');
+            var start_year = $(this).data('start_year');
+            var end_year = $(this).data('end_year');
+            var education = $(this).data('education');
+            var major = $(this).data('major');
+            var course_id = $('#course_id');
+            var educations = $("#education option");
+            //console.log(schoolname);
+            var modal = $('#course');
+
+            if (id != '') {
+
+                modal.find('.modal-title').text('编辑简历');
+                modal.find('.modal-body input[name="school_name"]').val(schoolname);
+                modal.find('.modal-body input[name="start_year"]').val(start_year);
+                modal.find('.modal-body input[name="end_year"]').val(end_year);
+                modal.find('.modal-body input[name="major"]').val(major);
+
+                for (var i = 0; i < educations.length; i++) {
+                    if (educations[i].value == education) {
+                        educations[i].selected = true;
+                    }
+                }
+                course_id.val(id);
+            }
+
+            modal.modal('show');
+
+        });
+        //编辑工作经历
+        $('.edit_curriculum_vitae').on('click', function () {
+            var id = $(this).data('id');
+            var company_name = $(this).data('company_name');
+            var position_name = $(this).data('position_name');
+            var start_time = $(this).data('start_time');
+            var end_time = $(this).data('end_time');
+            var content = $(this).data('content');
+            var salary = $(this).data('salary');
+
+
+            var modal = $('#curriculum_vitaeModal');
+            if (id != '') {
+                modal.find('.modal-title').text('工作经历');
+                modal.find('.modal-body input[name="company_name"]').val(company_name);
+                modal.find('.modal-body input[name="position_name"]').val(position_name);
+                modal.find('.modal-body input[name="start_time"]').val(start_time);
+                modal.find('.modal-body input[name="end_time"]').val(end_time);
+                modal.find('.modal-body textarea[name="content"]').val(content);
+                modal.find('.modal-body input[name="salary"]').val(salary);
+                $('#curriculum_vitae_id').val(id);
+            }
+            modal.modal('show');
+            return false;
+        });
+        //删除教育经历
+        $('.delete_course').on('click', function () {
+            var id = $(this).data('id');
+            var item = $(this).parents('.course');
+            var request = $.ajax({
+                url: "{:U('user/del_education')}",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+            });
+
+            request.done(function (data) {
+                //console.log(data);
+                if (data.status == "success") {
+                    toastr.success('删除成功');
+                    item.hide();
+                } else {
+                    toastr.error('操作失败404.' + data.msg, '哎呦!')
+                }
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                console.log(textStatus);
+                return false;
+            });
+
+            return false;
+        });
+        //删除工作经历
+        $('.delete_curriculum_vitae').on('click', function () {
+            id = $(this).data('id');
+            item = $(this).parents('.jobs-list')
+            var request = $.ajax({
+                url: "{:U('user/del_curriculum_vitae')}",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+            });
+
+            request.done(function (data) {
+                console.log(data);
+                if (data.status == "success") {
+                    toastr.success('删除成功');
+                    item.hide();
+
+                } else {
+                    toastr.error('操作失败404.', 'Inconceivable!')
+                }
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                console.log(textStatus);
+                return false;
+            });
+
+            return false;
+        });
+        //删除作品
+        $('.delete_works').on('click', function () {
+            var id = $(this).data('id');
+            var item = $(this).parents('.user-works');
+            var request = $.ajax({
+                url: "{:U('user/del_work')}",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+            });
+
+            request.done(function (data) {
+                //console.log(data);
+                if (data.status == "success") {
+                    toastr.success('删除成功');
+                    item.hide();
+                } else {
+                    toastr.error('操作失败404.' + data.msg, '哎呦!')
+                }
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                console.log(textStatus);
+                return false;
+            });
+
+            return false;
+
+        });
+        //编辑作品
+        $('.edit_works').on('click', function () {
+            var id = $(this).data('id');
+            var works_name = $(this).data('works_name');
+            var works_pic = $(this).data('works_pic');
+            var modal = $('#worksModal');
+            modal.find('.modal-title').text('我的作品');
+            modal.find('.modal-body input[name="works_name"]').val(works_name);
+            if (works_pic != '') {
+                modal.find('.work_pic').attr('src', works_pic).removeClass('hide');
+            } else {
+                modal.find('.work_pic').hide();
+            }
+
+            $('#works_id').val(id);
+            modal.modal('show');
+
+        });
+        //设置投递
+        $('.deliver').on('click', function () {
+            $('.deliver').removeClass('active');
+            $(this).addClass('active');
+            var resume_type = $(this).data('type');
+            var request = $.ajax({
+                url: "{:U('user/change_vitae_type')}",
+                method: "POST",
+                data: {
+                    resume_type: resume_type
+                },
+                dataType: "json",
+            });
+
+            request.done(function (data) {
+                //console.log(data);
+                if (data.status == "success") {
+
+                    toastr.info('已更换简历投递模式');
+                } else {
+                    toastr.error('操作失败404.' + data.msg, '哎呦!')
+                }
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                console.log(textStatus);
+                return false;
+            });
+
+            return false;
+
+
+        })
+    });
+</script>
+
+<!-- curriculum_vitaeModal -->
+<div class="modal fade" id="curriculum_vitaeModal" tabindex="-1" role="dialog" aria-labelledby="curriculum_vitae"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="{:U('user/add_curriculum_vitae')}" class="form-horizontal" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="mycurriculum">新增履历</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label for="company_name" class="col-sm-12 control-label col-md-12">公司名称</label>
+                                <input id="company_name" type="text" name="company_name"
+                                       class="form-control col-sm-10 col-md-12" placeholder="输入公司名称">
+                            </div>
+                            <div class="form-group">
+                                <label for="start_time" class="col-sm-12 control-label">开始时间</label>
+                                <input id="start_time" type="text" name="start_time"
+                                       class="form-control col-sm-12 form_datetime" placeholder="入职时间"
+                                       autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="end_time" class="col-sm-12 control-label">结束日期</label>
+                                <input id="end_time" type="text" name="end_time"
+                                       class="form-control col-sm-12 form_datetime" placeholder="离职时间"
+                                       autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="major" class="col-sm-12 control-label">岗位</label>
+                                <input id="position_name" type="text" name="position_name"
+                                       class="form-control col-sm-12" placeholder="在公司所担任的岗位">
+                            </div>
+                            <div class="form-group">
+                                <label for="salary" class="col-sm-12 control-label">月薪(k)</label>
+                                <input id="salary" type="number" max="300" name="salary" class="form-control col-sm-3"
+                                       placeholder="以千为单位，1K=1000元">
+                            </div>
+                            <div class="form-group">
+                                <label for="content" class="col-sm-12 control-label">描述</label>
+                                <textarea id="content" type="text" name="content" class="form-control col-sm-12"
+                                          placeholder="简短的描述您在工作中所担任的职责"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <input id="curriculum_vitae_id" type="hidden" name="id" value="">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- course -->
+<div class="modal fade" id="course" tabindex="-1" role="dialog" aria-labelledby="mycourse" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="{:U('user/add_education')}" class="form-horizontal" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="mycourselabel">新增学历</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label for="school_name" class="col-sm-12 control-label col-md-12">学校名称</label>
+                                <input id="school_name" type="text" name="school_name"
+                                       class="form-control col-sm-10 col-md-12">
+                            </div>
+                            <div class="form-group">
+                                <label for="start_year" class="col-sm-12 control-label">入学日期</label>
+                                <input id="start_year" type="text" name="start_year"
+                                       class="form-control col-sm-12 form_datetime" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="end_year" class="col-sm-12 control-label">结束日期</label>
+                                <input id="end_year" type="text" name="end_year"
+                                       class="form-control col-sm-12 form_datetime" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="major" class="col-sm-12 control-label">专业</label>
+                                <input id="major" type="text" name="major" class="form-control col-sm-12">
+                            </div>
+                            <div class="form-group">
+                                <label for="education" class="col-sm-12 control-label">学历</label>
+
+                                <select name="education" id="education" class="form-control col-sm-4 col-md-4" required>
+                                    <include file="Common:form:education"/>
+                                </select>
+
+                                <input id="course_id" type="hidden" name="id" value="">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">提交</button>
+
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- worksModal-->
+<div class="modal fade" id="worksModal" tabindex="-1" role="dialog" aria-labelledby="worksModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="{:U('add_work')}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myworkslabel">我的作品</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label for="works_name" class="col-sm-12 control-label col-md-12">作品名称：</label>
+                                <input id="works_name" type="text" name="works_name"
+                                       class="form-control col-sm-10 col-md-12">
+                            </div>
+                            <div class="form-group">
+                                <img src="" class="work_pic hide">
+                            </div>
+                            <div class="form-group">
+                                <label for="works_pic" class="col-sm-12 control-label">作品图片：</label>
+                                <input id="works_pic" type="file" name="works_pic" class="form-control col-sm-12">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input id="works_id" type="hidden" name="id" value="">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </div>
+            </form>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- individualModal-->
+<div class="modal fade" id="individualModal" tabindex="-1" role="dialog" aria-labelledby="individualModal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="user_info_edit_about" class="form-horizontal" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="individuallabel">个人简介</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="form-group">
+                                <label for="individual" class="col-sm-12 control-label col-md-12">个人简介：</label>
+                                <textarea id="individual" type="text" name="individual"
+                                          class="form-control col-sm-10 col-md-12"><empty name="user_info['content']">{:C(USER_DISPLAY[self_display])}<else/>{$user_info['content']}</empty></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+</body>
+</html>

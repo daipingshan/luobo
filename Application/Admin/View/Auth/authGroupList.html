@@ -1,0 +1,74 @@
+<extend name="Common/common"/>
+<block name="css">
+    <style type="text/css">
+    </style>
+</block>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <a class="layui-btn layui-btn-danger" href="{:U('authGroupDisplay')}"><i class="layui-icon">
+                    &#xe654;</i>添加权限组
+                </a>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="js">
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs" href="{:U('authGroupDisplay')}?id={{d.id}}">编辑</a>
+    </script>
+    <script type="text/html" id="status">
+        <!-- 这里的 checked 的状态只是演示 -->
+        <input type="checkbox" value="{{d.id}}" lay-skin="switch" lay-filter="status"
+               lay-text="启用|禁用"
+               {{ d.status== 1 ? 'checked' : '' }}>
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var url = "{:U('authGroupList')}";
+            refresh();
+
+            function refresh() {
+                getData(url);
+            }
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '权限组ID', sort: true}
+                        , {field: 'title', width: 160, title: '权限组名称'}
+                        , {field: 'remark', width: 160, title: '权限组备注'}
+                        , {field: 'status', title: '状态', templet: '#status'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit'}
+                    ]],
+                });
+            }
+
+            //监听性别操作
+            form.on('switch(status)', function (obj) {
+                $.post("{:U('setGroupStatus')}", {id: obj.value}, function (res) {
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1});
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                    }
+
+                })
+            });
+        })
+    </script>
+</block>

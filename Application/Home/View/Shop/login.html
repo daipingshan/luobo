@@ -1,0 +1,80 @@
+<include file="Common:head" />
+<!-- 注册登录 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/auth.css">
+<script src="__JS_PATH__/toastr.min.js"></script>
+<link rel="stylesheet" href="__CSS_PATH__/toastr.min.css">
+<body class="shop">
+<main class="container">
+    <div class="col-md-offset-1 col-md-10">
+    <div  class="row" id="auth_form" >
+        <div class="col-md-6 auth_left shop_left ">
+            <img src="__IMAGE_PATH__/shop_show.png" class="left_img visible-md-block visible-lg-block shop_left img-responsive">
+            <img src="__IMAGE_PATH__/shop_text.jpg" class="left_img visible-md-block visible-lg-block shop_left img-responsive">
+        </div>
+        <div class="col-md-1 col-xs-2"></div>
+        <div class="col-md-4 col-xs-10 login-form">
+
+            <div class="form-group">
+                <h1 class="auth-title">用户登录 <span>login</span> <a href="/" class="min-text pull-right">返回首页</a></h1>  </div>
+            <div class="form-group">
+                <a class="btn active hide">密码登录</a>
+                <a class="btn hide">短信登录</a>
+            </div>
+
+
+            <div class="form-group">
+                <input type="text" name="account" id="account_input" class="form-control" placeholder="输入您注册的邮箱或者手机号">
+                <span id="account" class="help-block hide"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password_input" class="form-control" placeholder="输入您的密码">
+                <span id="pwd" class="help-block hide"></span>
+            </div>
+            <div class="form-group">
+                <label>
+                    <a href="{:U('Auth/forgetPwd')}">忘记密码</a>
+                </label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary form-control" id="login">立即登录</button>
+            </div>
+
+            <div class="form-group">
+                还没有账号? <a href="{:U('Auth/register')}">立即注册</a>
+            </div>
+            <if condition="$is_browser neq 2">
+                <div class="form-group auth_bottom">
+                    <a href="{:U('Auth/wexinLogin')}"><img src="__IMAGE_PATH__/wx_login.png"></a>
+                </div>
+            </if>
+        </div>
+        <div class="col-md-1 col-xs-1"></div>
+    </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    $('#login').click(function(){
+        var  account_input = $("#account_input").val();
+        var  password_input = $("#password_input").val();
+        //console.log(account_input);
+        $.post("{:U('Auth/login')}", {account: account_input, password: password_input}, function (res) {
+            console.log(res);
+            if (res.code == -1) {
+                $("#account").html(res.msg);
+                toastr.error(res.msg, '哎呦!');
+                $("#account").removeClass("hide");
+            } else if(res.code == -2) {
+                $("#pwd").html(res.msg);
+                toastr.error(res.msg, '哎呦!');
+                $("#pwd").removeClass("hide");
+            } else if(res.code == 0){
+                location.href = res.data;
+            } else if(res.code == 1){
+
+                location.href = res.data;
+            }
+        });
+    });
+
+</script>

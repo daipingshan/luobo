@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head"/>
+<body>
+<include file="Common:header"/>
+
+<div class="slider" id="bannerSlide">
+    <div class="bd">
+        <div class="tempWrap" >
+            <ul >
+                <volist name="advert" id="row">
+                    <li class="clone" >
+                        <a href="{$row.location_url}" target="_blank">
+                            <img src="{$row.img_url}">
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <div class="pnBtn prev"><span class="blackBg"></span>
+        <a class="arrow" href="javascript:void(0)"><i class="iconfont icon-fanhui1"></i></a></div>
+    <div class="pnBtn next"><span class="blackBg"></span>
+        <a class="arrow" href="javascript:void(0)" ><i class="iconfont icon-gengduo"></i></a></div>
+</div>
+
+<main class="container">
+    <div class=" row">
+        <div class="box-1 adv-search">
+            <ul class="col-md-12 col-xs-12">
+                <li class="tag  col-xs-12">企业人数</li>
+                <foreach name="search_list.staffs" item="v" key="k">
+                    <li>
+                        <a href="{$url}&staffs={$k}"
+                        <eq name="inventory['staffs']" value="$k">
+                            class="active"
+                        </eq>
+                        >{$v}
+                        </a>
+                    </li>
+                </foreach>
+            </ul>
+            <ul class="col-md-12 col-xs-12">
+                <li class="tag  col-xs-12">城市选择</li>
+                <li><a href="{$url}&city"
+                    <eq name="inventory['city']" value="">class="active"</eq>
+                    >不限</a>
+                </li>
+                <volist name="cities" id="vo" offset="0" length="10">
+                    <li>
+                        <a href="{$url}&city={$vo.id}&district"
+                        <eq name="inventory['city']" value="$vo.id">
+                            class="active"
+                        </eq>
+                        >{$vo.name}</a>
+                    </li>
+
+                </volist>
+
+            </ul>
+            <notempty name="inventory['city']">
+                <ul class="col-md-12 col-xs-12">
+                    <li class="tag  col-xs-12">地区选择</li>
+                    <li><a href="{$url}&district"
+                        <eq name="inventory['district']" value="">class="active"</eq>
+                        >不限</a>
+
+                    </li>
+                    <div class="search_province_box">
+                        <foreach name="cities[$inventory['city']]['child']" key="k" item="i">
+                            <li>
+                                <a href="{$url}&district={$i.id}&city={$i.parent_id}"
+                                <eq name="inventory['district']" value="$i.id">
+                                    class="active"
+                                </eq>
+                                >{$i.name}</a>
+                            </li>
+                        </foreach>
+                    </div>
+                </ul>
+            </notempty>
+
+            <ul class="col-md-12 col-xs-12">
+                <li class="tag col-md-1 col-xs-12">融资信息</li>
+                <li><a href="{$url}&scale=''"
+                    <eq name="inventory['scale']" value="">class="active"</eq>
+                    >不限</a>
+                </li>
+
+                <foreach name="search_list.scale" item="vo" key="k">
+                    <li>
+                        <a href="{$url}&scale={$k}"
+                        <eq name="inventory['scale']" value="$k">
+                            class="active"
+                        </eq>
+                        >{$vo}</a>
+                    </li>
+                </foreach>
+
+            </ul>
+
+
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="recommended_enterprise row">
+
+        <div id="" class="jobs-con row">
+            <if condition="$count lt 1">
+                <h1 class="text-center">没有搜索到相关企业，试着减少搜索条件</h1>
+                <else/>
+                <foreach name="jobs" item="vo">
+
+                    <div class="jobs-box col-md-3 col-xs-12 col-sm-6 ">
+                        <div class="job-detail">
+                            <div class="row">
+                                <div class="col-md-4 text-center col-xs-4">
+                                    <empty name="vo.avatar">
+                                        <img src="__IMAGE_PATH__/grapheme/{:rand(0,25)}.jpg" alt="{$vo.company_name}"
+                                             class="img-rounded">
+                                        <else/>
+                                        <img src="{$vo.avatar}" alt="{$vo.company_name}" class="img-rounded">
+
+                                    </empty>
+                                </div>
+                                <div class="col-md-8 col-xs-8">
+                                    <p>
+                                        <a href="{:U('Jobs/company',array('id'=>$vo['id']))}" target="_blank"
+                                           class="job-title">
+                                            <empty name="vo.short_name">
+                                                <span class="small-text">{$vo.company_name}</span>
+                                                <else/>
+                                                {$vo.short_name}
+                                            </empty>
+                                        </a>
+                                    </p>
+                                    <p class="job-meta">{$vo.industry_field|substr=0,18} / {$scales[$vo['scale']]}</p>
+                                </div>
+                            </div>
+
+                            <div class="row cp_mark_box">
+                                <volist name="vo.label" id="it" offset="0" length='3'>
+                                    <div class="col-md-4 col-xs-4">
+                                        <a class="cp_mark">{$company_label[$it]}</a>
+                                    </div>
+                                </volist>
+
+                            </div>
+                            <div class="row cp_mark_foot cp_foote">
+                                <div class="col-md-8 col-xs-6">
+                                    公司规模<span>{$size[$vo['company_size']]}</span>人
+                                </div>
+                                <div class="col-md-4 col-xs-6 text-right">
+                                    <span><img src="__IMAGE_PATH__/weixin_icon.jpg" class="chat_icon"></span>
+                                    <div class="hide"><img src="{$vo.hr_qucode}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </foreach>
+            </if>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-2">找到{$count}个企业</div>
+            <div class="text-right col-md-10">{$show}</div>
+        </div>
+
+    </div>
+    <div id="links" class="row hidden-xs">
+        <div class="jobs-head col-md-12 col-xs-12">
+            <span class="jobs-title">友情链接</span>
+            <div class="clear"></div>
+        </div>
+        <div class="links-con col-md-12">
+
+            <ul class="links">
+                <volist name="link" id="link_row">
+                    <li><a href="{$link_row.url}" target="_blank">{$link_row.name}</a></li>
+                </volist>
+            </ul>
+
+        </div>
+    </div>
+</main>
+<include file="Common:footer"/>
+<script type="text/javascript" src="__JS_PATH__/jquery.1.8.2.min.js"></script>
+<link type="text/css" rel="stylesheet" href="__CSS_PATH__/slide.css"/>
+<script type="text/javascript" src="__JS_PATH__/slide.js"></script>
+
+<script>
+
+
+    $(function ($) {
+
+        jQuery(".slider .bd li").first().before(jQuery(".slider .bd li").last());
+        jQuery(".slider").hover(function () {
+            jQuery(this).find(".arrow").stop(true, true).fadeIn(300)
+        }, function () {
+            jQuery(this).find(".arrow").fadeOut(300)
+        });
+        jQuery(".slider").slide(
+            {
+                titCell: ".hd ul",
+                mainCell: ".bd ul",
+                effect: "leftLoop",
+                autoPlay: true,
+                vis: 3,
+                autoPage: true,
+                trigger: "mouseover"
+            }
+        );
+
+    });
+</script>

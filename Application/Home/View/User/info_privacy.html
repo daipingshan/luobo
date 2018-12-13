@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 ">
+            <include file="common:user_info_tab"/>
+            <!--  公司 主要信息 TAB -->
+            <div class="userinfo row">
+                <div class="col-md-10 col-md-offset-1">
+                    <form action="" method="post" class="form-horizontal">
+                        <div class="panel panel-default lb-panel ">
+                            <div class="panel-heading ">
+                                <div class="row">
+                                    <h5 class="col-md-8">隐私设置</h5>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="display-yes" class="col-sm-12 control-label col-md-12">简历</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="display" id="display-yes" value="1"
+                                            <eq name="user_info['display']" value="1">checked</eq>
+                                            >
+                                            展示
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="display" id="display-none" value="0"
+                                            <eq name="user_info['display']" value="0">checked</eq>
+                                            >
+                                            不展示
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default lb-panel ">
+                           <div class="panel-body">
+	                              <div class="form-group">
+	                                   <input type="submit" class="btn btn-default" value="保存">
+	                                   <input type="hidden" value="1" name="edit">
+	                              </div>
+                           </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3 ">
+            <include file="Common:user_right" />
+
+        </div>
+    </div>
+
+</main>
+<include file="Common:footer" />
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="__JS_PATH__/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="__JS_PATH__/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="__JS_PATH__/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="__JS_PATH__/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="__JS_PATH__/jquery.fileupload-image.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="__JS_PATH__/jquery.fileupload-validate.js"></script>
+
+</body>
+</html>

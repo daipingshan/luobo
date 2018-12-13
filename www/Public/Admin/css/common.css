@@ -1,0 +1,47 @@
+.cursor {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.m20 {
+    margin: 20px;
+}
+
+.w45 {
+    width: 45%;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.w80 {
+    width: 80%;
+}
+
+.mt20{
+    margin-top: 20px;
+}
+
+.layui-header ul li.active > a.first {
+    color: #fff;
+}
+
+.layui-form.search input, .layui-form.search select {
+    width: 80%;
+    margin: 10px 0;
+}
+
+.layui-form.search button {
+    margin: 10px 0;
+}
+
+.float-left {
+    float: left;
+}
+.inline-block{
+    display: inline-block;
+}

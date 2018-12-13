@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+
+<body>
+<include file="Common:header" />
+
+    <div class="banner hidden-xs">
+        <div id="myCarousel" class="carousel slide">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <volist name="advert" id="row">
+                    <li data-target="#myCarousel" data-slide-to="{$key}"
+                    <eq name="key" value="0">class="active"</eq>
+                    ></li>
+                </volist>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <volist name="advert" id="row">
+                    <div class="item
+                        <eq name="key" value="0"> active</eq>
+                        ">
+                    <a href="{$row.location_url}" target="_blank"><img src="{$row.img_url}" alt="{$row.title}"></a>
+                   </div>
+                </volist>
+            </div>
+        </div>
+    </div>
+<div class="mb-50"></div>
+<div id="moblie_search" class="visible-xs text-center">
+    <div class="col-xs-4">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#city-navbar-collapse">
+            城市 <b class="caret"></b>
+        </span>
+    </div>
+    <div class="col-xs-4">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#hy-navbar-collapse">
+            行业 <b class="caret"></b>
+        </span>
+    </div>
+    <div class="col-xs-4">
+        <span type="button" class="moblie_search_text" data-toggle="collapse"
+              data-target="#salary-navbar-collapse">
+            薪资 <b class="caret"></b>
+        </span>
+    </div>
+
+</div>
+<div class="moblie-menu container-fluid visible-xs">
+    <div class="collapse navbar-collapse" id="city-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <li <eq name="inventory['city']" value="">class="active"</eq>>
+                <a href="{$url}&city=''">不限</a>
+            </li>
+            <foreach name="search_list.city" item="vo">
+                <li <eq name="inventory['city']" value="$vo">class="active"</eq>>
+                    <a href="{$url}&city={$vo}" >{$cities[$vo]}</a>
+                </li>
+            </foreach>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="hy-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <li <eq name="inventory['position']" value="">class="active"</eq>><a href="{$url}&position=''">不限</a></li>
+            <foreach name="search_list.positions" item="vo" key="k">
+                <li <eq name="inventory['position']" value="$vo.id">
+                        class="active"
+                    </eq>>
+                    <a href="{$url}&position={$k}">{$vo.name}</a>
+                </li>
+            </foreach>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="salary-navbar-collapse">
+        <ul class="moblie-nav nav navbar-nav">
+            <foreach name="search_list.salary" item="vo" key="k">
+                <li  <eq name="inventory['salary']" value="$k">
+                        class="active"
+                    </eq>>
+                    <a href="{$url}&salary={$k}">{$vo}</a>
+                </li>
+            </foreach>
+        </ul>
+    </div>
+
+
+</div>
+
+<main class="container">
+
+
+	            <div class="box-1 adv-search hidden-xs">
+	                <ul class="col-md-12 col-xs-12">
+	                    <li class="tag col-md-1 col-xs-12">地点</li>
+	                    <li><a href="{$url}&city=''"
+                      	   <eq name="inventory['city']" value="">class="active"</eq>>不限</a>
+                      </li>
+	                   <foreach name="search_list.city" item="vo">
+                        <li>
+                            <a href="{$url}&city={$vo}"
+                                <eq name="inventory['city']" value="$vo">
+                                    class="active"
+                                </eq>
+
+                            >{$cities[$vo]}</a>
+                        </li>
+                     </foreach>
+	                </ul>
+	                <ul class="col-md-12 col-xs-12">
+	                    <li class="tag col-md-1 col-xs-12">行业</li>
+	                     <li><a href="{$url}&position=''"
+                      	  <eq name="inventory['position']" value="">class="active"</eq>>不限</a>
+                       </li>
+	                     <foreach name="search_list.positions" item="vo" key="k">
+                          <li>
+                              <a href="{$url}&position={$k}"
+                              <eq name="inventory['position']" value="$vo.id">
+                                  class="active"
+                              </eq>>{$vo.name}</a>
+                          </li>
+                      </foreach>
+
+	                </ul>
+
+	                <ul class="col-md-12 col-xs-12">
+	                    <li class="tag col-md-1 col-xs-12">薪资</li>
+
+
+	                    <foreach name="search_list.salary" item="vo" key="k">
+	                        <li>
+	                            <a href="{$url}&salary={$k}"
+	                            <eq name="inventory['salary']" value="$k">
+	                                class="active"
+	                            </eq>>{$vo}</a>
+	                        </li>
+	                    </foreach>
+
+	                </ul>
+
+
+	                <div class="clear"></div>
+	            </div>
+
+	   <div id="self" class="jobs row project">
+           <foreach name="items" item="vo" key="k">
+                              <!--  start -->
+                              <div class="jobs-box col-md-4 col-xs-12">
+                                  <div class="job-detail">
+                                      <div class="row">
+                                          <div class="col-md-4 col-xs-4 text-center">
+                                              <a href="{:U('project/detail',array('id' => $vo['id']))}">
+                                                  <img src="{$vo.image}" alt="" class="project-logo img-rounded">
+                                              </a>
+                                          </div>
+                                          <div class="col-md-8 col-xs-8">
+                                              <p class="job-title">
+                                                    <a href="{:U('project/detail',array('id' => $vo['id']))}"  target="_blank">
+                                                       {$vo.name}
+                                                    </a>
+                                               </p>
+                                              <p class="job-meta">{$city[$vo['city_id']]}
+
+                                                  <if condition="$vo.rebate gt 1">
+                                                      <a href="{:U('project/detail',array('id' => $vo['id']))}">
+                                                          <span class="url pull-right ">补助￥{$vo.rebate}元</span>
+                                                      </a>
+                                                  </if>
+                                              </p>
+                                              <p class="job-push-time">[{$vo.create_time|date="m-d",###} 发布]</p>
+                                          </div>
+                                      </div>
+                                      <div class="job-be row cp_foote project-page-footer">
+                                          <div class="col-md-12 col-xs-12">
+                                              <span class="job-cp-name">{$postinons[$vo['project_type_id']]['name']}</span>
+                                              <span class="job-pay pull-right">{$vo.salary_min}元 - {$vo.salary_max}元</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--  end -->
+
+                            </foreach>
+     </div>
+
+	<div class="text-center">
+		{$page}
+	</div>
+</main>
+<include file="Common:footer" />
+<script>
+    $(document).ready(function () {
+    $('#myCarousel').carousel({
+        interval: 2000
+    })});
+</script>
+

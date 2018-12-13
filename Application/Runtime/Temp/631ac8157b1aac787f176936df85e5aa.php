@@ -1,0 +1,3 @@
+<?php
+//000000000000a:23:{i:0;s:12:"/index/index";i:1;s:14:"/company/index";i:2;s:16:"/company/examine";i:3;s:14:"/company/label";i:4;s:14:"/user/userlist";i:5;s:20:"/company/partnerinfo";i:6;s:25:"/company/setpartnerstatus";i:7;s:28:"/company/setpartnerrecommend";i:8;s:23:"/company/setpartnermeal";i:9;s:25:"/company/setpartnercredit";i:10;s:19:"/company/setcompany";i:11;s:28:"/company/setrecruitrecommend";i:12;s:25:"/company/setrecruitstatus";i:13;s:18:"/company/savelabel";i:14;s:17:"/company/dellabel";i:15;s:19:"/user/setuseramount";i:16;s:17:"/user/getuserflow";i:17;s:20:"/company/recruitlist";i:18;s:21:"/company/recruitcheck";i:19;s:11:"index/index";i:20;s:17:"/common/uploadimg";i:21;s:21:"/common/uploadeditimg";i:22;s:20:"/auth/updatepassword";}
+?>

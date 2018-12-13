@@ -1,0 +1,193 @@
+<extend name="Common/common"/>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="name" value="{:I('get.name')}" placeholder="请输入门店名称" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="mobile" value="{:I('get.mobile')}" placeholder="请输入手机号码" class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="box">
+    <div id="box" class="hide">
+        <form class="layui-form mt20 w80">
+            <div class="layui-form-item">
+                <label class="layui-form-label">原因</label>
+                <div class="layui-input-block">
+                    <textarea type="text" name="content" class="layui-textarea" placeholder="请输入审核失败、封禁原因"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="hidden" name="id" value="0" id="shop-id"/>
+                    <input type="hidden" name="status" id="shop-status"/>
+                    <button class="layui-btn" lay-submit="" lay-filter="save-admin">立即提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</block>
+<block name="js">
+    <script type="text/html" id="img">
+        {{#  if(d.id_img){ }}
+        <div class="open-img-layer cursor"><img layer-src={{d.id_img}} src="{{d.id_img}}" alt="{{d.name}}"
+                                                width="120"></div>
+        {{#  } else { }}
+        <p style="color: #FF5722">尚未上传图片</p>
+        {{#  } }}
+    </script>
+    <script type="text/html" id="type">
+        {{#  if(d.shop_type == 1 ){ }}
+        <button class="layui-btn layui-btn-xs" type="button">门店</button>
+        {{#  } else { }}
+        <button class="layui-btn layui-btn-danger layui-btn-xs" type="button">代理</button>
+        {{#  } }}
+    </script>
+    <script type="text/html" id="status">
+        {{#  if(d.status == 0){ }}
+        未审核
+        {{#  } else if(d.status == 1) { }}
+        审核成功
+        {{#  } else if(d.status == 2) { }}
+        审核失败
+        {{#  } else { }}
+        已封禁
+        {{#  } }}
+    </script>
+    <script type="text/html" id="table-edit">
+        <a class="layui-btn layui-btn-xs"
+           href="{:U('userList')}?user_id={{d.user_id}}" target="_blank">查看粉丝</a>
+        <a class="layui-btn layui-btn-xs"
+           href="{:U('shopOrder')}?shop_id={{d.id}}" target="_blank">查看业绩</a>
+        {{#  if(d.status == 0){ }}
+        <a class="layui-btn layui-btn-xs layui-btn-normal confirm"
+           data-url="{:U('setShopStatus')}" data-id="{{d.id}}" data-status="1">审核通过</a>
+        <a class="layui-btn layui-btn-xs layui-btn-danger confirm"
+           data-url="{:U('setShopStatus')}" data-id="{{d.id}}" data-status="2">审核失败</a>
+        {{#  } else if(d.status == 1) { }}
+        <a class="layui-btn layui-btn-xs layui-btn-danger confirm"
+           data-url="{:U('setShopStatus')}" data-id="{{d.id}}" data-status="3" data-title="">立即封禁</a>
+        {{#  } else if(d.status == 2) { }}
+        <a class="layui-btn layui-btn-danger layui-btn-xs" readonly="true">已审核，审核失败</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-warm layui-btn-xs" readonly="true">已封禁</a>
+        <a class="layui-btn layui-btn-xs confirm"
+           data-url="{:U('setShopStatus')}" data-id="{{d.id}}" data-status="1">立即解封</a>
+        {{#  } }}
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var index;
+            var tableObj;
+            var url = "{:U('index')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            $('body').on('mouseover', '.open-img-layer', function () {
+                var _this = $(this);
+                layer.photos({
+                    photos: _this
+                });
+            })
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            //添加管理员账号
+            $('body').on('click', '.confirm', function () {
+                var post_url = $(this).data('url');
+                var id = $(this).data('id');
+                var status = $(this).data('status');
+                var text = $(this).text();
+                if (status == 1) {
+                    layer.confirm('你确定要将此门店' + text + '吗？', function () {
+                        $.post(post_url, {id: id, status: status}, function (res) {
+                            if (res.status == 1) {
+                                layer.msg(res.info, {icon: 1}, function () {
+                                    tableObj.reload();
+                                })
+                            } else {
+                                layer.msg(res.info, {icon: 2});
+                            }
+                        })
+                    })
+                } else {
+                    $('#shop-id').val(id);
+                    $('#shop-status').val(status);
+                    $('textarea[name=content]').val('');
+                    index = layer.open({
+                        title: '门店状态设置',
+                        type: 1,
+                        area: ['600px', '260px'],
+                        content: $('#box'),
+                    })
+                }
+            })
+
+            form.on("submit(save-admin)", function (data) {
+                var _btn = data.elem;
+                _btn.disabled = true;
+                var post_url = "{:U('setShopStatus')}";
+                var wait_index = layer.msg('请求中，请稍候', {icon: 16, time: false, shade: 0.8});
+                $.post(post_url, data.field, function (res) {
+                    _btn.disabled = false;
+                    if (res.status == 1) {
+                        layer.msg(res.info, {icon: 1}, function () {
+                            layer.closeAll();
+                            tableObj.reload();
+                        })
+                    } else {
+                        layer.msg(res.info, {icon: 2});
+                        layer.close(wait_index);
+                    }
+                });
+            });
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                tableObj = table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 80
+                    , cols: [[
+                        {field: 'id', title: '门店ID', sort: true}
+                        , {field: 'name', title: '名称'}
+                        , {field: 'mobile', title: '联系电话', width: 120}
+                        , {field: 'id_code', title: '身份证号码', width: 180}
+                        , {field: 'id_img', title: '身份证照片', toolbar: '#img'}
+                        , {field: 'city_info', title: '地址', width: 220}
+                        , {field: 'shop_type', title: '身份', toolbar: '#type'}
+                        , {field: 'status', title: '门店状态', width: 100, toolbar: '#status'}
+                         , {field: 'admin_name', title: '审核人', width: 100}
+                        , {field: 'created_at', title: '创建时间', width: 170}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit', width: '25%'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<assign name="search_hide" value="1" />
+<assign name="title" value="微信支付" />
+<html lang="zh-cn">
+<include file="Common:head"/>
+<body>
+<include file="Common:header"/>
+<div class="mb-50"></div>
+<main class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="col-md-12"><img src="__IMAGE_PATH__/wx_pay.jpg"></div>
+            <div class="col-md-12"><img src="{$code_url}" style="width:298px;height:298px;"></div>
+            <h3>微信扫码支付</h3>
+            <p>支付结束前，请不要刷新或关闭这个页面，</p>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    setInterval(function(){
+        var order = "{$order_no}";
+        $.post("{:U('Pay/getOrderStatus')}", {order: order}, function (res) {
+            if (res.code == 0) {
+                toastr.success('恭喜您支付成功');
+                window.location.href=res.url;
+            }
+        });
+    },3000);
+</script>
+<include file="Common:footer"/>

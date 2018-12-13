@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+<main class="container ">
+    <div class="row">
+        <div class="col-md-9 box">
+						<div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-10">企业概况</h5>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-10">公司环境</h5>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="carousel-example-generic" class="carousel slide right" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="../images/demo/1.jpg" alt="环境照片">
+                            </div>
+
+                            <div class="item">
+                                <img src="../images/demo/2.jpg" alt="环境照片2">
+                            </div>
+                            <div class="item ">
+                                <img src="../images/demo/3.jpg" alt="环境照片3">
+                            </div>
+
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">上一张</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">下一张</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-8">基本资料</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p>{$info['desc']}</p>
+                    <ul class="list-unstyled">
+                        <li>人数： {$info['company_size']}人</li>
+                        <li>地点： {$info['address']}</li>
+                        <li>行业： {$info['position']}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-8">公司标签</h5>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="cp_tags">
+                        <volist name='company_label' id='vo'>
+                            <li>{$label[$vo]['name']}</li>
+                        </volist>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading ">
+                    <div class="row">
+                        <h5 class="col-md-8">HR二维码</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <img src="{$info['hr_qrcode']}" style="width: 258px;height: 258px;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+<include file="Common:footer" />

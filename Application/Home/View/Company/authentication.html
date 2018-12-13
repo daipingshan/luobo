@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<assign name="title" value="认证信息" />
+<include file="Common:head" />
+<body>
+<script src="__JS_PATH__/upload.js"></script>
+
+<div id="banner">
+    <img src="__IMAGE_PATH__/banner.jpg" class="img-responsive">
+</div>
+
+<main class="container">
+    <div class="alert alert-danger hide" id="upload_res"></div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 box form-horizontal">
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h5 class="col-md-10">企业资质认证</h5>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <if condition="$is_check eq 4">
+                        <div class="alert alert-info" role="alert">
+                            您的企业信息正在认证中，请耐心等待。
+                        </div>
+                        <else />
+                        <if condition="$is_check eq 1">
+                            <div class="alert alert-success" role="alert">
+                                <p>
+                                    <strong>您的企业信息已经认证通过，如果您的企业信息已经变更可以重新提交资料进行审核。</strong>
+                                </p>
+                                <p>营业执照为重要资质，公司营业执照中重要内容发生工商变更时，请及时上传最新营业执照。在本网站重新上传未审核通过期间所有在招信息会暂时下架，资质审核通过后回复正常。</p>
+                                <p>
+                                    <strong>注意：</strong>如果您有定时刷新任务在执行请在定时刷新结束后再进行资质审核，否则会出现刷新的简历信息无法被用户搜索到。</p>
+                                <p>
+                                    企业资质审核我们会按照时间依序审核，保证2个工作日之内完成，如有其他疑问，请及时联系我方客服。</p>
+                            </div>
+                        </if>
+                        <if condition="$is_check eq 2">
+                            <div class="alert alert-danger" role="alert">
+                                您的企业信息审查未通过，您可以重新提交资质或联系我们。
+                            </div>
+                        </if>
+
+
+                            <div class="form-group">
+                                <label for="company_name"  class="col-md-2">企业名称</label>
+                                <div class="col-md-10">
+                                    <input type="text" id="company_name" class="form-control" name="company_name"
+                                           placeholder="企业名称，必须与营业执照名称一致" value="{$info['company_name']}">
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <label for="company_name"  class="col-md-2">企业简称</label>
+                            <div class="col-md-10">
+                                <input type="text" id="short_name" class="form-control" name="short_name"
+                                       placeholder="简称必须是公司拥有产品名或相关简称" value="{$info['short_name']}">
+                            </div>
+                        </div>
+
+                        <!-- 把上面的信息 录入进去-->
+
+                        <if condition="$info['business_lincense'] neq ''">
+                            <div class="form-group col-md-12">
+                                <img src="{$info['business_lincense']}" class="business_lincense img-responsive">
+                                <p class="text-center">已上传资质</p>
+                            </div>
+                        </if>
+                            <div class="form-group col-md-12">
+                                <div class="upload_btn ">
+                                    <label for="upload_business">
+                                        <i class="iconfont icon-icon02"></i>
+                                        <p>上传照片</p>
+                                        <p class="small">文件不要超过 1 MB</p>
+                                        <input type="file" id="upload_business" class="hide" name="envIMG">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <img src="__IMAGE_PATH__/yyzz.jpg" class="img-responsive">
+                            </div>
+                            <div class="alert alert-warning col-md-6" role="alert">
+                                <strong>营业执照图片验证标准</strong>
+                                <ul class="list-unstyled">
+                                    <li>1.国徽完整.</li>
+                                    <li>3.二维码完整.</li>
+                                    <li>4.公章完整.</li>
+                                    <li>5.营业执照无水印.</li>
+                                    <li>6.清晰原件数码照.</li>
+                                    <li>7.复印件需要加盖公章.</li>
+                                    <li>8.营业执照四周边框需完整.</li>
+                                    <li>9.图片文件大小3mb以下.</li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" id="business_lincense" name="business_lincense" value="" required/>
+                                <input type="submit" class="btn col-md-offset-2 col-md-8 btn-primary" id="sumit_lincense" value="认证">
+                            </div>
+
+                    </if>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="fakeLoader"></div>
+
+<script type="text/javascript">
+
+    $("#short_name").blur(function(){
+        var  short_name = $('input[name=short_name]').val();
+        if (short_name.length > 8) {
+            toastr.error('企业简称不得超过8个字');
+        }
+    });
+
+    $('#authentication').on('submit',function () {
+        var val = $('#business_lincense').val();
+        var com_val = $('#company_name').val();
+        if(val == ''){
+            toastr.error('营业执照未上传');
+            return false;
+        }
+        if(com_val == ''){
+            toastr.error('企业名称不能为空，并且必须与营业执照名称一致');
+            return false;
+        }
+    });
+
+    $("#upload_business").ajaxImageUpload({
+        url: '{:U("Company/uploadPic")}', //上传的服务器地址
+        data: {name:'mpp', width : 1200, height : 1000, type:'coauth'},
+        maxNum: 3, //允许上传图片数量
+        zoom: true, //允许上传图片点击放大
+        allowType: ["gif", "jpeg", "jpg", "bmp",'png'], //允许上传图片的类型
+        maxSize :2, //允许上传图片的最大尺寸，单位M
+        beforeSend:function(XMLHttpRequest){
+            // alert('上传前回调函数');
+            $(".fakeLoader").fakeLoader({
+                timeToHide: 6000,
+                bgColor: "#0099bd",
+                spinner: "spinner5"
+            });
+        },
+        success:function(data){
+            $('#business_lincense').val(data.data);
+            toastr.success('营业执照已经上传成功。');
+            $('.business_lincense').attr('src',data.data);
+            $('.loading').hide();
+        },
+        complete:function(data){
+            $(".fakeLoader").fakeLoader({
+                timeToHide: 500
+            });
+        },
+        error:function (e) {
+            toastr.error('营业执照上传失败，确保您的营业知道图片文件不能大于2MB。');
+            $('.loading').hide();
+            console.log(e);
+        }
+    });
+
+    $("#sumit_lincense").click(function(){
+        var business_lincense = $("input[name=business_lincense]").val();
+        var company_name = $("input[name=company_name]").val();
+        var short_name = $("input[name=short_name]").val();
+
+        if (short_name.length > 8) {
+            toastr.error('企业简称不得超过8个字');
+            return false;
+        }
+
+        if (business_lincense == '' || company_name == '') {
+            toastr.error('请上传认证图片或填写企业名称');
+            return false;
+        }
+
+        $.post("{:U('Company/authentication')}", {short_name:short_name, business_lincense: business_lincense ,company_name: company_name}, function (res) {
+            if (res.code == 0) {
+                toastr.success(res.msg);
+                location.href = res.data;
+            } else {
+                toastr.error(res.msg);
+                location.href = res.data;
+            }
+            return true;
+        });
+    });
+</script>
+
+<link rel="stylesheet" href="__CSS_PATH__/fakeLoader.css">
+<script src="__JS_PATH__/jquery-1.11.3.min.js"></script>
+<script src="__JS_PATH__/fakeLoader.min.js"></script>
+<include file="Common:footer" />

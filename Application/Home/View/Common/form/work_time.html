@@ -1,0 +1,7 @@
+<php> $work_time =  C('WORK_EXPERIENCE');</php>
+<foreach name="work_time" key="k" item="vo">
+    <option value="{$k}"
+    <eq name="user_info['work_time']" value="$k">selected</eq>
+    >{$vo}</option>
+</foreach>
+<!-- 工作经验 -->

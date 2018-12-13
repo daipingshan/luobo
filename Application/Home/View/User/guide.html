@@ -1,0 +1,601 @@
+<assign name="title" value="填写基本资料" />
+<include file="Common:head" />
+<link rel="stylesheet" href="__CSS_PATH__/auth.css">
+<link rel="stylesheet" href="__CSS_PATH__/bootstrap-datetimepicker.css">
+<script src="__JS_PATH__/toastr.min.js"></script>
+<link rel="stylesheet" href="__CSS_PATH__/toastr.min.css">
+<main class="container">
+    <div class="row" >
+        <div class="col-md-3 col-xs-1"></div>
+        <div  class="col-md-6 col-xs-10 form-box">
+				<eq name="model" value="0">
+					<div  id="flow_1">
+					   <div class="form-group ">
+						   <img src="__IMAGE_PATH__/reg_luobo.jpg" class="img-responsive">
+					   </div>
+					    <div class="form-group">
+				                <a  href="?model=1" class="btn btn-primary form-control ">建立我的简历</a>
+				      </div>
+					</div>
+				</eq>
+				<eq name="model" value="1">
+					<div class="model">
+							<form action="{:U('User/info_edit')}" method="post">
+					        <div class="form-group">
+					      			<h1 class="auth-title">填写您的个人信息  <span class="flow">1</span>/4</h1>
+									</div>
+								  <div class="form-group ">
+					          <div class="input-group">
+					              <div class="input-group-addon"><i class="iconfont icon-xingming"></i> </div>
+					              <input type="text" class="form-control" id="real_name" name="real_name" placeholder="请输入你的姓名" >
+					          </div>
+					         </div>
+									<div class="form-group ">
+					              <div class="input-group">
+					                  <div class="input-group-addon "><i class="iconfont icon-rili"></i></div>
+					                   <input id="birthday" type="text" name="birthday" autocomplete="off" class="form-control col-sm-12 form_datetime datetime"
+					                     required placeholder="请选择您的出生年月">
+					              </div>
+					          </div>
+					        <div class="form-group ">
+					                <div class="input-group">
+					                  <div class="input-group-addon "><i class="iconfont icon-009-copy"></i></div>
+					                    <select name="sex" id="sex" class="form-control col-sm-12  " >
+					                        <option value="1">男</option>
+					                        <option value="0">女</option>
+					                    </select>
+					              </div>
+					          </div>
+					        <div class="form-group row">
+					                    <div class="col-md-4">
+					                        <div class="input-group">
+												<div class="input-group-addon "><i class="iconfont icon-icon-yxj-city"></i></div>
+													<select name="province_id" id="province_id" class="form-control col-sm-12" required>
+
+													</select>
+												</div>
+											</div>
+					                    <div class="col-md-4">
+											<select name="city_id" id="city_id" class="form-control col-sm-12" required>
+
+					                     	</select>
+					                    </div>
+					                    <div class="col-md-4">
+					                        <select name="district_id" id="district_id" class="form-control col-sm-12  ">
+
+					                        </select>
+										</div>
+					          </div>
+
+					        <div class="form-group">
+					            <button type="button" id="user_add" class="btn btn-primary form-control ">下一步，添加工作经历</button>
+					            <input type="hidden" name="act" value="edit">
+
+					        </div>
+					    </form>
+					</div>
+				</eq>
+				<eq name="model" value="2">
+          <div class="model">
+              <form action="{:U('User/info_edit')}" method="post">
+                  <div class="form-group">
+                      <h1 class="auth-title">添加工作经历  <span class="flow">2</span>/4</h1>
+                  </div>
+                  <div class="form-group ">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="iconfont icon-gongzuo1"></i> </div>
+                        <input type="text" class="form-control" id="company_name" name="company_name" placeholder="公司名" >
+                    </div>
+                   </div>
+                  <div class="form-group ">
+                        <div class="input-group">
+                            <div class="input-group-addon "><i class="iconfont icon-rili"></i></div>
+                            <input  type="text" id="start_time" name="start_time" autocomplete="off" class="form-control col-sm-12 form_datetime datetime_m"
+                               required placeholder="入职日期">
+                        </div>
+                    </div>
+	                <div class="form-group ">
+	                    <div class="input-group">
+	                        <div class="input-group-addon "><i class="iconfont icon-rili"></i></div>
+	                         <input id="end_time" type="text" name="end_time" autocomplete="off" class="form-control col-sm-12 form_datetime datetime_m"
+	                           required placeholder="离职日期">
+	                    </div>
+	                </div>
+	                <div class="form-group ">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="iconfont icon-xingming"></i> </div>
+                        <input type="text" class="form-control" id="position_name" name="position_name" placeholder="担任岗位" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+											<div class="input-group">
+                      <div class="input-group-addon"><i class="iconfont icon-caiwu"></i> </div>
+                      		<input id="salary" type="number" max="300" name="salary" class="form-control col-sm-3" placeholder="月薪(k) 1~300" >
+                      </div>
+                  </div>
+                  <div class="form-group">
+
+                      <textarea id="content" type="text" name="content" class="form-control col-sm-12" placeholder="描述下您在这份工作中担任了什么角色，并有什么样的心得体会。" ></textarea>
+										<div class="clear"></div>
+                  </div>
+
+                  <div class="form-group">
+										 <div class="col-md-6 text-center">
+                          <a href="/user/guide/model/3" class="jump_url" >跳过</a>
+                      </div>
+											<div class="col-md-6 ">
+                     		 <button type="button" id="save_curriculum" class="btn btn-primary form-control ">保存,下一步</button>
+                      </div>
+
+
+                  </div>
+              </form>
+          </div>
+        </eq>
+				<eq name="model" value="3">
+                  <div class="model">
+                      <form action="{:U('User/info_edit')}" method="post">
+                          <div class="form-group">
+                              <h1 class="auth-title">添加教育经历  <span class="flow">3</span>/4</h1>
+                          </div>
+                          <div class="form-group ">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="iconfont icon-gongzuo1"></i> </div>
+                                <input type="text" class="form-control" id="school_name" name="school_name" placeholder="学校全称" >
+                            </div>
+                           </div>
+                          <div class="form-group ">
+                                <div class="input-group">
+                                    <div class="input-group-addon "><i class="iconfont icon-rili"></i></div>
+                                    <input  type="text" id="start_year" name="start_year" autocomplete="off" class=" datetime_year form-control col-sm-12 form_datetime"
+                                       required placeholder="入学时间">
+                                </div>
+                            </div>
+        	                <div class="form-group ">
+        	                    <div class="input-group">
+        	                        <div class="input-group-addon "><i class="iconfont icon-rili"></i></div>
+        	                         <input id="end_year" type="text" name="end_year" autocomplete="off" class="datetime_year form-control col-sm-12 form_datetime"
+        	                           required placeholder="结束学业">
+        	                    </div>
+        	                </div>
+        	                <div class="form-group ">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="iconfont icon-gongzuo"></i> </div>
+                                <input type="text" class="form-control" id="major" name="major" placeholder="所学专业" >
+                            </div>
+                          </div>
+                          <div class="form-group">
+        											<div class="input-group">
+                              <div class="input-group-addon"><i class="iconfont icon-xueli"></i> </div>
+									<select name="education" id="education" class="form-control col-sm-4 col-md-4" required="您的最高学历">
+									<foreach name="edu" item="val" key="key">
+                                        <option value="{$key}">{$val}</option>
+                                    </foreach>
+									</select>
+                              </div>
+                          </div>
+
+                          <div class="form-group">
+
+                              <div class="col-md-6 text-center">
+                                  <a href="/user/guide/model/4" class="jump_url" >跳过</a>
+                              </div>
+                              <div class="col-md-6 ">
+	                               <button type="button" id="save_education" class="btn btn-primary form-control ">保存,下一步</button>
+	                            </div>
+                          </div>
+                      </form>
+                  </div>
+                </eq>
+				<eq name="model" value="4">
+							<div class="model " id="flow_4">
+
+									<form action="{:U('User/info_edit')}" method="post">
+				           <div class="form-group">
+				                    <h1 class="auth-title">要完成啦！补充资料  <span class="flow">4</span>/4</h1>
+				                </div>
+									 <div class="form-group ">
+				                        <div class="input-group">
+				                            <div class="input-group-addon"><i class="iconfont icon-gongzuo1"></i></div>
+				                            <input id="job_name" type="text" name="job_name" class="form-control
+				                                                     col-sm-12" placeholder="期望从事的岗位名称" required>
+				                        </div>
+				                    </div>
+				           <div class="form-group ">
+									    <div class="input-group">
+									        <div class="input-group-addon "><i class="iconfont icon-caiwu"></i></div>
+									        <input id="salary" type="number" name="salary" class="form-control
+									                                 col-sm-12" placeholder="期望薪资单位千元,10K = 1万" required>
+									    </div>
+									 </div>
+									 <div class="form-group ">
+									        <div class="input-group">
+									            <div class="input-group-addon repwd"><i class="iconfont icon-gongzuo2"></i></div>
+									             <select name="work_type" id="work_type" class="form-control col-sm-12" required>
+									                <php> $work_type =  C('WORK_TYPE'); </php>
+									                 <foreach name="work_type" key="k" item="vo">
+									                     <option value="{$k}"
+									                        <eq name="user_info['work_type']" value="$k">selected</eq>
+									                      >目前{$vo}</option>
+									                 </foreach>
+									            </select>
+									        </div>
+									    </div>
+									 <div class="form-group ">
+									       <div class="input-group">
+									          <div class="input-group-addon repwd"><i class="iconfont icon-shijian"></i></div>
+									          <select class="form-control col-sm-12" id="post_time" name="post_time" required>
+												  <include file="Common:form:post_time"/>
+									          </select>
+									       </div>
+									       </div>
+
+									 <div class="form-group ">
+									        <div class="input-group">
+									          <div class="input-group-addon repwd"><img src="__IMAGE_PATH__/pwd.png"></div>
+									            <select name="job_type" id="job_type" class="form-control col-sm-12" required>
+													<php> $work_nature =  C('WORK_NATURE'); </php>
+													<foreach name="work_nature" key="k" item="vo">
+														 <option value="{$k}"
+														 <eq name="user_info['job_type']" value="$k">selected</eq>
+														 >{$vo}</option>
+													</foreach>
+
+													</select>
+									        </div>
+									    </div>
+									 <div class="form-group ">
+									   <div class="input-group">
+										  <div class="input-group-addon "><i class="iconfont icon-xueli"></i></div>
+										   <php>
+											  $education =  C('HIGH_EDUCATION');
+										  </php>
+										<select name="education" id="education" class="form-control col-sm-12" required>
+											 <option value="0">选择您的最高学历</option>
+											 <foreach name="education" key="k" item="vo">
+													  <option value="{$k}">{$vo}</option>
+											 </foreach>
+
+										</select>
+									   </div>
+									 </div>
+				           <div class="form-group">
+				              <button type="button" id="save" class="btn btn-primary form-control ">查看我的简历</button>
+				              <input type="hidden" name="act" value="edit">
+				           </div>
+				           </form>
+							</div>
+				</eq>
+            <div class="col-md-3 col-xs-1"></div>
+				</div>
+    </div>
+    <img src="__IMAGE_PATH__/auth_felx.png" class="falx_01 visible-lg-block  animated slideInLeft delay-4s">
+    <img src="__IMAGE_PATH__/auth_flex2.png" class="falx_02 visible-lg-block animated slideInUp  delay-3s">
+    <img src="__IMAGE_PATH__/auth_flex3.png" class="falx_03 visible-lg-block ">
+</main>
+<!-- bootstrap-datetimepicker.min -->
+<script src="__JS_PATH__/bootstrap-datetimepicker.min.js"></script>
+<script  type="text/javascript" src="__JS_PATH__/bootstrap-datetimepicker.zh-CN.js"  charset="UTF-8"></script>
+<script>
+ $(function () {
+
+        $('.datetime').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language:'zh-CN',
+            autoclose: 1,
+            startView: 4,
+            minView: 2,
+            maxView: 4,
+
+        });
+        $('.datetime_m').datetimepicker({
+                    format: 'yyyy-mm',
+                    language:'zh-CN',
+                    autoclose: 1,
+                    startView: 4,
+                    minView: 3,
+                    maxView: 4,
+
+                });
+        $('.datetime_year').datetimepicker({
+                    format: 'yyyy',
+                    language:'zh-CN',
+                    autoclose: 1,
+                    startView: 4,
+                    minView: 4,
+                    maxView: 4,
+                });
+
+        /* 城市选择 */
+				var cities = {$cities_json};
+				var province = $('#province_id');
+				var city = $('#city_id');
+				var district = $('#district_id');
+				var select = 0;
+				//console.log(cities);
+				ap_op(province,cities,0);
+				ap_op(city,cities[select]['child'],select);
+        		ap_op(district,cities[select]['child'][0]['child'],select);
+				//市
+				province.on('change',function(){
+				    var select = $(this).find("option:selected").data('id');
+				    city.empty();
+				    district.empty();
+				    if(cities[select]['child'] != ''){
+               			ap_op(city,cities[select]['child'],select);
+               			ap_op(district,cities[select]['child'][0]['child'],select);
+            		}
+						//console.log(cities[select]['child']);
+				});
+				//区
+        city.on('change',function(){
+            var pid = $(this).find("option:selected").data('pid');
+            var select = $(this).find("option:selected").data('id');
+            district.empty();
+            ap_op(district,cities[pid]['child'][select]['child'],select);
+        });
+    });
+    function ap_op(el,items,pid){
+        for(i=0;i<items.length;i++){
+            el.append('<option value="'+items[i].id+'" data-id="'+i+'" data-pid="'+pid+'">'+items[i].name+'</option>')
+        }
+
+    }
+    //基本信息
+     $('#user_add').on('click',function(){
+
+         var real_name = $('#real_name');
+         var birthday  = $('#birthday');
+         var sex    = $('#sex');
+         var province_id      = $('#province_id');
+         var district_id        = $('#district_id');
+         var city_id       = $('#city_id');
+         var work_time   =$('#work_time');
+
+
+        if(real_name.val() == ''){
+             toastr.info('填写您的真实姓名');
+             real_name.focus();
+             return false;
+         }
+         if(birthday.val() == ''){
+             toastr.info('选择您的生日');
+             birthday.focus();
+             return false;
+         }
+         if(province_id.find('option:selected').text()==''){
+             toastr.warning('请选择省份');
+             province_id.focus();
+             return false;
+         }
+         if(city_id.find('option:selected').text()==''){
+             toastr.warning('请选择城市');
+             city_id.focus();
+             return false;
+         }
+         if(district_id.find('option:selected').text()==''){
+             toastr.warning('请选择所在区域');
+             district_id.focus();
+             return false;
+         }
+
+         var request = $.ajax({
+             url: "{:U('User/info_edit')}",
+             method: "POST",
+             data: {
+                 real_name : real_name.val(),
+                 birthday : birthday.val(),
+                 sex : sex.val(),
+                 province_id : province_id.val(),
+                 district_id : district_id.val(),
+                 city_id : city_id.val(),
+                 work_time : work_time.val(),
+                 act : "edit"
+             },
+             dataType: "json",
+         });
+
+         request.done(function (data) {
+             //console.log(data);
+             if(data.status == "success"){
+                 toastr.success('添加成功');
+                 location.reload();
+             }else{
+                 toastr.error('添加失败404.'+data.msg, '哎呦!')
+             }
+         });
+
+         request.fail(function (jqXHR, textStatus) {
+             console.log(textStatus);
+             return false;
+         });
+
+         return false;
+     });
+    //添加工作
+     $('#save_curriculum').on('click',function(){
+            var position_name = $('#position_name');
+            var company_name  = $('#company_name');
+            var start_time    = $('#start_time');
+            var end_time      = $('#end_time');
+            var salary        = $('#salary');
+            var content       = $('#content');
+
+
+						if(company_name.val() == ''){
+                toastr.info('请填写公司名称额');
+                 company_name.focus();
+                return false;
+            }
+            if(start_time.val() == ''){
+                toastr.info('开始时间没有选择');
+                 start_time.focus();
+                return false;
+            }
+            if(end_time.val() == ''){
+                toastr.info('结束时间没有选择');
+                 end_time.focus();
+                return false;
+            }
+            if(end_time.val() < start_time.val()){
+                toastr.info('开始时间不能大于结束时间');
+                 end_time.focus();
+                return false;
+            }
+            if(position_name.val() == ''){
+                toastr.info('请输入您所负责的岗位');
+                 position_name.focus();
+                return false;
+            }
+            if(salary.val() == ''){
+                toastr.info('请填写收入');
+                 salary.focus();
+                return false;
+            }
+            if(salary.val() >= 300){
+                toastr.info('月薪单位为K，3K=3000元');
+                salary.focus();
+                return false;
+            }
+
+            var request = $.ajax({
+                url: "{:U('User/add_curriculum_vitae')}",
+                method: "POST",
+                data: {
+                    content   : content.val(),
+                    salary    : salary.val(),
+                    end_time  : end_time.val(),
+                    start_time : start_time.val(),
+                    company_name : company_name.val(),
+                    position_name : position_name.val()
+                },
+                dataType: "json",
+            });
+
+            request.done(function (data) {
+                //console.log(data);
+                if(data.status == "success"){
+                    toastr.success('添加成功');
+										$('input').val("");
+									   window.location.href='{:U("user/guide",array("model"=>3))}';
+                }else{
+                    toastr.error('添加失败404.'+data.msg, '哎呦!')
+                }
+            });
+            request.fail(function (jqXHR, textStatus) {
+                console.log(textStatus);
+                return false;
+            });
+            return false;
+
+    });
+    //添加求学经历
+     $('#save_education').on('click',function(){
+                var school_name     = $('#school_name');
+                var start_year      = $('#start_year');
+                var end_year        = $('#end_year');
+                var major           = $('#major');
+                var education       = $('#education');
+    			if(school_name.val() == ''){
+                    toastr.info('请填写学校名');
+                     school_name.focus();
+                    return false;
+                }
+                if(start_year.val() == ''){
+                    toastr.info('开始时间没有选择');
+                     start_year.focus();
+                    return false;
+                }
+                if(end_year.val() == ''){
+                    toastr.info('结束时间没有选择');
+                     end_year.focus();
+                    return false;
+                }
+                if(end_year.val() < start_year.val()){
+                    toastr.info('开始时间不能大于结束时间');
+                     end_time.focus();
+                    return false;
+                }
+                if(major.val() == ''){
+                    toastr.info('您学的专业是什么？');
+                    major.focus();
+                    return false;
+                }
+                if(education.val() == ''){
+                    toastr.info('您获得了什么学历？');
+                    salary.focus();
+                    return false;
+                }
+                var request = $.ajax({
+                    url: "{:U('User/add_education')}",
+                    method: "POST",
+                    data: {
+                        school_name : school_name.val(),
+                        start_year : start_year.val(),
+                        end_year : end_year.val(),
+                        major : major.val(),
+                        education : education.val()
+                    },
+                    dataType: "json",
+                });
+
+                request.done(function (data) {
+                    //console.log(data);
+                    if(data.status == "success"){
+                        toastr.success('添加成功');
+    					$('input').val("");
+    					window.location.href='{:U("user/guide",array("model"=>4))}';
+                    }else{
+                        toastr.error('添加失败404.'+data.msg, '哎呦!')
+                    }
+                });
+
+                request.fail(function (jqXHR, textStatus) {
+                    console.log(textStatus);
+                    return false;
+                });
+
+                return false;
+
+        });
+     //附加资料
+     $('#save').on('click',function(){
+
+              var job_name = $('#job_name');
+              var salary  = $('#salary');
+              var work_type    = $('#work_type');
+              var post_time      = $('#post_time');
+              var job_type        = $('#job_type');
+              var education       = $('#education');
+	            if(salary.val() >= 300){
+	                toastr.info('月薪单位为K，3K = 3000元');
+	                salary.focus();
+	                return false;
+	            }
+              var request = $.ajax({
+                  url: "{:U('User/info_edit')}",
+                  method: "POST",
+                  data: {
+                      job_name : job_name.val(),
+                      salary : salary.val(),
+                      work_type : work_type.val(),
+                      post_time : post_time.val(),
+                      job_type : job_type.val(),
+                      education : education.val(),
+                      act : "edit"
+                  },
+                  dataType: "json",
+              });
+
+              request.done(function (data) {
+                  //console.log(data);
+                  if(data.status == "success"){
+                      toastr.success('添加成功');
+                      window.location.href='{:U("user/vitae")}';
+                  }else{
+                      toastr.error('添加失败404.'+data.msg, '哎呦!')
+                  }
+              });
+     });
+
+</script>

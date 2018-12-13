@@ -1,0 +1,84 @@
+<assign name="title" value="账户信息"/>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head"/>
+<body>
+<include file="Common:header"/>
+<main class="container">
+    <div class="row">
+        <div class="col-md-10 box col-md-offset-1">
+
+
+            <div class="userinfo row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default lb-panel ">
+                        <div class="panel-heading ">
+                            <div class="row">
+                                <h5 class="col-md-8">拥有萝卜 : {$amount}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="{:U('Pay/wxPay')}" method="post" class="form-horizontal">
+                        <div class="panel panel-default lb-panel ">
+                            <div class="panel-heading ">
+                                <div class="row">
+                                    <h5 class="col-md-8">充值</h5>
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="amount" class="col-sm-12 control-label">充值金额</label>
+                                    <input id="amount" type="number" name="amount" class="form-control col-sm-12"
+                                           value="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <span class="payment" data-id="1">支付宝</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="payment" data-id="2">微信</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default lb-panel ">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-default " value="充值">
+                                    <input type="hidden" value="edit" name="act">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</main>
+<include file="Common:footer"/>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script>
+    $('.payment').on('click', function () {
+        var id = $(this).data('id');
+        $('#payment').val(id);
+        $('.payment').removeClass('act');
+        $(this).addClass('act');
+    })
+</script>
+<style>
+    .act {
+        border: 1px solid #e3e3e3;
+        padding: 5px;
+    }
+</style>
+</body>
+</html>

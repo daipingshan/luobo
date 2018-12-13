@@ -1,0 +1,48 @@
+<extend name="Common/layer"/>
+<block name="body">
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="js">
+    <script type="text/html" id="status">
+        {{#  if(d.in_or_de == 1){ }}
+        <a class="layui-btn layui-btn-xs">收入</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs layui-btn-danger">支出</a>
+        {{#  } }}
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var url = "{:U('getUserFlow')}?id={:I('get.id')}";
+            getData(url);
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'user_id', title: '用户ID', sort: true}
+                        , {field: 'admin_name', title: '行为原因'}
+                        , {field: 'represent', title: '操作描述'}
+                        , {field: 'op_bf_amount', title: '操作前余额'}
+                        , {field: 'op_amount', title: '余额'}
+                        , {field: 'op_aft_amount', title: '操作后余额'}
+                        , {field: 'in_or_de', title: '收支', width: 150, templet: '#status'}
+                        , {field: 'create_time', title: '时间'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

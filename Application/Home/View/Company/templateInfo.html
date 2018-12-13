@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 ">
+            <div class="box">
+                <include file="Common:company_nav" />
+            </div>
+            <div class="box">
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading ">
+                        <div class="row">
+                            <h5 class="col-md-10">打招呼模板</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form action="{:U('Company/addTemplate')}" method="post">
+                            <div class="form-group">
+                                <label for="inputfile">模版内容</label>
+                                <textarea class="form-control" rows="3" name="desc" placeholder="用于向用户发送邀请时的陈述语句。">
+                                    <empty name="template.desc"><else />{$template.desc}</empty>
+                                </textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <input class="btn btn-primary col-md-2" type="submit" value="保存" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Common:company_index_right" />
+    </div>
+</main>
+
+<include file="Common:footer" />

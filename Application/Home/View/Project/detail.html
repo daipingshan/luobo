@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head"/>
+<!-- 专用其他项目不用加载-->
+<link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+<body>
+<include file="Common:header"/>
+<div class=" mb-50"></div>
+<main class="container">
+    <div class="row">
+        <div class="col-md-9">
+
+            <div class="job-detail-box">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <h3 class="col-md-12 col-xs-12">{$item['name']}
+                            <span class="hidden-xs">(补助：<strong>￥{$item['rebate']}元</strong>)</span>
+                        </h3>
+
+                        <gt name="item.rebate" value="1">
+                            <p class="visible-xs col-xs-12"><span class="job-list-title">补助：</span><strong>￥{$item['rebate']}元</strong>
+                            </p>
+                        </gt>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="col-md-4 col-xs-12"><span class="job-list-title visible-xs">薪资待遇：</span>
+                            <span>   <eq name="item.salary_min" value="0">
+                          面议
+                        <else/>
+                         ￥{$item.salary_min} 元 - ￥{$item.salary_max} 元
+                       </eq>
+                        </span>
+                        </p>
+                        <p class="col-md-3 col-xs-12"><span class="job-list-title visible-xs">工作地：</span>{$city[$item['city_id']]}
+                        </p>
+                        <p class="col-md-3 col-xs-12"><span class="job-list-title ">发布时间：</span>{$item['create_time']|date="m-d",###}
+                        </p>
+                        <p class="col-md-2 col-xs-12">全职</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h5 class="col-md-8">岗位介绍</h5>
+                        <div class="col-md-4 text-right">
+                            <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#"
+                                                                                                              class="bds_weixin"
+                                                                                                              data-cmd="weixin"
+                                                                                                              title="分享到微信"></a><a
+                                    href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#"
+                                                                                                       class="bds_sqq"
+                                                                                                       data-cmd="sqq"
+                                                                                                       title="分享到QQ好友"></a><a
+                                    href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#"
+                                                                                                       class="bds_fbook"
+                                                                                                       data-cmd="fbook"
+                                                                                                       title="分享到Facebook"></a><a
+                                    href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a
+                                    href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a></div>
+                            <script>window._bd_share_config = {
+                                "common": {
+                                    "bdSnsKey": {},
+                                    "bdText": "萝卜网给您推荐好工作啦！",
+                                    "bdMini": "2",
+                                    "bdMiniList": false,
+                                    "bdPic": "",
+                                    "bdStyle": "1",
+                                    "bdSize": "24"
+                                }, "share": {}
+                            };
+                            with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body job-body">
+                        {$item['content']}
+                    </div>
+                </div>
+                <gt name="item.rebate" value="1">
+                    <div class="panel panel-default lb-panel">
+                        <div class="panel-heading">
+                            <h5>平台补助详情 （补助：{$item['rebate']}元）</h5>
+                        </div>
+                        <div class="panel-body job-body">
+                            {$item['rebate_desc']}
+                        </div>
+                    </div>
+                </gt>
+
+
+            </div>
+
+            <div class="col-md-3 ">
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h5 class="col-md-10">联系方式</h5>
+                        </div>
+                    </div>
+                    <div class="panel-body  job-body">
+                        <ul class="list-unstyled">
+                            <li>联系人：{$item['contacts']}</li>
+                            <li>联系电话：{$item['tel']}</li>
+                            <li>工作地址：{$item['address']}</li>
+                        </ul>
+
+
+                    </div>
+                </div>
+                <div class="panel panel-default lb-panel">
+                    <div class="panel-body">
+                        <present name="delivered">
+                            <a href="#" class="btn btn-info col-md-12 ">已投递</a>
+                            <else/>
+                            <a href="{:U('Project/set_poj_resume',array('id'=>$item['id']))}"
+                               class="btn btn-info col-md-12 ">投递简历</a>
+                        </present>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</main>
+<include file="Common:footer"/>

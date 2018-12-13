@@ -1,0 +1,156 @@
+	.nav_left {
+
+	    box-shadow: 5px 5px 15px rgba(3, 0, 0, .04);
+
+	    padding-top: 20px;
+	   
+	    border: 1px solid #ededee;
+	    position: absolute;
+	    z-index: 999;
+	    padding-left: 0;
+	    padding-right: 0;
+	}
+#jobs_list{ height: 260px;}
+#alljobs{ text-align: center;
+    border-top: 1px solid #f6f6f8;
+    padding-top: 10px; cursor: pointer; padding-bottom: 10px;}
+	.sub{ 
+        height: 340px;
+	}
+
+	.nav_left,
+	.list-group-item {
+	    background-color: #fcfcfe;
+
+	}
+
+	.nav_left ul {
+	    width: 100%;
+	    height: auto;
+	}
+
+	.nav_left ul li {
+
+	    text-align: left;
+	}
+
+	.nav_left .list-group {
+
+	    overflow: hidden;
+	}
+
+
+
+	.nav_left .list-group-item:first-child {
+	    border-top-left-radius: 0px;
+	    border-top-right-radius: 0px;
+	}
+
+	.nav_left .list-group-item:last-child {
+	    margin-bottom: 0;
+	    border-bottom-right-radius: 0px;
+	    border-bottom-left-radius: 0px;
+	}
+
+	.nav_left .list-group-item {
+	    position: relative;
+	    display: block;
+	    padding: 11px 15px;
+	    margin-bottom: 0px;
+	    border-bottom: 1px solid #fcfcfe;
+	    border-top: 1px solid #fcfcfe;
+	    border-left: none;
+	    border-right: none;
+
+	}
+
+	.nav_left .list-group-item:hover {
+	    border-bottom: 1px solid #ededee;
+	    border-top: 1px solid #ededee;
+	    background-color: #fff;
+	}
+
+	.nav_left ul li span {
+	    padding-left: 10px;
+	    color: #686969;
+	    cursor: pointer;
+
+	}
+
+	.nav_left ul li:hover span {
+	    color: #45b2cd;
+	}
+
+	.nav_left ul li:hover {}
+
+	.nav_right {
+
+	    position: absolute;
+	    top: 0px;
+	    z-index: 1000;
+	    margin-left: 95%;
+	    width: 205%;
+	}
+
+	.sub {
+
+	    overflow: hidden;
+	    background: #fff;
+
+	    padding: 25px;
+	}
+
+	.sub dl {
+	    overflow: hidden;
+
+	}
+
+	.sub dt {
+	    width: 100px;
+
+	    display: block;
+
+	    clear: left;
+	}
+
+	.sub dt a {
+	    font-size: 16px;
+	    color: #393b3b;
+
+	    text-align: center;
+
+	    text-decoration: none;
+	    cursor: pointer;
+	    padding-bottom: 20px;
+	}
+
+
+
+	.sub dd {
+
+	    border-bottom: 1px solid #e9ebec;
+	}
+
+	.sub dd a {
+	    font-size: 12px;
+	    float: left;
+	    color: #868888;
+	    padding: 0 10px;
+	    margin: 4px 0px 10px 0px;
+	    text-decoration: none;
+	    cursor: pointer;
+	    border-left: 1px solid #E3E3E3;
+	}
+
+	.sub dd a:hover {
+	    color: #45b2cd;
+	}
+
+	.hide {
+	    display: none;
+	}
+
+	.show {
+	    display: block;
+	}
+

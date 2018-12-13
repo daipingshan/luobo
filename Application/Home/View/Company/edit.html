@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__UE_EDITOR_PATH__/lang/zh-cn/zh-cn.js"></script>
+<script src="__JS_PATH__/upload.js"></script>
+<!-- 搜索模块 -->
+<div id="banner" class="mb-50">
+    <img src="__IMAGE_PATH__/banner.jpg" class="img-responsive">
+</div>
+<style type="text/css">
+    .attention{
+        color: red;
+    }
+</style>
+<main class="container ">
+
+    <div class="alert alert-danger hide" id="upload_res"></div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 box">
+            <div class="panel panel-default lb-panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <h5 class="col-md-10">企业基本资料</h5>
+                    </div>
+                </div>
+
+                <div class="panel-body form-horizontal">
+                    <notempty name="info['company_name']">
+                        <div class="alert alert-info" role="alert">
+                            如果您要修改企业名称，需要在重新申请资质认证。
+                            <strong><a href="{:U('company/authentication')}">更改企业名称与营业执照</a> </strong>
+                        </div>
+                    </notempty>
+
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">注意:</span>
+                        带*的选项，请务必填写正确，填写完整
+                    </div>
+                    <div class="form-group">
+                        <label for="company_name"  class="col-md-2 attention">*企业名称</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="company_name" name="company_name" placeholder="企业名称，必须与营业执照名称一致" value="{$info['company_name']}"
+                            <notempty name="info['company_name']">
+                                disabled
+                            </notempty>
+                            >
+                            <input type="hidden" id="name" value="{$info['company_name']}">
+                        </div>
+                    </div>
+
+                    <if condition="$info['company_name'] eq ''">
+                        <div class="form-group">
+                            <label for="short_name"  class="col-md-2">企业简称</label>
+                            <div class="col-md-10">
+                                <input type="text" id="short_name" class="form-control" name="short_name"
+                                       placeholder="简称必须是公司拥有产品名或相关简称" value="">
+                            </div>
+                        </div>
+                    </if>
+                    <div class="form-group">
+                        <label for="name" class="col-md-2">企业官网</label>
+                        <div class="col-md-10">
+                            <input type="text" name="link" class="form-control" placeholder="http://" value="{$info['link']}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 attention">*企业简介</label>
+                        <div class="col-md-10">
+                            <script id="editor" type="text/plain" >{$info['desc']}</script>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 attention">*行业类别</label>
+                        <div class="col-md-10">
+                            <input type="text" name="industry_field" class="form-control" placeholder="描述您的行业类别" value="{$info['industry_field']}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 attention">*企业性质</label>
+                        <div class="col-md-10">
+                            <select name="scale" class="form-control" id="scale">
+                                <volist name='scales' id='vo' key="k">
+                                    <option value="{$k}" <if condition="$info['scale'] eq $k"> selected="selected" </if>>{$vo}</option>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 attention">*企业规模</label>
+                        <div class="col-md-10">
+                            <select name="company_size" class="form-control" id="company_size">
+                                <volist name='entrprise' id='vo' key="k">
+                                    <option value="{$k}" <if condition="$info['company_size'] eq $k"> selected="selected" </if>>{$vo}</option>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name"  class="col-md-2 attention">*所在地区</label>
+                        <div class="col-md-10 row">
+                            <div class="col-md-4">
+                                <select name="province_id" class="position form-control" id="province" >
+                                    <option value="0">请选择省份</option>
+                                    <volist name='province' id='vo'>
+                                        <option value="{$vo['id']}">{$vo['name']}</option>
+                                    </volist>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select name="city_id" class="position form-control" id="city">
+                                    <if condition="$info['city_id'] eq ''">
+                                        <option value="0">请选择城市</option>
+                                        <else/>
+                                        <option value="{$info['city_id']}" >{$city_name}</option>
+                                    </if>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select name="district_id" class="position form-control" id="region">
+                                    <if condition="$info['district_id'] eq ''">
+                                        <option value="0">请选择地区</option>
+                                        <else/>
+                                        <option value="{$info['district_id']}" >{$district_name}</option>
+                                    </if>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 attention">*街道</label>
+                        <div class="col-md-10">
+                            <input type="text" name="company_address" class="form-control" placeholder="" value="{$info['company_address']}">
+                            <if condition="$info['company_name'] eq ''">
+                                <input type="hidden" name="type" value="new">
+                                <else/>
+                                <input type="hidden" name="type" value="edit">
+                            </if>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 attention">*HR名称</label>
+                        <div class="col-md-10">
+                            <input type="text" name="hr_name" class="form-control" placeholder="请输入hr的称呼" value="{$info['hr_name']}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 attention">*HR默认电话</label>
+                        <div class="col-md-10">
+                            <input type="text" name="tel" class="form-control" placeholder="请输入hr的联系方式" value="{$info['tel']}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn col-md-offset-2 col-md-8 btn-primary" id="save">提交</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    //  获取职位类型列表
+    $('#province').change(function(){
+        $("#city").empty();// 清空下拉框
+        $("#city").append("<option value='0'>请选择城市</option>");
+        $("#region").empty();// 清空下拉框
+        $("#region").append("<option value='0'>请选择地区</option>");
+        var province = $("#province option:selected").val();
+
+        $.post('{:U("Company/getRegionList")}', {area: province}, function (res) {
+            if (res.code == 0) {
+                var option_two = '';
+                $.each(res.data,function(key,value) {
+                    option_two += '<option value="' + value.id + '">' + value.name + '</option>';
+                });
+                $("#city").append(option_two);
+            } else {
+                toastr.error('城市获取失败');
+            }
+
+            return true;
+        });
+    });
+
+    $('#city').change(function(){
+        $("#region").empty();// 清空下拉框
+        $("#region").append("<option value='0'>请选择地区</option>");
+        var city = $("#city option:selected").val();
+
+        $.post('{:U("/Company/getRegionList")}', {area: city}, function (res) {
+            if (res.code == 0) {
+                var option_three = '';
+                $.each(res.data,function(key,value) {
+                    option_three += '<option value="' + value.id + '">' + value.name + '</option>';
+                });
+                $("#region").append(option_three);
+            } else {
+                toastr.error('地区获取失败');
+            }
+            return true;
+        });
+    });
+
+    $('input[name=industry_field]').blur(function(){
+        var  industry_field = $('input[name=industry_field]').val();
+        if (industry_field.length > 12) {
+            toastr.error('行业类别不得超过12个字');
+        }
+    });
+</script>
+
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+
+    var name = $('#name').val();
+
+    $('#save').click(function(){
+        var  company_name = $('#company_name').val();
+        var  short_name = $('#short_name').val();
+        var  link = $('input[name=link]').val();
+        var  industry_field = $('input[name=industry_field]').val();
+        var  scale = $("#scale option:selected").val();
+        var  company_size = $("#company_size option:selected").val();
+        var  province_id = $("#province option:selected").val();
+        var  city_id = $("#city option:selected").val();
+        var  district_id = $("#region option:selected").val();
+        var  company_address = $('input[name=company_address]').val();
+        var  type = $('input[name=type]').val();
+        var  hr_name = $('input[name=hr_name]').val();
+        var  tel = $('input[name=tel]').val();
+
+        if (name == '') {
+            if (company_name == '') {
+                toastr.error('企业名称不得为空');
+                return false;
+            } else if(short_name == '') {
+                toastr.error('企业简称不得为空');
+                return false;
+            }
+        }
+
+        var desc = UE.getEditor('editor').getContent();
+
+        console.log(desc);
+        if(desc == '') {
+            toastr.error('企业简介不得为空');
+            return false;
+        } else if(industry_field == '') {
+            toastr.error('行业类别不得为空');
+            return false;
+        } else if(scale == '') {
+            toastr.error('企业性质不得为空');
+            return false;
+        } else if(company_size == '') {
+            toastr.error('企业规模不得为空');
+            return false;
+        } else if(province_id == 0) {
+            toastr.error('省份不得为空');
+            return false;
+        } else if(city_id == 0) {
+            toastr.error('城市不得为空');
+            return false;
+        } else if(district_id == 0) {
+            toastr.error('地区不得为空');
+            return false;
+        } else if(company_address == '') {
+            toastr.error('企业地址不得为空');
+            return false;
+        } else if(hr_name == '') {
+            toastr.error('hr名称不得为空');
+            return false;
+        } else if(tel == '') {
+            toastr.error('hr电话不得为空');
+            return false;
+        } else if(industry_field.length > 12) {
+            toastr.error('行业类别不得超过12个字');
+            return false;
+        } else {
+            $.post("{:U('Company/edit')}", {company_name: company_name, short_name: short_name, link:link, desc: desc, industry_field:industry_field, scale:scale, company_size:company_size, province_id:province_id, city_id:city_id, district_id:district_id, company_address:company_address, type: type, hr_name:hr_name, tel:tel}, function (res) {
+                console.log(res);
+                if (res.code == -1) {
+                    toastr.error(res.msg, '错误!');
+                } else if(res.code == 0){
+                    toastr.success(res.msg, '恭喜您!');
+                    location.href = res.data;
+                }
+            });
+        }
+    });
+
+
+</script>
+<include file="Common:footer" />

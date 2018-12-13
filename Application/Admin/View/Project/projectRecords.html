@@ -1,0 +1,120 @@
+<extend name="Common/common"/>
+<block name="body">
+    <form class="layui-form search" action="" name="search">
+        <div class="layui-row">
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <select name="status" class="layui-select">
+                    <option value="0">请选择投递状态</option>
+                    <option value="1">投递成功</option>
+                    <option value="2">被查看</option>
+                    <option value="3">邀请面试</option>
+                    <option value="4">邀请入职</option>
+                </select>
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="user_name" value="{:I('get.user_name')}" placeholder="请输入用户名称"
+                       class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <input type="text" name="recruit_name" value="{:I('get.recruit_name')}" placeholder="请输入项目名称"
+                       class="layui-input">
+            </div>
+            <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+                <button class="layui-btn search" type="button"><i class="layui-icon">
+                    &#xe615;</i>查询
+                </button>
+            </div>
+        </div>
+    </form>
+    <table class="layui-hide" id="table" lay-filter="table"></table>
+</block>
+<block name="js">
+    <script type="text/html" id="status">
+        {{#  if(d.status == 1 ){ }}
+        <button class="layui-btn layui-btn-xs layui-btn-normal" type="button">投递成功</button>
+        {{#  } else if(d.status == 2) { }}
+        <button class="layui-btn layui-btn-xs" type="button">被查看</button>
+        {{#  } else if(d.status == 3) { }}
+        <button class="layui-btn layui-btn-warm layui-btn-xs" type="button">邀请面试</button>
+        {{#  } else { }}
+        <button class="layui-btn layui-btn-danger layui-btn-xs" type="button">邀请入职</button>
+        {{#  } }}
+    </script>
+    <script type="text/html" id="table-edit">
+        {{#  if(d.status == 1 ){ }}
+        <a class="layui-btn layui-btn-xs set-status layui-btn-normal" data-val="{{d.status}}"
+           data-url="{:U('setProjectRecordsStatus')}?id={{d.id}}&status=2" data-id="">查看简历</a>
+        {{#  } else if(d.status == 2) { }}
+        <a class="layui-btn layui-btn-xs set-status layui-btn-warm" data-val="{{d.status}}"
+           data-url="{:U('setProjectRecordsStatus')}?id={{d.id}}&status=3" data-id="">邀请面试</a>
+        {{#  } else if(d.status == 3) { }}
+        <a class="layui-btn layui-btn-xs set-status layui-btn-danger" data-val="{{d.status}}"
+           data-url="{:U('setProjectRecordsStatus')}?id={{d.id}}&status=4" data-id="">邀请入职</a>
+        {{#  } else { }}
+        <a class="layui-btn layui-btn-xs">已完成</a>
+        {{#  } }}
+        <a class="layui-btn layui-btn-xs" href="{{d.url}}" target="_blank">简历预览</a>
+    </script>
+    <script>
+        $(function () {
+            form.render();
+            var tableObj;
+            var url = "{:U('projectRecords')}";
+            refresh();
+            $('form.search').on('click', 'button.search', function () {
+                refresh();
+            });
+
+            function refresh() {
+                var param = $('form.search').serialize();
+                var get_url = url + '?' + param;
+                getData(get_url);
+            }
+
+            $('body').on('click', '.set-status', function () {
+                var del_url = $(this).data('url');
+                var text = $(this).text();
+                layer.confirm('你确定要' + text + '吗？', function () {
+                    $.get(del_url, {}, function (res) {
+                        if (res.status == 1) {
+                            layer.msg(res.info, {icon: 1}, function () {
+                                tableObj.reload();
+                            })
+                        } else {
+                            layer.msg(res.info, {icon: 2});
+                        }
+                    })
+                })
+            })
+
+
+            /**
+             * 获取数据
+             * @param url
+             */
+            function getData(url) {
+                tableObj = table.render({
+                    elem: '#table'
+                    , url: url
+                    , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+                        layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
+                        , groups: 5 //只显示 1 个连续页码
+                    }
+                    , cellMinWidth: 100
+                    , cols: [[
+                        {field: 'id', title: '投递', sort: true}
+                        , {field: 'recruit_name', title: '项目名称'}
+                        , {field: 'company_name', title: '公司名称'}
+                        , {field: 'user_name', title: '用户名称'}
+                        , {field: 'address', title: '工作地址'}
+                        , {field: 'salary', title: '薪资范围'}
+                        , {field: 'status', title: '状态', toolbar: '#status'}
+                        , {field: 'add_time', title: '投递时间'}
+                        , {fixed: 'right', title: '操作', toolbar: '#table-edit', width: '20%'}
+                    ]],
+                });
+            }
+        })
+    </script>
+</block>
+

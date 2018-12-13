@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<link rel="stylesheet" href="__CSS_PATH__/company.css">
+<body>
+<include file="Common:header" />
+<div class=" mb-50"></div>
+<main class="container">
+        <include file="Shop:top-box" />
+        <div class=" mb-50"></div>
+        <div class="row">
+            <div class="col-md-9">
+                <include file="Shop:tab" />
+                <table class="table table-striped lb-table">
+                    <tr>
+                        <th>用户</th>
+                        <th>手机号</th>
+                        <th>类型</th>
+                        <th>地址</th>
+                        <th>注册时间</th>
+                        <th>状态</th>
+                    </tr>
+                    <foreach name="items" item="vo" key="k" >
+                        <tr>
+                            <td>{$vo.name}</td>
+                            <td>{$vo.mobile|substr=0,3}××××{$vo.mobile|substr=7,11}</td>
+                            <td>
+                                <eq name="vo.shop_type" value="1">门店</eq>
+                                <eq name="vo.shop_type" value="2">代理</eq>
+                            </td>
+                            <td>{$vo.address}</td>
+                            <td>{$vo.created_at|substr=0,10}</td>
+                            <td>
+                                <eq name="vo.status" value="0">审核中</eq>
+                                <eq name="vo.status" value="1">正常</eq>
+                                <eq name="vo.status" value="2">失败</eq>
+                            </td>
+                        </tr>
+
+                    </foreach>
+
+                </table>
+                <div>{$page}</div>
+            </div>
+
+            <div class="col-md-3 ">
+                <include file="Shop:right" />
+            </div>
+        </div>
+
+</main>
+<include file="Common:footer" />

@@ -1,0 +1,319 @@
+[ 2018-12-04T16:46:16+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001444s ]
+
+[ 2018-12-04T16:46:16+08:00 ] 127.0.0.1 /Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000750s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000979s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001048s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001433s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001505s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014217s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014291s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001190s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001250s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001342s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001399s ]
+
+[ 2018-12-04T16:46:17+08:00 ] 127.0.0.1 /Login/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000800s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000990s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001055s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001039s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001117s ]
+
+[ 2018-12-04T16:47:02+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000535s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000623s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.0912s ]
+SQL: SELECT * FROM `rd_admin` WHERE `username` = 'admin' AND `password` = '231ee813250bd018144ec5acc5950026' LIMIT 1   [ RunTime:0.0920s ]
+SQL: UPDATE `rd_admin` SET `last_time`='1543913222',`last_ip`='127.0.0.1' WHERE `id` = 1 [ RunTime:0.1602s ]
+
+[ 2018-12-04T16:47:02+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000874s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000691s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000735s ]
+
+[ 2018-12-04T16:47:02+08:00 ] 127.0.0.1 /Login/doLogin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000520s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000732s ]
+
+[ 2018-12-04T16:47:03+08:00 ] 127.0.0.1 /Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000537s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000994s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001071s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000065s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000104s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014042s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014087s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000465s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000629s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000662s ]
+
+[ 2018-12-04T17:03:18+08:00 ] 127.0.0.1 /Shop/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000644s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000886s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000935s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000116s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000188s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019272s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019331s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000544s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000571s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000748s ]
+
+[ 2018-12-04T17:03:30+08:00 ] 127.0.0.1 /Shop/index.html?name=&mobile=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000757s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001130s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001204s ]
+SQL: SHOW COLUMNS FROM `rd_shops` [ RunTime:0.0908s ]
+SQL: SELECT COUNT(s.id) AS tp_count FROM rd_shops s left join rd_user u ON u.id=s.user_id  LIMIT 1   [ RunTime:0.0905s ]
+SQL: SELECT s.*,u.mobile FROM rd_shops s left join rd_user u ON u.id=s.user_id  ORDER BY s.id desc LIMIT 0,10   [ RunTime:1.2578s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181204/5c06106cd07de.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000672s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181204/5c05de8e758ff.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000697s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181203/5c048d3c30baa.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000875s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181202/5c03839da08ac.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001264s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181202/5c037840063b0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000536s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181202/5c035bcc124de.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181202/5c034133082af.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000535s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181202/5c033ff780739.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181202/5c0337be6a67f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000484s ]
+
+[ 2018-12-04T17:03:31+08:00 ] 127.0.0.1 /Uploads/20181201/5c0298172833d.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000500s ]
+
+[ 2018-12-04T17:03:51+08:00 ] 127.0.0.1 /Shop/index.html?name=&mobile=&page=7&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000627s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000983s ]
+SQL: SHOW COLUMNS FROM `rd_shops` [ RunTime:0.0954s ]
+SQL: SELECT COUNT(s.id) AS tp_count FROM rd_shops s left join rd_user u ON u.id=s.user_id  LIMIT 1   [ RunTime:0.1036s ]
+SQL: SELECT s.*,u.mobile FROM rd_shops s left join rd_user u ON u.id=s.user_id  ORDER BY s.id desc LIMIT 60,10   [ RunTime:0.1098s ]
+
+[ 2018-12-04T17:03:51+08:00 ] 127.0.0.1 /Uploads/20181030/5bd7b9c496a4f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001264s ]
+
+[ 2018-12-04T17:13:00+08:00 ] 127.0.0.1 /Shop/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000765s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000686s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000732s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000109s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000145s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009095s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009145s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000543s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000570s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000711s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000743s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Shop/index.html?name=&mobile=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000827s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001213s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001283s ]
+SQL: SHOW COLUMNS FROM `rd_shops` [ RunTime:0.0912s ]
+SQL: SELECT COUNT(s.id) AS tp_count FROM rd_shops s left join rd_user u ON u.id=s.user_id  LIMIT 1   [ RunTime:0.0907s ]
+SQL: SELECT s.*,u.mobile FROM rd_shops s left join rd_user u ON u.id=s.user_id  ORDER BY s.id desc LIMIT 0,10   [ RunTime:0.0914s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.0924s ]
+SQL: SELECT `id`,`username` FROM `rd_admin`  [ RunTime:0.0929s ]
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\ShopController.class.php 第 42 行.
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181204/5c06106cd07de.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000756s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181204/5c05de8e758ff.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001549s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181203/5c048d3c30baa.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000477s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181202/5c03839da08ac.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000515s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181202/5c037840063b0.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000636s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181202/5c035bcc124de.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000902s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181201/5c0298172833d.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000498s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181202/5c033ff780739.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000892s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181202/5c0337be6a67f.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000555s ]
+
+[ 2018-12-04T17:13:01+08:00 ] 127.0.0.1 /Uploads/20181202/5c034133082af.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000746s ]
+
+[ 2018-12-04T17:13:08+08:00 ] 127.0.0.1 /Company/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000805s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000810s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.007240s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.007307s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019997s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020047s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000512s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000538s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000679s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000715s ]
+
+[ 2018-12-04T17:13:09+08:00 ] 127.0.0.1 /Company/index.html?mobile=&email=&name=&is_check=&page=1&limit=10
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000920s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001153s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001225s ]
+SQL: SHOW COLUMNS FROM `rd_company_info` [ RunTime:0.0930s ]
+SQL: SHOW COLUMNS FROM `rd_admin` [ RunTime:0.0903s ]
+SQL: SELECT `id`,`username` FROM `rd_admin`  [ RunTime:0.0904s ]
+SQL: SELECT COUNT(i.id) AS tp_count FROM rd_company_info i left join rd_user u ON u.id = i.user_id  LIMIT 1   [ RunTime:0.0910s ]
+SQL: SELECT i.*,u.*,i.id as id FROM rd_company_info i left join rd_user u ON u.id = i.user_id  ORDER BY i.id desc LIMIT 0,10   [ RunTime:0.1861s ]
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+NOTIC: [8] Undefined offset: 0 D:\www\online_team\www.luobo.com\Application\Admin\Controller\CompanyController.class.php 第 54 行.
+

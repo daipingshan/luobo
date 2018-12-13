@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<body>
+<include file="Common:header" />
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 ">
+            <ul class="nav nav-tabs nav-justified hidden-xs">
+                <li
+                <if condition="($type eq '') "> class="active" </if>
+                ><a href="{:U('User/index')}">已投递</a></li>
+                <li
+                <if condition="($type eq 'interested')"> class="active" </if>
+                ><a href="{:U('User/index?type=interested')}">被查看</a></li>
+                <li
+                <if condition="($type eq 'invite')"> class="active" </if>
+                ><a href="{:U('User/invite?type=invite')}">邀请投递
+
+                </a></li>
+                <li
+                <if condition="($type eq 'agree') "> class="active" </if>
+                ><a  href="{:U('User/index?type=agree')}">待面试 <if condition="($invitations neq 0)"><span class="badge visible-lg-*">{$invitations}</span></if></a></li>
+                <li
+                <if condition="($type eq 'success') "> class="active" </if>
+                ><a  href="{:U('User/index?type=success')}">邀请入职</a></li>
+                <li
+                <if condition="($type eq 'collect') "> class="active" </if>
+                ><a  href="{:U('User/index?type=collect')}">收藏岗位</a></li>
+
+            </ul>
+            <div class="btn-group visible-xs moblie-more ">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="iconfont icon-qita"></i> 筛选
+                </button>
+                <ul class="dropdown-menu">
+                    <li
+                    <if condition="($type eq '') "> class="active" </if>
+                    ><a href="{:U('User/index')}">已投递</a></li>
+                    <li
+                    <if condition="($type eq 'interested')"> class="active" </if>
+                    ><a href="{:U('User/index?type=interested')}">被查看</a></li>
+                    <li
+                    <if condition="($type eq 'invite')"> class="active" </if>
+                    ><a href="{:U('User/invite?type=invite')}">邀请投递</a></li>
+                    <li
+                    <if condition="($type eq 'agree') "> class="active" </if>
+                    ><a  href="{:U('User/index?type=agree')}">待面试 <if condition="($invitations neq 0)"><span class="badge visible-lg-*">{$invitations}</span></if></a></li>
+                    <li
+                    <if condition="($type eq 'success') "> class="active" </if>
+                    ><a  href="{:U('User/index?type=success')}">邀请入职</a></li>
+                    <li
+                    <if condition="($type eq 'collect') "> class="active" </if>
+                    ><a  href="{:U('User/index?type=collect')}">收藏岗位</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="jobs">
+                <foreach name="invite_items" item="vo" >
+                    <div class="job-item">
+                        <div class="row">
+                            <div class="col-md-1 col-xs-3 text-center">
+                                <a href="{:U('Jobs/detail',array('id'=>$vo['id']))}" target="_blank">
+                                    <empty name="vo['com_avatar']">
+                                        <img src="__IMAGE_PATH__/cp_def.png" class="jobs-img ">
+                                        <else/>
+                                        <img src="{$vo.com_avatar}" class="jobs-img">
+                                    </empty>
+                                </a>
+                            </div>
+                            <div class="col-md-11 col-xs-9">
+                                <div class="row job-item-top ">
+                                    <div class="col-md-6 col-xs-12">
+                                        <a href="{:U('Jobs/detail',array('id'=>$vo['id']))}"
+                                           class="jobs-title" target="_blank">
+                                            {$vo.recruit_name}</a>
+
+                                    </div>
+
+                                </div>
+                                <div class="row job-item-top  ">
+                                    <div class="col-md-6 col-xs-12">
+                                                    <span class="job-pay ">
+                                                        <eq name="vo.salary" value="0k~0k">
+                                                            面议
+                                                            <else/>
+                                                            {$vo.salary}
+                                                        </eq>
+                                                        /
+                                                    </span>
+
+                                        <empty name="vo.refresh_time">
+                                            {$vo.add_time|date="m-d ",###}
+                                            <else/>
+                                            {$vo.add_time|date="m-d ",###}
+                                        </empty>
+                                    </div>
+
+                                    <div class="col-md-6 text-left col-xs-12  ">
+                                        <a href="{:U('Jobs/company',array('id' => $vo['com_id']))}"
+                                           class="grey" target="_blank">
+                                            <empty name="vo['short_name']">
+                                                {$vo['company_name']}
+                                                <else/>
+                                                {$vo['short_name']}
+                                            </empty>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row jobs-box-bottom ">
+                            <div class="col-md-8 col-xs-12">
+                                企业邀请您投递简历，接受后企业可以查看到您的联系信息。
+                            </div>
+                            <div class="col-md-4 text-right col-xs-12">
+                                <a id="sub" class="invite btn btn-success btn-sm" data-type="1"  data-id="{$vo['id']}">接受</a>
+                                <a id="refuse" class="invite btn btn-default btn-sm" data-type="6" data-id="{$vo['id']}">婉拒</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </foreach>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3 ">
+           <include file="Common:user_right" />
+
+
+        </div>
+    </div>
+
+</main>
+<include file="Common:footer" />
+<script>
+    $(document).ready(function() {
+        //接受投递邀请
+        $('.invite').on('click', function () {
+
+            var invitation_id = $(this).data('id');
+            var invitation_type = $(this).data('type');
+            var request = $.ajax({
+                url: "{:U('User/the_invitation')}",
+                method: "POST",
+                data: {
+                    invitation_id : invitation_id,
+                    type : invitation_type
+                },
+                dataType: "json",
+            });
+
+            request.done(function (data) {
+
+                if (data.status == "success") {
+                    toastr.info('' + data.msg);
+                    window.location.reload();
+                } else {
+                    toastr.error('操作失败404.' + data.msg, '哎呦!')
+                }
+
+            });
+
+            request.fail(function (jqXHR, textStatus) {
+                console.log(textStatus);
+                return false;
+            });
+
+            return false;
+
+
+        });
+
+
+    });
+</script>
+</body>
+</html>

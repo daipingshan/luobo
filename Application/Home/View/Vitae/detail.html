@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<include file="Common:head" />
+<link rel="stylesheet" href="__CSS_PATH__/vitae.css">
+<link rel="stylesheet" href="__CSS_PATH__/users.css">
+<script src="__JS_PATH__/xdoc.js"></script>
+<body class="vitae-detail-body">
+<header class="hidden-print hidden-xs"></header>
+<main class="container">
+    <div id="viate-detail" class="row">
+        <div class="col-md-2 hidden-xs hidden-print"></div>
+        <div class="col-md-8 viate-detail-main col-xs-12" id="download_main">
+            <div class="logo"><img src="__IMAGE_PATH__/logo.jpg"></div>
+            <div class="clear"></div>
+            <div class="meta row">
+
+                <div class="col-md-3 col-xs-12 text-center" >
+                    <if condition="$data['resume']['avatar'] neq '' ">
+                        <img src="{$data['resume']['avatar']}" class="user_img img-circle">
+                        <input type="hidden" id="avatar" value="{$data['resume']['avatar']}">
+                        <else/>
+                        <img <if condition="$data['resume']['sex'] eq 1 "> src="__IMAGE_PATH__/user_man.png" <else/> src="__IMAGE_PATH__/user_woman.png" </if> class="user_img img-circle">
+                        <input type="hidden" id="avatar" <if condition="$data['resume']['sex'] eq 1 "> value="__IMAGE_PATH__/user_man.png" <else/> value="__IMAGE_PATH__/user_woman.png" </if>>
+                    </if>
+                </div>
+
+                <div class="user-abstract col-md-9 col-xs-12">
+                    <div class="row">
+                        <h5 class="col-md-12 user_name">{$data['resume']['real_name']}
+                            <img <if condition="intval($data['resume']['sex']) eq 1"> src="__IMAGE_PATH__/man_.png"  <else/> src="__IMAGE_PATH__/woman_.png" </if> class="sex">
+                        </h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">
+                            <i class="iconfont icon-gongzuo2"></i> {:C('POST_TIME')[$data['resume']['post_time']]}
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <i class="iconfont icon-xueli"></i> {:C('HIGH_EDUCATION')[$data['resume']['education']]}
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <i class="iconfont icon-shijian"></i>
+                            <empty name="$data['resume']['updated_at']">
+                                近期更新
+                                <input type="hidden" id="update_time" value="近期更新">
+                                <else />
+                                {$data['resume']['updated_at']|mb_substr=0,10}
+                                <input type="hidden" id="update_time" value="{$data['resume']['updated_at']|mb_substr=0,10}">
+                            </empty>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--  本模块 仅限用户投递了 或者企业付费下载了才显示-->
+                        <if condition="$permission eq true || $is_collect eq true">
+                            <div class="col-md-4  col-xs-4"><i class="iconfont icon-shouji1"></i>  {$data['user']['mobile']}</div>
+                            <div class="col-md-4  col-xs-4"><i class="iconfont icon-xinfeng"></i>  {$data['user']['email']}</div>
+                            <div class="col-md-4  col-xs-4"><i class="iconfont icon-dizhi"></i>  {$cities[$data['resume']['city_id']]}</div>
+                            <else />
+                            <div class="col-md-12">收藏简历后可以查看联系方式</div>
+                        </if>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育经历 -->
+            <div class="row user-abstract-box">
+                <div class="box-head">教育经历</div>
+                <div class="box-body">
+                    <volist name='data["education"]' id='vo'>
+                        <div class="course" >
+                            <div class="col-md-4 col-xs-6">
+                                <i class="iconfont icon-jiaoyu"></i>&nbsp;&nbsp;{$vo['school_name']}
+                            </div>
+                            <div class="col-md-4 col-xs-6"><i class="iconfont icon-rili"></i>&nbsp;&nbsp;{$vo['start_year']}&nbsp;&nbsp;-&nbsp;&nbsp;{$vo['end_year']}</div>
+                            <div class="col-md-4 col-xs-6"><i class="iconfont icon-xueli"></i>&nbsp;&nbsp;{$vo['major']}&nbsp;&nbsp;|&nbsp;&nbsp;{$vo['education']} </div>
+                            <div class="clear"></div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+
+            <!-- 工作经历 -->
+            <div class="row user-abstract-box">
+                <div class="box-head">工作经历</div>
+                <div class="box-body">
+                    <volist name='data["experience_job"]' id='vo'>
+                        <div class="jobs-list">
+                            <div class="row jobs-list-title">
+                                <p class="col-md-5">
+                                    <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+                                    {$vo['company_name']}
+                                </p>
+
+                                <p class="col-md-3">
+                                    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                                    岗位：{$vo['position_name']}
+                                </p>
+                                <p class="col-md-4">
+                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                                    {$vo['start_time']} - {$vo['end_time']}
+                                </p>
+                            </div>
+                            <p>{$vo['content']}</p>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+
+            <!-- 作品展示 -->
+            <div class="row user-abstract-box">
+                <div class="box-head">作品展示</div>
+                <div class="box-body">
+                    <volist name='data["product"]' id='vo'>
+                        <div class="user-works col-md-6">
+                            <h5><a href="">{$vo['works_name']} </a></h5>
+                            <img src="{$vo['works_pic']}" class="img-responsive">
+                        </div>
+                    </volist>
+                </div>
+            </div>
+
+            <!-- 个人介绍 -->
+            <div class="row user-abstract-box">
+                <div class="box-head">个人介绍</div>
+                <div class="box-body">
+                    <p>{$data['resume']['content']}</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- 按钮状态 -->
+        <eq name="button_status" value="true">
+            <div class="col-md-2 col-xs-12 hidden-print">
+                <ul class="list-unstyled viate_list row">
+                    <eq name="identity" value="2">
+                        <li class="col-xs-3 col-md-12 row">
+                            <a href="tel:{$data['user']['mobile']}">
+                                <div class="col-md-12"><img src="__IMAGE_PATH__/get_user.png" class="viate_btn"></div>
+                                <div class="col-md-12 viate_bar_txt viate_bar_txt">联系</div>
+                            </a>
+                        </li>
+
+                        <eq name="invite_status" value="true">
+                            <li class="col-xs-3 col-md-12 row">
+                                <div><img src="__IMAGE_PATH__/invite.png" class="viate_btn"></div>
+                                <div class="col-md-12 viate_bar_txt">已发送邀请</div>
+                            </li>
+                            <else/>
+                            <li class="col-xs-3 col-md-12 row" data-toggle="modal" data-target="#curriculum_vitaeModal">
+                                <div><img src="__IMAGE_PATH__/invite.png" class="viate_btn"></div>
+                                <div class="col-md-12 viate_bar_txt">邀请</div>
+                            </li>
+                        </eq>
+
+
+                        <li class="col-xs-3  col-md-12 row  ">
+                            <eq name="is_collect" value="true">
+                                <a>
+                                    <div><img src="__IMAGE_PATH__/hascollect.png" class="viate_btn"></div>
+                                    <div class="col-md-12 viate_bar_txt">已收藏</div>
+                                </a>
+                                <else/>
+                                <a id="company_collect">
+                                    <div><img src="__IMAGE_PATH__/collect.png" class="viate_btn"></div>
+                                    <div class="col-md-12 viate_bar_txt">收藏</div>
+                                </a>
+                            </eq>
+                        </li>
+                    </eq>
+
+                    <if condition="$permission eq true || $is_collect eq true">
+                        <li class="col-xs-3 col-md-12 row" id="downpdf">
+                            <div><img src="__IMAGE_PATH__/down.png" class="viate_btn"></div>
+                            <div class="col-md-12 viate_bar_txt "> 预览&下载pdf</div>
+                        </li>
+                        <li class="col-xs-3 col-md-12 row" id="downDoc">
+                            <div class=""><img src="__IMAGE_PATH__/down.png" class="viate_btn"></div>
+                            <div class="col-md-12 viate_bar_txt "> 下载word</div>
+                        </li>
+                        <li id="printContainer" class="col-xs-3  col-md-12 row">
+                            <div class=""><img src="__IMAGE_PATH__/print.png" class="viate_btn"></div>
+                            <div class="col-md-12 viate_bar_txt viate_bar_txt">打印</div>
+                        </li>
+                    </if>
+
+                </ul>
+            </div>
+        </eq>
+    </div>
+</main>
+
+
+<!-- 邀请面试 -->
+<div class="modal fade" id="curriculum_vitaeModal" tabindex="-1" role="dialog" aria-labelledby="curriculum_vitae" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="mycurriculum">邀请详情</h4>
+            </div>
+            <input id="detail" type="hidden" value="{$_GET['detail']}"/>
+            <input id="user_info" type="hidden" value="{$data['resume']['id']}"/>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="form-group">
+                            <label for="invite_time"  class="col-sm-12 control-label">邀请面试岗位</label>
+                            <select name="company_recruit" class="form-control" id="company_recruit">
+                                <volist name='company_recruit' id='vo' >
+                                    <option value="{$vo['id']}" >{$vo['name']}</option>
+                                </volist>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="invite_time"  class="col-sm-12 control-label">面试时间</label>
+                            <input id="invite_time" type="text" name="invite_time" class="form-control col-sm-12 form_datetime" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="major"  class="col-sm-12 control-label">面试地点</label>
+                            <input id="position_name" type="text" name="position_name" class="form-control col-sm-12" value="{$info['company_address']}">
+                        </div>
+                        <div class="form-group">
+                            <label for="salary"  class="col-sm-12 control-label">HR信息</label>
+                            <input id="salary" type="text" max="300" name="salary" class="form-control col-sm-3" value="{$info['name']}({$info['tel']})">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary" id="company_invitation">提交</button>
+                <input id="invite_id" type="hidden" name="id" value="">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--  收藏简历模态框  -->
+<div class="modal fade" tabindex="-1" role="dialog" id="collect_modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">收藏简历？</h4>
+            </div>
+            <if condition="$is_collect eq 1">
+                <div class="modal-body">
+                    <p>本次收藏免费</p>
+                </div>
+                <elseif condition="$is_collect eq 0"/>
+                <div class="modal-body">
+                    <p>本次将扣除{:C('COMPANY')['base']['down']}个萝卜</p>
+                </div>
+            </if>
+
+            <div class="modal-footer">
+                <input type="hidden" name="id" id="refresh_id" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="company_btn">确定收藏</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__JS_PATH__/FileSaver.js"></script>
+<script src="__JS_PATH__/jquery.wordexport.js"></script>
+<script src="__JS_PATH__/html2canvas.js"></script>
+<script src="__JS_PATH__/jsPdf.debug.js"></script>
+<script src="__JS_PATH__/popper.min.js"></script>
+<script src="__JS_PATH__/bootstrap.min.js"></script>
+<script src="__JS_PATH__/printThis.js"></script>
+<script src="__JS_PATH__/toastr.min.js"></script>
+<link rel="stylesheet" href="__CSS_PATH__/toastr.min.css">
+<script src="__JS_PATH__/bootstrap-datetimepicker.min.js"></script>
+<script  type="text/javascript" src="__JS_PATH__/bootstrap-datetimepicker.zh-CN.js"  charset="UTF-8"></script>
+<link rel="stylesheet" href="__CSS_PATH__/bootstrap-datetimepicker.css">
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $("#todoc").click(function(event) {
+            $("#download_main").wordExport(name+"的简历");
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#invite_time').datetimepicker({
+            format: 'yyyy-mm-dd h:m:i',
+            language: 'zh-CN',
+            autoclose: 1,
+            startView: 4,
+            minView: 1,
+            maxView: 4,
+        });
+        $('.form_datetime').datetimepicker({
+            format: 'yyyy-mm-dd h:m:i',
+            language: 'zh-CN',
+            autoclose: 1,
+            startView: 4,
+            minView: 1,
+            maxView: 4,
+        });
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(function(){
+        $('#company_invitation').click(function(){
+            var  id = $('#detail').val();
+            var  user_info_id = $('#user_info').val();
+            var  recruit_id = $("#company_recruit option:selected").val();
+            var  invite_time = $('#invite_time').val();
+            console.log(id);
+            console.log(invite_time);
+            $.post("{:U('Vitae/sendInvitation')}", {id: id, user_info_id: user_info_id, recruit_id: recruit_id, invite_time: invite_time}, function (res) {
+                console.log(res);
+                if (res.code == 0) {
+                    toastr.success(res.msg);
+                    location.reload();
+                } else {
+                    toastr.success(res.msg);
+                }
+                return true;
+            });
+            $('#curriculum_vitaeModal').modal('hide');
+        });
+
+        //打印
+        $('#printContainer').on('click',function(){
+            $('.viate-detail-main').printThis({
+                importCSS: true,
+                importStyle: true,
+            });
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    //打开模态窗
+    $('#company_collect').on('click',function(){
+        var modal = $('#collect_modal');
+        modal.modal('show');
+        return false;
+    });
+
+    $("#company_btn").click(function () {
+        var  recruit = '{$data["resume"]["id"]}';
+        console.log(recruit);
+
+        $.get("{:U('Vitae/doCollect')}", {id: recruit}, function (res) {
+            if(res.status == 1) {
+                toastr.success('收藏成功');
+                location.reload();
+            } else {
+                toastr.error(res.msg);
+            }
+            return true;
+        });
+        $('#collect_modal').modal('hide');
+    });
+
+</script>
+
+<script type="text/javascript">
+    function download(type) {
+        var avatar = $("#avatar").val();
+        var update_time = $("#update_time").val();
+        XDoc.server = "http://www.xdocin.com";
+        XDoc.key = "iwylqjegbfevxpfth32ehfz754";
+        XDoc.run("https://www.luobowang.cn/Public/Home/doc/resume.docx",
+            type,
+            {
+                "_filename": "{$data['resume']['real_name']}的简历",
+                "touxiang": "http://www.luobowang.cn/" + avatar,
+                "name": "{$data['resume']['real_name']}",
+                "ruzhitime": "{:C('POST_TIME')[$data['resume']['post_time']]}",
+                "xueli": "{:C('HIGH_EDUCATION')[$data['resume']['education']]}",
+                "update": update_time,
+                "shouji": "{$data['user']['mobile']}",
+                "email": " {$data['user']['email']}",
+                "weizhi": "{$cities[$data['resume']['city_id']]}",
+                "grjianjie": "{$data['resume']['content']}",
+                "jiaoyu": {$education_json},
+                "gongzuo": {$experience_job_json},
+                "zuopin": {$product_json}
+            },
+            "_blank");
+    }
+    $("#downpdf").click(function (argument) {
+        var type = 'pdf';
+        download(type);
+    });
+    $("#downDoc").click(function (argument) {
+        var type = 'docx';
+        download(type);
+    });
+
+</script>
+
+</body>
+
+</html>

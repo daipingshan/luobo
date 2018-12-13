@@ -1,0 +1,311 @@
+<assign name="title" value="填写基本资料" />
+<include file="Common:head" />
+<link rel="stylesheet" href="__CSS_PATH__/auth.css">
+<link rel="stylesheet" href="__CSS_PATH__/bootstrap-datetimepicker.css">
+<script src="__JS_PATH__/toastr.min.js"></script>
+<link rel="stylesheet" href="__CSS_PATH__/toastr.min.css">
+<main class="container">
+    <div class="row" >
+        <div class="col-md-3 col-xs-0"></div>
+        <div  class="col-md-6 col-xs-12 form-box">
+
+        <eq name="shop_info['status']" value="0">
+            <h1>您的信息正在审核中，请耐心等待。</h1>
+        <else/>
+            <eq name="shop_info['status']" value="3">
+                <h3 class="text-center">您的账号已经被禁用。</h3>
+                <p class="alert-danger">{$shop_info.fail_reason}</p>
+            <else />
+                <div class="model">
+                <form action="{:U('User/info_edit')}" method="post">
+                    <div class="form-group">
+                        <h1 class="auth-title">开通门店  <a href="/Index/index" class="text-right pull-right">返回首页</a> </h1>
+                    </div>
+                    <eq name="shop_info['status']" value="2">
+                        <div class="alert alert-danger" role="alert">
+                            审核失败，请修改信息后重新申请。
+                            <p class="alert-danger">{$shop_info.fail_reason}</p>
+                        </div>
+                    </eq>
+                    <div class="form-group ">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-xingming"></i> </div>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="真实姓名" >
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="iconfont icon-dunpai"></i> </div>
+                            <input type="text" class="form-control" id="id_code" name="id_code" placeholder="身份证号" >
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="input-group">
+                            <div class="input-group-addon "><i class="iconfont icon-009-copy"></i></div>
+                            <select name="shop_type" id="shop_type" class="form-control col-sm-12  " >
+                                <option value="2">个人代理</option>
+                                <option value="1">我有门店</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-addon "><i class="iconfont icon-icon-yxj-city"></i></div>
+                                <select name="province_id" id="province_id" class="form-control col-sm-12" required>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select name="city_id" id="city_id" class="form-control col-sm-12" required>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select name="district_id" id="district_id" class="form-control col-sm-12  ">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="form-group ">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="iconfont icon-dizhi"></i> </div>
+                                <input type="text" class="form-control" id="address" name="address" placeholder="街道门牌号地址/个人填写身份证地址" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+
+                            <div class="col-md-6">
+                                <img src="__IMAGE_PATH__/zp.jpg" id="user_img" class="img-responsive">
+                            </div>
+
+                            <div class="upload_btn col-md-6">
+                                <label for="upload_img">
+                                    <i class="iconfont icon-icon02"></i>
+                                    <p>上传照片</p>
+                                    <p class="small">文件不要超过 1 MB</p>
+                                    <input type="file" id="upload_img" class="hide" name="envIMG">
+                                </label>
+                            </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" id="shop_add" class="btn btn-primary form-control ">申请开通</button>
+                        <input type="hidden" name="act" value="edit">
+                        <input type="hidden" id="user_img_input" name="user_img">
+
+                    </div>
+                </form>
+            </div>
+            </eq>
+        </eq>
+            <div class="col-md-3 col-xs-0"></div>
+		</div>
+    </div>
+    <img src="__IMAGE_PATH__/auth_felx.png" class="falx_01 visible-lg-block  animated slideInLeft delay-4s">
+    <img src="__IMAGE_PATH__/auth_flex2.png" class="falx_02 visible-lg-block animated slideInUp  delay-3s">
+    <img src="__IMAGE_PATH__/auth_flex3.png" class="falx_03 visible-lg-block ">
+</main>
+<!-- bootstrap-datetimepicker.min -->
+<script src="__JS_PATH__/bootstrap-datetimepicker.min.js"></script>
+<script  type="text/javascript" src="__JS_PATH__/bootstrap-datetimepicker.zh-CN.js"  charset="UTF-8"></script>
+<script src="__JS_PATH__/upload.js"></script>
+<script>
+$(function () {
+    /* 城市选择 */
+    var cities = {$cities_json};
+    var province = $('#province_id');
+    var city = $('#city_id');
+    var district = $('#district_id');
+    var select = 0;
+    //console.log(cities);
+    ap_op(province,cities,0);
+    ap_op(city,cities[select]['child'],select);
+    ap_op(district,cities[select]['child'][0]['child'],select);
+    //市
+    province.on('change',function(){
+        var select = $(this).find("option:selected").data('id');
+        city.empty();
+        district.empty();
+        if(cities[select]['child'] != ''){
+            ap_op(city,cities[select]['child'],select);
+            ap_op(district,cities[select]['child'][0]['child'],select);
+        }
+        //console.log(cities[select]['child']);
+    });
+    //区
+    city.on('change',function(){
+        var pid = $(this).find("option:selected").data('pid');
+        var select = $(this).find("option:selected").data('id');
+        district.empty();
+        ap_op(district,cities[pid]['child'][select]['child'],select);
+    });
+    $("#upload_img").ajaxImageUpload({
+        url: '{:U("Common/uploadImg")}', //上传的服务器地址
+        data: { name:'mpp' },
+        maxNum: 3, //允许上传图片数量
+        zoom: true, //允许上传图片点击放大
+        allowType: ["gif", "jpeg", "jpg", "bmp",'png'], //允许上传图片的类型
+        maxSize :2,
+        before: function () {
+            // alert('上传前回调函数');
+        },
+        success:function(data){
+            console.log(data);
+            $('#user_img').attr('src',data.data[0]);
+            $('#user_img_input').val(data.data[0]);
+            toastr.success('图片上传成功！');
+            //页面展示
+
+        },
+        error:function (e) {
+            toastr.error('上传失败，请确认图片类型正确并保证大小不要超过1mb！')
+            console.log(e);
+        }
+    });
+});
+function ap_op(el,items,pid){
+    for(i=0;i<items.length;i++){
+        el.append('<option value="'+items[i].id+'" data-id="'+i+'" data-pid="'+pid+'">'+items[i].name+'</option>')
+    }
+
+}
+//添加
+$('#shop_add').on('click',function(){
+    var name = $('#name');
+    var id_code  = $('#id_code');
+    var province_id    = $('#province_id');
+    var shop_type = $('#shop_type');
+    var city_id      = $('#city_id');
+    var district_id        = $('#district_id');
+    var address       = $('#address');
+    var user_img  =$('#user_img_input');
+
+
+    if(name.val() == ''){
+        toastr.warning('填写您的真实姓名');
+        name.focus();
+        return false;
+    }
+    if(id_code.val() == ''){
+        id_code.warning('请输入正确的身份证号码');
+        id_code.focus();
+        return false;
+    }
+    if(province_id.val() == ''){
+        toastr.warning('请选择省份');
+        province_id.focus();
+        return false;
+    }
+    if(city_id.val() == ''){
+        toastr.warning('请选择城市');
+        city_id.focus();
+        return false;
+    }
+    if(district_id.val() == ''){
+        toastr.warning('请选择所在区域');
+        district_id.focus();
+        return false;
+    }
+    if(address.val() == ''){
+        toastr.warning('填写门牌号');
+        address.focus();
+        return false;
+    }
+    if(user_img.val() == ''){
+        toastr.warning('身份证信息必须上传');
+        return false;
+    }
+
+    var request = $.ajax({
+        url: "{:U('Shop/set_info')}",
+        method: "POST",
+        data: {
+            name   : name.val(),
+            id_code    : id_code.val(),
+            province_id  : province_id.val(),
+            city_id : city_id.val(),
+            district_id : district_id.val(),
+            address : address.val(),
+            shop_type : shop_type.val(),
+            id_img : user_img.val(),
+            act : 'edit'
+        },
+        dataType: "json",
+    });
+
+    request.done(function (data) {
+        //console.log(data);
+        if(data.status == "success"){
+            toastr.success('添加成功');
+            location.reload()
+        }else{
+            toastr.error('添加失败404.'+data.msg, '哎呦!');
+            location.reload()
+        }
+        location.reload()
+    });
+    request.fail(function (jqXHR, textStatus) {
+        console.log(textStatus);
+        toastr.error('添加失败404.'+textStatus, '哎呦!');
+        return false;
+    });
+    return false;
+
+});
+$('#id_code').on('blur',function () {
+    if(!check_idcode($(this).val())){
+        $(this).focus();
+    }
+});
+function check_idcode(identity){
+    var regIdCard = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
+
+    if (regIdCard.test(identity)) {
+        if (identity.length == 18) {
+            var idCardWi = new Array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+            var idCardY = new Array(1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2);
+            var idCardWiSum = 0;
+            for (var i = 0; i < 17; i++) {
+                idCardWiSum += identity.substring(i, i + 1) * idCardWi[i];
+            }
+            var idCardMod = idCardWiSum % 11;
+            var idCardLast = identity.substring(17);
+
+            if (idCardMod == 2) {
+                if (idCardLast == "X" || idCardLast == "x") {
+
+                } else {
+                    toastr.warning('身份证填写有误，请重新填写');
+                    return false;
+
+                }
+            } else {
+
+                if (idCardLast == idCardY[idCardMod]) {
+
+                } else {
+
+                    toastr.warning('身份证填写有误，请重新填写');
+                    return false;
+
+                }
+            }
+        }
+    } else {
+        toastr.warning('身份证填写有误，请重新填写');
+        return false;
+    }
+    return true;
+
+}
+
+
+
+</script>
+<include file="Common:foot" />

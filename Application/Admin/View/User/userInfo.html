@@ -1,0 +1,66 @@
+<extend name="Common/common"/>
+<block name="body">
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li class="layui-this">用户基本信息</li>
+            <li>工作经历</li>
+            <li>教育经历</li>
+        </ul>
+        <div class="layui-tab-content" style="height: 100px;">
+            <div class="layui-tab-item layui-show">
+                <div class="layui-card">
+                    <div class="layui-card-header">用户资料</div>
+                    <div class="layui-card-body">
+                        用户图像：<img src="{$info.avatar}" alt="" width="200" height="200"><br>
+                        真实姓名：{$info.real_name}<br>
+                        展示名称：{$info.show_name}<br>
+                        手机号码：{$info.mobile}<br>
+                        邮箱：{$info.email}<br>
+                        性别：
+                        <if condition="$info.sex eq 1">男
+                            <else/>
+                            女
+                        </if>
+                        <br>
+                        生日：{$info.birthday}<br>
+                        个人介绍：{$info.content}<br>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item">
+                <volist name="work" id="vo">
+                    <div class="layui-card">
+                        <div class="layui-card-header">{$vo.company_name}</div>
+                        <div class="layui-card-body">
+                            公司名称：{$vo.company_name}<br>
+                            职位：{$vo.position_name}<br>
+                            在职时间：{$vo.start_time}~{$vo.end_time}<br>
+                            工作介绍：{$vo.content}
+                        </div>
+                    </div>
+                </volist>
+            </div>
+            <div class="layui-tab-item">
+                <php>$education=C('HIGH_EDUCATION');</php>
+                <volist name="school" id="vo">
+                    <div class="layui-card">
+                        <div class="layui-card-header">{$vo.school_name}</div>
+                        <div class="layui-card-body">
+                            学校名称：{$vo.school_name}<br>
+                            所学专业：{$vo.major}<br>
+                            在校时间：{$vo.start_year}~{$vo.end_year}<br>
+                            学历：{$education[$vo['education']]}
+                        </div>
+                    </div>
+                </volist>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+        $(function () {
+        })
+    </script>
+</block>
+
